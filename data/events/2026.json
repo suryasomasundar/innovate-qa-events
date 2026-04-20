@@ -312,6 +312,13 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["rhea"]
+            },
+               {
+              "title": "Leading Quality in the Age of AI: Strategy, Culture, and What Comes Next",
+              "type": "talk",
+              "room": "leadership",
+              "description": "",
+              "speakers": ["tejash"]
             }
           ]
         },
@@ -392,9 +399,16 @@
           "duration": 45,
           "sessions": [
             {
-              "title": "How to Get Hired in the Age of AI",
+              "title": "The Triple Threat: How Generative AI, Predictive Analytics, and Self-Healing Automation Cut Testing Costs by 40%, Accelerate Releases by 30%, and Improve Defect Detection by 50%",
               "type": "talk",
               "room": "practitioner",
+              "description": "",
+              "speakers": ["jyotheeswara"]
+            },
+             {
+              "title": "How to Get Hired in the Age of AI",
+              "type": "talk",
+              "room": "demo",
               "description": "",
               "speakers": ["dana", "scott"]
             }
@@ -619,6 +633,28 @@
       "topic": "Human + AI: Redefining the Role of QA Engineers in the Next Decade",
       "bio": "Senior Quality Engineering Leader with 10+ years of experience scaling quality for large, complex systems. I lead global quality for 500+ engineers across the org, driving pipeline excellence, automation, performance, and launch readiness. Speaker, mentor, and reviewer in the QA community, with a strong focus on AI-driven testing, scalable quality strategies, and engineering excellence.",
       "linkedin": "https://www.linkedin.com/in/priyamvada-govil/"
+    },
+     {
+      "id": "jyotheeswara",
+      "name": "Jyotheeswara Gottam",
+      "title": "Senior Software Engineer",
+      "company": "Walmart Global Tech",
+      "image": "/speakers/2026/jyothee.jpg",
+      "keynote": false,
+      "topic": "The Triple Threat: How Generative AI, Predictive Analytics, and Self-Healing Automation Cut Testing Costs by 40%, Accelerate Releases by 30%, and Improve Defect Detection by 50%",
+      "bio": "Jyotheeswara Gottam is a technology professional specializing in software quality engineering and modern testing practices with 15+ years experience. With a strong focus on innovation in test automation, Jyotheeswara has a keen interest in leveraging emerging technologies such as Generative AI, predictive analytics, and intelligent automation to improve software reliability and reduce operational costs. Currently working at Walmart, Jyotheeswara contributes to building scalable and efficient testing solutions for complex enterprise systems. Their work emphasizes the adoption of data-driven and AI-powered approaches to enhance test coverage, accelerate delivery cycles, and improve overall product quality. Jyotheeswara is particularly passionate about transforming traditional QA processes into intelligent, adaptive systems and actively explores advancements in self-healing automation and risk-based testing strategies. Through research and practical implementation, they aim to bridge the gap between cutting-edge AI capabilities and real-world software engineering challenges.",
+      "linkedin": "https://www.linkedin.com/in/gjreddy/"
+    } ,
+     {
+      "id": "tejash",
+      "name": "Tejash Patel",
+      "title": "Head of Quality Engineering",
+      "company": "Prime Video & Amazon Studios",
+      "image": "/speakers/2026/tejash.jpg",
+      "keynote": false,
+      "topic": "Leading Quality in the Age of AI: Strategy, Culture, and What Comes Next",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/tejashcpatel/"
     }
   ],
   "sponsors": {
