@@ -90,11 +90,11 @@
           "duration": 45,
           "sessions": [
             {
-              "title": "AI Generated Test Data: Know Your Need",
+              "title": "Evaluating Large-Scale Multi-Agent AI Systems in Production",
               "type": "talk",
-              "room": "leadership",
+              "room": "practitioner",
               "description": "",
-              "speakers": ["bastian"]
+              "speakers": ["rhea"]
             },
             {
               "title": "Unlocking New Frontiers in Test Automation with AI and Open Source",
@@ -306,14 +306,14 @@
           "time": "10:55 AM",
           "duration": 45,
           "sessions": [
-            {
-              "title": "Evaluating Large-Scale Multi-Agent AI Systems in Production",
+           { 
+              "title": "AI Generated Test Data: Know Your Need",
               "type": "talk",
-              "room": "practitioner",
+              "room": "leadership",
               "description": "",
-              "speakers": ["rhea"]
-            },
-               {
+              "speakers": ["bastian"]
+            } ,
+            {
               "title": "Leading Quality in the Age of AI: Strategy, Culture, and What Comes Next",
               "type": "talk",
               "room": "leadership",
