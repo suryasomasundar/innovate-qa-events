@@ -84,7 +84,7 @@
               "speakers": ["amber"]
             },
             {
-              "title": "Are We Testing AI… or Is AI Testing Us? | Flaky Tests vs Flaky AI: Which Problem Is Worse? | What Should Never Be Automated by AI? | How Do You Prove ROI for AI in Testing?",
+              "title": "#1 Are We Testing AI… or Is AI Testing Us? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
@@ -108,6 +108,13 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["greg"]
+            },
+            {
+              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 The Hallucination Problem | #4 Testing the Untestable",
+              "type": "discussion",
+              "room": "discussion",
+              "description": "",
+              "speakers": [""]
             }
           ]
         }
