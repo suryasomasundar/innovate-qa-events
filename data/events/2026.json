@@ -82,8 +82,14 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["amber"]
-            }
-          ]
+            },
+            {
+              "title": "Are We Testing AI… or Is AI Testing Us? | Flaky Tests vs Flaky AI: Which Problem Is Worse? | What Should Never Be Automated by AI? | How Do You Prove ROI for AI in Testing?",
+              "type": "discussion",
+              "room": "discussion",
+              "description": "",
+              "speakers": [""]
+            } ]
         },
         {
           "time": "10:55 AM",
