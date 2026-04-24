@@ -312,6 +312,13 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["goldie"]
+            },
+            {
+              "title": "#1 Quality at the Speed of AI | #2 The QA Engineer of 2030 | #3 The Hallucination Problem | #4 Testing the Untestable",
+              "type": "discussion",
+              "room": "discussion",
+              "description": "",
+              "speakers": [""]
             }
           ]
         },
@@ -332,6 +339,13 @@
               "room": "leadership",
               "description": "",
               "speakers": ["tejash"]
+            },
+            {
+              "title": "#1 Quality at the Speed of AI | #2 The QA Engineer of 2030 | #3 The Hallucination Problem | #4 Testing the Untestable",
+              "type": "discussion",
+              "room": "discussion",
+              "description": "",
+              "speakers": [""]
             }
           ]
         },
