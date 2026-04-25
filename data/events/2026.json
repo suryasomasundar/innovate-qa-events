@@ -739,6 +739,18 @@
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/jxz/"
      }
+,
+     {
+      "id": "jackie",
+      "name": "Jackie Namanda",
+      "title": "QA Lead",
+      "company": "",
+      "image": "/speakers/2025/Jackie Headshot.jpg",
+      "keynote": false,
+      "topic": "Quality for Agents: A Hands-On Workshop by ContextQA Ambassadors",
+      "bio": "Jackie Namanda Kaweesi has built her career at the intersection of quality, engineering, and impact—currently leading quality and product delivery for AI-powered systems at Workerbee. Her journey spans roles in IT Support, Quality Assurance Engineering (QAE), Frontend Engineering (FEE), and UX, with experience at Amazon and beyond, giving her a well-rounded perspective across the full product lifecycle. \nWith a foundation in software engineering, Jackie specializes in designing scalable quality frameworks, enabling cross-functional teams, and delivering reliable systems that perform in real-world environments. She operates at the intersection of Quality Engineering, Technical Program Management, and AI systems—building intentional, resilient solutions that go beyond speed to deliver true value. \nShe has led initiatives that significantly accelerate automation, expand test coverage, and strengthen release confidence across complex, fast-moving products. \nBeyond her work at Workerbee, Jackie is the co-founder of Otic Group, where she is building an AI-driven ecosystem focused on creating opportunity at scale. Through Otic, she is committed to cultivating AI talent, empowering communities, and advancing innovation to drive economic growth and global impact. \n Passionate about building with purpose, Jackie is driven by a bold vision: to create not just systems, but ecosystems that uplift people and shape the future of work.",
+      "linkedin": "https://www.linkedin.com/in/jackie-namanda-75912a81/"
+     }
   ],
   "sponsors": {
     "platinum": [ 
