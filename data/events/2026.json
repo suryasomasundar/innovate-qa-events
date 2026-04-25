@@ -229,6 +229,13 @@
               "room": "practitioner",
               "description": "",
                 "speakers": ["sidharth"]
+            },
+             {
+              "title": "Quality for Agents: A Hands-On Workshop by ContextQA Ambassadors",
+              "type": "workshop",
+              "room": "discussion",
+              "description": "",
+                "speakers": ["deep", "jackie"]
             }
             
           ]
@@ -250,6 +257,13 @@
               "room": "practitioner",
               "description": "",
                 "speakers": ["deepanjan"]
+            },
+             {
+              "title": "Continue - Quality for Agents: A Hands-On Workshop by ContextQA Ambassadors",
+              "type": "workshop",
+              "room": "discussion",
+              "description": "",
+                "speakers": ["deep", "jackie"]
             }
           ]
         }
@@ -455,7 +469,7 @@
           "duration": 45,
           "sessions": [
             {
-              "title": "Awards",
+              "title": "Innovate QA Awards",
               "type": "talk",
               "room": "leadership",
               "description": "",
