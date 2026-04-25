@@ -83,12 +83,20 @@
               "description": "",
               "speakers": ["amber"]
             },
+            
             {
-              "title": "#1 Are We Testing AI… or Is AI Testing Us? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
-              "type": "discussion",
+              "title": "Orchestrating AI for Testing: Connecting Context, Tools, and Human Judgment",
+              "type": "talk",
+              "room": "demo",
+              "description": "",
+              "speakers": ["joel"]
+            },
+            {
+              "title": "Accessibility AI Testing Landscape and Testing Workshop",
+              "type": "workshop",
               "room": "discussion",
               "description": "",
-              "speakers": [""]
+              "speakers": ["jennifer"]
             } ]
         },
         {
@@ -110,11 +118,11 @@
               "speakers": ["greg"]
             },
             {
-              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 The Hallucination Problem | #4 Testing the Untestable",
-              "type": "discussion",
+              "title": "Continue - Accessibility AI Testing Landscape and Testing Workshop",
+              "type": "workshop",
               "room": "discussion",
               "description": "",
-              "speakers": [""]
+              "speakers": ["jennifer"]
             }
           ]
         }
@@ -142,13 +150,13 @@
               "description": "",
               "speakers": ["deep"]
             },
-           {
-              "title": "Discussion Table",
-              "type": "workshop",
+            {
+              "title": "#1 Are We Testing AI… or Is AI Testing Us? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
+              "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": []
-            },
+              "speakers": [""]
+            } ,
             {
               "title": " Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
               "type": "workshop",
@@ -170,11 +178,11 @@
           "duration": 45,
           "sessions": [
             {
-              "title": "Discussion Table",
+              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 The Hallucination Problem | #4 Testing the Untestable",
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": []
+              "speakers": [""]
             },
             {
               "title": "Is Today's Test Infra Ready for AI? The Hard Questions No One Is Asking.",
@@ -434,7 +442,7 @@
             },
              {
               "title": "How to Get Hired in the Age of AI",
-              "type": "talk",
+              "type": "workshop",
               "room": "demo",
               "description": "",
               "speakers": ["dana", "scott"]
@@ -682,7 +690,41 @@
       "topic": "Leading Quality in the Age of AI: Strategy, Culture, and What Comes Next",
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/tejashcpatel/"
-    }
+    } ,
+     {
+      "id": "joel",
+      "name": "Joel Montvelisky",
+      "title": "Co-founder & Chief Product Officer",
+      "company": "Practitest",
+      "image": "/speakers/2026/Joel Montvelisky.jpeg",
+      "keynote": false,
+      "topic": "Orchestrating AI for Testing: Connecting Context, Tools, and Human Judgment",
+      "bio": "Joel Montvelisky is a Co-Founder and CPO of PractiTest, bringing nearly 30 years of experience in QA leadership and consulting. A respected industry voice, he is a Forbes council member, an international conference speaker, and a key leader in initiatives like the OnlineTestConf and the Association of Software Testing.",
+      "linkedin": "https://www.linkedin.com/in/joelm3/"
+    } ,
+     {
+      "id": "scott",
+      "name": "Scott Olson",
+      "title": "Head of Marketing",
+      "company": "Brokk, Inc",
+      "image": "/speakers/2026/scott profile pfp.jpg",
+      "keynote": false,
+      "topic": "How to Get Hired in the Age of AI",
+      "bio": "Scott is a seasoned technology entrepreneur specializing in distibuted systems, AI, cyber security, and hardware. He's been part of two successful exits and brings deep go-to-market expertise in tooling and infrastructure, consistently driving scalable, recurring revenue for emerging products.",
+      "linkedin": "https://www.linkedin.com/in/scottgolson/"
+     }
+  ,
+     {
+      "id": "jennifer",
+      "name": "Jennifer Zhang",
+      "title": "Director of Accessibility Program and Innovation",
+      "company": "RaLytics",
+      "image": "/speakers/2025/jennifer-x-zhang.jpg",
+      "keynote": false,
+      "topic": "Accessibility AI Testing Landscape and Testing Workshop",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/jxz/"
+     }
   ],
   "sponsors": {
     "platinum": [ 
