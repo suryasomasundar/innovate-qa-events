@@ -230,7 +230,15 @@
               "description": "",
                 "speakers": ["sidharth"]
             },
+         
              {
+              "title": "The QA price is right",
+              "type": "gameshow",
+              "room": "demo",
+              "description": "Inspired by the classic game show, but the "price" is the cost of trusting AI over human instinct — in bugs shipped, hours wasted, or reputations lost. Audience members compete to guess the real-world cost of famous QA decisions, then debate whether a human tester would have caught it sooner.",
+                "speakers": [""]
+            },
+            {
               "title": "Quality for Agents: A Hands-On Workshop by ContextQA Ambassadors",
               "type": "workshop",
               "room": "discussion",
@@ -393,6 +401,13 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["goldie"]
+            },
+            {
+              "title": "QA Court: you be the judge",
+              "type": "gameshow",
+              "room": "leadership",
+              "description": "A courtroom-style game show where real QA failure scenarios go on trial. The audience acts as the jury, voting on who's responsible — the AI tool, the engineer who ran it, the team lead who approved it, or the company that shipped it. Each round reveals a real (anonymised) case, then the verdict is debated live.",
+              "speakers": [""]
             },
             {
               "title": "Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with Agenta.ai)",
