@@ -766,7 +766,31 @@
       "bio": "Jackie Namanda Kaweesi has built her career at the intersection of quality, engineering, and impact—currently leading quality and product delivery for AI-powered systems at Workerbee. Her journey spans roles in IT Support, Quality Assurance Engineering (QAE), Frontend Engineering (FEE), and UX, with experience at Amazon and beyond, giving her a well-rounded perspective across the full product lifecycle. \nWith a foundation in software engineering, Jackie specializes in designing scalable quality frameworks, enabling cross-functional teams, and delivering reliable systems that perform in real-world environments. She operates at the intersection of Quality Engineering, Technical Program Management, and AI systems—building intentional, resilient solutions that go beyond speed to deliver true value. \nShe has led initiatives that significantly accelerate automation, expand test coverage, and strengthen release confidence across complex, fast-moving products. \nBeyond her work at Workerbee, Jackie is the co-founder of Otic Group, where she is building an AI-driven ecosystem focused on creating opportunity at scale. Through Otic, she is committed to cultivating AI talent, empowering communities, and advancing innovation to drive economic growth and global impact. \n Passionate about building with purpose, Jackie is driven by a bold vision: to create not just systems, but ecosystems that uplift people and shape the future of work.",
       "linkedin": "https://www.linkedin.com/in/jackie-namanda-75912a81/"
      }
-  ],
+ ,
+     {
+      "id": "dana",
+      "name": "Dana Krzyzanowski",
+      "title": "Founder",
+      "company": "Vault Alliance",
+      "image": "/speakers/2026/dana.png",
+      "keynote": false,
+      "topic": "How to Get Hired in the Age of AI",
+      "bio": "Dana Krzyzanowski is the Founder and Talent Partner at Vault Alliance, helping organizations secure top talent for their most critical roles. With 10+ years in recruiting and a background blending psychology and decision science, she specializes in technology hiring — from AI engineers to executive leaders — focused on finding culture adds, not just culture fits.",
+      "linkedin": "https://www.linkedin.com/in/danakrzyzanowski/"
+     }
+   ,
+     {
+      "id": "daniel",
+      "name": "Daniel Lopez",
+      "title": "Accessibility Project Manager",
+      "company": "Plus QA",
+      "image": "/speakers/2026/daniel.jpg",
+      "keynote": false,
+      "topic": "How to Get Hired in the Age of AI",
+      "bio": "Daniel is a Senior Accessibility Project Manager at PLUS QA with nearly a decade of experience in quality assurance. For the past four years, his work has centered on helping enterprise clients improve the accessibility of their consumer facing and internal digital products, including leading audits across a variety of digital experiences using WCAG 2.2 and Section 508 standards. \nDaniel’s work is driven by a simple belief: everyone should be able to use the websites and apps that help us navigate daily necessities, stay connected, feel independent, and enjoy life. He enjoys partnering with teams to turn accessibility requirements into clear, actionable feedback that creates better user experiences for everyone. \nBorn and raised in Oregon, Daniel now lives in Portland, where he enjoys exploring the city through food tours and continuing his search for the best seafood spot in town.  ",
+      "linkedin": "https://www.linkedin.com/in/daniel-lopez-a027a3178/"
+     }
+],
   "sponsors": {
     "platinum": [ 
       {
