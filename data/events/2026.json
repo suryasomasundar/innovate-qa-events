@@ -337,6 +337,13 @@
           "duration": 45,
           "sessions": [
             {
+              "title": "Human + AI: Redefining the Role of QA Engineers in the Next Decade",
+              "type": "talk",
+              "room": "leadership",
+              "description": "",
+              "speakers": ["priya"]
+            },
+            {
               "title": "Networking for Professionals Live Session",
               "type": "networking",
               "room": "practitioner",
@@ -407,7 +414,7 @@
               "type": "gameshow",
               "room": "leadership",
               "description": "A courtroom-style game show where real QA failure scenarios go on trial. The audience acts as the jury, voting on who's responsible — the AI tool, the engineer who ran it, the team lead who approved it, or the company that shipped it. Each round reveals a real (anonymised) case, then the verdict is debated live.",
-              "speakers": [""]
+              "speakers": ["priya"]
             },
             {
               "title": "Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with Agenta.ai)",
@@ -423,13 +430,13 @@
           "duration": 60,
           "sessions": [
             {
-              "title": "Human + AI: Redefining the Role of QA Engineers in the Next Decade",
+              "title": "Accessibility in the Age of AI: What AI can catch, what it misses, and why that matters now",
               "type": "talk",
-              "room": "leadership",
+              "room": "practitioner",
               "description": "",
-              "speakers": ["priya"]
+              "speakers": ["daniel"]
             },
-              {
+            {
               "title": "Mock Interviews - how to pass your next interview",
               "type": "talk",
               "room": "practitioner",
