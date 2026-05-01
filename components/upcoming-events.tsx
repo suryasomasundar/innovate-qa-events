@@ -48,8 +48,8 @@ export function UpcomingEvents() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <Badge className="absolute top-4 right-4 bg-purple-500 text-primary-foreground">
-                    Upcoming
+                  <Badge className={`absolute top-4 right-4 ${event.status === "past" ? "bg-muted text-muted-foreground" : "bg-purple-500 text-primary-foreground"}`}>
+                    {event.status === "past" ? "Past Event" : "Upcoming"}
                   </Badge>
                 </div>
                 <CardContent className="p-6">
@@ -70,12 +70,14 @@ export function UpcomingEvents() {
                     {event.description}
                   </p>
                   <div className="flex gap-3">
+                    {event.status !== "past" && (
+                      <Button asChild size="sm" className="border-purple-500 text-white hover:bg-purple-900/75">
+                        <Link href={event.ticketUrl}>
+                          Get Tickets
+                        </Link>
+                      </Button>
+                    )}
                     <Button asChild size="sm" className="border-purple-500 text-white hover:bg-purple-900/75">
-                      <Link href={event.ticketUrl}>
-                        Get Tickets
-                      </Link>
-                    </Button>
-                    <Button asChild  size="sm" className="border-purple-500 text-white hover:bg-purple-900/75">
                       <Link href={event.learnMoreUrl}>
                         Learn More <ArrowRight className="w-4 h-4 ml-1" />
                       </Link>
