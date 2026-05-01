@@ -338,6 +338,41 @@
       "learnMoreUrl": "/battle-of-ai-test-tools"
     }
   ],
+  "featuredSessions": [
+    {
+      "title": "Becoming AI‑First?! What Does that Means for QA?",
+      "type": "talk",
+      "speakers": [{ "name": "Ronit Bohrer Hillel", "company": "Microsoft" }]
+    },
+    {
+      "title": "Scaling Trust, Not Automation - Rethinking Quality for the AI Era",
+      "type": "talk",
+      "speakers": [{ "name": "Walter Zimerman", "company": "Amazon" }]
+    },
+    {
+      "title": "Taming the Beast: Testing Non-Deterministic AI Systems with Confidence",
+      "type": "talk",
+      "speakers": [{ "name": "Lee Barnes", "company": "Forte Group" }]
+    },
+    {
+      "title": "From Failure to Fix: AI-Driven Test Debugging & RCA with Playwright MCP and LLM CLI",
+      "type": "talk",
+      "speakers": [{ "name": "Sidharth Shukla", "company": "Amazon" }]
+    },
+    {
+      "title": "Beyond Page Objects: Modern Patterns for Scaling Playwright Tests",
+      "type": "talk",
+      "speakers": [{ "name": "Amber Race", "company": "Adobe" }]
+    },
+    {
+      "title": "Breaking GPT & Claude: AI Bug Bounty Workshop",
+      "type": "workshop",
+      "speakers": [
+        { "name": "Igor Dorovskikh", "company": "EnGenious, Inc" },
+        { "name": "Gregory Goldshteyn", "company": "Fox Networks Group" }
+      ]
+    }
+  ],
   "eventLD": {
     "name": "Innovate QA 2026",
     "description": "Join industry leaders and pioneers at Innovate QA Conference 2026 in Seattle. Share insights, best practices, and cutting-edge tools for quality engineering excellence.",

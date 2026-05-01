@@ -3,6 +3,7 @@ import { FeaturesSection } from "@/components/features-section"
 import { AboutSection } from "@/components/about-section"
 import { UpcomingEvents } from "@/components/upcoming-events"
 import { SpeakersSection } from "@/components/speakers-section"
+import { FeaturedSessions } from "@/components/featured-sessions"
 import { ScheduleSection } from "@/components/schedule-section"
 import { VenueSection } from "@/components/venue-section"
 import { PricingSection } from "@/components/pricing-section"
@@ -29,6 +30,7 @@ export default function Home() {
       <AboutSection />
       <UpcomingEvents />
       <SpeakersSection />
+      <FeaturedSessions />
       {/* <ScheduleSection /> */}
       <VenueSection />
       <PricingSection />
