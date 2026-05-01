@@ -120,18 +120,13 @@ export default function AwardsPage() {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {awardsData.judges.map((judge) => (
-              <div key={judge.name} className="flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-primary/20">
-                  <Image
-                    src={judge.photo}
-                    alt={judge.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="font-semibold text-foreground">{judge.name}</h3>
-                <p className="text-sm text-primary mt-0.5">{judge.title}</p>
-                {judge.company && <p className="text-sm text-muted-foreground">{judge.company}</p>}
+              <div key={judge.name} className="relative w-full aspect-[3/4] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                <Image
+                  src={judge.photo}
+                  alt={judge.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>
