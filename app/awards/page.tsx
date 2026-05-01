@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { generateSEO } from "@/components/seo"
 import { WebPageLD, BreadcrumbLD } from "@/components/json-ld"
 import Link from "next/link"
+import Image from "next/image"
 import awardsData from "@/data/awards.json"
 
 export const metadata: Metadata = generateSEO({
@@ -103,6 +104,36 @@ export default function AwardsPage() {
               <p className="text-3xl font-bold text-primary">{awardsData.ceremonyDate}</p>
               <p className="text-sm text-muted-foreground">Award Ceremony</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Judges */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Meet the Judges</h2>
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
+            <p className="text-lg text-muted-foreground">
+              Industry leaders and experts evaluating nominations across all award categories.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {awardsData.judges.map((judge) => (
+              <div key={judge.name} className="flex flex-col items-center text-center">
+                <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                  <Image
+                    src={judge.photo}
+                    alt={judge.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="font-semibold text-foreground">{judge.name}</h3>
+                <p className="text-sm text-primary mt-0.5">{judge.title}</p>
+                {judge.company && <p className="text-sm text-muted-foreground">{judge.company}</p>}
+              </div>
+            ))}
           </div>
         </div>
       </section>

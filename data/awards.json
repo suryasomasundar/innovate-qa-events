@@ -4,6 +4,17 @@
   "ceremonyDate": "June 4–5, 2026",
   "contactEmail": "contact@innovateqaevents.com",
   "judgeApplicationUrl": "mailto:contact@innovateqaevents.com?subject=Apply to Judge - Innovate QA Awards",
+  "judges": [
+    { "name": "Kavitha Rajendran",    "title": "AI/ML Solutions Architect",          "company": "Google",                   "photo": "/photos/judges/Kavitha.png" },
+    { "name": "Marina Voloshina",     "title": "Sr Software QA Manager",             "company": "Infinite Electronics, Inc", "photo": "/photos/judges/Marina.png" },
+    { "name": "Pranav Pandit",        "title": "Lead Software Quality Engineer",     "company": "Robinhood",                "photo": "/photos/judges/Pranav.png" },
+    { "name": "Samuel Selvaraj",      "title": "Engineering Manager Test Automation","company": "Veeva Systems",            "photo": "/photos/judges/Samuel.png" },
+    { "name": "Shripad Deshpande",    "title": "Sr QA Engineering Manager",          "company": "",                         "photo": "/photos/judges/Shripad.png" },
+    { "name": "Somu Suryanarayanan",  "title": "Staff QA Automation Engineer",       "company": "Cookunity",                "photo": "/photos/judges/Somu.png" },
+    { "name": "Vivek Krishna",        "title": "Lead Software Engineer - Test",       "company": "Amazon Web Services",      "photo": "/photos/judges/VivekK.png" },
+    { "name": "Vivek Misra",          "title": "Engineering Director",               "company": "CVS Health",               "photo": "/photos/judges/VivekM.png" },
+    { "name": "Sidharth Shukla",      "title": "Sr SDET",                            "company": "Amazon",                   "photo": "/photos/judges/Sidharth.png" }
+  ],
   "categories": [
     {
       "id": "thought-leader",
