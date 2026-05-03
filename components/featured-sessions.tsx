@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Mic, Wrench } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import homeData from "@/data/home.json"
 
@@ -36,13 +37,27 @@ export function FeaturedSessions() {
                     {config.label}
                   </Badge>
                   <p className="font-semibold text-foreground leading-snug flex-1">{session.title}</p>
-                  <div className="text-sm text-muted-foreground space-y-0.5">
-                    {session.speakers.map((s, j) => (
-                      <p key={j}>
-                        <span className="text-foreground font-medium">{s.name}</span>
-                        {s.company && <span> · {s.company}</span>}
-                      </p>
-                    ))}
+                  <div className="flex items-center gap-3 mt-auto pt-2 border-t border-border/40">
+                    <div className="flex -space-x-2">
+                      {session.speakers.map((s, j) => (
+                        <div key={j} className="relative h-10 w-10 rounded-full overflow-hidden border-2 border-background ring-1 ring-border/50">
+                          <Image
+                            src={s.image}
+                            alt={s.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-sm min-w-0">
+                      {session.speakers.map((s, j) => (
+                        <p key={j} className="leading-tight truncate">
+                          <span className="text-foreground font-medium">{s.name}</span>
+                          {s.company && <span className="text-muted-foreground"> · {s.company}</span>}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </CardContent>
               </Card>

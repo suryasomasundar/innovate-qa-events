@@ -342,34 +342,34 @@
     {
       "title": "Becoming AI‑First?! What Does that Means for QA?",
       "type": "talk",
-      "speakers": [{ "name": "Ronit Bohrer Hillel", "company": "Microsoft" }]
+      "speakers": [{ "name": "Ronit Bohrer Hillel", "company": "Microsoft", "image": "/speakers/2026/ronit.jpg" }]
     },
     {
       "title": "Scaling Trust, Not Automation - Rethinking Quality for the AI Era",
       "type": "talk",
-      "speakers": [{ "name": "Walter Zimerman", "company": "Amazon" }]
+      "speakers": [{ "name": "Walter Zimerman", "company": "Amazon", "image": "/speakers/2025/walter-zimerman.png" }]
     },
     {
       "title": "Taming the Beast: Testing Non-Deterministic AI Systems with Confidence",
       "type": "talk",
-      "speakers": [{ "name": "Lee Barnes", "company": "Forte Group" }]
+      "speakers": [{ "name": "Lee Barnes", "company": "Forte Group", "image": "/speakers/2024/lee-barnes-forte-headshot.png" }]
     },
     {
       "title": "From Failure to Fix: AI-Driven Test Debugging & RCA with Playwright MCP and LLM CLI",
       "type": "talk",
-      "speakers": [{ "name": "Sidharth Shukla", "company": "Amazon" }]
+      "speakers": [{ "name": "Sidharth Shukla", "company": "Amazon", "image": "/speakers/2025/sidharth-shukla.jpeg" }]
     },
     {
       "title": "Beyond Page Objects: Modern Patterns for Scaling Playwright Tests",
       "type": "talk",
-      "speakers": [{ "name": "Amber Race", "company": "Adobe" }]
+      "speakers": [{ "name": "Amber Race", "company": "Adobe", "image": "/speakers/2026/amber.png" }]
     },
     {
       "title": "Breaking GPT & Claude: AI Bug Bounty Workshop",
       "type": "workshop",
       "speakers": [
-        { "name": "Igor Dorovskikh", "company": "EnGenious, Inc" },
-        { "name": "Gregory Goldshteyn", "company": "Fox Networks Group" }
+        { "name": "Igor Dorovskikh", "company": "EnGenious, Inc", "image": "/speakers/2026/igor.jpg" },
+        { "name": "Gregory Goldshteyn", "company": "Fox Networks Group", "image": "/speakers/2026/Greg-Goldshteyn-Headshot.png" }
       ]
     }
   ],
