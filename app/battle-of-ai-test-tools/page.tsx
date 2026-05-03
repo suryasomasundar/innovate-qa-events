@@ -51,7 +51,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white overflow-hidden">
-        <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-purple-200 text-sm mb-6">
@@ -89,7 +89,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Stats Bar */}
       <section className="bg-background border-b border-border">
-        <div className="container mx-auto max-w-6xl px-4 py-10">
+        <div className="container mx-auto px-4 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="flex flex-col items-center gap-2">
               <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
@@ -125,7 +125,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Intro */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <div className="prose prose-lg max-w-none dark:prose-invert mb-16">
             <p className="text-xl leading-relaxed">
               The Battle of AI Test Tools is a live, in-person event hosted by Innovate QA, designed to move beyond demos, slides, and marketing claims—and show how AI testing tools actually perform in real-world conditions.
@@ -169,7 +169,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* What Makes This Different */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 text-center">What Makes This Event Different</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="hover:shadow-lg transition-shadow">
@@ -233,7 +233,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Schedule */}
       <section id="schedule" className="py-16 bg-background">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-2 text-center">Schedule</h2>
           <p className="text-center text-muted-foreground mb-10">April 3, 2026 · AWS Builder Loft, San Francisco</p>
           {scheduleEntries.map(([date, day]) => (
@@ -304,7 +304,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* What Engineers Will Gain */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
             <Code className="h-10 w-10 text-blue-600 dark:text-blue-400" />
             What Engineers Will Gain
@@ -344,7 +344,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* What Quality Leaders Will Gain */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
             <Briefcase className="h-10 w-10 text-purple-600 dark:text-purple-400" />
             What Quality Leaders Will Gain
@@ -376,7 +376,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Who Should Attend */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 text-center flex items-center justify-center gap-3">
             <Award className="h-10 w-10 text-indigo-600 dark:text-indigo-400" />
             Who Should Attend
@@ -433,7 +433,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Speakers */}
       <section id="speakers" className="py-16 bg-background">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground mb-8">Speakers</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {battleData.speakers.map((speaker) => (
@@ -445,7 +445,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Judges */}
       <section id="judges" className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-foreground mb-8">Judges</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {battleData.judges.map((judge) => (
@@ -458,7 +458,7 @@ export default function BattleOfAITestToolsPage() {
       {/* Sponsors */}
       {battleData.sponsors.gold && battleData.sponsors.gold.length > 0 && (
         <section className="py-16 bg-background">
-          <div className="container mx-auto max-w-6xl px-4">
+          <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-8 text-center">Sponsors</h2>
             <h3 className="text-lg font-semibold text-primary mb-6 text-center">Gold Sponsors</h3>
             <div className="flex flex-wrap justify-center gap-6">
@@ -492,7 +492,7 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Photo Gallery */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4 text-center">Event Gallery</h2>
           <p className="text-center text-muted-foreground mb-10">Highlights from the Battle of AI Test Tools — April 3, 2026 · San Francisco</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -517,14 +517,14 @@ export default function BattleOfAITestToolsPage() {
 
       {/* Testimonials */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto px-4">
           <TestimonialsCarousel />
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-        <div className="container mx-auto max-w-6xl px-4 text-center">
+        <div className="container mx-auto px-4 text-center">
           <div className="flex justify-center mb-6">
             <div className="bg-white/10 p-4 rounded-full">
               <Rocket className="h-12 w-12" />
