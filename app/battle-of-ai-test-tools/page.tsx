@@ -110,6 +110,42 @@ export default function BattleOfAITestToolsPage() {
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="bg-white dark:bg-background border-b border-border">
+        <div className="container mx-auto max-w-6xl px-4 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                <Users className="h-5 w-5 text-purple-600" />
+              </div>
+              <p className="text-4xl font-bold text-purple-600">100+</p>
+              <p className="text-sm text-muted-foreground">Attendees</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                <Zap className="h-5 w-5 text-purple-600" />
+              </div>
+              <p className="text-4xl font-bold text-purple-600">3</p>
+              <p className="text-sm text-muted-foreground">AI Tools Tested</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                <Mic className="h-5 w-5 text-purple-600" />
+              </div>
+              <p className="text-4xl font-bold text-purple-600">{battleData.speakers.length}</p>
+              <p className="text-sm text-muted-foreground">Speakers</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                <Clock className="h-5 w-5 text-purple-600" />
+              </div>
+              <p className="text-4xl font-bold text-purple-600">4</p>
+              <p className="text-sm text-muted-foreground">Hours of Competition</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
