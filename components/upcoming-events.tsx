@@ -28,7 +28,7 @@ export function UpcomingEvents() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className={`grid gap-8 ${upcomingEvents.length === 1 ? "max-w-3xl mx-auto" : "md:grid-cols-2"}`}>
           {upcomingEvents.map((event) => {
             const formatDateRange = () => {
               const start = format(new Date(event.date), "MMM d")

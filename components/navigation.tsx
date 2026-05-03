@@ -16,9 +16,9 @@ const navLinks = [
 ]
 
 const pastEvents = [
+  { href: "/battle-of-ai-test-tools", label: "Battle of AI Test Tools", year: 2026 },
   { href: "/events/2025", label: "Innovate QA 2025", year: 2025 },
   { href: "/events/2024", label: "Innovate QA 2024", year: 2024 },
-  { href: "/battle-of-ai-test-tools", label: "Battle of AI Test Tools", year: 2026 },
 ]
 
 const communityLinks = [
