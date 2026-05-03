@@ -126,7 +126,7 @@ export default function BattleOfAITestToolsPage() {
       {/* Intro */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
 
             {/* Text */}
             <div>
@@ -162,8 +162,8 @@ export default function BattleOfAITestToolsPage() {
             </div>
 
             {/* Photos */}
-            <div className="flex flex-col gap-4">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+            <div className="flex flex-col gap-4 h-full">
+              <div className="relative flex-1 min-h-[180px] rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="/photos/battle/33.png"
                   alt="Battle of AI Test Tools event"
@@ -172,7 +172,7 @@ export default function BattleOfAITestToolsPage() {
                   unoptimized
                 />
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+              <div className="relative flex-1 min-h-[180px] rounded-2xl overflow-hidden shadow-md">
                 <Image
                   src="/photos/battle/45.png"
                   alt="Battle of AI Test Tools event"
@@ -329,7 +329,7 @@ export default function BattleOfAITestToolsPage() {
             <Code className="h-10 w-10 text-blue-600 dark:text-blue-400" />
             What Engineers Will Gain
           </h2>
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
             {/* Bullets */}
             <div className="flex flex-col gap-3">
               <p className="text-lg font-semibold mb-2 flex items-center gap-3">
@@ -350,7 +350,7 @@ export default function BattleOfAITestToolsPage() {
               ))}
             </div>
             {/* Photo */}
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+            <div className="relative min-h-[300px] h-full rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/photos/battle/50.png"
                 alt="Engineers at Battle of AI Test Tools"
