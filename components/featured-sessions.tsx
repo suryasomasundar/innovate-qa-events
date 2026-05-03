@@ -81,7 +81,7 @@ export function FeaturedSessions() {
         </div>
 
         {/* Session cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {cards.map((card, i) => {
             const config = typeConfig[card.type] ?? typeConfig.talk
             return (
