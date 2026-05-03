@@ -32,6 +32,7 @@ const footerLinks = {
   pastEvents: [
     { label: "Innovate QA 2025", href: "/events/2025" },
     { label: "Innovate QA 2024", href: "/events/2024" },
+    { label: "Battle of AI Test Tools", href: "/battle-of-ai-test-tools" },
   ],
   company: [
     { label: "About Us", href: "/about" },

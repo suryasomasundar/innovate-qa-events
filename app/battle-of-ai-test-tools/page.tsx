@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import battleData from "@/data/events/battle.json";
 import { BASE_PATH } from "@/lib/constants"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 export const metadata = {
   title: "Battle of AI Test Tools | Innovate QA Events",
   description: "Experience the best AI test tools hands-on—and see how they fit into your testing strategy. A live, in-person event with real-world testing challenges.",
@@ -449,6 +450,32 @@ export default function BattleOfAITestToolsPage() {
               </div>
             </div>
           )}
+
+          {/* Photo Gallery */}
+          <div className="mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-center">Event Gallery</h2>
+            <p className="text-center text-muted-foreground mb-10">Highlights from the Battle of AI Test Tools — April 3, 2026 · San Francisco</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+              {[
+                "1.png","2.png","3.png","4.png","5.png",
+                "6.png","7.png","8.png","9.png","10.png",
+                "11.png","12.png","13.png","14.png","15.png",
+              ].map((file) => (
+                <div key={file} className="aspect-square rounded-lg overflow-hidden bg-muted relative group">
+                  <Image
+                    src={`/photos/battle/${file}`}
+                    alt={`Battle of AI Test Tools - ${file}`}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonials */}
+          <TestimonialsCarousel />
 
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg p-12">
