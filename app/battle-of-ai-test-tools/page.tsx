@@ -19,7 +19,6 @@ import {
   Rocket,
   Ticket,
   Mic,
-  Gavel,
   Clock,
   MapPin,
   Calendar
@@ -50,44 +49,62 @@ export default function BattleOfAITestToolsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Battle of AI Test Tools
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-purple-100">
-              Experience the best AI test tools hands-on—and see how they fit into your testing strategy
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center text-purple-200 text-sm mb-8">
-              <span className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                April 3, 2026
-              </span>
-              <span className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                AWS Builder Loft, San Francisco
-              </span>
+      <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white overflow-hidden">
+        <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-purple-200 text-sm mb-6">
+                Past Event · April 3, 2026
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Battle of AI Test Tools
+              </h1>
+              <p className="text-xl text-purple-100 mb-8">
+                Experience the best AI test tools hands-on—and see how they fit into your testing strategy
+              </p>
+              <div className="flex flex-wrap gap-4 text-purple-200 text-sm">
+                <span className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  April 3, 2026
+                </span>
+                <span className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  AWS Builder Loft, San Francisco
+                </span>
+              </div>
+              {/* Buttons commented out — event has passed
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Button size="lg" asChild className="bg-white hover:bg-purple-50">
+                  <Link href="https://luma.com/scw9b88h" target="_blank" className="text-purple-900">
+                    <Ticket className="mr-2 h-5 w-5" />
+                    Register
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="border-white text-purple-900 hover:bg-white/10">
+                  <Link href="https://docs.google.com/forms/d/..." target="_blank" className="text-purple-900">
+                    <Mic className="mr-2 h-5 w-5" />
+                    Apply to Speak
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild className="border-white text-purple-900 hover:bg-white/10">
+                  <Link href="https://docs.google.com/forms/d/..." target="_blank" className="text-purple-900">
+                    <Gavel className="mr-2 h-5 w-5" />
+                    Apply To Judge
+                  </Link>
+                </Button>
+              </div>
+              */}
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" asChild className="bg-white hover:bg-purple-50">
-                <Link href="https://luma.com/scw9b88h" target="_blank" className="text-purple-900">
-                  <Ticket className="mr-2 h-5 w-5" />
-                  Register
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="border-white text-purple-900 hover:bg-white/10">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSecFflRGENXO-1zghK8_8EMd_mlZsTfj2L7eIMpSewdBGq32g/viewform?usp=publish-editor" target="_blank" className="text-purple-900">
-                  <Mic className="mr-2 h-5 w-5" />
-                  Apply to Speak
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="border-white text-purple-900 hover:bg-white/10">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSckWVZhq_5_rTwK7Pv081gpkC_VQOPnhv3-zU9kBZ3NWsfzmA/viewform?usp=publish-editor" target="_blank" className="text-purple-900">
-                  <Gavel className="mr-2 h-5 w-5" />
-                  Apply To Judge
-                </Link>
-              </Button>
+            {/* Banner image */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/battle.webp"
+                alt="Battle of AI Test Tools"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -484,30 +501,26 @@ export default function BattleOfAITestToolsPage() {
                 <Rocket className="h-12 w-12" />
               </div>
             </div>
-            <h2 className="text-4xl font-bold mb-6">Ready to Join the Battle?</h2>
+            <h2 className="text-4xl font-bold mb-6">See You at Innovate QA 2026!</h2>
             <p className="text-xl mb-8">
-              Don't miss this unique opportunity to experience AI testing tools in action.
+              The Battle of AI Test Tools was an incredible event. Join us next at Innovate QA Conference 2026 — June 5–6 in Bellevue, WA.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" asChild className="bg-white hover:bg-purple-50">
-                <Link href="https://luma.com/scw9b88h" target="_blank" rel="noopener noreferrer" className="text-purple-900">
+                <Link href="https://www.eventbrite.com/e/innovate-qa-2026-software-quality-annual-conference-tickets-1979920880652?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" className="text-purple-900">
                   <Ticket className="mr-2 h-5 w-5" />
-                  Register Today
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="border-white hover:bg-white/10">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSecFflRGENXO-1zghK8_8EMd_mlZsTfj2L7eIMpSewdBGq32g/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="text-purple-900">
-                  <Mic className="mr-2 h-5 w-5" />
-                  Apply to Speak
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="border-white hover:bg-white/10">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSckWVZhq_5_rTwK7Pv081gpkC_VQOPnhv3-zU9kBZ3NWsfzmA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="text-purple-900">
-                  <Gavel className="mr-2 h-5 w-5" />
-                  Apply to Judge
+                  Get Tickets for Innovate QA 2026
                 </Link>
               </Button>
             </div>
+            {/* Registration buttons commented out — Battle event has passed
+            <Button size="lg" variant="outline" asChild className="border-white hover:bg-white/10">
+              <Link href="..." className="text-purple-900"><Mic ... />Apply to Speak</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="border-white hover:bg-white/10">
+              <Link href="..." className="text-purple-900"><Gavel ... />Apply to Judge</Link>
+            </Button>
+            */}
           </div>
         </div>
       </section>
