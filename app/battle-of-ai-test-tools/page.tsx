@@ -130,15 +130,16 @@ export default function BattleOfAITestToolsPage() {
 
             {/* Text */}
             <div>
-              <p className="text-xl leading-relaxed mb-8 text-muted-foreground">
-                The Battle of AI Test Tools is a live, in-person event hosted by Innovate QA, designed to move beyond demos, slides, and marketing claims and show how AI testing tools actually perform in real-world conditions.
-              </p>
+            
               <div className="flex items-start gap-4 mb-6">
                 <div className="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg shrink-0">
                   <Zap className="h-8 w-8 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h2 className="text-3xl font-bold">This is not a traditional conference.</h2>
               </div>
+                 <p className="text-lg leading-relaxed mb-4 text-muted-foreground">
+                The Battle of AI Test Tools is a live, in-person event hosted by Innovate QA, designed to move beyond demos, slides, and marketing claims and show how AI testing tools actually perform in real-world conditions.
+              </p>
               <p className="text-lg leading-relaxed mb-4 text-muted-foreground">
                 At the core of the event is a live testing battle, where teams use AI-powered testing tools against real products, real workflows, and real constraints. Attendees get a hands-on, front-row view into how these tools behave when the stakes, complexity, and time pressure are real.
               </p>
@@ -157,6 +158,10 @@ export default function BattleOfAITestToolsPage() {
                 <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
                   <Users className="h-5 w-5 text-purple-600 dark:text-purple-400 shrink-0" />
                   <span>Network with peers, leaders, and hands-on engineers</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
+                  <BarChart3 className="h-5 w-5 text-purple-600 dark:text-purple-400 shrink-0" />
+                  <span>Watch live leaderboard updates and hear judge commentary as the battle unfolds</span>
                 </div>
               </div>
             </div>
