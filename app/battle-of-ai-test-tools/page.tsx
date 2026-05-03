@@ -329,36 +329,37 @@ export default function BattleOfAITestToolsPage() {
             <Code className="h-10 w-10 text-blue-600 dark:text-blue-400" />
             What Engineers Will Gain
           </h2>
-          <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-2 border-blue-200 dark:border-blue-800">
-            <CardContent className="p-8">
-              <p className="text-lg font-semibold mb-6 flex items-center gap-3">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Bullets */}
+            <div className="flex flex-col gap-3">
+              <p className="text-lg font-semibold mb-2 flex items-center gap-3">
                 <Rocket className="h-6 w-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                 Built expertise and exposure that helps future-proof your QA career as AI becomes part of modern testing practices.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg">
+              {[
+                "Hands-on exposure to AI test tools in real scenarios, not curated demos or scripted examples.",
+                "Practical insight into how AI fits into day-to-day testing workflows, including where it helps and where it breaks down.",
+                "A clearer understanding of trade-offs around speed, signal quality, flakiness, and maintenance.",
+                "Concrete ideas you can apply immediately to improve test coverage, feedback loops, and reliability.",
+                "Peer learning from other engineers and SDETs actively testing and evaluating AI tools.",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg">
                   <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Hands-on exposure to AI test tools in real scenarios, not curated demos or scripted examples.</span>
+                  <span>{item}</span>
                 </div>
-                <div className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Practical insight into how AI fits into day-to-day testing workflows, including where it helps and where it breaks down.</span>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>A clearer understanding of trade-offs around speed, signal quality, flakiness, and maintenance.</span>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Concrete ideas you can apply immediately to improve test coverage, feedback loops, and reliability.</span>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-white dark:bg-blue-900/30 rounded-lg md:col-span-2">
-                  <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Peer learning from other engineers and SDETs actively testing and evaluating AI tools.</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              ))}
+            </div>
+            {/* Photo */}
+            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/photos/battle/50.png"
+                alt="Engineers at Battle of AI Test Tools"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          </div>
         </div>
       </section>
 
