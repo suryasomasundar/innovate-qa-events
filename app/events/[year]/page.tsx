@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Calendar, MapPin, Clock, Play } from "lucide-react"
+import awardsData from "@/data/awards.json"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -217,6 +218,36 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
           </div>
         </div>
       </section>
+
+      {/* Judges (2026 only) */}
+      {year === "2026" && awardsData.judges && awardsData.judges.length > 0 && (
+        <section id="judges" className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-foreground mb-2">Awards Judges</h2>
+            <p className="text-muted-foreground mb-8">Meet the expert panel judging the Innovate QA 2026 Awards</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {awardsData.judges.map((judge, i) => (
+                <div key={i} className="flex flex-col">
+                  <div className="aspect-[3/4] rounded-xl overflow-hidden bg-muted relative mb-3">
+                    <Image
+                      src={`${BASE_PATH}${judge.photo}`}
+                      alt={judge.name}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <p className="font-semibold text-foreground text-sm leading-tight">{judge.name}</p>
+                  <p className="text-xs text-muted-foreground leading-snug">{judge.title}</p>
+                  {judge.company && (
+                    <p className="text-xs text-primary font-medium">{judge.company}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Gallery (for past events) */}
       {"gallery" in event && event.gallery && (
