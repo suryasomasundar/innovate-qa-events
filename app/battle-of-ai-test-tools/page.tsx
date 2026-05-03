@@ -171,7 +171,7 @@ export default function BattleOfAITestToolsPage() {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="text-4xl font-bold mb-8 text-center">What Makes This Event Different</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
