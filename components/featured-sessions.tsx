@@ -96,7 +96,18 @@ export function FeaturedSessions() {
                       {card.time}
                     </span>
                   </div>
-                  <p className="text-sm font-semibold text-foreground leading-snug flex-1">{card.title}</p>
+                  {card.type === "discussion" ? (
+                    <ul className="flex-1 flex flex-col gap-1">
+                      {card.title.split("|").map((item, j) => (
+                        <li key={j} className="text-xs text-foreground leading-snug flex items-start gap-1.5">
+                          <span className="text-primary mt-0.5 shrink-0">•</span>
+                          <span>{item.replace(/^#\d+\s*/, "").trim()}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm font-semibold text-foreground leading-snug flex-1">{card.title}</p>
+                  )}
                   {card.speakers.length > 0 && (
                     <div className="flex items-center gap-2 pt-2 border-t border-border/40 mt-auto">
                       <div className="flex -space-x-1.5">
