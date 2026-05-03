@@ -28,7 +28,7 @@ import { BASE_PATH } from "@/lib/constants"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 export const metadata = {
   title: "Battle of AI Test Tools | Innovate QA Events",
-  description: "Experience the best AI test tools hands-on—and see how they fit into your testing strategy. A live, in-person event with real-world testing challenges.",
+  description: "Experience the best AI test tools hands-on and see how they fit into your testing strategy. A live, in-person event with real-world testing challenges.",
 };
 
 const typeColors: Record<string, string> = {
@@ -61,7 +61,7 @@ export default function BattleOfAITestToolsPage() {
                 Battle of AI Test Tools
               </h1>
               <p className="text-xl text-purple-100 mb-8">
-                Experience the best AI test tools hands-on—and see how they fit into your testing strategy
+                Experience the best AI test tools hands-on and see how they fit into your testing strategy
               </p>
               <div className="flex flex-wrap gap-4 text-purple-200 text-sm">
                 <span className="flex items-center gap-2">
@@ -128,7 +128,7 @@ export default function BattleOfAITestToolsPage() {
         <div className="container mx-auto px-4">
           <div className="prose prose-lg max-w-none dark:prose-invert mb-16">
             <p className="text-xl leading-relaxed">
-              The Battle of AI Test Tools is a live, in-person event hosted by Innovate QA, designed to move beyond demos, slides, and marketing claims—and show how AI testing tools actually perform in real-world conditions.
+              The Battle of AI Test Tools is a live, in-person event hosted by Innovate QA, designed to move beyond demos, slides, and marketing claims and show how AI testing tools actually perform in real-world conditions.
             </p>
           </div>
           <Card className="border-2 border-purple-200 dark:border-purple-800 overflow-hidden">
@@ -160,7 +160,7 @@ export default function BattleOfAITestToolsPage() {
                 </div>
               </div>
               <p className="text-lg leading-relaxed mt-6">
-                Live leaderboard updates, judge commentary, and team insights connect everything together—so even if you're not competing, you're continuously learning from what's happening in the battle.
+                Live leaderboard updates, judge commentary, and team insights connect everything together, so even if you're not competing, you're continuously learning from what's happening in the battle.
               </p>
             </CardContent>
           </Card>
@@ -218,7 +218,7 @@ export default function BattleOfAITestToolsPage() {
                     <Lightbulb className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">Focused on clarity and outcomes—not hype</h3>
+                    <h3 className="text-xl font-semibold mb-3">Focused on clarity and outcomes, not hype</h3>
                     <p>Get evidence-based insights to make informed decisions about AI testing.</p>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export default function BattleOfAITestToolsPage() {
             </Card>
           </div>
           <p className="text-center text-lg mt-8 font-medium">
-            The Battle of AI Test Tools is built for leaders and practitioners who want to make smarter, more confident decisions about AI in testing—based on evidence, not promises.
+            The Battle of AI Test Tools is built for leaders and practitioners who want to make smarter, more confident decisions about AI in testing, based on evidence, not promises.
           </p>
         </div>
       </section>
@@ -362,7 +362,7 @@ export default function BattleOfAITestToolsPage() {
                 </div>
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-purple-900/30 rounded-lg">
                   <Shield className="h-5 w-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
-                  <span>Guidance on where AI delivers real value—and where it introduces risk in modern SDLCs.</span>
+                  <span>Guidance on where AI delivers real value and where it introduces risk in modern SDLCs.</span>
                 </div>
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-purple-900/30 rounded-lg">
                   <BarChart3 className="h-5 w-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
@@ -494,7 +494,7 @@ export default function BattleOfAITestToolsPage() {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4 text-center">Event Gallery</h2>
-          <p className="text-center text-muted-foreground mb-10">Highlights from the Battle of AI Test Tools — April 3, 2026 · San Francisco</p>
+          <p className="text-center text-muted-foreground mb-10">Highlights from the Battle of AI Test Tools · April 3, 2026 · San Francisco</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
               "1.png","2.png","3.png","4.png","5.png",
@@ -532,7 +532,7 @@ export default function BattleOfAITestToolsPage() {
           </div>
           <h2 className="text-4xl font-bold mb-6">See You at Innovate QA 2026!</h2>
           <p className="text-xl mb-8">
-            The Battle of AI Test Tools was an incredible event. Join us next at Innovate QA Conference 2026 — June 5–6 in Bellevue, WA.
+            The Battle of AI Test Tools was an incredible event. Join us next at Innovate QA Conference 2026, June 5-6 in Bellevue, WA.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" asChild className="bg-white hover:bg-purple-50">
