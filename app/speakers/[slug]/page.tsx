@@ -9,6 +9,7 @@ import event2025 from "@/data/events/2025.json"
 import event2026 from "@/data/events/2026.json"
 import battleData from "@/data/events/battle.json"
 import homeData from "@/data/home.json"
+import awardsData from "@/data/awards.json"
 import { BASE_PATH } from "@/lib/constants"
 
 interface SpeakerPageProps {
@@ -106,6 +107,12 @@ function getAllSpeakers(): any[] {
     }
   }
   for (const s of ((homeData as any).speakers?.featured as any[]) ?? []) {
+    if (s?.id && !seen.has(s.id)) {
+      seen.add(s.id)
+      all.push(s)
+    }
+  }
+  for (const s of ((awardsData as any).judges as any[]) ?? []) {
     if (s?.id && !seen.has(s.id)) {
       seen.add(s.id)
       all.push(s)

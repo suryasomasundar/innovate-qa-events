@@ -21,8 +21,8 @@ const typeConfig: Record<string, { label: string; className: string }> = {
 
 const SKIP_TYPES = new Set(["break"])
 const DAY_LABELS: Record<string, string> = {
-  "2026-06-05": "Day 1 · June 5",
-  "2026-06-06": "Day 2 · June 6",
+  "2026-06-04": "Day 1 · June 4",
+  "2026-06-05": "Day 2 · June 5",
 }
 
 const speakerMap = new Map(event2026.speakers.map((s) => [s.id, s]))
@@ -59,7 +59,7 @@ export function FeaturedSessions() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Schedule</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
           <p className="text-lg text-muted-foreground">
-            Innovate QA 2026 · June 5–6 · Westin Bellevue, WA
+            Innovate QA 2026 · June 4–5 · Westin Bellevue, WA
           </p>
         </div>
 

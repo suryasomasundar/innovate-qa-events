@@ -5,15 +5,96 @@
   "contactEmail": "contact@innovateqaevents.com",
   "judgeApplicationUrl": "mailto:contact@innovateqaevents.com?subject=Apply to Judge - Innovate QA Awards",
   "judges": [
-    { "name": "Kavitha Rajendran",    "title": "AI/ML Solutions Architect",          "company": "Google",                   "photo": "/photos/judges/Kavitha.png" },
-    { "name": "Marina Voloshina",     "title": "Sr Software QA Manager",             "company": "Infinite Electronics, Inc", "photo": "/photos/judges/Marina.png" },
-    { "name": "Pranav Pandit",        "title": "Lead Software Quality Engineer",     "company": "Robinhood",                "photo": "/photos/judges/Pranav.png" },
-    { "name": "Samuel Selvaraj",      "title": "Engineering Manager Test Automation","company": "Veeva Systems",            "photo": "/photos/judges/Samuel.png" },
-    { "name": "Shripad Deshpande",    "title": "Sr QA Engineering Manager",          "company": "",                         "photo": "/photos/judges/Shripad.png" },
-    { "name": "Somu Suryanarayanan",  "title": "Staff QA Automation Engineer",       "company": "Cookunity",                "photo": "/photos/judges/Somu.png" },
-    { "name": "Vivek Krishna",        "title": "Lead Software Engineer - Test",       "company": "Amazon Web Services",      "photo": "/photos/judges/VivekK.png" },
-    { "name": "Vivek Misra",          "title": "Engineering Director",               "company": "CVS Health",               "photo": "/photos/judges/VivekM.png" },
-    { "name": "Sidharth Shukla",      "title": "Sr SDET",                            "company": "Amazon",                   "photo": "/photos/judges/Sidharth.png" }
+    {
+      "id": "kavitha-rajendran",
+      "name": "Kavitha Rajendran",
+      "title": "AI/ML Solutions Architect",
+      "company": "Google",
+      "photo": "/photos/judges/Kavitha.png",
+      "image": "/photos/judges/headshots/kavitha-rajendran.jpg",
+      "linkedin": "https://www.linkedin.com/in/kavitharajendran88/"
+    },
+    {
+      "id": "marina-voloshina",
+      "name": "Marina Voloshina",
+      "title": "Sr Software QA Manager",
+      "company": "Infinite Electronics, Inc",
+      "photo": "/photos/judges/Marina.png",
+      "image": "/photos/judges/headshots/marina-voloshina.jpg",
+      "linkedin": "https://www.linkedin.com/in/marina-voloshina/"
+    },
+    {
+      "id": "pranav-pandit",
+      "name": "Pranav Pandit",
+      "title": "Lead Software Quality Engineer",
+      "company": "Robinhood",
+      "photo": "/photos/judges/Pranav.png",
+      "image": "/photos/judges/headshots/pranav-pandit.jpg",
+      "linkedin": "https://www.linkedin.com/in/pranav-pandit-082353105/"
+    },
+    {
+      "id": "samuel-selvaraj",
+      "name": "Samuel Selvaraj",
+      "title": "Engineering Manager Test Automation",
+      "company": "Veeva Systems",
+      "photo": "/photos/judges/Samuel.png",
+      "image": "/photos/judges/headshots/samuel-selvaraj.jpg",
+      "linkedin": "https://www.linkedin.com/in/s-a-m-u-e-l/"
+    },
+    {
+      "id": "shripad-deshpande",
+      "name": "Shripad Deshpande",
+      "title": "Sr QA Engineering Manager",
+      "company": "",
+      "photo": "/photos/judges/Shripad.png",
+      "image": "/photos/judges/headshots/shripad-deshpande.jpg",
+      "linkedin": "https://www.linkedin.com/in/itsshripad/"
+    },
+    {
+      "id": "somu-suryanarayanan",
+      "name": "Somu Suryanarayanan",
+      "title": "Staff QA Automation Engineer",
+      "company": "Cookunity",
+      "photo": "/photos/judges/Somu.png",
+      "image": "/photos/judges/headshots/somu-suryanarayanan.jpg",
+      "linkedin": "https://www.linkedin.com/in/somusuryanarayanan/"
+    },
+    {
+      "id": "vivek-krishna",
+      "name": "Vivek Krishna",
+      "title": "Lead Software Engineer - Test",
+      "company": "Amazon Web Services",
+      "photo": "/photos/judges/VivekK.png",
+      "image": "/photos/judges/headshots/vivek-krishna.jpg",
+      "linkedin": "https://www.linkedin.com/in/vivek-k-c/"
+    },
+    {
+      "id": "vivek-misra",
+      "name": "Vivek Misra",
+      "title": "Engineering Director",
+      "company": "CVS Health",
+      "photo": "/photos/judges/VivekM.png",
+      "image": "/photos/judges/headshots/vivek-misra.jpg",
+      "linkedin": "https://www.linkedin.com/in/vivek-misra/"
+    },
+    {
+      "id": "sidharth-shukla",
+      "name": "Sidharth Shukla",
+      "title": "Sr SDET",
+      "company": "Amazon",
+      "photo": "/photos/judges/Sidharth.png",
+      "image": "/photos/judges/headshots/sidharth-shukla.jpg",
+      "linkedin": "https://www.linkedin.com/in/sidharth-s-77b53145/"
+    },
+    {
+      "id": "priya",
+      "name": "Priyamvada Govil",
+      "title": "Sr Quality Engineering Manager",
+      "company": "Amazon",
+      "photo": "/speakers/2026/priyaheadshot.jpg",
+      "image": "/speakers/2026/priyaheadshot.jpg",
+      "linkedin": "https://www.linkedin.com/in/priyamvada-govil/"
+    }
   ],
   "categories": [
     {

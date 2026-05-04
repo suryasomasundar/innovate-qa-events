@@ -411,13 +411,5 @@
     "/photos/2024/2.webp",
     "/photos/2024/3.webp",
     "/photos/2024/testrigor.webp"
-  ],
-    "stats": {
-    "attendees": 100,
-    "speakers": 13,
-    "sessions": 14,
-    "workshops": 2
-  }
-  }
+  ]
 }
-
