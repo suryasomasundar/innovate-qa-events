@@ -15,8 +15,10 @@ on:
           - staging
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'production' }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,24 +36,6 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: deployment-package
-          path: out/
-          retention-days: 30
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment || 'production' }}
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: deployment-package
-          path: out/
 
       - name: List deployment files
         run: |
@@ -85,12 +69,8 @@ jobs:
           echo ""
           echo "🌐 Site URL: https://innovateqaevents.com/"
 
-  post-deploy:
-    needs: deploy
-    runs-on: ubuntu-latest
-    if: success()
-    steps:
       - name: Create deployment summary
+        if: success()
         run: |
           echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
