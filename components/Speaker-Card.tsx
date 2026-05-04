@@ -46,7 +46,7 @@ export function SpeakerCard({ speaker }: SpeakerCardProps) {
       <CardContent className="pt-4 flex-1 flex flex-col">
         <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{speaker.name}</h3>
         {displayTitle && <p className="text-sm text-primary font-medium">{displayTitle}</p>}
-        <p className="text-sm text-muted-foreground mb-2">{speaker.company}</p>
+        {speaker.company && <p className="text-sm text-muted-foreground mb-2">{speaker.company}</p>}
 
         {speaker.topic && (
           <div className="mb-3">

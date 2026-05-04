@@ -123,3 +123,188 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .event-connected-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 82% 15%, rgba(95, 44, 139, 0.38), transparent 34%),
+      radial-gradient(circle at 64% 82%, rgba(69, 167, 173, 0.12), transparent 28%),
+      linear-gradient(135deg, #120a19 0%, #1b1027 46%, #110817 100%);
+  }
+
+  .event-connected-header::before,
+  .event-connected-header::after {
+    content: "";
+    position: absolute;
+    inset: -24%;
+    z-index: -3;
+    background-image:
+      linear-gradient(110deg, transparent 0 42%, rgba(177, 139, 224, 0.3) 42.2% 43%, transparent 43.4%),
+      linear-gradient(28deg, transparent 0 54%, rgba(129, 224, 229, 0.26) 54.2% 55%, transparent 55.4%),
+      radial-gradient(circle, rgba(199, 225, 230, 0.24) 0 3.5px, transparent 4.3px);
+    background-size: 380px 190px, 430px 230px, 84px 84px;
+    filter: blur(0.4px);
+    animation: event-header-drift 26s linear infinite;
+  }
+
+  .event-connected-header::after {
+    opacity: 0.55;
+    transform: rotate(8deg);
+    animation-duration: 38s;
+    animation-direction: reverse;
+  }
+
+  .event-header-mask {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(18, 10, 25, 0.92), rgba(18, 10, 25, 0.55) 42%, rgba(18, 10, 25, 0.04)),
+      linear-gradient(180deg, rgba(18, 10, 25, 0.02), rgba(18, 10, 25, 0.42));
+    pointer-events: none;
+  }
+
+  .event-header-orbital {
+    position: absolute;
+    right: -110px;
+    top: -95px;
+    z-index: -2;
+    width: 620px;
+    height: 620px;
+    border-radius: 50%;
+    background:
+      conic-gradient(from 30deg, transparent 0 24%, rgba(186, 148, 232, 0.22) 24% 25%, transparent 25% 48%, rgba(123, 221, 225, 0.22) 48% 49%, transparent 49% 100%),
+      radial-gradient(circle at center, transparent 0 48%, rgba(177, 139, 224, 0.14) 48.3% 48.9%, transparent 49.2% 100%);
+    opacity: 1;
+    filter: blur(0.2px);
+    animation: event-header-spin 42s linear infinite;
+    pointer-events: none;
+  }
+
+  .event-header-orbital::before,
+  .event-header-orbital::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #45a7ad;
+    box-shadow: 0 0 24px rgba(69, 167, 173, 0.65);
+  }
+
+  .event-header-orbital::before {
+    right: 88px;
+    top: 164px;
+  }
+
+  .event-header-orbital::after {
+    left: 154px;
+    bottom: 96px;
+    background: #3a075f;
+    box-shadow: 0 0 24px rgba(58, 7, 95, 0.52);
+  }
+
+  .event-header-node-map {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    z-index: -2;
+    width: min(820px, 64vw);
+    height: 380px;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .event-header-node-map svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .event-header-node-line {
+    stroke: rgba(205, 183, 235, 0.46);
+    stroke-width: 4;
+    stroke-dasharray: 10 18;
+    filter: drop-shadow(0 0 14px rgba(177, 139, 224, 0.42));
+    animation: event-header-flow 8s linear infinite;
+  }
+
+  .event-header-node-line-teal {
+    stroke: rgba(126, 225, 229, 0.54);
+    animation-duration: 11s;
+  }
+
+  .event-header-node {
+    fill: rgba(229, 246, 248, 0.82);
+    stroke: rgba(214, 192, 242, 0.9);
+    stroke-width: 3;
+    filter: drop-shadow(0 0 22px rgba(126, 225, 229, 0.5));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: event-header-pulse 4.8s ease-in-out infinite;
+  }
+
+  .event-header-node-teal {
+    fill: rgba(126, 225, 229, 0.82);
+    stroke: rgba(126, 225, 229, 1);
+    animation-delay: 0.8s;
+  }
+
+  .event-header-node-primary {
+    fill: rgba(185, 142, 232, 0.72);
+  }
+
+  .event-header-node:nth-of-type(odd) {
+    animation-delay: 1.4s;
+  }
+
+  @keyframes event-header-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(180px, 92px, 0);
+    }
+  }
+
+  @keyframes event-header-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes event-header-flow {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -96;
+    }
+  }
+
+  @keyframes event-header-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.18);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .event-connected-header::before,
+    .event-connected-header::after,
+    .event-header-orbital,
+    .event-header-node-line,
+    .event-header-node {
+      animation: none;
+    }
+  }
+}
