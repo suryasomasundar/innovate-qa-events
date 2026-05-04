@@ -53,6 +53,15 @@ type EventSponsors = {
   partners?: Sponsor[]
 }
 
+function parseDateOnly(date: string) {
+  const [year, month, day] = date.split("-").map(Number)
+  return new Date(year, month - 1, day)
+}
+
+function formatDateOnly(date: string, options: Intl.DateTimeFormatOptions) {
+  return parseDateOnly(date).toLocaleDateString("en-US", options)
+}
+
 export async function generateStaticParams() {
   return [{ year: "2026" }, { year: "2025" }, { year: "2024" }]
 }
@@ -83,7 +92,9 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
 
   const speakerMap = new Map(event.speakers.map((s) => [s.id, s]))
   const scheduleEntries = Object.entries(event.schedule)
-  const isPastEvent = new Date(event.date.end) < new Date()
+  const eventEndDate = parseDateOnly(event.date.end)
+  eventEndDate.setHours(23, 59, 59, 999)
+  const isPastEvent = eventEndDate < new Date()
   const sponsors = event.sponsors as EventSponsors
   const recapHighlights =
     "recap" in event && Array.isArray((event.recap as { highlights?: unknown }).highlights)
@@ -166,13 +177,13 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                 <div className="flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-[#7ee1e5]" />
                   <span>
-                    {new Date(event.date.start).toLocaleDateString("en-US", {
+                    {formatDateOnly(event.date.start, {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
                     })}
                     {event.date.start !== event.date.end &&
-                      ` - ${new Date(event.date.end).toLocaleDateString("en-US", {
+                      ` - ${formatDateOnly(event.date.end, {
                         month: "long",
                         day: "numeric",
                       })}`}
