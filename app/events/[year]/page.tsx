@@ -310,7 +310,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
       )}
 
       {/* Sponsors */}
-      <section id="sponsors" className="py-24 bg-[#18111f] text-white">
+      <section id="sponsors" className="py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:items-end mb-16">
             <div>
@@ -432,9 +432,9 @@ function PremierSponsorCard({ sponsor }: { sponsor: Sponsor }) {
         <Image
           src={sponsorLogoSrc(sponsor)}
           alt={sponsor.name}
-          width={sponsor.width ?? 260}
-          height={sponsor.height ?? 120}
-          className="max-h-28 max-w-[82%] object-contain"
+          width={sponsor.width ?? 320}
+          height={sponsor.height ?? 150}
+          className="max-h-36 max-w-[90%] object-contain"
           style={{ width: "auto" }}
           unoptimized
         />
@@ -467,9 +467,9 @@ function SponsorLogoTile({
         <Image
           src={sponsorLogoSrc(sponsor)}
           alt={sponsor.name}
-          width={sponsor.width ?? (compact ? 130 : 170)}
-          height={sponsor.height ?? (compact ? 64 : 82)}
-          className={`${compact ? "max-h-14" : "max-h-20"} max-w-[86%] object-contain`}
+          width={sponsor.width ?? (compact ? 170 : 230)}
+          height={sponsor.height ?? (compact ? 82 : 110)}
+          className={`${compact ? "max-h-20" : "max-h-28"} max-w-[92%] object-contain`}
           style={{ width: "auto" }}
           unoptimized
         />
