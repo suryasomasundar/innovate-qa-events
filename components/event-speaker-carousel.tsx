@@ -172,7 +172,7 @@ export function EventSpeakerCarousel({ speakers }: { speakers: EventSpeaker[] })
           onWheel={handleWheel}
         >
           <div
-            className="relative h-[455px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.98)_0%,rgba(248,246,251,0.9)_42%,rgba(220,214,224,0.82)_100%)]"
+            className="relative h-[500px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.98)_0%,rgba(248,246,251,0.9)_42%,rgba(220,214,224,0.82)_100%)]"
             style={{ perspective: "1400px", overscrollBehaviorX: "contain" }}
           >
             {speakers.map((speaker, index) => {
@@ -183,7 +183,7 @@ export function EventSpeakerCarousel({ speakers }: { speakers: EventSpeaker[] })
               return (
                 <article
                   key={speaker.id}
-                  className="absolute left-1/2 top-16 h-[328px] w-[236px] origin-center bg-white shadow-[0_22px_58px_rgba(45,24,64,0.18)] transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="absolute left-1/2 top-14 h-[370px] w-[236px] origin-center bg-white shadow-[0_22px_58px_rgba(45,24,64,0.18)] transition-[transform,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   style={slotStyles[slot]}
                   aria-hidden={slot === "out-left" || slot === "out-right"}
                 >
@@ -198,14 +198,14 @@ export function EventSpeakerCarousel({ speakers }: { speakers: EventSpeaker[] })
                       </h3>
                     </div>
 
-                    <div className="absolute left-0 right-0 top-[112px] h-[144px] bg-[#d8d3da] [clip-path:polygon(0_16%,100%_0,100%_100%,0_100%)]" />
-                    <div className="absolute left-4 right-4 top-[92px] z-10 h-[138px] overflow-hidden bg-muted">
+                    <div className="absolute left-0 right-0 top-[128px] h-[174px] bg-[#d8d3da] [clip-path:polygon(0_16%,100%_0,100%_100%,0_100%)]" />
+                    <div className="absolute left-4 right-4 top-[104px] z-10 h-[174px] overflow-hidden bg-muted">
                       <Image
                         src={imageSrc(speaker)}
                         alt={speaker.name}
                         fill
                         sizes="236px"
-                        className="object-cover object-top"
+                        className={`${speaker.id === "amber" ? "object-contain" : "object-cover"} object-top`}
                       />
                     </div>
 
