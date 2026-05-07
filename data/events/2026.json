@@ -331,11 +331,11 @@
           "duration": 10,
           "sessions": [
             {
-              "title": "Keynote",
+              "title": "Rehearsing the Future: Directing Quality in the Age of AI",
               "type": "talk",
               "room": "leadership",
               "description": "",
-              "speakers": []
+              "speakers": ["josh"]
             }
           ]
         },
@@ -821,8 +821,18 @@
       "topic": "AI Has Never Needed Humans More Than It Does Now",
       "bio": "Zach is VP of Client Impact at Testlio, where he leads efforts focused on delivering high-quality outcomes and long-term client success. Since joining in 2019 as a QA Project Manager, he has played a key role in evolving Testlio’s approach to quality engineering and scaling how teams deliver for global clients. \nWith a hands-on, customer-centric approach, Zach specializes in quality management, product implementation, and cross-functional collaboration. He’s known for building strong partnerships with clients and teams alike, helping organizations improve how they test, ship, and maintain quality at scale. He also regularly contributes to industry conversations through webinars and speaking engagements focused on modern QA practices.",
       "linkedin": "https://www.linkedin.com/in/zachary-chrissinger/"
-     }
-],
+     },
+     {
+      "id": "josh",
+      "name": "Josj Penzell",
+      "title": "Managing Director, AI Innovation & Strategy",
+      "company": "Imagination Applied",
+      "image": "/speakers/2026/josh.jpg",
+      "keynote": false,
+      "topic": "Rehearsing the Future: Directing Quality in the Age of AI",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/josh-penzell/"
+     }],
   "sponsors": {
     "platinum": [ 
       {
