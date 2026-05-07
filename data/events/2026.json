@@ -83,14 +83,6 @@
               "description": "",
               "speakers": ["amber"]
             },
-            
-            {
-              "title": "Orchestrating AI for Testing: Connecting Context, Tools, and Human Judgment",
-              "type": "talk",
-              "room": "demo",
-              "description": "",
-              "speakers": ["joel"]
-            },
             {
               "title": "Accessibility AI Testing Landscape and Testing Workshop",
               "type": "workshop",
@@ -117,12 +109,13 @@
               "description": "",
               "speakers": ["greg"]
             },
-            {
-              "title": "AI Has Never Needed Humans More Than It Does Now",
+          
+           {
+              "title": "One Platform, Two Frontiers: Testing Web Applications and AI Agents with ContextQA",
               "type": "talk",
               "room": "demo",
               "description": "",
-              "speakers": ["zach"]
+              "speakers": ["deep"]
             },
             {
               "title": "Continue - Accessibility AI Testing Landscape and Testing Workshop",
@@ -148,15 +141,15 @@
         },
         {
           "time": "1:00 PM",
-          "duration": 90,
+          "duration": 45,
           "sessions": [
-            {
-              "title": "One Platform, Two Frontiers: Testing Web Applications and AI Agents with ContextQA",
+           {
+              "title": "AI Has Never Needed Humans More Than It Does Now",
               "type": "talk",
               "room": "demo",
               "description": "",
-              "speakers": ["deep"]
-            },
+              "speakers": ["zach"]
+            },      
             {
               "title": "#1 Are We Testing AI… or Is AI Testing Us? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
               "type": "discussion",
@@ -190,6 +183,13 @@
               "room": "discussion",
               "description": "",
               "speakers": [""]
+            },
+            {
+              "title": "Orchestrating AI for Testing: Connecting Context, Tools, and Human Judgment",
+              "type": "talk",
+              "room": "demo",
+              "description": "",
+              "speakers": ["joel"]
             },
             {
               "title": "Is Today's Test Infra Ready for AI? The Hard Questions No One Is Asking.",
