@@ -118,6 +118,13 @@
               "speakers": ["greg"]
             },
             {
+              "title": "AI Has Never Needed Humans More Than It Does Now",
+              "type": "talk",
+              "room": "demo",
+              "description": "",
+              "speakers": ["zach"]
+            },
+            {
               "title": "Continue - Accessibility AI Testing Landscape and Testing Workshop",
               "type": "workshop",
               "room": "discussion",
@@ -483,7 +490,14 @@
               "description": "",
               "speakers": ["dana", "scott"]
             }
-            
+         ,
+             {
+              "title": "TBD - Big 4 Consulting firm",
+              "type": "panel",
+              "room": "leadership",
+              "description": "",
+              "speakers": []
+            }   
           ]
         },
         {
@@ -796,6 +810,17 @@
       "topic": "Accessibility in the Age of AI: What AI can catch, what it misses, and why that matters now",
       "bio": "Daniel is a Senior Accessibility Project Manager at PLUS QA with nearly a decade of experience in quality assurance. For the past four years, his work has centered on helping enterprise clients improve the accessibility of their consumer facing and internal digital products, including leading audits across a variety of digital experiences using WCAG 2.2 and Section 508 standards. \nDaniel’s work is driven by a simple belief: everyone should be able to use the websites and apps that help us navigate daily necessities, stay connected, feel independent, and enjoy life. He enjoys partnering with teams to turn accessibility requirements into clear, actionable feedback that creates better user experiences for everyone. \nBorn and raised in Oregon, Daniel now lives in Portland, where he enjoys exploring the city through food tours and continuing his search for the best seafood spot in town.  ",
       "linkedin": "https://www.linkedin.com/in/daniel-lopez-a027a3178/"
+     },
+     {
+      "id": "zach",
+      "name": "Zach Chavez",
+      "title": "VP, Client Impact",
+      "company": "Testlio",
+      "image": "/speakers/2026/ZachChavez.jpg",
+      "keynote": false,
+      "topic": "AI Has Never Needed Humans More Than It Does Now",
+      "bio": "Zach is VP of Client Impact at Testlio, where he leads efforts focused on delivering high-quality outcomes and long-term client success. Since joining in 2019 as a QA Project Manager, he has played a key role in evolving Testlio’s approach to quality engineering and scaling how teams deliver for global clients. \nWith a hands-on, customer-centric approach, Zach specializes in quality management, product implementation, and cross-functional collaboration. He’s known for building strong partnerships with clients and teams alike, helping organizations improve how they test, ship, and maintain quality at scale. He also regularly contributes to industry conversations through webinars and speaking engagements focused on modern QA practices.",
+      "linkedin": "https://www.linkedin.com/in/zachary-chrissinger/"
      }
 ],
   "sponsors": {
