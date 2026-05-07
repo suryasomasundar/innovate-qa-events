@@ -353,7 +353,7 @@
             {
               "title": "Networking for Professionals Live Session",
               "type": "networking",
-              "room": "practitioner",
+              "room": "demo",
               "description": "",
               "speakers": ["goldie"]
             },
