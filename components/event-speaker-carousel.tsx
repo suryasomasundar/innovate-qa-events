@@ -194,6 +194,12 @@ export function EventSpeakerCarousel({
                   aria-hidden={slot === "out-left" || slot === "out-right"}
                 >
                   <div className="relative h-full overflow-hidden">
+                    <Link
+                      href={`/speakers/${speaker.id}`}
+                      className="absolute inset-0 z-30"
+                      aria-label={`View ${speaker.name}'s speaker profile`}
+                    />
+
                     <div className="relative z-10 px-4 pt-5">
                       <h3 className="text-[1.68rem] font-semibold leading-[0.96] tracking-normal text-[#c83bea]">
                         {nameLines(speaker.name).map((line) => (
@@ -227,7 +233,7 @@ export function EventSpeakerCarousel({
                           href={link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full border border-primary/10 bg-white text-primary shadow-sm transition-colors hover:bg-primary hover:text-white"
+                          className="absolute bottom-4 right-4 z-40 flex h-9 w-9 items-center justify-center rounded-full border border-primary/10 bg-white text-primary shadow-sm transition-colors hover:bg-primary hover:text-white"
                           aria-label={`${speaker.name} on LinkedIn`}
                         >
                           <Linkedin className="h-4 w-4" />

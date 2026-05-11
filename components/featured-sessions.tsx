@@ -175,6 +175,12 @@ function SessionCard({
                       {speaker.title} · {speaker.company}
                     </p>
                   </div>
+                  <Link
+                    href={`/speakers/${speaker.id}`}
+                    className="shrink-0 rounded-full border border-border bg-card px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                  >
+                    Profile
+                  </Link>
                   {speaker.linkedin ? (
                     <Link
                       href={speaker.linkedin}
@@ -374,10 +380,15 @@ export function FeaturedSessions() {
           </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" variant="outline">
             <Link href="/events/2026#schedule">
               View Full Schedule <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild size="lg">
+            <Link href="/speakers">
+              View All Speakers <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>
