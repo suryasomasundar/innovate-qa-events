@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { CountdownTimer } from "@/components/countdown-timer"
-import { CalendarDays, MapPin, Users } from "lucide-react"
+import { ArrowDown, CalendarDays, MapPin, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { BASE_PATH } from "@/lib/constants"
@@ -45,7 +45,7 @@ export function HeroSection() {
               <CountdownTimer targetDate={eventDate} />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
               <Button size="lg" className="text-base px-8" asChild>
                 <Link href={homeData.hero.buttons.tickets.url}>{homeData.hero.buttons.tickets.text}</Link>
               </Button>
@@ -54,6 +54,14 @@ export function HeroSection() {
               </Button>
               <SubscribeModal label={(homeData.hero.buttons as any).subscribe.text} />
             </div>
+
+            <Link
+              href="#testimonials"
+              className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
+            >
+              See what attendees said
+              <ArrowDown className="h-4 w-4" />
+            </Link>
 
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-muted-foreground">
               {homeData.hero.stats.map((stat, index) => {

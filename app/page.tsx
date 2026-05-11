@@ -8,6 +8,7 @@ import { ScheduleSection } from "@/components/schedule-section"
 import { VenueSection } from "@/components/venue-section"
 import { PricingSection } from "@/components/pricing-section"
 import { SponsorsSection } from "@/components/sponsors-section"
+import { HomeTestimonialsSection } from "@/components/home-testimonials-section"
 import { NewsletterSection } from "@/components/newsletter-section"
 import { EventLD } from "@/components/json-ld"
 import homeData from "@/data/home.json"
@@ -35,6 +36,7 @@ export default function Home() {
       <VenueSection />
       <PricingSection />
       <SponsorsSection />
+      <HomeTestimonialsSection />
       <NewsletterSection />
     </>
   )
