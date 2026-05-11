@@ -1,17 +1,16 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Calendar, MapPin, Clock, Play, ExternalLink, Handshake } from "lucide-react"
+import { ArrowLeft, Calendar, MapPin, Play, ExternalLink, Handshake } from "lucide-react"
 import awardsData from "@/data/awards.json"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Metadata } from "next"
 import { generateSEO } from "@/components/seo"
 import { EventLD, BreadcrumbLD } from "@/components/json-ld"
 import { EventJudgePanel } from "@/components/event-judge-panel"
 import { EventSpeakerCarousel } from "@/components/event-speaker-carousel"
+import { EventSchedulePlanner } from "@/components/event-schedule-planner"
 import { BASE_PATH } from "@/lib/constants"
 
 import event2026 from "@/data/events/2026.json"
@@ -22,18 +21,6 @@ const events: Record<string, typeof event2026 | typeof event2025 | typeof event2
   "2026": event2026,
   "2025": event2025,
   "2024": event2024,
-}
-
-const typeColors: Record<string, string> = {
-  keynote: "bg-primary text-primary-foreground",
-  talk: "bg-accent text-accent-foreground",
-  workshop: "bg-chart-2 text-white",
-  panel: "bg-chart-3 text-white",
-  break: "bg-muted text-muted-foreground",
-  social: "bg-chart-4 text-white",
-  special: "bg-chart-5 text-white",
-  discussion: "bg-muted text-muted-foreground",
-  gameshow: "bg-muted text-muted-foreground",
 }
 
 type Sponsor = {
@@ -90,7 +77,6 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
     notFound()
   }
 
-  const speakerMap = new Map(event.speakers.map((s) => [s.id, s]))
   const scheduleEntries = Object.entries(event.schedule)
   const eventEndDate = parseDateOnly(event.date.end)
   eventEndDate.setHours(23, 59, 59, 999)
@@ -259,25 +245,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
             </p>
           </div>
 
-          {scheduleEntries.length > 1 ? (
-            <Tabs defaultValue={scheduleEntries[0][0]} className="w-full">
-              <TabsList className="mb-6">
-                {scheduleEntries.map(([date, day]) => (
-                  <TabsTrigger key={date} value={date}>
-                    {day.dayLabel}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {scheduleEntries.map(([date, day]) => (
-                <TabsContent key={date} value={date}>
-                  <ScheduleDay day={day} speakerMap={speakerMap} rooms={event.rooms} />
-                </TabsContent>
-              ))}
-            </Tabs>
-          ) : (
-            <ScheduleDay day={scheduleEntries[0][1]} speakerMap={speakerMap} rooms={event.rooms} />
-          )}
+          <EventSchedulePlanner scheduleEntries={scheduleEntries} rooms={event.rooms} speakers={event.speakers} />
         </div>
       </section>
 
@@ -504,110 +472,6 @@ function SponsorTierRow({
           <SponsorLogoTile key={sponsor.name} sponsor={sponsor} tier={tier} compact={compact} />
         ))}
       </div>
-    </div>
-  )
-}
-
-type AnyScheduleDay = {
-  dayLabel: string
-  slots: Array<{
-    time: string
-    duration: number
-    sessions: Array<Record<string, unknown>>
-  }>
-}
-
-function ScheduleDay({
-  day,
-  speakerMap,
-  rooms,
-}: {
-  day: AnyScheduleDay
-  speakerMap: Map<string, { id: string; name: string; company: string }>
-  rooms: Array<{ id: string; name: string; capacity: number }>
-}) {
-  const roomMap = new Map(rooms.map((r) => [r.id, r.name]))
-
-  return (
-    <div className="space-y-4">
-      {day.slots.map((slot, slotIndex) => (
-        <div key={slotIndex} className="border-l-2 border-primary/30 pl-4">
-          <div className="flex items-center gap-2 text-primary font-semibold mb-3">
-            <Clock className="h-4 w-4" />
-            {slot.time}
-            <span className="text-xs text-muted-foreground font-normal">({slot.duration} min)</span>
-          </div>
-
-          <div className={`grid gap-4 ${slot.sessions.length > 1 ? "md:grid-cols-2 lg:grid-cols-3" : ""}`}>
-            {slot.sessions.map((session, sessionIndex) => {
-              const sessionType = typeof session.type === "string" ? session.type : ""
-              const sessionTitle = typeof session.title === "string" && session.title.trim()
-                ? session.title
-                : "Session details coming soon"
-              const isCompactSlot = slot.sessions.length === 1 && slot.duration <= 15
-              const speakerId = session.speakerId as string | undefined
-              const speakerIds = session.speakers as string[] | undefined
-              const speaker = speakerId ? speakerMap.get(speakerId) : null
-              const sessionSpeakers = speakerIds && speakerIds.length > 0
-                ? speakerIds.map((id) => speakerMap.get(id)).filter(Boolean)
-                : []
-              const panelists = session.panelists as string[] | undefined
-              const participants = session.participants as string[] | undefined
-              const sessionDescription = typeof session.description === "string" ? session.description : ""
-
-              return (
-                <Card key={sessionIndex} className="bg-card border-border/50">
-                  <CardContent className={isCompactSlot ? "p-3" : "p-4"}>
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <Badge className={typeColors[sessionType] || "bg-muted"} variant="secondary">
-                        {sessionType}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {roomMap.get(session.room as string) || session.room as string}
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-foreground mb-1">{sessionTitle}</h4>
-                    {speaker && (
-                      <p className="text-sm text-primary font-medium">
-                        {speaker.name} - {speaker.company}
-                      </p>
-                    )}
-                    {sessionSpeakers.length > 0 && (
-                      <div className="text-sm text-primary font-medium">
-                        {sessionSpeakers.length === 1 ? (
-                          <p>
-                            {sessionSpeakers[0]?.name} - {sessionSpeakers[0]?.company}
-                          </p>
-                        ) : (
-                          <div>
-                            <p className="text-muted-foreground mb-1">Speakers:</p>
-                            <ul className="space-y-0.5">
-                              {sessionSpeakers.map((spk, idx) => (
-                                <li key={idx}>
-                                  {spk?.name} - {spk?.company}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    {panelists && panelists.length > 0 && (
-                      <p className="text-sm text-muted-foreground">
-                        Panelists: {panelists.map((id) => speakerMap.get(id)?.name).join(", ")}
-                      </p>
-                    )}
-                    {participants && participants.length > 0 && (
-                      <p className="text-sm text-muted-foreground">Featuring: {participants.join(", ")}</p>
-                    )}
-                    {sessionDescription && <p className="text-sm text-muted-foreground mt-2">{sessionDescription}</p>}
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      ))}
     </div>
   )
 }
