@@ -517,7 +517,7 @@ export default function BattleOfAITestToolsPage() {
       )}
 
       {/* Photo Gallery */}
-      <section className="py-16 bg-muted/30">
+      <section id="gallery" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4 text-center">Event Gallery</h2>
           <p className="text-center text-muted-foreground mb-10">Highlights from the Battle of AI Test Tools · April 3, 2026 · San Francisco</p>

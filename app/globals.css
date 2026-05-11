@@ -299,12 +299,30 @@
     }
   }
 
+  .testimonials-marquee {
+    animation: testimonials-marquee 64s linear infinite;
+  }
+
+  .testimonials-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes testimonials-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .event-connected-header::before,
     .event-connected-header::after,
     .event-header-orbital,
     .event-header-node-line,
-    .event-header-node {
+    .event-header-node,
+    .testimonials-marquee {
       animation: none;
     }
   }

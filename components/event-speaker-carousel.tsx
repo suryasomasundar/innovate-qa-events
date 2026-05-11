@@ -92,7 +92,13 @@ function linkedinUrl(speaker: EventSpeaker) {
   return speaker.linkedin ?? speaker.social?.linkedin ?? ""
 }
 
-export function EventSpeakerCarousel({ speakers }: { speakers: EventSpeaker[] }) {
+export function EventSpeakerCarousel({
+  speakers,
+  eyebrow = "Featured Speakers",
+}: {
+  speakers: EventSpeaker[]
+  eyebrow?: string
+}) {
   const initialIndex = Math.min(3, Math.max(speakers.length - 1, 0))
   const [activeIndex, setActiveIndex] = useState(initialIndex)
   const wheelRemainder = useRef(0)
@@ -161,7 +167,7 @@ export function EventSpeakerCarousel({ speakers }: { speakers: EventSpeaker[] })
           </Button>
         </div>
 
-        <p className="mb-5 text-sm font-bold uppercase tracking-normal text-muted-foreground">Featured Speakers</p>
+        <p className="mb-5 text-sm font-bold uppercase tracking-normal text-muted-foreground">{eyebrow}</p>
 
         <div
           className="outline-none"
