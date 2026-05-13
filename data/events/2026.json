@@ -424,6 +424,14 @@
               "description": "",
               "speakers": ["igor", "greg"]
             }
+        ,
+            {
+              "title": "Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with Agenta.ai)",
+              "type": "talk",
+              "room": "practitioner",
+              "description": "Navigating SDLC Chaos",
+              "speakers": ["evan"]
+            }
           ]
         },
         {
@@ -846,7 +854,7 @@
       "name": "Evan Marshall",
       "title": "CTO",
       "company": "Ito.ai",
-      "image": "/speakers/2026/evan.jpg",
+      "image": "/speakers/2026/Evan.jpg",
       "keynote": false,
       "topic": "Navigating SDLC Chaos",
       "bio": "",
