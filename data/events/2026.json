@@ -221,7 +221,7 @@
         },
         {
           "time": "3:00 PM",
-          "duration": 60,
+          "duration": 45,
           "sessions": [
             {
               "title": "Becoming AI‑First?! What Does that Means for QA?",
@@ -257,7 +257,7 @@
         },
         {
           "time": "3:50 PM",
-          "duration": 60,
+          "duration": 45,
           "sessions": [
             {
               "title": "Taming the Beast: Testing Non-Deterministic AI Systems with Confidence",
@@ -285,7 +285,7 @@
      ,
         {
           "time": "4:35 PM",
-          "duration": 60,
+          "duration": 25,
           "sessions": [
             {
               "title": "Day 1 - Wrap up",
