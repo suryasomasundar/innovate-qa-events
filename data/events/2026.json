@@ -840,7 +840,19 @@
       "topic": "Rehearsing the Future: Directing Quality in the Age of AI",
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/josh-penzell/"
-     }],
+     },
+     {
+      "id": "evan",
+      "name": "Evan Marshall",
+      "title": "CTO",
+      "company": "Ito.ai",
+      "image": "/speakers/2026/evan.jpg",
+      "keynote": false,
+      "topic": "Navigating SDLC Chaos",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/evan--marshall/"
+     }
+  ],
   "sponsors": {
     "platinum": [ 
       {
