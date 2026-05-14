@@ -206,6 +206,11 @@ export function FeaturedSessions() {
   const [activeDay, setActiveDay] = useState(days[0])
   const [openSessionId, setOpenSessionId] = useState<string | null>(null)
 
+  const selectDay = (date: string) => {
+    setActiveDay(date)
+    setOpenSessionId(null)
+  }
+
   const schedule = event2026.schedule as Record<string, { dayLabel: string; slots: ScheduleSlot[] }>
   const slots = schedule[activeDay]?.slots ?? []
 
@@ -239,9 +244,9 @@ export function FeaturedSessions() {
                 <button
                   key={date}
                   type="button"
-                  onClick={() => {
-                    setActiveDay(date)
-                    setOpenSessionId(null)
+                  onClick={() => selectDay(date)}
+                  onPointerDown={(e) => {
+                    if (e.button === 0) selectDay(date)
                   }}
                   className={`relative z-10 flex-1 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition-colors md:flex-none ${
                     activeDay === date

@@ -247,6 +247,12 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
                   setActiveDay(date)
                   setSelectedItem(null)
                 }}
+                onPointerDown={(e) => {
+                  if (e.button === 0) {
+                    setActiveDay(date)
+                    setSelectedItem(null)
+                  }
+                }}
                 className={cn(
                   "relative z-10 flex-1 cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors md:flex-none md:px-5",
                   activeDay === date
