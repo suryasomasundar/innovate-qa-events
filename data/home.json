@@ -174,16 +174,16 @@
        {
         "name": "Scleraworx",
         "logo": "Scleraworx.svg",
-        "width": 320,
-        "height": 128,
+        "width": 500,
+        "height": 188,
         "url": "https://www.scleraworx.io/"
       },
       
        {
         "name": "Xray",
         "logo": "Xray-Logo-NEW-All-White.png",
-        "width": 320,
-        "height": 128,
+        "width": 500,
+        "height": 188,
         "url": "https://www.getxray.app/"
       }
     ],
