@@ -170,6 +170,21 @@
         "width": 500,
         "height": 188,
         "url": "https://testlio.com/"
+      } ,
+       {
+        "name": "Scleraworx",
+        "logo": "Scleraworx.svg",
+        "width": 320,
+        "height": 128,
+        "url": "https://www.scleraworx.io/"
+      },
+      
+       {
+        "name": "Xray",
+        "logo": "Xray-Logo-NEW-All-White.png",
+        "width": 320,
+        "height": 128,
+        "url": "https://www.getxray.app/"
       }
     ],
     "silver": [
