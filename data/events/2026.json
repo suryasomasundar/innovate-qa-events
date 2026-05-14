@@ -885,6 +885,17 @@
         "url": "https://www.practitest.com"
       },
        {
+        "name": "Scleraworx",
+        "logo": "Scleraworx.svg",
+        "url": "https://www.scleraworx.io/"
+      },
+      
+       {
+        "name": "Xray",
+        "logo": "Xray-Logo-NEW-All-White.png",
+        "url": "https://www.getxray.app/"
+      },
+      {
         "name": "Testlio",
         "logo": "testliologo.png",
         "url": "https://testlio.com/"
