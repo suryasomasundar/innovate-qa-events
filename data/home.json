@@ -185,8 +185,15 @@
         "width": 500,
         "height": 188,
         "url": "https://www.getxray.app/"
-      }
-    ],
+      },
+      
+       {
+        "name": "Ito.ai",
+        "logo": "",
+        "width": 500,
+        "height": 188,
+        "url": "https://www.ito.ai/"
+      }    ],
     "silver": [
       {
         "name": "PlusQA",
