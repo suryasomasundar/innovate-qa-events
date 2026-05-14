@@ -860,6 +860,18 @@
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/evan--marshall/"
      }
+ ,
+     {
+      "id": "ivan",
+      "name": "Ivan Filippov",
+      "title": "Solutions Architect",
+      "company": "",
+      "image": "/speakers/2026/Ivan-Filippov_Xray.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/ivanfilippov/"
+     }
   ],
   "sponsors": {
     "platinum": [ 
