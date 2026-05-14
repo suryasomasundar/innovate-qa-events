@@ -234,7 +234,7 @@ export function FeaturedSessions() {
 
         <div className="mx-auto max-w-7xl rounded-2xl border border-border/70 bg-card shadow-lg shadow-primary/5">
           <div className="flex flex-col gap-5 border-b border-border/70 bg-gradient-to-br from-card via-card to-secondary/40 p-5 md:flex-row md:items-center md:justify-between">
-            <div className="inline-flex w-full gap-1 rounded-full border border-border bg-secondary/70 p-1 md:w-auto">
+            <div className="relative z-10 inline-flex w-full gap-1 rounded-full border border-border bg-secondary/70 p-1 md:w-auto">
               {days.map((date) => (
                 <button
                   key={date}
@@ -243,7 +243,7 @@ export function FeaturedSessions() {
                     setActiveDay(date)
                     setOpenSessionId(null)
                   }}
-                  className={`flex-1 rounded-full px-5 py-2 text-sm font-semibold transition-colors md:flex-none ${
+                  className={`relative z-10 flex-1 cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition-colors md:flex-none ${
                     activeDay === date
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-muted-foreground hover:bg-card/70"
