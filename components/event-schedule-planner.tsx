@@ -238,7 +238,7 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
     <>
       <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-lg shadow-primary/5">
         <div className="sticky top-0 z-30 flex flex-col gap-5 border-b border-border/70 bg-gradient-to-br from-card via-card to-secondary/50 p-4 backdrop-blur md:flex-row md:items-center md:justify-between md:p-5">
-          <div className="inline-flex w-full gap-1 rounded-full border border-border bg-secondary/80 p-1 md:w-auto">
+          <div className="relative z-10 inline-flex w-full gap-1 rounded-full border border-border bg-secondary/80 p-1 md:w-auto">
             {scheduleEntries.map(([date, day], index) => (
               <button
                 key={date}
@@ -248,7 +248,7 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
                   setSelectedItem(null)
                 }}
                 className={cn(
-                  "flex-1 rounded-full px-4 py-2 text-sm font-semibold transition-colors md:flex-none md:px-5",
+                  "relative z-10 flex-1 cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors md:flex-none md:px-5",
                   activeDay === date
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "text-muted-foreground hover:bg-card/80",
