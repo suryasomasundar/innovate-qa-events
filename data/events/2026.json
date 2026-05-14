@@ -899,6 +899,11 @@
         "name": "Testlio",
         "logo": "testliologo.png",
         "url": "https://testlio.com/"
+      },
+      {
+        "name": "Ito.ai",
+        "logo": "ito.png",
+        "url": "https://Ito.ai/"
       }
     ],
     "silver": [
