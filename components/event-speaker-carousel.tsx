@@ -179,7 +179,7 @@ export function EventSpeakerCarousel({
         >
           <div
             className="relative h-[500px] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.98)_0%,rgba(248,246,251,0.9)_42%,rgba(220,214,224,0.82)_100%)]"
-            style={{ perspective: "1400px", overscrollBehaviorX: "contain" }}
+            style={{ perspective: "1400px", transformStyle: "preserve-3d", overscrollBehaviorX: "contain" }}
           >
             {speakers.map((speaker, index) => {
               const slot = slotFor(index)
