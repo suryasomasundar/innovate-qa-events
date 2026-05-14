@@ -63,7 +63,7 @@ function SponsorLogo({
         alt={sponsor.name}
         width={sponsor.width}
         height={sponsor.height}
-        className="max-h-full max-w-full object-contain"
+        className="h-full w-full object-contain"
         style={scaleStyle}
       />
     </div>
