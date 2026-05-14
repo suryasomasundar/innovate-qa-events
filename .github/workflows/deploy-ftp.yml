@@ -52,6 +52,7 @@ jobs:
           protocol: ftp
           local-dir: ./out/
           server-dir: /public_html/
+          state-name: .ftp-deploy-sync-state-v2.json
           exclude: |
             **/.git*
             **/.git*/**
