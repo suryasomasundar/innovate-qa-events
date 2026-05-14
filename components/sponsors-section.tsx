@@ -6,7 +6,15 @@ import { ExternalLink, Handshake } from "lucide-react"
 import { BASE_PATH } from "@/lib/constants"
 import homeData from "@/data/home.json"
 
-type Sponsor = { name: string; logo: string; width: number; height: number; url?: string }
+type Sponsor = {
+  name: string
+  logo: string
+  width: number
+  height: number
+  url?: string
+  /** Optional CSS scale multiplier (e.g. 1.5) for logos whose source PNG/SVG has heavy internal padding. */
+  scale?: number
+}
 
 function sponsorLogoSrc(sponsor: Sponsor) {
   return sponsor.logo.startsWith("http") ? sponsor.logo : `${BASE_PATH}/${sponsor.logo}`
@@ -40,35 +48,26 @@ function SponsorLink({
 
 function SponsorLogo({
   sponsor,
-  className,
+  compact = false,
 }: {
   sponsor: Sponsor
-  className: string
+  compact?: boolean
 }) {
+  if (!sponsor.logo) return null
+  const boxClass = compact ? "h-20 w-[220px]" : "h-24 w-[260px]"
+  const scaleStyle = sponsor.scale ? { transform: `scale(${sponsor.scale})` } : undefined
   return (
-    <Image
-      src={sponsorLogoSrc(sponsor)}
-      alt={sponsor.name}
-      width={sponsor.width}
-      height={sponsor.height}
-      className={className}
-      style={{ width: "auto" }}
-    />
+    <div className={`flex items-center justify-center ${boxClass}`}>
+      <Image
+        src={sponsorLogoSrc(sponsor)}
+        alt={sponsor.name}
+        width={sponsor.width}
+        height={sponsor.height}
+        className="max-h-full max-w-full object-contain"
+        style={scaleStyle}
+      />
+    </div>
   )
-}
-
-function sponsorLogoClass(sponsor: Sponsor, compact = false) {
-  const name = sponsor.name.toLowerCase()
-  const base = "object-contain"
-
-  if (name.includes("stories")) return `${base} max-h-24 max-w-[80%] scale-125`
-  if (name.includes("testlio")) return `${base} max-h-20 max-w-[78%] scale-125`
-  if (name.includes("flint")) return `${base} max-h-20 max-w-[72%] scale-110`
-  if (name.includes("dev it")) return `${base} max-h-16 max-w-[70%] scale-110`
-  if (name.includes("wearedevelopers")) return `${base} max-h-16 max-w-[72%] scale-110`
-  if (name.includes("plusqa")) return `${base} max-h-24 max-w-[84%]`
-
-  return `${base} ${compact ? "max-h-16 max-w-[76%]" : "max-h-24 max-w-[84%]"}`
 }
 
 function PremierSponsorCard({ sponsor }: { sponsor: Sponsor }) {
@@ -86,7 +85,7 @@ function PremierSponsorCard({ sponsor }: { sponsor: Sponsor }) {
         )}
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <SponsorLogo sponsor={sponsor} className={sponsorLogoClass(sponsor)} />
+        <SponsorLogo sponsor={sponsor} />
       </div>
     </SponsorLink>
   )
@@ -115,7 +114,7 @@ function SponsorLogoTile({
         )}
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <SponsorLogo sponsor={sponsor} className={sponsorLogoClass(sponsor, compact)} />
+        <SponsorLogo sponsor={sponsor} compact={compact} />
       </div>
     </SponsorLink>
   )
@@ -151,8 +150,18 @@ function SponsorTierRow({
   )
 }
 
+function withLogo(list: Sponsor[]) {
+  return list.filter((sponsor) => sponsor.logo)
+}
+
 export function SponsorsSection() {
   const { sponsors } = homeData
+
+  const platinum = withLogo(sponsors.platinum)
+  const gold = withLogo(sponsors.gold)
+  const silver = withLogo(sponsors.silver)
+  const bronze = withLogo(sponsors.bronze)
+  const partners = withLogo(sponsors.partners)
 
   return (
     <section id="sponsors" className="bg-muted/30 py-20 md:py-24">
@@ -177,7 +186,7 @@ export function SponsorsSection() {
         </div>
 
         <div className="space-y-9">
-          {sponsors.platinum && sponsors.platinum.length > 0 && (
+          {platinum.length > 0 && (
             <div>
               <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
@@ -190,7 +199,7 @@ export function SponsorsSection() {
                 </p>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
-                {sponsors.platinum.map((sponsor) => (
+                {platinum.map((sponsor) => (
                   <PremierSponsorCard key={sponsor.name} sponsor={sponsor} />
                 ))}
               </div>
@@ -201,26 +210,26 @@ export function SponsorsSection() {
             <SponsorTierRow
               title="Gold Sponsors"
               description="Product teams and platforms attendees can explore during the conference."
-              sponsors={sponsors.gold}
+              sponsors={gold}
               tier="Gold"
             />
             <SponsorTierRow
               title="Silver Sponsors"
               description="Companies supporting practical learning, networking, and community access."
-              sponsors={sponsors.silver}
+              sponsors={silver}
               tier="Silver"
             />
             <SponsorTierRow
               title="Community Partners"
               description="Partner channels helping connect Innovate QA with builders and practitioners."
-              sponsors={sponsors.partners}
+              sponsors={partners}
               tier="Partner"
               compact
             />
             <SponsorTierRow
               title="Bronze Sponsors"
               description="Additional supporters helping make the conference possible."
-              sponsors={sponsors.bronze}
+              sponsors={bronze}
               tier="Bronze"
               compact
             />
