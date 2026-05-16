@@ -859,17 +859,27 @@
       "topic": "Navigating SDLC Chaos",
       "bio": "Evan Marshall is Cofounder & CTO at Ito, where he builds AI-powered QA infrastructure for enterprises that automatically tests every pull request. Previously, his team built production systems securing hundreds of millions of dollars in zero-knowledge cryptographic environments, created the first WebGPU-accelerated ZK proving library (recognized by Z-Prize), and shipped the largest wallet on a major privacy chain to 1.5M users. He has been a professional software developer for over 15 years.",
       "linkedin": "https://www.linkedin.com/in/evan--marshall/"
-     }
- ,
+     },
      {
       "id": "ivan",
       "name": "Ivan Filippov",
       "title": "Solutions Architect",
       "company": "",
-      "image": "/speakers/2026/Ivan-Filippov_Xray.jpg",
+      "image": "/speakers/2026/priyanka.jpg",
       "keynote": false,
       "topic": "",
       "bio": "",
+      "linkedin": "https://www.linkedin.com/in/phalder/"
+     },
+     {
+      "id": "priyanka",
+      "name": "Priyanka Halder",
+      "title": "QE Leader",
+      "company": "",
+      "image": "/speakers/2026/priyanka.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "With 19 years of digital transformation experience, Priyanka leads high-performing teams to deliver innovation and operational excellence in healthcare technology. Her background includes senior roles at HealthEdge, GoodRx, Oscar Health, and Humana, where she drove agile adoption, automation, and quality engineering to align technology with business outcomes. \nShe holds an MS in Computer Science (CSU Long Beach), a Chief Data & AI Officer certificate (Michigan Ross), and a Mobile Developer credential (UCLA). As a Certified Scrum Master and Agile Coach, she empowers teams to achieve impactful results through collaboration and continuous improvement. Recognized as a speaker and thought leader in quality engineering and digital strategy, she is passionate about mentoring future leaders and advancing healthcare through technology-driven, patient-focused solutions.",
       "linkedin": "https://www.linkedin.com/in/ivanfilippov/"
      }
   ],
