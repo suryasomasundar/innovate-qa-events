@@ -875,12 +875,60 @@
       "id": "priyanka",
       "name": "Priyanka Halder",
       "title": "QE Leader",
-      "company": "",
+      "company": "Deloitte",
       "image": "/speakers/2026/priyanka.jpg",
       "keynote": false,
       "topic": "",
       "bio": "With 19 years of digital transformation experience, Priyanka leads high-performing teams to deliver innovation and operational excellence in healthcare technology. Her background includes senior roles at HealthEdge, GoodRx, Oscar Health, and Humana, where she drove agile adoption, automation, and quality engineering to align technology with business outcomes. \nShe holds an MS in Computer Science (CSU Long Beach), a Chief Data & AI Officer certificate (Michigan Ross), and a Mobile Developer credential (UCLA). As a Certified Scrum Master and Agile Coach, she empowers teams to achieve impactful results through collaboration and continuous improvement. Recognized as a speaker and thought leader in quality engineering and digital strategy, she is passionate about mentoring future leaders and advancing healthcare through technology-driven, patient-focused solutions.",
       "linkedin": "https://www.linkedin.com/in/ivanfilippov/"
+     }
+  ,
+     {
+      "id": "abhishek",
+      "name": "Abhishek Raj",
+      "title": "QE Leader",
+      "company": "Deloitte",
+      "image": "/speakers/2026/abhishek.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Abhishek has over 20 years of experience in playing various leadership roles in consulting and delivery of QE services. Abhishek has extensive experience in Software Testing Lifecycle including functional testing, performance engineering and test automation. Abhishek is an AWS certified Solution Architect Associate and has successfully led large scale and complex testing projects.",
+      "linkedin": "https://www.linkedin.com/in/abhishekraj01/"
+     }
+  ,
+     {
+      "id": "chandan",
+      "name": "Chandan Agrawal",
+      "title": "Development Lead",
+      "company": "Deloitte",
+      "image": "/speakers/2026/chandan.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Chandan is a Technology Consulting professional with over 12 years of experience in Digital healthcare strategy, implementation and managed services with Deloitte. He has a proven track record of establishing and managing large cross-functional technology teams across shores, specializing in the Enterprise Integration of healthcare applications. He is experienced in end-to-end project development activities such as gathering requirements, scoping, estimation, design, build, testing, and deployment, with a strong focus on stakeholder, third-party vendor, knowledge, problem, and risk management throughout the project lifecycle.",
+      "linkedin": "https://www.linkedin.com/in/chandan-agrawal-92968122/"
+     }
+  ,
+     {
+      "id": "rhonda",
+      "name": "Rhonda Curtis",
+      "title": "QE Leader",
+      "company": "Deloitte",
+      "image": "/speakers/2026/rhonda.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Rhonda is a seasoned Senior Manager with 16 years of experience, combining strong functional expertise with a proven aptitude for technology. She brings extensive project experience across fit/gap analysis and the full software development lifecycle, including requirements gathering, test strategy and execution, and deployment. Rhonda specializes in developing and tailoring test and implementation strategies for complex integrations. She is results-driven and takes pride in delivering high-quality work efficiently and consistently.",
+      "linkedin": "https://www.linkedin.com/in/rhonda-curtis-9a4b8521/"
+     }
+  ,
+     {
+      "id": "karan",
+      "name": "Karan Kapoor",
+      "title": "QE Leader",
+      "company": "Deloitte",
+      "image": "/speakers/2026/karan.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Karan Kapoor is a Senior Manager in Deloitte's Health Plan practice with over 13 years of experience. His focus is primarily on IT strategy and solving signature issues in the health plans industry. Most recently, Karan worked on a national health plan core claims modernization program. His experience spans across the health plan value chain, including integration with third-party vendors, accumulators, and claims adjudication. Karan has also served as a product manager in Deloitte's Digital Health Products suite, where he designed NextGen health plan products. He has a track record of effectively blending technical know-how with functional domain knowledge to deliver robust solutions.",
+      "linkedin": "https://www.linkedin.com/in/kapoorkaran/"
      }
   ],
   "sponsors": {
