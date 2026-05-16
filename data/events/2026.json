@@ -508,16 +508,16 @@
               "speakers": [""]
             },
             {
-              "title": "TBD - Big 4 Consulting firm",
+              "title": "Building Next Generation Enterprise Test Centers of Excellence",
               "type": "panel",
               "room": "leadership",
-              "description": "",
-              "speakers": []
+              "description": "This panel brings together four senior Deloitte Consulting LLP Quality Engineering and Technology professionals to explore how enterprise Testing Centers of Excellence are evolving in response to AI, DevOps, and shifting business expectations around quality and risk. Moderated by Priyanka Halder, Senior Manager QE Practice, the session features Senior Managers Abhishek Raj, Karan Kapoor, Jen Barcenas, Chandan Agrawal, and Rhonda Curtis, with experience spanning QE transformation, cloud engineering, platform architecture, and DevSecOps.",
+              "speakers": ["priyanka", "chandan", "rhonda", "abhishek", "karan"]
             }   
           ]
         },
         {
-          "time": "3:50 PM",
+          "time": "4:00 PM",
           "duration": 45,
           "sessions": [
             {
