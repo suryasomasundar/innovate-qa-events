@@ -223,9 +223,11 @@ export function EventSpeakerCarousel({
 
                     <div className="absolute bottom-0 left-0 right-0 z-20 min-h-[84px] px-4 pb-5 pt-4">
                       <div className="absolute inset-0 -z-10 bg-[#efeaf1] [clip-path:polygon(0_14%,100%_0,100%_100%,0_100%)]" />
-                      <p className="max-w-[168px] text-sm font-bold leading-tight tracking-normal text-primary">
-                        {speaker.company || "Innovate QA"}
-                      </p>
+                      {speaker.company && (
+                        <p className="max-w-[168px] text-sm font-bold leading-tight tracking-normal text-primary">
+                          {speaker.company}
+                        </p>
+                      )}
                       {role && <p className="max-w-[168px] text-xs font-medium leading-snug text-primary/75">{role}</p>}
 
                       {link && (

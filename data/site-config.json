@@ -2,7 +2,7 @@
   "title": "Innovate QA 2026",
   "description": "Explore Innovation in Software Quality at June 4-5 Innovate QA 2026. Join industry leaders for talks, workshops, and networking.",
   "siteUrl": "https://innovateqaevents.com",
-  "socialBanner": "/qa-social.png",
+  "socialBanner": "/social-preview.jpg",
   "siteLogo": "/qa-icon.png",
   "locale": "en_US",
   "themeColor": "#4b0082",
@@ -54,11 +54,11 @@
   "googleSiteVerification": "fz0c_cPQGrW9O_Vn0LezCc823AiF1d_ynF7O3I1xY8M",
   "googleAnalyticsId": "",
   "twitterMeta": {
-    "card": "summary",
+    "card": "summary_large_image",
     "site": "@innovateqaevent",
     "title": "Innovate QA 2026",
     "description": "Explore Innovation in Software Quality at June 4-5 Innovate QA 2026 Best Software Testing Conference 2026. Join industry leaders for QA Conference.",
-    "image": "https://img1.wsimg.com/isteam/ip/bb935004-06a8-408b-b5e5-10ba769a2415/Text%20-%20All%20White%20(1).png",
+    "image": "https://innovateqaevents.com/social-preview.jpg",
     "imageAlt": "InnovateQAEvents"
   },
   "openGraph": {
@@ -67,7 +67,7 @@
     "title": "Innovate QA 2026",
     "description": "Explore Innovation in Software Quality at June 4-5 Innovate QA 2026 Best Software Testing Conference 2026. Join industry leaders for QA Conference.",
     "type": "website",
-    "image": "https://img1.wsimg.com/isteam/ip/bb935004-06a8-408b-b5e5-10ba769a2415/Text%20-%20All%20White%20(1).png",
+    "image": "https://innovateqaevents.com/social-preview.jpg",
     "locale": "en_US"
   },
   "icons": {
