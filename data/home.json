@@ -229,6 +229,13 @@
         "width": 320,
         "height": 128,
         "url": "https://devitjobs.com/jobs/Tester/all/all"
+      },
+      {
+        "name": "Engenious University",
+        "logo": "EU_Logo_black.png",
+        "width": 320,
+        "height": 128,
+        "url": "https://university.engenious.io/"
       }
     ],
     "contactEmail": "contact@innovateqaevents.com"
