@@ -177,11 +177,11 @@
           "time": "2:00 PM",
           "duration": 45,
           "sessions": [
-            {
-              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 The Hallucination Problem | #4 Testing the Untestable",
+           {
+              "title": "The Mastermind Room",
               "type": "discussion",
               "room": "discussion",
-              "description": "",
+              "description": "An intimate roundtable where participants share the challenges they're facing in QA and AI adoption, and collectively work through solutions. Come with your toughest problems — leave with fresh perspectives and actionable ideas.",
               "speakers": [""]
             },
             {
@@ -352,7 +352,7 @@
               "speakers": ["goldie"]
             },
             {
-              "title": "#1 Quality at the Speed of AI | #2 The QA Engineer of 2030 | #3 Is Shifting Left Dead? How AI Changes Where Quality Actually Lives | #4 Are AI-Generated Tests Creating False Confidence?",
+              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 Is Shifting Left Dead? How AI Changes Where Quality Actually Lives | #4 Are AI-Generated Tests Creating False Confidence?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
@@ -501,7 +501,7 @@
               "speakers": ["dana", "scott"]
             },
             {
-              "title": "#1 Does AI Make Junior Testers More Valuable… or Less Necessary? | #2 What Happens When AI Gets It Wrong in Production? | #3 Are We Measuring the Wrong Things in an AI-Driven QA World? | #4 Testing the Untestable",
+              "title": "#1 Does AI Make Junior Testers More Valuable… or Less Necessary? | #2 What Happens When AI Gets It Wrong in Production? | #3 Are We Measuring the Wrong Things in an AI-Driven QA World? | #4 Will AI Reduce QA Headcount... or Make QA More Critical Than Ever?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
