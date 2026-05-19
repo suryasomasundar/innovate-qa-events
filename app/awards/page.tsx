@@ -64,16 +64,11 @@ export default function AwardsPage() {
               <span className="text-primary drop-shadow-[0_0_15px_rgba(75,0,130,0.5)]">Awards</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 text-pretty">{awardsData.description}</p>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-medium text-muted-foreground">
+              <span className="h-2 w-2 rounded-full bg-muted-foreground/60" />
+              Nominations are now closed. Winners will be announced at the conference.
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSel6C8p-jQymD9E5Rmnk0DaSZyeSllrsAk6vEF_gim_p0ERGQ/viewform?usp=header"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Submit a Nomination
-                </a>
-              </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/volunteer">
                   <Gavel className="mr-2 h-4 w-4" />
@@ -207,21 +202,12 @@ export default function AwardsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <Trophy className="h-12 w-12 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Know Someone Deserving?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Nominations Are Closed</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Nominations are open to the entire QA community. Self-nominations are welcome. Help us recognize the
-              people and teams making quality engineering better for everyone.
+              Thank you to everyone who submitted a nomination. The submission window has closed and our judges are
+              reviewing the entries. Winners will be announced at Innovate QA 2026.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSel6C8p-jQymD9E5Rmnk0DaSZyeSllrsAk6vEF_gim_p0ERGQ/viewform?usp=header"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Submit a Nomination
-                </a>
-              </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/volunteer">
                   <Gavel className="mr-2 h-4 w-4" />
