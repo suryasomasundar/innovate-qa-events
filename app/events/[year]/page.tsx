@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Calendar, MapPin, Play, ExternalLink, Handshake } from "lucide-react"
+import { ArrowLeft, Calendar, MapPin, Play, Handshake } from "lucide-react"
 import awardsData from "@/data/awards.json"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -11,6 +11,7 @@ import { EventLD, BreadcrumbLD } from "@/components/json-ld"
 import { EventJudgePanel } from "@/components/event-judge-panel"
 import { EventSpeakerCarousel } from "@/components/event-speaker-carousel"
 import { EventSchedulePlanner } from "@/components/event-schedule-planner"
+import { PremierSponsorCard, SponsorTierRow, withLogo, type Sponsor } from "@/components/sponsor-cards"
 import { BASE_PATH } from "@/lib/constants"
 
 import event2026 from "@/data/events/2026.json"
@@ -21,15 +22,6 @@ const events: Record<string, typeof event2026 | typeof event2025 | typeof event2
   "2026": event2026,
   "2025": event2025,
   "2024": event2024,
-}
-
-type Sponsor = {
-  name: string
-  logo?: string
-  url?: string
-  tagline?: string
-  width?: number
-  height?: number
 }
 
 type EventSponsors = {
@@ -314,7 +306,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
             </div>
           </div>
 
-          {sponsors.platinum && sponsors.platinum.length > 0 && (
+          {withLogo(sponsors.platinum).length > 0 && (
             <div className="mb-16">
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
                 <div>
@@ -326,7 +318,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                 </p>
               </div>
               <div className="grid md:grid-cols-2 gap-5">
-                {sponsors.platinum.map((sponsor) => (
+                {withLogo(sponsors.platinum).map((sponsor) => (
                   <PremierSponsorCard key={sponsor.name} sponsor={sponsor} />
                 ))}
               </div>
@@ -334,144 +326,48 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
           )}
 
           <div className="space-y-6">
-            {sponsors.gold && sponsors.gold.length > 0 && (
-              <SponsorTierRow
-                title="Gold Sponsors"
-                description="Product teams and platforms attendees can explore during the conference."
-                sponsors={sponsors.gold}
-                tier="Gold"
-              />
-            )}
-
-            {sponsors.silver && sponsors.silver.length > 0 && (
-              <SponsorTierRow
-                title="Silver Sponsors"
-                description="Companies supporting practical learning, networking, and community access."
-                sponsors={sponsors.silver}
-                tier="Silver"
-              />
-            )}
-
-            {sponsors.partners && sponsors.partners.length > 0 && (
-              <SponsorTierRow
-                title="Community Partners"
-                description="Community channels helping connect Innovate QA with builders and practitioners."
-                sponsors={sponsors.partners}
-                tier="Partner"
-                compact
-              />
-            )}
-
-            {sponsors.bronze && sponsors.bronze.length > 0 && (
-              <SponsorTierRow
-                title="Bronze Sponsors"
-                description="Additional supporters helping make the conference possible."
-                sponsors={sponsors.bronze}
-                tier="Bronze"
-                compact
-              />
-            )}
+            <SponsorTierRow
+              title="Gold Sponsors"
+              description="Product teams and platforms attendees can explore during the conference."
+              sponsors={withLogo(sponsors.gold)}
+              tier="Gold"
+              labelClassName="text-white"
+              descriptionClassName="text-white/60"
+              borderClassName="border-white/10"
+            />
+            <SponsorTierRow
+              title="Silver Sponsors"
+              description="Companies supporting practical learning, networking, and community access."
+              sponsors={withLogo(sponsors.silver)}
+              tier="Silver"
+              labelClassName="text-white"
+              descriptionClassName="text-white/60"
+              borderClassName="border-white/10"
+            />
+            <SponsorTierRow
+              title="Community Partners"
+              description="Community channels helping connect Innovate QA with builders and practitioners."
+              sponsors={withLogo(sponsors.partners)}
+              tier="Partner"
+              compact
+              labelClassName="text-white"
+              descriptionClassName="text-white/60"
+              borderClassName="border-white/10"
+            />
+            <SponsorTierRow
+              title="Bronze Sponsors"
+              description="Additional supporters helping make the conference possible."
+              sponsors={withLogo(sponsors.bronze)}
+              tier="Bronze"
+              compact
+              labelClassName="text-white"
+              descriptionClassName="text-white/60"
+              borderClassName="border-white/10"
+            />
           </div>
 
         </div>
       </section>
     </>
-  )
-}
-
-function sponsorLogoSrc(sponsor: Sponsor) {
-  if (!sponsor.logo) return "/placeholder.svg"
-  return sponsor.logo.startsWith("http") ? sponsor.logo : `${BASE_PATH}/${sponsor.logo}`
-}
-
-function PremierSponsorCard({ sponsor }: { sponsor: Sponsor }) {
-  return (
-    <a
-      href={sponsor.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative min-h-[250px] rounded-lg bg-white p-7 md:p-8 text-foreground shadow-sm transition-transform hover:-translate-y-0.5 flex flex-col"
-    >
-      <div className="flex items-center justify-between gap-4 mb-8">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">Platinum Sponsor</span>
-        <ExternalLink className="w-4 h-4 text-muted-foreground transition-colors group-hover:text-primary" />
-      </div>
-      <div className="flex-1 flex items-center justify-center">
-        <Image
-          src={sponsorLogoSrc(sponsor)}
-          alt={sponsor.name}
-          width={sponsor.width ?? 320}
-          height={sponsor.height ?? 150}
-          className="max-h-36 max-w-[90%] object-contain"
-          style={{ width: "auto" }}
-          unoptimized
-        />
-      </div>
-    </a>
-  )
-}
-
-function SponsorLogoTile({
-  sponsor,
-  tier,
-  compact = false,
-}: {
-  sponsor: Sponsor
-  tier: string
-  compact?: boolean
-}) {
-  return (
-    <a
-      href={sponsor.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group min-h-[168px] rounded-lg bg-white p-5 text-foreground shadow-sm transition-transform hover:-translate-y-0.5 flex flex-col"
-    >
-      <div className="flex items-center justify-between gap-3 mb-5">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{tier}</span>
-        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground transition-colors group-hover:text-primary" />
-      </div>
-      <div className="flex-1 flex items-center justify-center">
-        <Image
-          src={sponsorLogoSrc(sponsor)}
-          alt={sponsor.name}
-          width={sponsor.width ?? (compact ? 170 : 230)}
-          height={sponsor.height ?? (compact ? 82 : 110)}
-          className={`${compact ? "max-h-20" : "max-h-28"} max-w-[92%] object-contain`}
-          style={{ width: "auto" }}
-          unoptimized
-        />
-      </div>
-    </a>
-  )
-}
-
-function SponsorTierRow({
-  title,
-  description,
-  sponsors,
-  tier,
-  compact = false,
-}: {
-  title: string
-  description: string
-  sponsors: Sponsor[]
-  tier: string
-  compact?: boolean
-}) {
-  return (
-    <div className="grid lg:grid-cols-[260px_1fr] gap-6 py-8">
-      <div>
-        <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-xl font-semibold text-white">{title}</h3>
-        </div>
-        <p className="text-sm text-white/60">{description}</p>
-      </div>
-      <div className={compact ? "grid sm:grid-cols-2 md:grid-cols-3 gap-4" : "grid sm:grid-cols-2 gap-4"}>
-        {sponsors.map((sponsor) => (
-          <SponsorLogoTile key={sponsor.name} sponsor={sponsor} tier={tier} compact={compact} />
-        ))}
-      </div>
-    </div>
   )
 }

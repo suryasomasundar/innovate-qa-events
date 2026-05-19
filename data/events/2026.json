@@ -945,6 +945,7 @@
         "logo": "The Stories and Wisdom Company_Dark text.png",
         "width": 320,
         "height": 128,
+        "scale": 1.3,
         "url": "https://www.storieswisdom.com/"
       }
     ],
@@ -952,31 +953,46 @@
       {
         "name": "practiTest",
         "logo": "PractiTest New Logo .png",
+        "width": 320,
+        "height": 128,
         "url": "https://www.practitest.com"
       },
-    {
+      {
         "name": "lambdatest",
         "logo": "LambdaTest.svg",
+        "width": 320,
+        "height": 128,
         "url": "https://www.testmuai.com/"
-      },    {
+      },
+      {
         "name": "Scleraworx",
         "logo": "Scleraworx.svg",
+        "width": 440,
+        "height": 240,
+        "scale": 1.5,
         "url": "https://www.scleraworx.io/"
       },
-      
-       {
+      {
         "name": "Xray",
         "logo": "Xray-Logo-NEW-Principal-Version.svg",
+        "width": 500,
+        "height": 188,
+        "scale": 0.85,
         "url": "https://www.getxray.app/"
       },
       {
         "name": "Testlio",
         "logo": "testliologo.png",
+        "width": 318,
+        "height": 108,
         "url": "https://testlio.com/"
       },
       {
         "name": "Ito.ai",
-        "logo": "ito.png",
+        "logo": "ito-ai-logo.svg",
+        "width": 52,
+        "height": 48,
+        "scale": 0.7,
         "url": "https://Ito.ai/"
       }
     ],
@@ -984,11 +1000,15 @@
       {
         "name": "PlusQA",
         "logo": "plusqa.png",
+        "width": 320,
+        "height": 128,
         "url": "https://www.plusqa.com"
       },
       {
         "name": "FlintLab",
         "logo": "flintlab-logo-tech.jpg",
+        "width": 320,
+        "height": 128,
         "url": "https://flintlab.io"
       }
     ],
@@ -996,12 +1016,23 @@
     "partners": [
       {
         "name": "Wearedevelopers",
-        "logo": "WeAreDevelopers-Logo-Black (2).png",
+        "logo": "we-are-developers.png",
+        "width": 320,
+        "height": 128,
         "url": "https://www.wearedevelopers.com"
       },
-         {
+      {
+        "name": "Dev IT Jobs",
+        "logo": "devitus-rectangle.png",
+        "width": 320,
+        "height": 128,
+        "url": "https://devitjobs.com/jobs/Tester/all/all"
+      },
+      {
         "name": "Engenious University",
         "logo": "EU_Logo_black.png",
+        "width": 320,
+        "height": 128,
         "url": "https://university.engenious.io/"
       }
     ]
