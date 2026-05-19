@@ -954,7 +954,11 @@
         "logo": "PractiTest New Logo .png",
         "url": "https://www.practitest.com"
       },
-       {
+    {
+        "name": "lambdatest",
+        "logo": "LambdaTest.svg",
+        "url": "https://www.testmuai.com/"
+      },    {
         "name": "Scleraworx",
         "logo": "Scleraworx.svg",
         "url": "https://www.scleraworx.io/"
