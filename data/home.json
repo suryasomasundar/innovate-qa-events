@@ -165,7 +165,14 @@
         "height": 128,
         "url": "https://www.practitest.com"
       },
-       {
+        {
+        "name": "lambdatest",
+        "logo": "LambdaTest.svg",
+        "width": 320,
+        "height": 128,
+        "url": "https://www.testmuai.com/"
+      },
+      {
         "name": "Testlio",
         "logo": "testliologo.png",
         "width": 318,
