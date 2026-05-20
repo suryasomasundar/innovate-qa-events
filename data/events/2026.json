@@ -383,7 +383,7 @@
               "type": "discussion",
               "room": "discussion",
               "description": "An intimate roundtable where participants share the challenges they're facing in QA and AI adoption, and collectively work through solutions. Come with your toughest problems — leave with fresh perspectives and actionable ideas.",
-              "speakers": [""]
+              "speakers": ["irina"]
             }
           ]
         },
@@ -511,7 +511,7 @@
               "title": "Building Next Generation Enterprise Test Centers of Excellence",
               "type": "panel",
               "room": "leadership",
-              "description": "This panel brings together four senior Deloitte Consulting LLP Quality Engineering and Technology professionals to explore how enterprise Testing Centers of Excellence are evolving in response to AI, DevOps, and shifting business expectations around quality and risk. Moderated by Priyanka Halder, Senior Manager QE Practice, the session features Senior Managers Abhishek Raj, Karan Kapoor, Jen Barcenas, Chandan Agrawal, and Rhonda Curtis, with experience spanning QE transformation, cloud engineering, platform architecture, and DevSecOps.",
+              "description": "This panel brings together four senior Deloitte Consulting LLP Quality Engineering and Technology professionals to explore how enterprise Testing Centers of Excellence are evolving in response to AI, DevOps, and shifting business expectations around quality and risk. Moderated by Priyanka Halder, Senior Manager QE Practice, the session features Senior Managers Abhishek Raj, Karan Kapoor, Chandan Agrawal, and Rhonda Curtis, with experience spanning QE transformation, cloud engineering, platform architecture, and DevSecOps.",
               "speakers": ["priyanka", "chandan", "rhonda", "abhishek", "karan"]
             }   
           ]
@@ -929,6 +929,18 @@
       "topic": "",
       "bio": "Karan Kapoor is a Senior Manager in Deloitte's Health Plan practice with over 13 years of experience. His focus is primarily on IT strategy and solving signature issues in the health plans industry. Most recently, Karan worked on a national health plan core claims modernization program. His experience spans across the health plan value chain, including integration with third-party vendors, accumulators, and claims adjudication. Karan has also served as a product manager in Deloitte's Digital Health Products suite, where he designed NextGen health plan products. He has a track record of effectively blending technical know-how with functional domain knowledge to deliver robust solutions.",
       "linkedin": "https://www.linkedin.com/in/kapoorkaran/"
+     }
+  ,
+     {
+      "id": "irina",
+      "name": "Irina Ulanova",
+      "title": "Communication and Relationship Coach",
+      "company": "Live Flow Coaching LLC ",
+      "image": "/speakers/2026/Irina.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Irina supports individuals navigating change and uncertainty, helping them access a resourceful state, maximize alignment, clear misunderstandings, shift their mindset, leverage inner strengths, and minimize miscommunication. \n\n As an external coach she helps dedicated professionals enhance interpersonal skills, improve work-life balance, switch from self-sabotage to the flow of intentional action, resolve emotional reactions, and cultivate well-being at work. \n\nCertifications & Expertise: Certified Professional Coach and NLP Master Practitioner with a multicultural perspective. Specialized in Conversational Intelligence, Conscious Business Coaching, Relationship Coaching, Gender Intelligence (Mars Venus).",
+      "linkedin": "https://www.linkedin.com/in/irina-ulanova/"
      }
   ],
   "sponsors": {
