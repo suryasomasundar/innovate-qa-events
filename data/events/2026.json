@@ -435,8 +435,7 @@
               "room": "discussion",
               "description": "",
               "speakers": ["igor", "greg"]
-            }
-        ,
+            },
             {
               "title": "Navigating SDLC Chaos",
               "type": "talk",
@@ -480,9 +479,8 @@
               "speakers": ["igor", "greg"]
             }
           ]
-        } ,
-      
-         {
+        },
+        {
           "time": "2:45 PM",
           "duration": 15,
           "sessions": [
@@ -505,7 +503,7 @@
               "description": "",
               "speakers": ["jyotheeswara"]
             },
-             {
+           {
               "title": "How to Get Hired in the Age of AI",
               "type": "workshop",
               "room": "demo",
