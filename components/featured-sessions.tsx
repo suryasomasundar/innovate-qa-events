@@ -36,6 +36,13 @@ type ScheduleSession = {
   description?: string
   speakers?: string[]
   speakerId?: string
+  /** When true, renders as a full-width row across all tracks using the session's
+   * actual type styling — for plenary keynotes/welcomes that aren't tied to one track. */
+  spansAllTracks?: boolean
+}
+
+function isSpanningSession(session: ScheduleSession) {
+  return session.type === "break" || session.spansAllTracks === true
 }
 
 type ScheduleSlot = {
@@ -276,19 +283,27 @@ export function FeaturedSessions() {
               ))}
 
               {slots.map((slot, slotIndex) => {
-                const breakSession = slot.sessions.find((session) => session.type === "break")
-                if (breakSession) {
+                const spanningSession = slot.sessions.find(isSpanningSession)
+                if (spanningSession) {
+                  const isBreak = spanningSession.type === "break"
+                  const config = getTypeConfig(spanningSession.type)
                   return (
-                    <Fragment key={`${activeDay}-${slot.time}-break`}>
+                    <Fragment key={`${activeDay}-${slot.time}-span`}>
                       <div className="rounded-xl px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
-                      <div className="col-span-4 rounded-xl border border-border/70 bg-gradient-to-r from-secondary/80 to-card px-5 py-4">
+                      <div className={`col-span-4 rounded-xl border border-border/70 px-5 py-4 ${isBreak ? "bg-gradient-to-r from-secondary/80 to-card" : "bg-card shadow-sm shadow-primary/5"}`}>
                         <div className="flex flex-wrap items-center gap-2 text-sm">
-                          <Clock className="h-4 w-4 text-primary" />
-                          <span className="font-bold text-foreground">{breakSession.title}</span>
+                          {isBreak ? (
+                            <Clock className="h-4 w-4 text-primary" />
+                          ) : (
+                            <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
+                              {config.label}
+                            </Badge>
+                          )}
+                          <span className="font-bold text-foreground">{spanningSession.title}</span>
                           {slot.duration ? <span className="text-muted-foreground">· {slot.duration} min</span> : null}
                         </div>
-                        {breakSession.description ? (
-                          <p className="mt-1 text-sm text-muted-foreground">{breakSession.description}</p>
+                        {spanningSession.description ? (
+                          <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p>
                         ) : null}
                       </div>
                     </Fragment>
@@ -300,7 +315,7 @@ export function FeaturedSessions() {
                     <div className="rounded-xl px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
                     {rooms.map((room) => {
                       const sessions = slot.sessions.filter(
-                        (session) => session.room === room.id && session.type !== "break" && session.title?.trim()
+                        (session) => session.room === room.id && !isSpanningSession(session) && session.title?.trim()
                       )
 
                       return (
@@ -331,17 +346,24 @@ export function FeaturedSessions() {
 
           <div className="space-y-4 p-4 lg:hidden">
             {slots.map((slot, slotIndex) => {
-              const breakSession = slot.sessions.find((session) => session.type === "break")
+              const spanningSession = slot.sessions.find(isSpanningSession)
 
-              if (breakSession) {
+              if (spanningSession) {
+                const isBreak = spanningSession.type === "break"
+                const config = getTypeConfig(spanningSession.type)
                 return (
-                  <div key={`${activeDay}-${slot.time}-mobile-break`} className="rounded-xl border border-border/70 bg-secondary/60 p-4">
-                    <div className="mb-1 flex items-center gap-2 text-sm font-bold text-primary">
-                      <Clock className="h-4 w-4" />
-                      {slot.time}
+                  <div key={`${activeDay}-${slot.time}-mobile-span`} className={`rounded-xl border border-border/70 p-4 ${isBreak ? "bg-secondary/60" : "bg-card shadow-sm shadow-primary/5"}`}>
+                    <div className="mb-1 flex flex-wrap items-center gap-2 text-sm font-bold text-primary">
+                      {isBreak ? <Clock className="h-4 w-4" /> : null}
+                      <span>{slot.time}</span>
+                      {!isBreak ? (
+                        <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
+                          {config.label}
+                        </Badge>
+                      ) : null}
                     </div>
-                    <p className="font-bold text-foreground">{breakSession.title}</p>
-                    {breakSession.description ? <p className="mt-1 text-sm text-muted-foreground">{breakSession.description}</p> : null}
+                    <p className="font-bold text-foreground">{spanningSession.title}</p>
+                    {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
                   </div>
                 )
               }
@@ -352,7 +374,7 @@ export function FeaturedSessions() {
                   <div className="space-y-4">
                     {rooms.map((room) => {
                       const sessions = slot.sessions.filter(
-                        (session) => session.room === room.id && session.type !== "break" && session.title?.trim()
+                        (session) => session.room === room.id && !isSpanningSession(session) && session.title?.trim()
                       )
 
                       if (sessions.length === 0) return null

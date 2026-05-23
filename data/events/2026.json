@@ -45,8 +45,9 @@
           "sessions": [
             {
               "title": "Welcome",
-              "type": "break",
+              "type": "talk",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
               "speakers": []
             }
@@ -58,8 +59,9 @@
           "sessions": [
             {
               "title": "Opening Keynote",
-              "type": "break",
+              "type": "keynote",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "Keynote: Masterminding Quality Engineering Into the Next Era",
               "speakers": ["ed"]
             }
@@ -289,8 +291,9 @@
               "title": "Day 1 - Wrap up",
               "type": "talk",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
-                "speakers": []
+              "speakers": []
             }
           ]
         }
@@ -319,6 +322,7 @@
               "title": "Day 2 - Welcome",
               "type": "talk",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
               "speakers": []
             }
@@ -330,21 +334,23 @@
           "sessions": [
             {
               "title": "Reliable Intelligence: Why Quality is the Future of AI Scaling",
-              "type": "talk",
+              "type": "keynote",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
               "speakers": ["lena"]
             }
           ]
-        },                   
+        },
         {
           "time": "9:50 AM",
           "duration": 30,
           "sessions": [
             {
               "title": "Rehearsing the Future: Directing Quality in the Age of AI",
-              "type": "talk",
+              "type": "keynote",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
               "speakers": ["josh"]
             }
@@ -540,10 +546,10 @@
               "title": "Innovate QA Awards",
               "type": "talk",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "",
               "speakers": []
             }
-            
           ]
         },
         {
@@ -554,6 +560,7 @@
               "title": "Closing Remarks",
               "type": "talk",
               "room": "leadership",
+              "spansAllTracks": true,
               "description": "Conference wrap-up & thank you"
             }
           ]

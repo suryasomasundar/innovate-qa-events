@@ -38,6 +38,14 @@ type ScheduleSession = {
   description?: string
   speakers?: string[]
   speakerId?: string
+  /** When true, the session is rendered as a full-width row spanning all track columns
+   * (like a break does), but using its actual `type` styling — useful for plenary
+   * keynotes and welcomes that aren't tied to a single track. */
+  spansAllTracks?: boolean
+}
+
+function isSpanningSession(session: ScheduleSession) {
+  return session.type === "break" || session.spansAllTracks === true
 }
 
 type ScheduleSlot = {
@@ -282,28 +290,45 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
 
           <div className="grid grid-cols-[88px_repeat(4,minmax(0,1fr))] gap-3 p-4">
             {activeSchedule.slots.map((slot, slotIndex) => {
-              const breakSession = slot.sessions.find((session) => session.type === "break")
+              const spanningSession = slot.sessions.find(isSpanningSession)
 
-              if (breakSession) {
-                const item = makeItem(breakSession, slot, slotIndex, 0)
+              if (spanningSession) {
+                const item = makeItem(spanningSession, slot, slotIndex, 0)
+                const isBreak = spanningSession.type === "break"
+                const config = getTypeConfig(spanningSession.type)
+                const primarySpeaker = item.speakers[0]
 
                 return (
-                  <div key={`${activeDay}-${slot.time}-break`} className="contents">
+                  <div key={`${activeDay}-${slot.time}-span`} className="contents">
                     <div className="px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
                     <button
                       type="button"
                       onClick={() => setSelectedItem(item)}
-                      className="col-span-4 rounded-xl border border-border/70 bg-gradient-to-r from-secondary/80 to-card px-5 py-4 text-left transition-colors hover:border-primary/25"
+                      className={cn(
+                        "col-span-4 rounded-xl border border-border/70 px-5 py-4 text-left transition-colors hover:border-primary/25",
+                        isBreak ? "bg-gradient-to-r from-secondary/80 to-card" : "bg-card shadow-sm shadow-primary/5",
+                      )}
                     >
                       <div className="flex flex-wrap items-center gap-2">
-                        <Badge variant="outline" className={cn("rounded-full text-[10px] font-bold", getTypeConfig("break").className)}>
-                          Break
+                        <Badge variant="outline" className={cn("rounded-full text-[10px] font-bold", config.className)}>
+                          {config.label}
                         </Badge>
                         {slot.duration ? <span className="text-xs font-medium text-muted-foreground">{slot.duration} min</span> : null}
                       </div>
-                      <h3 className="mt-2 text-base font-bold text-foreground">{cleanTitle(breakSession.title)}</h3>
-                      {breakSession.description ? (
-                        <p className="mt-1 text-sm text-muted-foreground">{breakSession.description}</p>
+                      <h3 className="mt-2 text-base font-bold text-foreground">{cleanTitle(spanningSession.title)}</h3>
+                      {spanningSession.description ? (
+                        <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p>
+                      ) : null}
+                      {!isBreak && primarySpeaker ? (
+                        <div className="mt-3 flex items-center gap-2 border-t border-border/60 pt-3">
+                          <SpeakerAvatar speaker={primarySpeaker} />
+                          <div className="min-w-0">
+                            <p className="truncate text-xs font-semibold text-foreground">
+                              {item.speakers.map((speaker) => speaker.name).join(", ")}
+                            </p>
+                            <p className="truncate text-xs text-muted-foreground">{primarySpeaker.company}</p>
+                          </div>
+                        </div>
                       ) : null}
                     </button>
                   </div>
@@ -315,7 +340,7 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
                   <div className="px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
                   {rooms.map((room) => {
                     const sessions = slot.sessions.filter(
-                      (session) => session.room === room.id && session.type !== "break" && cleanTitle(session.title),
+                      (session) => session.room === room.id && !isSpanningSession(session) && cleanTitle(session.title),
                     )
 
                     return (
@@ -343,21 +368,31 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
 
         <div className="space-y-4 p-4 lg:hidden">
           {activeSchedule.slots.map((slot, slotIndex) => {
-            const breakSession = slot.sessions.find((session) => session.type === "break")
+            const spanningSession = slot.sessions.find(isSpanningSession)
 
-            if (breakSession) {
-              const item = makeItem(breakSession, slot, slotIndex, 0)
+            if (spanningSession) {
+              const item = makeItem(spanningSession, slot, slotIndex, 0)
+              const isBreak = spanningSession.type === "break"
+              const config = getTypeConfig(spanningSession.type)
 
               return (
                 <button
-                  key={`${activeDay}-${slot.time}-mobile-break`}
+                  key={`${activeDay}-${slot.time}-mobile-span`}
                   type="button"
                   onClick={() => setSelectedItem(item)}
-                  className="w-full rounded-xl border border-border/70 bg-secondary/60 p-4 text-left"
+                  className={cn(
+                    "w-full rounded-xl border border-border/70 p-4 text-left",
+                    isBreak ? "bg-secondary/60" : "bg-card shadow-sm shadow-primary/5",
+                  )}
                 >
-                  <p className="mb-2 text-sm font-bold text-primary">{slot.time}</p>
-                  <h3 className="font-bold text-foreground">{cleanTitle(breakSession.title)}</h3>
-                  {breakSession.description ? <p className="mt-1 text-sm text-muted-foreground">{breakSession.description}</p> : null}
+                  <div className="mb-2 flex flex-wrap items-center gap-2">
+                    <p className="text-sm font-bold text-primary">{slot.time}</p>
+                    <Badge variant="outline" className={cn("rounded-full text-[10px] font-bold", config.className)}>
+                      {config.label}
+                    </Badge>
+                  </div>
+                  <h3 className="font-bold text-foreground">{cleanTitle(spanningSession.title)}</h3>
+                  {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
                 </button>
               )
             }
@@ -368,7 +403,7 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
                 <div className="space-y-4">
                   {rooms.map((room) => {
                     const sessions = slot.sessions.filter(
-                      (session) => session.room === room.id && session.type !== "break" && cleanTitle(session.title),
+                      (session) => session.room === room.id && !isSpanningSession(session) && cleanTitle(session.title),
                     )
 
                     if (sessions.length === 0) return null
