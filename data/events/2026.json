@@ -151,11 +151,11 @@
               "speakers": ["zach"]
             },      
             {
-              "title": "#1 Are We Testing AI… or Is AI Testing Us? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
+              "title": "#1 Are We Using AI to Test Better — or Just Faster? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": [""]
+              "speakers": ["krishna", "sharan", "deepak"]
             } ,
             {
               "title": " Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
@@ -356,7 +356,7 @@
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": [""]
+              "speakers": ["krishna", "deepak", "deep"]
             }
           ]
         },
@@ -418,7 +418,7 @@
               "speakers": ["priya"]
             },
             {
-              "title": "Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with Agenta.ai)",
+              "title": "Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with PromptFoo)",
               "type": "workshop",
               "room": "discussion",
               "description": "",
@@ -461,7 +461,7 @@
               "speakers": ["george"]
             },
             {
-              "title": "Continue - Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with Agenta.ai)",
+              "title": "Continue - Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with PromptFoo)",
               "type": "workshop",
               "room": "discussion",
               "description": "",
@@ -941,6 +941,29 @@
       "topic": "",
       "bio": "Irina supports individuals navigating change and uncertainty, helping them access a resourceful state, maximize alignment, clear misunderstandings, shift their mindset, leverage inner strengths, and minimize miscommunication. \n\n As an external coach she helps dedicated professionals enhance interpersonal skills, improve work-life balance, switch from self-sabotage to the flow of intentional action, resolve emotional reactions, and cultivate well-being at work. \n\nCertifications & Expertise: Certified Professional Coach and NLP Master Practitioner with a multicultural perspective. Specialized in Conversational Intelligence, Conscious Business Coaching, Relationship Coaching, Gender Intelligence (Mars Venus).",
       "linkedin": "https://www.linkedin.com/in/irina-ulanova/"
+     },
+     {
+      "id": "ed",
+      "name": "Ed Essay",
+      "title": "Sr Director of Business Value, Microsoft Garage",
+      "company": "Microsoft",
+      "image": "/speakers/2026/ed.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "As Senior Director of Business Value in the Microsoft Garage, I leverage over a decade of experience to drive cultural transformation and enable early-stage innovation. By spearheading growth initiatives and creating frameworks like The Garage Growth Framework, our team has achieved high sponsorship rates and launched experimental projects that secure substantial internal funding. \n Author of The Inside Job: The Intrapreneur's Toolkit to Mastermind Meaningful Change and Innovation (coming January 2026). Passionate about fostering innovation within large organizations, I lead programs that empower employees to develop Horizon 3 ideas and collaborate across Microsoft's incubation ecosystem. My expertise in coaching, agile methodologies, and design-thinking ensures teams navigate challenges while delivering impactful results. Through these efforts, we continue to shape strategies that inspire meaningful organizational change.",
+      "linkedin": "https://www.linkedin.com/in/essey/"
+     }
+  ,
+     {
+      "id": "sharan",
+      "name": "Sharan Anil Kumar",
+      "title": "Sr Analytics Quality Assurance Engineer",
+      "company": "Paramount",
+      "image": "/speakers/2026/sharan.jpeg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Sharan Anil Kumar is a Sr. Analytics Quality Assurance Engineer at Paramount+, where he drives quality initiatives for analytics systems that support data-driven decision-making across one of the world's leading streaming platforms. With 7+ years of experience spanning software quality engineering, test automation, and analytics validation, he specializes in building scalable quality frameworks that ensure both product reliability and data integrity. \n Throughout his career, Sharan has led quality efforts across streaming, e-commerce, and enterprise software ecosystems, delivering automation solutions, validation strategies, and testing practices that improve release confidence and operational efficiency. His expertise spans analytics quality, test automation, data validation, AI-assisted testing, and modern quality engineering practices. \n A passionate advocate for innovation in software quality, Sharan focuses on the intersection of artificial intelligence and testing, exploring how AI is reshaping engineering workflows, test infrastructure, and quality strategy. He frequently contributes to the QA community and enjoys sharing practical insights that help organizations navigate the rapidly evolving landscape of software quality and AI-driven development.",
+      "linkedin": "https://www.linkedin.com/in/sharananilkumar/"
      }
   ],
   "sponsors": {
