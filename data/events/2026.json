@@ -155,7 +155,7 @@
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": ["krishna", "sharan", "deepak"]
+              "speakers": ["krishna", "sharan", "deepak", "rohit"]
             } ,
             {
               "title": " Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
@@ -182,7 +182,7 @@
               "type": "discussion",
               "room": "discussion",
               "description": "An intimate roundtable where participants share the challenges they're facing in QA and AI adoption, and collectively work through solutions. Come with your toughest problems — leave with fresh perspectives and actionable ideas.",
-              "speakers": [""]
+              "speakers": ["nimesha"]
             },
             {
               "title": "Orchestrating AI for Testing: Connecting Context, Tools, and Human Judgment",
@@ -356,7 +356,7 @@
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": ["krishna", "deepak", "deep"]
+              "speakers": ["krishna", "deepak", "deep", "nimesha"]
             }
           ]
         },
