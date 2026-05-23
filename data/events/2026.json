@@ -334,7 +334,9 @@
               "room": "leadership",
               "description": "",
               "speakers": ["lena"]
-            },                   
+            }
+          ]
+        },                   
         {
           "time": "9:50 AM",
           "duration": 30,
