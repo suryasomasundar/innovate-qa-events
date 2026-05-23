@@ -591,6 +591,18 @@
       "bio": "Krishna Seerapu is a seasoned technology executive, engineering leader, and the Founder & CEO of FlintLab Inc., bringing nearly 25 years of experience building large-scale developer platforms, cloud infrastructure, and enterprise-grade automation systems. Across leadership roles at Google, Amazon, Microsoft, RSA (EMC Security), Progress Software, and Motorola, he has led globally distributed engineering teams delivering mission-critical platforms spanning cloud ecosystems, security engineering, IoT, e-commerce, and distributed test infrastructure. At FlintLab, Krishna is pioneering AI-native quality engineering by building intelligent, next-generation test infrastructure and engineering productivity platforms tailored for modern AI-driven software systems. He is widely recognized for driving large-scale engineering transformations that accelerate release velocity, strengthen automation reliability, and enhance platform scalability. His leadership philosophy combines deep technical rigor with operational discipline, enabling enterprises to modernize quality engineering practices while upholding the highest standards of reliability, security, and customer trust.",
       "linkedin": "https://www.linkedin.com/in/krishna-seerapu/"
     },
+    
+     {
+      "id": "lena",
+      "name": "Lena Hall",
+      "title": "Senior Director, Developers & AI Engineering",
+      "company": "Akamai Technologies",
+      "image": "/speakers/2026/lena.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Lena Hall is an expert in practical AI adoption, data engineering, cloud and pragmatic architecture, driving strategic AI integration at scale combined with extensive experience leading large, high-performing technical teams. She helps developers get real results from AI, defining Data +  AI strategies, integrating LLMs into complex systems, connecting AI solutions with custom data and business tools, and optimizing outcomes through proven and innovative architectures. Lena has 15+ years of deeply technical background as a solution architect, technical leader in large-scale data, analytics, machine learning, and cloud computing. Lena is currently a Senior Director of Developer Relations at Akamai. Prior to that, she worked as Head of Developer Experience, North America at Amazon Web Services, led Big Data DevRel at Microsoft, and was a Senior Engineer at Microsoft Research. She frequently shares practical knowledge on her YouTube channel (youtube.com/@lena-hall) and at industry conferences as an international keynote speaker.",
+      "linkedin": "https://www.linkedin.com/in/lena-hall/"
+     }, 
     {
       "id": "amber",
       "name": "Amber Race",
@@ -964,7 +976,30 @@
       "topic": "",
       "bio": "Sharan Anil Kumar is a Sr. Analytics Quality Assurance Engineer at Paramount+, where he drives quality initiatives for analytics systems that support data-driven decision-making across one of the world's leading streaming platforms. With 7+ years of experience spanning software quality engineering, test automation, and analytics validation, he specializes in building scalable quality frameworks that ensure both product reliability and data integrity. \n Throughout his career, Sharan has led quality efforts across streaming, e-commerce, and enterprise software ecosystems, delivering automation solutions, validation strategies, and testing practices that improve release confidence and operational efficiency. His expertise spans analytics quality, test automation, data validation, AI-assisted testing, and modern quality engineering practices. \n A passionate advocate for innovation in software quality, Sharan focuses on the intersection of artificial intelligence and testing, exploring how AI is reshaping engineering workflows, test infrastructure, and quality strategy. He frequently contributes to the QA community and enjoys sharing practical insights that help organizations navigate the rapidly evolving landscape of software quality and AI-driven development.",
       "linkedin": "https://www.linkedin.com/in/sharananilkumar/"
-     }
+     } ,
+     {
+      "id": "nimesha",
+      "name": "Nimesha Shingote",
+      "title": "Client Parner Manager",
+      "company": "Infosys Ltd",
+      "image": "/speakers/2026/nimesha.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Nimesha Shingote is a Quality Engineering leader with nearly two decades of progressive experience spanning BFSI and Healthcare verticals. Her career has been defined by a passion for solving enterprise-scale challenges — from architecting QE transformation programs and GenAI validation frameworks to driving AI-led automation and synthetic test data strategies that modernise how organisations approach quality. Having led large-scale client engagements, managed enterprise portfolios, and partnered with CXOs to shape long-term technology roadmaps, Nimesha brings a rare combination of technical depth, delivery excellence, and client partnership to every engagement. In her current role as Client Partner, she works at the intersection of Quality Engineering and strategic growth, helping organisations unlock value through innovative, resilient solutions built for an AI-first world.",
+      "linkedin": "https://www.linkedin.com/in/nimesha-shingote-28a8a48/"
+     }  
+  ,
+     {
+      "id": "rohit",
+      "name": "Rohit Singh Raja",
+      "title": "Principal Software Product Quality Engineer",
+      "company": "Clinickal ink",
+      "image": "/speakers/2026/Rohit_Headshot_Rohit.jpeg",
+      "keynote": false,
+      "topic": "",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/qersr/"
+     } 
   ],
   "sponsors": {
     "platinum": [ 
