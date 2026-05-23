@@ -45,7 +45,7 @@
           "sessions": [
             {
               "title": "Welcome",
-              "type": "talk",
+              "type": "break",
               "room": "leadership",
               "description": "",
               "speakers": []
@@ -58,10 +58,10 @@
           "sessions": [
             {
               "title": "Opening Keynote",
-              "type": "keynote",
+              "type": "break",
               "room": "leadership",
-              "description": "",
-              "speakers": []
+              "description": "Keynote: Masterminding Quality Engineering Into the Next Era",
+              "speakers": ["ed"]
             }
           ]
         },
@@ -327,8 +327,20 @@
           ]
         },
         {
-          "time": "9:10 AM",
-          "duration": 40,
+          "time": "9:50 AM",
+          "duration": 30,
+          "sessions": [
+            {
+              "title": "Reliable Intelligence: Why Quality is the Future of AI Scaling",
+              "type": "talk",
+              "room": "leadership",
+              "description": "",
+              "speakers": ["lena"]
+            }
+                ,
+        {
+          "time": "9:50 AM",
+          "duration": 30,
           "sessions": [
             {
               "title": "Rehearsing the Future: Directing Quality in the Age of AI",
@@ -340,7 +352,7 @@
           ]
         },
         {
-          "time": "10:00 AM",
+          "time": "10:25 AM",
           "duration": 45,
           "sessions": [
           
@@ -361,7 +373,7 @@
           ]
         },
         {
-          "time": "10:55 AM",
+          "time": "11:15 AM",
           "duration": 45,
           "sessions": [
            {
