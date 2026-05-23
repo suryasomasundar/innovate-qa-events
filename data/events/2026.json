@@ -387,7 +387,14 @@
               "room": "practitioner",
               "description": "",
               "speakers": ["bastian"]
-            } ,
+            },
+            { 
+              "title": "Agentic Testing and the Future of Trust",
+              "type": "talk",
+              "room": "demo",
+              "description": "",
+              "speakers": ["mohit"]
+            },
             {
               "title": "The Mastermind Room",
               "type": "discussion",
@@ -995,8 +1002,7 @@
       "topic": "",
       "bio": "Nimesha Shingote is a Quality Engineering leader with nearly two decades of progressive experience spanning BFSI and Healthcare verticals. Her career has been defined by a passion for solving enterprise-scale challenges — from architecting QE transformation programs and GenAI validation frameworks to driving AI-led automation and synthetic test data strategies that modernise how organisations approach quality. Having led large-scale client engagements, managed enterprise portfolios, and partnered with CXOs to shape long-term technology roadmaps, Nimesha brings a rare combination of technical depth, delivery excellence, and client partnership to every engagement. In her current role as Client Partner, she works at the intersection of Quality Engineering and strategic growth, helping organisations unlock value through innovative, resilient solutions built for an AI-first world.",
       "linkedin": "https://www.linkedin.com/in/nimesha-shingote-28a8a48/"
-     }  
-  ,
+     },
      {
       "id": "rohit",
       "name": "Rohit Singh Raja",
@@ -1008,6 +1014,18 @@
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/qersr/"
      } 
+  ,
+     {
+      "id": "mohit",
+      "name": "Mohit Juneja",
+      "title": "VP of Strategic Sales",
+      "company": "TestMu AI",
+      "image": "/speakers/2026/mohit.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Mohit Juneja is a coder turned revenue leader who bridges the gap between deep technical roots and global business scale. Currently serving as the VP of Sales & Technology Partnerships at LambdaTest, his career includes driving commercial growth and cloud transformation initiatives at powerhouse organizations like Microsoft and GitHub. A prominent voice on LinkedIn, Mohit regularly breaks down actionable B2B go-to-market strategies, tech ecosystem growth, and sales leadership frameworks for a highly engaged community of professionals.",
+      "linkedin": "https://www.linkedin.com/in/mohjuneja/"
+     }
   ],
   "sponsors": {
     "platinum": [ 
