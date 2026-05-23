@@ -90,6 +90,7 @@
               "description": "",
               "speakers": ["jennifer"]
             } 
+          ]
         },
         {
           "time": "10:55 AM",
@@ -324,7 +325,7 @@
           ]
         },
         {
-          "time": "9:50 AM",
+          "time": "9:10 AM",
           "duration": 30,
           "sessions": [
             {
