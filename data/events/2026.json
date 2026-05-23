@@ -89,7 +89,7 @@
               "room": "discussion",
               "description": "",
               "speakers": ["jennifer"]
-            } ]
+            } 
         },
         {
           "time": "10:55 AM",
@@ -109,8 +109,7 @@
               "description": "",
               "speakers": ["greg"]
             },
-          
-           {
+            {
               "title": "One Platform, Two Frontiers: Testing Web Applications and AI Agents with ContextQA",
               "type": "talk",
               "room": "demo",
@@ -398,7 +397,7 @@
             }
           ]
         },
-          {
+        {
           "time": "12:00 PM",
           "duration": 60,
           "sessions": [
@@ -410,7 +409,7 @@
             }
           ]
         },
-       {
+        {
           "time": "1:00 PM",
           "duration": 55,
           "sessions": [
