@@ -289,44 +289,101 @@ export function FeaturedSessions() {
                   const config = getTypeConfig(spanningSession.type)
                   const spanSpeakers = getSpeakers(spanningSession)
                   const primarySpanSpeaker = spanSpeakers[0]
+                  const spanItem = makeItem(spanningSession, slot, 0, slotIndex)
+                  const isSpanOpen = openSessionId === spanItem.id
+                  const hasSpanExpandable = !isBreak && (Boolean(spanningSession.description) || spanSpeakers.length > 0)
                   return (
                     <Fragment key={`${activeDay}-${slot.time}-span`}>
                       <div className="rounded-xl px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
-                      <div className={`col-span-4 rounded-xl border border-border/70 px-5 py-4 ${isBreak ? "bg-gradient-to-r from-secondary/80 to-card" : "bg-card shadow-sm shadow-primary/5"}`}>
-                        <div className="flex flex-wrap items-center gap-2 text-sm">
-                          {isBreak ? (
-                            <Clock className="h-4 w-4 text-primary" />
-                          ) : (
-                            <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
-                              {config.label}
-                            </Badge>
-                          )}
-                          <span className="font-bold text-foreground">{spanningSession.title}</span>
-                          {slot.duration ? <span className="text-muted-foreground">· {slot.duration} min</span> : null}
-                        </div>
-                        {spanningSession.description ? (
-                          <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p>
-                        ) : null}
-                        {!isBreak && primarySpanSpeaker ? (
-                          <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
-                            <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
-                              {primarySpanSpeaker.image ? (
-                                <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
-                              ) : (
-                                <span className="flex h-full w-full items-center justify-center text-xs font-semibold text-muted-foreground">
-                                  {primarySpanSpeaker.name[0]}
-                                </span>
-                              )}
+                      <article className={`col-span-4 rounded-xl border border-border/70 ${isBreak ? "bg-gradient-to-r from-secondary/80 to-card" : "bg-card shadow-sm shadow-primary/5"}`}>
+                        <button
+                          type="button"
+                          onClick={hasSpanExpandable ? () => setOpenSessionId(isSpanOpen ? null : spanItem.id) : undefined}
+                          className={`w-full px-5 py-4 text-left ${hasSpanExpandable ? "" : "cursor-default"}`}
+                          aria-expanded={hasSpanExpandable ? isSpanOpen : undefined}
+                        >
+                          <div className="flex flex-wrap items-center gap-2 text-sm">
+                            {isBreak ? (
+                              <Clock className="h-4 w-4 text-primary" />
+                            ) : (
+                              <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
+                                {config.label}
+                              </Badge>
+                            )}
+                            <span className="font-bold text-foreground">{spanningSession.title}</span>
+                            {slot.duration ? <span className="text-muted-foreground">· {slot.duration} min</span> : null}
+                            {hasSpanExpandable ? (
+                              <ChevronDown className={`ml-auto h-4 w-4 text-muted-foreground transition-transform ${isSpanOpen ? "rotate-180 text-primary" : ""}`} />
+                            ) : null}
+                          </div>
+                          {spanningSession.description ? (
+                            <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p>
+                          ) : null}
+                          {!isBreak && primarySpanSpeaker ? (
+                            <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
+                              <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
+                                {primarySpanSpeaker.image ? (
+                                  <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
+                                ) : (
+                                  <span className="flex h-full w-full items-center justify-center text-xs font-semibold text-muted-foreground">
+                                    {primarySpanSpeaker.name[0]}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="min-w-0">
+                                <p className="truncate text-xs font-semibold text-foreground">
+                                  {spanSpeakers.map((s) => s.name).join(", ")}
+                                </p>
+                                <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
+                              </div>
                             </div>
-                            <div className="min-w-0">
-                              <p className="truncate text-xs font-semibold text-foreground">
-                                {spanSpeakers.map((s) => s.name).join(", ")}
-                              </p>
-                              <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
-                            </div>
+                          ) : null}
+                        </button>
+                        {isSpanOpen && hasSpanExpandable ? (
+                          <div className="border-t border-border/70 bg-background/70 p-5">
+                            {spanSpeakers.length > 0 ? (
+                              <div className="space-y-3">
+                                {spanSpeakers.map((speaker) => (
+                                  <div key={speaker.id} className="flex items-center gap-3">
+                                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-border bg-muted">
+                                      {speaker.image ? (
+                                        <Image src={speaker.image} alt={speaker.name} fill className="object-cover" unoptimized />
+                                      ) : (
+                                        <span className="flex h-full w-full items-center justify-center text-sm font-semibold text-muted-foreground">
+                                          {speaker.name[0]}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <p className="text-sm font-bold text-foreground">{speaker.name}</p>
+                                      <p className="text-xs leading-snug text-muted-foreground">
+                                        {speaker.title} · {speaker.company}
+                                      </p>
+                                    </div>
+                                    <Link
+                                      href={`/speakers/${speaker.id}`}
+                                      className="shrink-0 rounded-full border border-border bg-card px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                                    >
+                                      Profile
+                                    </Link>
+                                    {speaker.linkedin ? (
+                                      <Link
+                                        href={speaker.linkedin}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                                        aria-label={`${speaker.name} on LinkedIn`}
+                                      >
+                                        <Linkedin className="h-4 w-4" />
+                                      </Link>
+                                    ) : null}
+                                  </div>
+                                ))}
+                              </div>
+                            ) : null}
                           </div>
                         ) : null}
-                      </div>
+                      </article>
                     </Fragment>
                   )
                 }
@@ -374,39 +431,94 @@ export function FeaturedSessions() {
                 const config = getTypeConfig(spanningSession.type)
                 const spanSpeakers = getSpeakers(spanningSession)
                 const primarySpanSpeaker = spanSpeakers[0]
+                const spanItem = makeItem(spanningSession, slot, 0, slotIndex)
+                const isSpanOpen = openSessionId === spanItem.id
+                const hasSpanExpandable = !isBreak && (Boolean(spanningSession.description) || spanSpeakers.length > 0)
                 return (
-                  <div key={`${activeDay}-${slot.time}-mobile-span`} className={`rounded-xl border border-border/70 p-4 ${isBreak ? "bg-secondary/60" : "bg-card shadow-sm shadow-primary/5"}`}>
-                    <div className="mb-1 flex flex-wrap items-center gap-2 text-sm font-bold text-primary">
-                      {isBreak ? <Clock className="h-4 w-4" /> : null}
-                      <span>{slot.time}</span>
-                      {!isBreak ? (
-                        <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
-                          {config.label}
-                        </Badge>
-                      ) : null}
-                    </div>
-                    <p className="font-bold text-foreground">{spanningSession.title}</p>
-                    {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
-                    {!isBreak && primarySpanSpeaker ? (
-                      <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
-                        <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
-                          {primarySpanSpeaker.image ? (
-                            <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
-                          ) : (
-                            <span className="flex h-full w-full items-center justify-center text-[10px] font-semibold text-muted-foreground">
-                              {primarySpanSpeaker.name[0]}
-                            </span>
-                          )}
+                  <article key={`${activeDay}-${slot.time}-mobile-span`} className={`rounded-xl border border-border/70 ${isBreak ? "bg-secondary/60" : "bg-card shadow-sm shadow-primary/5"}`}>
+                    <button
+                      type="button"
+                      onClick={hasSpanExpandable ? () => setOpenSessionId(isSpanOpen ? null : spanItem.id) : undefined}
+                      className={`w-full p-4 text-left ${hasSpanExpandable ? "" : "cursor-default"}`}
+                      aria-expanded={hasSpanExpandable ? isSpanOpen : undefined}
+                    >
+                      <div className="mb-1 flex flex-wrap items-center gap-2 text-sm font-bold text-primary">
+                        {isBreak ? <Clock className="h-4 w-4" /> : null}
+                        <span>{slot.time}</span>
+                        {!isBreak ? (
+                          <Badge variant="outline" className={`rounded-full text-[10px] font-bold ${config.className}`}>
+                            {config.label}
+                          </Badge>
+                        ) : null}
+                        {hasSpanExpandable ? (
+                          <ChevronDown className={`ml-auto h-4 w-4 text-muted-foreground transition-transform ${isSpanOpen ? "rotate-180 text-primary" : ""}`} />
+                        ) : null}
+                      </div>
+                      <p className="font-bold text-foreground">{spanningSession.title}</p>
+                      {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
+                      {!isBreak && primarySpanSpeaker ? (
+                        <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
+                          <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
+                            {primarySpanSpeaker.image ? (
+                              <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
+                            ) : (
+                              <span className="flex h-full w-full items-center justify-center text-[10px] font-semibold text-muted-foreground">
+                                {primarySpanSpeaker.name[0]}
+                              </span>
+                            )}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="truncate text-xs font-semibold text-foreground">
+                              {spanSpeakers.map((s) => s.name).join(", ")}
+                            </p>
+                            <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
+                          </div>
                         </div>
-                        <div className="min-w-0">
-                          <p className="truncate text-xs font-semibold text-foreground">
-                            {spanSpeakers.map((s) => s.name).join(", ")}
-                          </p>
-                          <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
+                      ) : null}
+                    </button>
+                    {isSpanOpen && hasSpanExpandable && spanSpeakers.length > 0 ? (
+                      <div className="border-t border-border/70 bg-background/70 p-4">
+                        <div className="space-y-3">
+                          {spanSpeakers.map((speaker) => (
+                            <div key={speaker.id} className="flex items-center gap-3">
+                              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-border bg-muted">
+                                {speaker.image ? (
+                                  <Image src={speaker.image} alt={speaker.name} fill className="object-cover" unoptimized />
+                                ) : (
+                                  <span className="flex h-full w-full items-center justify-center text-sm font-semibold text-muted-foreground">
+                                    {speaker.name[0]}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-sm font-bold text-foreground">{speaker.name}</p>
+                                <p className="text-xs leading-snug text-muted-foreground">
+                                  {speaker.title} · {speaker.company}
+                                </p>
+                              </div>
+                              <Link
+                                href={`/speakers/${speaker.id}`}
+                                className="shrink-0 rounded-full border border-border bg-card px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                              >
+                                Profile
+                              </Link>
+                              {speaker.linkedin ? (
+                                <Link
+                                  href={speaker.linkedin}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                                  aria-label={`${speaker.name} on LinkedIn`}
+                                >
+                                  <Linkedin className="h-4 w-4" />
+                                </Link>
+                              ) : null}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     ) : null}
-                  </div>
+                  </article>
                 )
               }
 
