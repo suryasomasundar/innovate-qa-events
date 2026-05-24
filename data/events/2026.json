@@ -159,7 +159,7 @@
               "speakers": ["krishna", "sharan", "deepak", "rohit"]
             } ,
             {
-              "title": " Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
+              "title": "Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
               "type": "workshop",
               "room": "leadership",
               "description": "",
@@ -521,13 +521,13 @@
               "room": "demo",
               "description": "",
               "speakers": ["dana", "scott"]
-            },
+            } ,
             {
-              "title": "#1 Does AI Make Junior Testers More Valuable… or Less Necessary? | #2 What Happens When AI Gets It Wrong in Production? | #3 Are We Measuring the Wrong Things in an AI-Driven QA World? | #4 Will AI Reduce QA Headcount... or Make QA More Critical Than Ever?",
+              "title": "Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures",
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": [""]
+              "speakers": ["pradeep"]
             },
             {
               "title": "Building Next Generation Enterprise Test Centers of Excellence",
