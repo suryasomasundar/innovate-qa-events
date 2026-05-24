@@ -374,6 +374,7 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
               const item = makeItem(spanningSession, slot, slotIndex, 0)
               const isBreak = spanningSession.type === "break"
               const config = getTypeConfig(spanningSession.type)
+              const primarySpeaker = item.speakers[0]
 
               return (
                 <button
@@ -393,6 +394,17 @@ export function EventSchedulePlanner({ scheduleEntries, rooms, speakers }: Event
                   </div>
                   <h3 className="font-bold text-foreground">{cleanTitle(spanningSession.title)}</h3>
                   {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
+                  {!isBreak && primarySpeaker ? (
+                    <div className="mt-3 flex items-center gap-2 border-t border-border/60 pt-3">
+                      <SpeakerAvatar speaker={primarySpeaker} />
+                      <div className="min-w-0">
+                        <p className="truncate text-xs font-semibold text-foreground">
+                          {item.speakers.map((speaker) => speaker.name).join(", ")}
+                        </p>
+                        <p className="truncate text-xs text-muted-foreground">{primarySpeaker.company}</p>
+                      </div>
+                    </div>
+                  ) : null}
                 </button>
               )
             }
