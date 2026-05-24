@@ -287,6 +287,8 @@ export function FeaturedSessions() {
                 if (spanningSession) {
                   const isBreak = spanningSession.type === "break"
                   const config = getTypeConfig(spanningSession.type)
+                  const spanSpeakers = getSpeakers(spanningSession)
+                  const primarySpanSpeaker = spanSpeakers[0]
                   return (
                     <Fragment key={`${activeDay}-${slot.time}-span`}>
                       <div className="rounded-xl px-2 py-4 text-sm font-bold text-primary">{slot.time}</div>
@@ -304,6 +306,25 @@ export function FeaturedSessions() {
                         </div>
                         {spanningSession.description ? (
                           <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p>
+                        ) : null}
+                        {!isBreak && primarySpanSpeaker ? (
+                          <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
+                            <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
+                              {primarySpanSpeaker.image ? (
+                                <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
+                              ) : (
+                                <span className="flex h-full w-full items-center justify-center text-xs font-semibold text-muted-foreground">
+                                  {primarySpanSpeaker.name[0]}
+                                </span>
+                              )}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="truncate text-xs font-semibold text-foreground">
+                                {spanSpeakers.map((s) => s.name).join(", ")}
+                              </p>
+                              <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
+                            </div>
+                          </div>
                         ) : null}
                       </div>
                     </Fragment>
@@ -351,6 +372,8 @@ export function FeaturedSessions() {
               if (spanningSession) {
                 const isBreak = spanningSession.type === "break"
                 const config = getTypeConfig(spanningSession.type)
+                const spanSpeakers = getSpeakers(spanningSession)
+                const primarySpanSpeaker = spanSpeakers[0]
                 return (
                   <div key={`${activeDay}-${slot.time}-mobile-span`} className={`rounded-xl border border-border/70 p-4 ${isBreak ? "bg-secondary/60" : "bg-card shadow-sm shadow-primary/5"}`}>
                     <div className="mb-1 flex flex-wrap items-center gap-2 text-sm font-bold text-primary">
@@ -364,6 +387,25 @@ export function FeaturedSessions() {
                     </div>
                     <p className="font-bold text-foreground">{spanningSession.title}</p>
                     {spanningSession.description ? <p className="mt-1 text-sm text-muted-foreground">{spanningSession.description}</p> : null}
+                    {!isBreak && primarySpanSpeaker ? (
+                      <div className="mt-3 flex items-center gap-2 border-t border-border/50 pt-3">
+                        <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
+                          {primarySpanSpeaker.image ? (
+                            <Image src={primarySpanSpeaker.image} alt={primarySpanSpeaker.name} fill className="object-cover" unoptimized />
+                          ) : (
+                            <span className="flex h-full w-full items-center justify-center text-[10px] font-semibold text-muted-foreground">
+                              {primarySpanSpeaker.name[0]}
+                            </span>
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="truncate text-xs font-semibold text-foreground">
+                            {spanSpeakers.map((s) => s.name).join(", ")}
+                          </p>
+                          <p className="truncate text-xs text-muted-foreground">{primarySpanSpeaker.company}</p>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 )
               }
