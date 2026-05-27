@@ -267,7 +267,14 @@
               "description": "",
                 "speakers": ["leebarnes"]
             },
-             {
+            {
+              "title": "Intelligent QA Lifecycle in Xray and Jira",
+              "type": "talk",
+              "room": "demo",
+              "description": "This demo session shows what the shift to an AI-empowered SDLC looks like in practice, using Xray and Jira as the backbone of a modern QA lifecycle. After a brief introduction to the platform, we'll discuss how AI - both feature-level and agentic - integrates across requirement definition, test design, execution, and analysis. We'll demo three live Xray AI features, showcase agentic AI workflows powered by Rovo Dev or Copilot, and share a roadmap glimpse at what's coming next for Xray. Expect a clear picture of how teams can start leveraging AI in their QA process today.",
+                "speakers": ["ivan"]
+            },
+            {
               "title": "From Hype to Trust: How We Evaluated an Enterprise Sales Research Agent with a Purpose-Built AI Benchmark",
               "type": "talk",
               "room": "practitioner",
@@ -399,7 +406,7 @@
               "title": "Agentic Testing and the Future of Trust",
               "type": "talk",
               "room": "demo",
-              "description": "",
+              "description": "AI agents are generating more code than ever, but how do you ensure its reliability? Learn why traditional testing fails and how Agentic Testing guarantees trust and scalability in AI-driven systems.",
               "speakers": ["mohit"]
             },
             {
