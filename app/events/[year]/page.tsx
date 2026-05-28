@@ -345,20 +345,20 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
               borderClassName="border-white/10"
             />
             <SponsorTierRow
-              title="Community Partners"
-              description="Community channels helping connect Innovate QA with builders and practitioners."
-              sponsors={withLogo(sponsors.partners)}
-              tier="Partner"
+              title="Bronze Sponsors"
+              description="Additional supporters helping make the conference possible."
+              sponsors={withLogo(sponsors.bronze)}
+              tier="Bronze"
               compact
               labelClassName="text-white"
               descriptionClassName="text-white/60"
               borderClassName="border-white/10"
             />
             <SponsorTierRow
-              title="Bronze Sponsors"
-              description="Additional supporters helping make the conference possible."
-              sponsors={withLogo(sponsors.bronze)}
-              tier="Bronze"
+              title="Community Partners"
+              description="Community channels helping connect Innovate QA with builders and practitioners."
+              sponsors={withLogo(sponsors.partners)}
+              tier="Partner"
               compact
               labelClassName="text-white"
               descriptionClassName="text-white/60"
