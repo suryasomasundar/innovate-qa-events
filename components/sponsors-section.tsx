@@ -70,17 +70,17 @@ export function SponsorsSection() {
               tier="Silver"
             />
             <SponsorTierRow
-              title="Bronze Sponsors"
-              description="Additional supporters helping make the conference possible."
-              sponsors={bronze}
-              tier="Bronze"
-              compact
-            />
-            <SponsorTierRow
               title="Community Partners"
               description="Partner channels helping connect Innovate QA with builders and practitioners."
               sponsors={partners}
               tier="Partner"
+              compact
+            />
+            <SponsorTierRow
+              title="Bronze Sponsors"
+              description="Additional supporters helping make the conference possible."
+              sponsors={bronze}
+              tier="Bronze"
               compact
             />
           </div>
