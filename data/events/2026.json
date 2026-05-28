@@ -1123,7 +1123,15 @@
         "url": "https://flintlab.io"
       }
     ],
-    "bronze": [],
+    "bronze": [
+      {
+        "name": "INRIX",
+        "logo": "INRIX_Vector_Blue.svg",
+        "width": 80,
+        "height": 26,
+        "url": "https://inrix.com/"
+      }
+    ],
     "partners": [
       {
         "name": "Wearedevelopers",
