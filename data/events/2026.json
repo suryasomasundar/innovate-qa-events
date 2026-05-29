@@ -113,13 +113,6 @@
               "speakers": ["greg"]
             },
             {
-              "title": "One Platform, Two Frontiers: Testing Web Applications and AI Agents with ContextQA",
-              "type": "talk",
-              "room": "demo",
-              "description": "",
-              "speakers": ["deep"]
-            },
-            {
               "title": "Continue - Accessibility AI Testing Landscape and Testing Workshop",
               "type": "workshop",
               "room": "discussion",
@@ -367,6 +360,14 @@
           "time": "10:25 AM",
           "duration": 45,
           "sessions": [
+          
+            {
+              "title": "The Agent Testing Playbook: Coverage, Evaluation, and Confidence",
+              "type": "talk",
+              "room": "leadership",
+              "description": "",
+              "speakers": ["deep"]
+            },
             {
               "title": "Networking for Professionals Live Session",
               "type": "networking",
