@@ -1140,12 +1140,19 @@
       }
     ],
     "partners": [
-      {
+     {
         "name": "Wearedevelopers",
         "logo": "we-are-developers.png",
         "width": 320,
         "height": 128,
         "url": "https://www.wearedevelopers.com"
+      },
+      {
+        "name": "Actual AI",
+        "logo": "ActualAI.png",
+        "width": 320,
+        "height": 128,
+        "url": "https://www.actual.ai/"
       },
       {
         "name": "Dev IT Jobs",
