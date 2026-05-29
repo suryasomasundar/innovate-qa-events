@@ -279,7 +279,7 @@
               "type": "workshop",
               "room": "discussion",
               "description": "",
-                "speakers": ["deep", "jackie"]
+                "speakers": ["deep", "jackie", "lakshmi"]
             }
           ]
         },
@@ -1068,6 +1068,17 @@
       "topic": "",
       "bio": "Cindy is an accomplished Executive Leader with over 20 years of experience in technical sales and a large network in the big tech datacenter market. Cindy is focused on developing our Device Management/Quality Assurance business, targeting the large Hyperscale and Enterprise App developers in the world.",
       "linkedin": "https://www.linkedin.com/in/cindy-gann-5043801/"
+     },
+     {
+      "id": "lakshmi",
+      "name": "Lakshmi Navya Sivakoti",
+      "title": "QA Automation Engineer",
+      "company": "",
+      "image": "/speakers/2026/lakshmi.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "QA Automation Engineer with 4+ years of experience designing and owning test automation frameworks across browser extensions and web.\n  I have built automation suites using Python, Selenium WebDriver and PyTest, integrated with CI/CD pipelines, working across fast paced product teams where quality and release velocity both mattered. I have led end-to-end API testing for high-risk database migrations.\n  Currently I am deepening my expertise in Playwright and AI testing, including prompt engineering, red teaming and black box testing of LLM applications across commercial and local models, learning how modern tools are changing the way we think about quality engineering. As a ContextQA Ambassador, I explore how AI can make testing smarter, faster and more reliable. \n I am passionate about learning in public and sharing practical insights with the QA community.",
+      "linkedin": "https://www.linkedin.com/in/navya-sivakoti/"
      }
   ],
   "sponsors": {
