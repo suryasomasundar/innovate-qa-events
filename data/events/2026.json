@@ -367,13 +367,19 @@
           "time": "10:25 AM",
           "duration": 45,
           "sessions": [
-          
             {
               "title": "Networking for Professionals Live Session",
               "type": "networking",
               "room": "practitioner",
               "description": "",
               "speakers": ["goldie"]
+            },
+            {
+              "title": "Nothing Happened, and that's the point. What your test failures actually tell you",
+              "type": "talk",
+              "room": "demo",
+              "description": "Most validation failures in real-device testing labs are investigated as code problems. However, the infrastructure layer, not the software, is what causing them more often than teams realise. This session walks through how to tell the difference, what reliable real-device testing infrastructure actually is, and what it looks like when it works the way it should.",
+              "speakers": ["ryan", "cindy"]
             },
             {
               "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 Is Shifting Left Dead? How AI Changes Where Quality Actually Lives | #4 Are AI-Generated Tests Creating False Confidence?",
@@ -1028,8 +1034,7 @@
       "topic": "",
       "bio": "",
       "linkedin": "https://www.linkedin.com/in/qersr/"
-     } 
-  ,
+     },
      {
       "id": "mohit",
       "name": "Mohit Juneja",
@@ -1040,6 +1045,28 @@
       "topic": "",
       "bio": "Mohit Juneja is a coder turned revenue leader who bridges the gap between deep technical roots and global business scale. Currently serving as the VP of Sales & Technology Partnerships at LambdaTest, his career includes driving commercial growth and cloud transformation initiatives at powerhouse organizations like Microsoft and GitHub. A prominent voice on LinkedIn, Mohit regularly breaks down actionable B2B go-to-market strategies, tech ecosystem growth, and sales leadership frameworks for a highly engaged community of professionals.",
       "linkedin": "https://www.linkedin.com/in/mohjuneja/"
+     },
+     {
+      "id": "ryan",
+      "name": "Ryan Hiltz",
+      "title": "Technical Sales Engineer",
+      "company": "Cambrionix",
+      "image": "/speakers/2026/Ryan headshot image.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Ryan is a technical sales engineer with a background in hardware, software QA, customer support, and technical solutions. He enjoys turning complex technical concepts into clear, practical solutions that help both customers and internal teams better understand product value. Working closely across engineering, sales, and support, he focuses on bridging the gap between technical detail and real-world application through onboarding, troubleshooting, documentation, and customer enablement. Known for clear communication, collaboration, and a hands-on approach, Ryan is passionate about making technology more approachable and useful.",
+      "linkedin": "https://www.linkedin.com/in/ryno12/"
+     },
+     {
+      "id": "cindy",
+      "name": "Cindy Gann",
+      "title": "Director of Business Development",
+      "company": "Cambrionix",
+      "image": "/speakers/2026/Cindy profile picture.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Cindy is an accomplished Executive Leader with over 20 years of experience in technical sales and a large network in the big tech datacenter market. Cindy is focused on developing our Device Management/Quality Assurance business, targeting the large Hyperscale and Enterprise App developers in the world.",
+      "linkedin": "https://www.linkedin.com/in/cindy-gann-5043801/"
      }
   ],
   "sponsors": {
