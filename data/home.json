@@ -165,7 +165,14 @@
         "height": 128,
         "url": "https://www.practitest.com"
       },
-        {
+      {
+        "name": "Cambrionix",
+        "logo": "Cambrionix_Logo_Blue.png",
+        "width": 318,
+        "height": 108,
+        "url": "https://us.cambrionix.com/pages/nothing-happened"
+      },
+      {
         "name": "lambdatest",
         "logo": "LambdaTest.svg",
         "width": 320,
