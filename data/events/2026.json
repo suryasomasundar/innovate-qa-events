@@ -82,7 +82,7 @@
               "title": "How to build durable software with Agentic AI",
               "type": "talk",
               "room": "demo",
-              "description": "When Claude Code or any coding agent produces a plausible-looking implementation in seconds, the game shifts. The test suite is the only safety net. It's the only thing standing between "looks done" and is done. And if you're a QA professional, that's not a subtle distinction -  that's your entire job. Anthropic has been explicit about this: giving an agent a way to verify its own work is the single highest-leverage move you can make in an agentic workflow. That's not a testing philosophy. Today, that is a systems design principle. Comprehensive coverage is how you cash in on it.",
+              "description": "When Claude Code or any coding agent produces a plausible-looking implementation in seconds, the game shifts. The test suite is the only safety net. It's the only thing standing between \"looks done\" and is done. And if you're a QA professional, that's not a subtle distinction -  that's your entire job. Anthropic has been explicit about this: giving an agent a way to verify its own work is the single highest-leverage move you can make in an agentic workflow. That's not a testing philosophy. Today, that is a systems design principle. Comprehensive coverage is how you cash in on it.",
               "speakers": ["pavan"]
             },
             {
