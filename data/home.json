@@ -166,6 +166,14 @@
         "url": "https://www.practitest.com"
       },
       {
+        "name": "AgenticBricks",
+        "logo": "AgenticBricks logo_short.png",
+        "width": 52,
+        "height": 48,
+        "scale": 0.7,
+        "url": "https://www.agenticbricks.com/"
+      },
+      {
         "name": "Cambrionix",
         "logo": "Cambrionix_Logo_Blue.png",
         "width": 318,
