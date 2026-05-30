@@ -78,6 +78,13 @@
               "description": "",
               "speakers": ["walter"]
             },
+             {
+              "title": "How to build durable software with Agentic AI",
+              "type": "talk",
+              "room": "demo",
+              "description": "When Claude Code or any coding agent produces a plausible-looking implementation in seconds, the game shifts. The test suite is the only safety net. It's the only thing standing between "looks done" and is done. And if you're a QA professional, that's not a subtle distinction -  that's your entire job. Anthropic has been explicit about this: giving an agent a way to verify its own work is the single highest-leverage move you can make in an agentic workflow. That's not a testing philosophy. Today, that is a systems design principle. Comprehensive coverage is how you cash in on it.",
+              "speakers": ["pavan"]
+            },
             {
               "title": "Beyond Page Objects: Modern Patterns for Scaling Playwright Tests",
               "type": "talk",
@@ -109,7 +116,7 @@
               "title": "Unlocking New Frontiers in Test Automation with AI and Open Source",
               "type": "talk",
               "room": "practitioner",
-              "description": "",
+              "description": "AI is expanding the boundaries of what test automation can achieve. Problems that were once considered impractical—or impossible—to automate are now within reach through advances in large language models, computer vision, and multimodal analysis. This session explores how modern QA teams are building AI-powered test automation capabilities using open-source technologies to validate complex user experiences, dynamic interfaces, and rich media workflows. Attendees will see how AI enables automation beyond the DOM: interpreting visual states, interacting with unstable UIs, understanding streaming playback, analyzing network traffic, and generating tests directly from user behavior. Rather than focusing on theory, the talk highlights concrete AI-driven capabilities and the architectural patterns that make them reusable and extensible across projects. Real-world examples demonstrate how AI can act as an intelligent testing assistant—augmenting existing automation frameworks to increase coverage, reduce manual effort, and accelerate delivery. This session is designed for teams looking to move past incremental improvements and adopt next-generation, AI-enabled automation powered by open source.",
               "speakers": ["greg"]
             },
             {
@@ -189,7 +196,7 @@
               "title": "Is Today's Test Infra Ready for AI? The Hard Questions No One Is Asking.",
               "type": "talk",
               "room": "practitioner",
-              "description": "",
+              "description": "Is Today’s Test Infrastructure Ready for AI? The Hard Questions No One Is Asking AI testing agents are evolving faster than the environments meant to run them. We can now write an autonomous web-test agent, a multimodal workflow bot, or a simulation-driven evaluator — but the moment we try to execute it, we collide with the limitations of traditional test infrastructure. This session challenges a foundational assumption: AI will transform testing. Yes — but only if the underlying infrastructure can support what AI actually needs. Through real scenarios and complex questions, we will explore gaps that most teams don’t realize exist.",
               "speakers": ["krishna"]
             },
             {
@@ -257,8 +264,8 @@
               "title": "Taming the Beast: Testing Non-Deterministic AI Systems with Confidence",
               "type": "talk",
               "room": "leadership",
-              "description": "",
-                "speakers": ["leebarnes"]
+              "description": "For decades, software testing has relied on a comforting assumption: given the same input, systems should produce the same output. AI-enabled systems break that assumption entirely. Large language models and other AI components generate responses that can vary in structure, tone, and content while still appearing “correct”. In this session, we’ll explore why traditional testing strategies struggle with non-deterministic AI behavior and where they quietly fail. Using real-world examples such as AI chatbots and resume-screening systems, we’ll walk through practical techniques for validating AI outputs without relying on brittle, deterministic assertions. Topics include input variation strategies, semantic similarity analysis, bias detection, and using LLMs responsibly as automated evaluators (aka “LLM-as-a-Judge”). Attendees will leave with a clear mental model for testing AI-based systems, concrete patterns they can apply immediately, and guidance on balancing automation, human judgment, and risk. If you’re responsible for the quality of AI-driven features, this talk will help you move from uncertainty to confidence!",
+              "speakers": ["leebarnes"]
             },
             {
               "title": "Intelligent QA Lifecycle in Xray and Jira",
@@ -406,7 +413,7 @@
               "title": "AI Generated Test Data: Know Your Need",
               "type": "talk",
               "room": "practitioner",
-              "description": "",
+              "description": "If all you have is a hammer, everything looks like a nail: AI continues to transform testing landscapes, promising to drastically reduce complexity and make automation a breeze. Yet, with development speeding up, the availability of realistic, de-identified test data is becoming a bottleneck. On the enterprise scale, AI can neither replace the nuanced reality of production data, nor guarantee compliance. Plus, the organizational challenge of different data consumers (developers, testers, automation engineers, ML engineers) with diverging requirements is often overlooked. Let’s examine the complexities of supplying test data enterprise-wide across departments and diverse environments - tailored to the individual consumers’ needs. I’ll share how to separate technical from organizational complexity and where artificial intelligence can help when employed in the right context.",
               "speakers": ["bastian"]
             },
             { 
@@ -1079,7 +1086,18 @@
       "topic": "",
       "bio": "QA Automation Engineer with 4+ years of experience designing and owning test automation frameworks across browser extensions and web.\n  I have built automation suites using Python, Selenium WebDriver and PyTest, integrated with CI/CD pipelines, working across fast paced product teams where quality and release velocity both mattered. I have led end-to-end API testing for high-risk database migrations.\n  Currently I am deepening my expertise in Playwright and AI testing, including prompt engineering, red teaming and black box testing of LLM applications across commercial and local models, learning how modern tools are changing the way we think about quality engineering. As a ContextQA Ambassador, I explore how AI can make testing smarter, faster and more reliable. \n I am passionate about learning in public and sharing practical insights with the QA community.",
       "linkedin": "https://www.linkedin.com/in/navya-sivakoti/"
-     }
+     },
+     {
+      "id": "pavan",
+      "name": "Pavan Kanaparthy",
+      "title": "CEO",
+      "company": "AgentBricks.com",
+      "image": "/speakers/2026/Pavan.jpeg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Pavan Kanaparthy has spent two decades building across consulting and startups, from large cloud systems, web apps and mobile apps to platform tools and hardware. He has built and led cross-functional teams across geographies. When the latest AI wave arrived, he went all in, learning the technology from the fundamentals and building with it obsessively.\n He is now the CEO of AgenticBricks, a Seattle AI consulting firm. Their work centers on the engineering discipline the AI era has made urgent: keeping software useful, maintainable, debuggable, and evolvable as agents generate more of it. They are eager to share that craft and help teams build durable software. ",
+      "linkedin": "https://www.linkedin.com/in/pavankanaparthy/"
+     }  
   ],
   "sponsors": {
     "platinum": [ 
