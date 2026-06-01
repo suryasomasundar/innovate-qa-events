@@ -152,11 +152,11 @@
               "speakers": ["zach"]
             },      
             {
-              "title": "#1 Are We Using AI to Test Better — or Just Faster? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
+              "title": "#1 Are AI-Generated Tests Creating False Confidence? | #2 Flaky Tests vs Flaky AI: Which Problem Is Worse? | #3 What Should Never Be Automated by AI? | #4 How Do You Prove ROI for AI in Testing?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": ["krishna", "sharan", "deepak", "rohit"]
+              "speakers": ["krishna", "deep", "deepak", "rohit"]
             } ,
             {
               "title": "Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures.",
@@ -390,11 +390,11 @@
               "speakers": ["ryan", "cindy"]
             },
             {
-              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 Is Shifting Left Dead? How AI Changes Where Quality Actually Lives | #4 Are AI-Generated Tests Creating False Confidence?",
+              "title": "#1 Will AI Reduce QA Headcount… or Make QA More Critical Than Ever? | #2 Is Your Test Strategy Ready for AI… or Just Your Tools? | #3 Is Shifting Left Dead? How AI Changes Where Quality Actually Lives | #4 Are We Using AI to Test Better — or Just Faster?",
               "type": "discussion",
               "room": "discussion",
               "description": "",
-              "speakers": ["krishna", "deepak", "deep", "nimesha"]
+              "speakers": ["krishna", "deepak", "somu", "nimesha"]
             }
           ]
         },
@@ -488,7 +488,7 @@
               "type": "talk",
               "room": "leadership",
               "description": "",
-              "speakers": ["tejash"]
+              "speakers": ["devashish"]
             },
             {
               "title": "Accessibility in the Age of AI: What AI can catch, what it misses, and why that matters now",
@@ -803,17 +803,6 @@
       "linkedin": "https://www.linkedin.com/in/gjreddy/"
     } ,
      {
-      "id": "tejash",
-      "name": "Tejash Patel",
-      "title": "Head of Quality Engineering",
-      "company": "Prime Video & Amazon Studios",
-      "image": "/speakers/2026/tejash.jpg",
-      "keynote": false,
-      "topic": "Leading Quality in the Age of AI: Strategy, Culture, and What Comes Next",
-      "bio": "",
-      "linkedin": "https://www.linkedin.com/in/tejashcpatel/"
-    } ,
-     {
       "id": "joel",
       "name": "Joel Montvelisky",
       "title": "Co-founder & Chief Product Officer",
@@ -1008,19 +997,7 @@
       "topic": "",
       "bio": "As Senior Director of Business Value in the Microsoft Garage, I leverage over a decade of experience to drive cultural transformation and enable early-stage innovation. By spearheading growth initiatives and creating frameworks like The Garage Growth Framework, our team has achieved high sponsorship rates and launched experimental projects that secure substantial internal funding. \n Author of The Inside Job: The Intrapreneur's Toolkit to Mastermind Meaningful Change and Innovation (coming January 2026). Passionate about fostering innovation within large organizations, I lead programs that empower employees to develop Horizon 3 ideas and collaborate across Microsoft's incubation ecosystem. My expertise in coaching, agile methodologies, and design-thinking ensures teams navigate challenges while delivering impactful results. Through these efforts, we continue to shape strategies that inspire meaningful organizational change.",
       "linkedin": "https://www.linkedin.com/in/essey/"
-     }
-  ,
-     {
-      "id": "sharan",
-      "name": "Sharan Anil Kumar",
-      "title": "Sr Analytics Quality Assurance Engineer",
-      "company": "Paramount",
-      "image": "/speakers/2026/sharan.jpeg",
-      "keynote": false,
-      "topic": "",
-      "bio": "Sharan Anil Kumar is a Sr. Analytics Quality Assurance Engineer at Paramount+, where he drives quality initiatives for analytics systems that support data-driven decision-making across one of the world's leading streaming platforms. With 7+ years of experience spanning software quality engineering, test automation, and analytics validation, he specializes in building scalable quality frameworks that ensure both product reliability and data integrity. \n Throughout his career, Sharan has led quality efforts across streaming, e-commerce, and enterprise software ecosystems, delivering automation solutions, validation strategies, and testing practices that improve release confidence and operational efficiency. His expertise spans analytics quality, test automation, data validation, AI-assisted testing, and modern quality engineering practices. \n A passionate advocate for innovation in software quality, Sharan focuses on the intersection of artificial intelligence and testing, exploring how AI is reshaping engineering workflows, test infrastructure, and quality strategy. He frequently contributes to the QA community and enjoys sharing practical insights that help organizations navigate the rapidly evolving landscape of software quality and AI-driven development.",
-      "linkedin": "https://www.linkedin.com/in/sharananilkumar/"
-     } ,
+     },
      {
       "id": "nimesha",
       "name": "Nimesha Shingote",
@@ -1097,6 +1074,28 @@
       "topic": "",
       "bio": "Pavan Kanaparthy has spent two decades building across consulting and startups, from large cloud systems, web apps and mobile apps to platform tools and hardware. He has built and led cross-functional teams across geographies. When the latest AI wave arrived, he went all in, learning the technology from the fundamentals and building with it obsessively.\n He is now the CEO of AgenticBricks, a Seattle AI consulting firm. Their work centers on the engineering discipline the AI era has made urgent: keeping software useful, maintainable, debuggable, and evolvable as agents generate more of it. They are eager to share that craft and help teams build durable software. ",
       "linkedin": "https://www.linkedin.com/in/pavankanaparthy/"
+     },
+     {
+      "id": "devashish",
+      "name": "Devashish Meena",
+      "title": "Senior Director of Engineering",
+      "company": "Esper",
+      "image": "/speakers/2026/devashish.jpeg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Devashish is a Senior Director of Engineering at Esper, where for the past five years he has been building 'DevOps for devices' - a platform that helps enterprises manage fleets of mission-critical devices. For the past year, he has been leading a team of 70+ engineers through their AI adoption journey. His career spans multiple early-stage startups, including Shippable - a Techstars-backed company acquired by JFrog - where he built the CI/CD and automation pipelines from the ground up. A longtime expert in the DevOps and automation space, he has built and led distributed engineering teams across the globe. In his spare time, he goes running with his dog, dabbles as an amateur mountaineer, writes about his AI experiments on his blog (https://devashish.me), and is building Clawrium (https://github.com/ric03uec/clawrium), a side project for orchestrating autonomous agents at scale.",
+      "linkedin": "https://www.linkedin.com/in/devashishm/"
+     },
+     {
+      "id": "somu",
+      "name": "Somu Suryanarayanan",
+      "title": "Engineering Leader AI, Tools & Quality ",
+      "company": "CookUnity",
+      "image": "/speakers/2026/somu.jpeg",
+      "keynote": false,
+      "topic": "",
+      "bio": "Somu Suryanarayanan (Somu) is an Engineering Leader at CookUnity, where he builds AI-powered test automation systems. His work centers on agentic testing, large language model integration, and the Model Context Protocol. He has built platforms including Test Studio, a plain-English to Playwright test generation system, an AI API testing agent, and a mobile automation system using Appium MCP and Claude Code that was adopted across all mobile teams. He has served as a peer reviewer for multiple IEEE conferences and is a published author on cost-effective AI-driven quality infrastructure. He is an IEEE Seniot Member with more than a decade of experience across PayPal, Life360, and MyVest.",
+      "linkedin": "https://www.linkedin.com/in/somusuryanarayanan/"
      }  
   ],
   "sponsors": {
