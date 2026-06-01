@@ -497,12 +497,12 @@
               "description": "",
               "speakers": ["daniel"]
             },
-            {
-              "title": "Mock Interviews - how to pass your next interview",
-              "type": "talk",
+           {
+              "title": "How to Get Hired in the Age of AI",
+              "type": "workshop",
               "room": "demo",
               "description": "",
-              "speakers": ["george"]
+              "speakers": ["dana", "scott"]
             },
             {
               "title": "Continue - Breaking GPT & Claude: AI Bug Bounty Workshop (Hands-On with PromptFoo)",
@@ -527,7 +527,7 @@
         },
         {
           "time": "3:00 PM",
-          "duration": 45,
+          "duration": 55,
           "sessions": [
             {
               "title": "The Triple Threat: How Generative AI, Predictive Analytics, and Self-Healing Automation Cut Testing Costs by 40%, Accelerate Releases by 30%, and Improve Defect Detection by 50%",
@@ -536,13 +536,13 @@
               "description": "",
               "speakers": ["jyotheeswara"]
             },
-           {
-              "title": "How to Get Hired in the Age of AI",
-              "type": "workshop",
+            {
+              "title": "Mock Interviews - how to pass your next interview",
+              "type": "talk",
               "room": "demo",
               "description": "",
-              "speakers": ["dana", "scott"]
-            } ,
+              "speakers": ["george"]
+            },
             {
               "title": "Innovate QA with Stories & Wisdom®: A neuroscience-backed workshop for transforming software quality cultures",
               "type": "discussion",
