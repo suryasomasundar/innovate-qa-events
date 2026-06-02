@@ -1096,7 +1096,18 @@
       "topic": "",
       "bio": "Somu Suryanarayanan (Somu) is an Engineering Leader at CookUnity, where he builds AI-powered test automation systems. His work centers on agentic testing, large language model integration, and the Model Context Protocol. He has built platforms including Test Studio, a plain-English to Playwright test generation system, an AI API testing agent, and a mobile automation system using Appium MCP and Claude Code that was adopted across all mobile teams. He has served as a peer reviewer for multiple IEEE conferences and is a published author on cost-effective AI-driven quality infrastructure. He is an IEEE Seniot Member with more than a decade of experience across PayPal, Life360, and MyVest.",
       "linkedin": "https://www.linkedin.com/in/somusuryanarayanan/"
-     }  
+     },
+     {
+      "id": "sazz",
+      "name": "Sazz Rahman",
+      "title": "Founder and CEO ",
+      "company": "Scleraworx, Inc",
+      "image": "/speakers/2026/sazz.jpg",
+      "keynote": false,
+      "topic": "",
+      "bio": "",
+      "linkedin": "https://www.linkedin.com/in/sazzrahman/"
+     } 
   ],
   "sponsors": {
     "platinum": [ 
