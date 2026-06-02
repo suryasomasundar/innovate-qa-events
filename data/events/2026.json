@@ -112,6 +112,13 @@
               "description": "",
               "speakers": ["rhea"]
             },
+             {
+              "title": "TBD",
+              "type": "talk",
+              "room": "demo",
+              "description": "",
+              "speakers": ["Sazz"]
+            },
             {
               "title": "Unlocking New Frontiers in Test Automation with AI and Open Source",
               "type": "talk",
