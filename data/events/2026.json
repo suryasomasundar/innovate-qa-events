@@ -113,7 +113,7 @@
               "speakers": ["rhea"]
             },
              {
-              "title": "TBD",
+              "title": "The Tool Was Never the Hard Part: A Founder's Filter for AI in QA",
               "type": "talk",
               "room": "demo",
               "description": "",
@@ -1112,7 +1112,7 @@
       "image": "/speakers/2026/sazz.jpg",
       "keynote": false,
       "topic": "",
-      "bio": "",
+      "bio": "Sazz Rahman is the Founder & CEO of Scleraworx, a Software Solutions & Services company that helps engineering teams ship software where quality is repeatable, not heroic. Over 24 years in software, he's gone from the manual testing floor at Infosys to senior quality engineering roles at Adobe and Intuit — where he architected an early Mac test automation framework for TurboTax, years before automation was an industry default. Along the way, he's built quality and delivery teams from scratch — most recently a 30+ person global delivery team across the U.S. and India, with 90% staff retention. Today, Scleraworx operates as an Atlassian Solution Partner — delivering QA, test automation, productivity and collaboration tools solutions, and Jira-based test management solutions using XRay. ",
       "linkedin": "https://www.linkedin.com/in/sazzrahman/"
      } 
   ],
