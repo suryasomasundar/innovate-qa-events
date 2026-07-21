@@ -1297,48 +1297,6 @@
       ]
     }
   },
-  "recordings": {
-    "day1": [
-      "https://vimeo.com/1205334353",
-      "https://vimeo.com/1205334332",
-      "https://vimeo.com/1205334336",
-      "https://vimeo.com/1205334343",
-      "https://vimeo.com/1205334333",
-      "https://vimeo.com/1205334335",
-      "https://vimeo.com/1205334354",
-      "https://vimeo.com/1205334331",
-      "https://vimeo.com/1205334342",
-      "https://vimeo.com/1205334359",
-      "https://vimeo.com/1205334357",
-      "https://vimeo.com/1205334350",
-      "https://vimeo.com/1205334356",
-      "https://vimeo.com/1205334341",
-      "https://vimeo.com/1205334334",
-      "https://vimeo.com/1205333888",
-      "https://vimeo.com/1205333889",
-      "https://vimeo.com/1205333895",
-      "https://vimeo.com/1205333893",
-      "https://vimeo.com/1205333890",
-      "https://vimeo.com/1205333894"
-    ],
-    "day2": [
-      "https://vimeo.com/1205334537",
-      "https://vimeo.com/1205334529",
-      "https://vimeo.com/1205334542",
-      "https://vimeo.com/1205334524",
-      "https://vimeo.com/1205334516",
-      "https://vimeo.com/1205334547",
-      "https://vimeo.com/1205334546",
-      "https://vimeo.com/1205334535",
-      "https://vimeo.com/1205334548",
-      "https://vimeo.com/1205334514",
-      "https://vimeo.com/1205334550",
-      "https://vimeo.com/1205334536",
-      "https://vimeo.com/1205334513",
-      "https://vimeo.com/1205334525",
-      "https://vimeo.com/1205333729"
-    ]
-  },
   "stats": {
     "attendees": 250,
     "speakers": 40,
