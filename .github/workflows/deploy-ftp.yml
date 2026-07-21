@@ -37,10 +37,22 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Resolve deployment package directory
+        run: |
+          if [ -d out ]; then
+            echo "DEPLOY_DIR=out" >> $GITHUB_ENV
+          elif [ -d .next ]; then
+            echo "DEPLOY_DIR=.next" >> $GITHUB_ENV
+          else
+            echo "Neither out/ nor .next/ exists after build"
+            exit 1
+          fi
+
       - name: List deployment files
         run: |
           echo "Deployment package contents:"
-          ls -la out/
+          echo "Using $DEPLOY_DIR"
+          ls -la "$DEPLOY_DIR"/
 
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -50,7 +62,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./out/
+          local-dir: ./${{ env.DEPLOY_DIR }}/
           server-dir: /public_html/
           state-name: .ftp-deploy-sync-state-v2.json
           exclude: |
@@ -66,7 +78,7 @@ jobs:
           echo "✅ Deployment completed successfully!"
           echo ""
           echo "📦 Deployed components:"
-          echo "  - Next.js static export (out/)"
+          echo "  - Next.js deployment package ($DEPLOY_DIR/)"
           echo ""
           echo "🌐 Site URL: https://innovateqaevents.com/"
 
