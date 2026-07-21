@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"Set-Location 'e:/git/innovateqaevents-site'; npm run dev\")"
+    ]
+  }
+}
