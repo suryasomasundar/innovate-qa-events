@@ -1,39 +1,107 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { BASE_PATH } from "@/lib/constants";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle2 } from "lucide-react";
+
+const LOGIN_ENDPOINT = "/api/auth/login";
+const SOCIAL_ENDPOINT = "/api/auth/social";
 
 export default function SignInPage() {
+  const router = useRouter();
+  const [nextPath, setNextPath] = useState("/recordings");
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState<{ type: "error" | "success"; text: string } | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const next = params.get("next");
+
+    if (next) {
+      setNextPath(next);
+    }
+
+    if (params.get("registered") === "1") {
+      setMessage({
+        type: "success",
+        text: "Account created. Sign in to access your purchased videos.",
+      });
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (message) {
+      setMessage(null);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     setIsLoading(true);
-    // TODO: Implement sign in logic
-    console.log("Sign in:", formData);
-    setTimeout(() => setIsLoading(false), 1000);
+    setMessage(null);
+
+    try {
+      const response = await fetch(LOGIN_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email.trim(),
+          password: formData.password,
+        }),
+      });
+
+      const payload = await response.json().catch(() => null) as {
+        success?: boolean;
+        message?: string;
+        redirectUrl?: string;
+      } | null;
+
+      if (!response.ok || !payload?.success) {
+        throw new Error(payload?.message || "We could not sign you in. Please verify your credentials.");
+      }
+
+      setMessage({
+        type: "success",
+        text: payload.message || "Signed in successfully. Redirecting to your video library...",
+      });
+
+      if (payload.redirectUrl) {
+        window.location.href = payload.redirectUrl;
+        return;
+      }
+
+      router.push(nextPath);
+      router.refresh();
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: error instanceof Error ? error.message : "Unexpected error while signing in.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleGoogleSignIn = () => {
-    // TODO: Implement Google sign in
-    console.log("Google sign in clicked");
+  const handleSocialSignIn = (provider: "google" | "linkedin") => {
+    const params = new URLSearchParams({ provider, next: nextPath })
+    window.location.href = `${SOCIAL_ENDPOINT}?${params.toString()}`;
   };
 
   return (
@@ -54,12 +122,33 @@ export default function SignInPage() {
               Sign In
             </h1>
 
+            <p className="text-sm text-center text-gray-600 mb-6">
+              Use your email and password from the member database, or continue with a connected social account.
+            </p>
+
+            {message && (
+              <div
+                className={`mb-6 flex items-start gap-3 rounded-lg border px-4 py-3 text-sm ${
+                  message.type === "error"
+                    ? "border-red-200 bg-red-50 text-red-700"
+                    : "border-emerald-200 bg-emerald-50 text-emerald-700"
+                }`}
+              >
+                {message.type === "error" ? (
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                ) : (
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+                )}
+                <span>{message.text}</span>
+              </div>
+            )}
+
             {/* Google Sign In Button */}
             <Button
               type="button"
               variant="outline"
-              className="w-full mb-6 h-12 text-base font-medium hover:bg-gray-50"
-              onClick={handleGoogleSignIn}
+              className="mb-6 h-12 w-full text-base font-medium hover:bg-gray-800 hover:text-white"
+              onClick={() => handleSocialSignIn("google")}
             >
               <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
                 <path
@@ -80,6 +169,21 @@ export default function SignInPage() {
                 />
               </svg>
               Continue with Google
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
+              className="mb-6 h-12 w-full text-base font-medium hover:bg-gray-800 hover:text-white"
+              onClick={() => handleSocialSignIn("linkedin")}
+            >
+              <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="#0A66C2"
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.66H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
+                />
+              </svg>
+              Continue with LinkedIn
             </Button>
 
             <div className="relative mb-6">
@@ -126,6 +230,7 @@ export default function SignInPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -147,7 +252,7 @@ export default function SignInPage() {
                 type="submit"
                 className="w-full h-12 text-base font-semibold text-white"
                 style={{ backgroundColor: "rgb(138, 43, 226)" }}
-                disabled={isLoading}
+                disabled={isLoading || !formData.email || !formData.password}
               >
                 {isLoading ? "Signing in..." : "Sign In"}
               </Button>

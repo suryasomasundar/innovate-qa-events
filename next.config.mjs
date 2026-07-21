@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: process.env.STATIC_EXPORT === 'true' ? 'export' : undefined,
   // Deploying to root domain, no basePath needed
   basePath: '',
   assetPrefix: '',
