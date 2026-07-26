@@ -12,7 +12,7 @@ import { EventJudgePanel } from "@/components/event-judge-panel"
 import { EventSpeakerCarousel } from "@/components/event-speaker-carousel"
 import { EventSchedulePlanner } from "@/components/event-schedule-planner"
 import { PremierSponsorCard, SponsorTierRow, withLogo, type Sponsor } from "@/components/sponsor-cards"
-import { BASE_PATH } from "@/lib/constants"
+import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
 
 import event2026 from "@/data/events/2026.json"
 import event2025 from "@/data/events/2025.json"
@@ -176,19 +176,29 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-6">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white">{event.stats.attendees}+</p>
-                <p className="text-sm text-white/65">Attendees</p>
+            <div className="flex flex-col gap-5 lg:items-end">
+              <div className="flex flex-wrap gap-6">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">{event.stats.attendees}+</p>
+                  <p className="text-sm text-white/65">Attendees</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">{event.stats.speakers}</p>
+                  <p className="text-sm text-white/65">Speakers</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-white">{event.stats.sessions}</p>
+                  <p className="text-sm text-white/65">Sessions</p>
+                </div>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white">{event.stats.speakers}</p>
-                <p className="text-sm text-white/65">Speakers</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-white">{event.stats.sessions}</p>
-                <p className="text-sm text-white/65">Sessions</p>
-              </div>
+              {year === "2026" && (
+                <Button asChild variant="secondary" className="gap-2">
+                  <a href={RECORDINGS_URL}>
+                    <Play className="h-4 w-4" />
+                    Watch 2026 Recordings
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
         </div>
