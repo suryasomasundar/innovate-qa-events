@@ -3,12 +3,12 @@
     "eventDate": "2026-06-04T08:00:00-07:00",
     "eventDateDisplay": "June 4-5, 2026",
     "location": "Bellevue, WA",
-    "title": "Welcome to Innovate QA Conference 2026",
-    "subtitle": "Join industry leaders, pioneers, and visionaries sharing insights, best practices, and cutting-edge tools to build high-quality, safe, accessible, and reliable systems.",
+    "title": "Watch. Rewatch. Learn from Innovate QA 2026",
+    "subtitle": "The conference may be over, but the learning continues. Revisit every keynote, workshop, and conversation at your own pace.",
     "buttons": {
       "tickets": {
-        "text": "Buy Ticket",
-        "url": "https://www.eventbrite.com/e/innovate-qa-2026-software-quality-annual-conference-tickets-1979920880652?aff=oddtdtcreator"
+        "text": "Watch Recordings",
+        "url": "https://recordings.innovateqaevents.com/recordings"
       },
       "speaker": {
         "text": "Explore Awards",
@@ -26,7 +26,7 @@
       },
       {
         "icon": "CalendarDays",
-        "text": "40+ Sessions"
+        "text": "36 Recordings"
       },
       {
         "icon": "MapPin",

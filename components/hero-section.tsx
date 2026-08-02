@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button"
-import { CountdownTimer } from "@/components/countdown-timer"
-import { ArrowDown, CalendarDays, MapPin, Users } from "lucide-react"
+import { ArrowDown, CalendarDays, MapPin, PlayCircle, Sparkles, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { BASE_PATH } from "@/lib/constants"
+import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
 import homeData from "@/data/home.json"
-import { SubscribeModal } from "@/components/subscribe-modal"
 
 const iconMap = {
   Users,
@@ -14,25 +12,30 @@ const iconMap = {
 }
 
 export function HeroSection() {
-  const eventDate = new Date(homeData.hero.eventDate)
-
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background">
       <div
         className="absolute inset-0 opacity-5 bg-cover bg-center"
         style={{ backgroundImage: `url(${BASE_PATH}/abstract-geometric-purple.png)` }}
       />
+      <div className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-fuchsia-500/15 blur-3xl" />
+      <div className="pointer-events-none absolute right-[8%] top-10 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <CalendarDays className="h-4 w-4" />
-              <span>{homeData.hero.eventDateDisplay} • {homeData.hero.location}</span>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-2 text-sm font-bold text-primary shadow-sm backdrop-blur">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-fuchsia-500 opacity-70 motion-safe:animate-ping" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
+              </span>
+              Recordings now live
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance">
+            <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
               {homeData.hero.title.split("Innovate QA")[0]}
-              <span className="text-primary drop-shadow-[0_0_15px_rgba(75,0,130,0.5)]">Innovate QA</span>
+              <span className="bg-gradient-to-r from-primary via-purple-600 to-fuchsia-600 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(75,0,130,0.25)]">
+                Innovate QA
+              </span>
               {homeData.hero.title.split("Innovate QA")[1]}
             </h1>
 
@@ -40,24 +43,31 @@ export function HeroSection() {
               {homeData.hero.subtitle}
             </p>
 
-            <div className="mb-12">
-              <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider font-medium">Event Starts In</p>
-              <CountdownTimer targetDate={eventDate} />
+            <div className="mb-6 inline-flex items-center gap-2 text-base font-bold text-primary">
+              <Sparkles className="h-5 w-5 motion-safe:animate-pulse" />
+              Unlimited viewing
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-5">
-              <Button size="lg" className="text-base px-8" asChild>
-                <Link href={homeData.hero.buttons.tickets.url}>{homeData.hero.buttons.tickets.text}</Link>
+            <div className="mx-auto mb-5 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+              <Button
+                size="lg"
+                className="h-13 w-full gap-2 bg-gradient-to-r from-primary via-purple-700 to-fuchsia-600 px-7 text-base shadow-[0_14px_35px_rgba(75,0,130,0.35)] transition-transform hover:scale-[1.03] hover:from-primary hover:via-purple-700 hover:to-fuchsia-500"
+                asChild
+              >
+                <a href={RECORDINGS_URL}>
+                  <PlayCircle className="h-5 w-5" />
+                  Watch Recordings
+                  <Sparkles className="h-4 w-4 motion-safe:animate-pulse" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-base px-8 bg-transparent" asChild>
-                <Link href={homeData.hero.buttons.speaker.url}>{homeData.hero.buttons.speaker.text}</Link>
+              <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
+                <Link href="/events/2026">Explore the 2026 event</Link>
               </Button>
-              <SubscribeModal label={(homeData.hero.buttons as any).subscribe.text} />
             </div>
 
             <Link
               href="#testimonials"
-              className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
             >
               See what attendees said
               <ArrowDown className="h-4 w-4" />

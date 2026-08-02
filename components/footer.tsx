@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Sparkles, Heart, Instagram, Linkedin, Youtube } from "lucide-react"
 import siteConfig from "@/data/site-config.json"
-import { BASE_PATH } from "@/lib/constants"
+import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
 
 // Custom X/Twitter icon since lucide doesn't have the new X logo
 const XIcon = ({ className }: { className?: string }) => (
@@ -21,6 +21,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 const footerLinks = {
   event: [
     { label: "Innovate QA 2026", href: "/events/2026" },
+    { label: "2026 Recordings", href: RECORDINGS_URL },
     { label: "Speakers", href: "/events/2026#speakers" },
     { label: "Schedule", href: "/events/2026#schedule" },
   ],

@@ -3,15 +3,14 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { BASE_PATH } from "@/lib/constants"
-import { Menu, ChevronDown } from "lucide-react"
+import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
+import { Menu, ChevronDown, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 const navLinks = [
   { href: "/about", label: "About" },
-
   { href: "/sponsor", label: "Become a Sponsor" },
 ]
 
@@ -93,8 +92,17 @@ export function Navigation() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Button asChild>
+          <Button asChild variant="outline">
             <a href="/contact">Contact Us</a>
+          </Button>
+          <Button asChild className="gap-2 shadow-md">
+            <a href={RECORDINGS_URL}>
+              <Sparkles className="h-4 w-4 motion-safe:animate-pulse" />
+              Watch Recordings
+              <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider motion-safe:animate-pulse">
+                New
+              </span>
+            </a>
           </Button>
         </div>
 
@@ -159,7 +167,16 @@ export function Navigation() {
 
 
               <div className="flex flex-col gap-2 mt-6 border-t border-border pt-4">
-                <Button asChild className="w-full">
+                <Button asChild className="w-full gap-2">
+                  <a href={RECORDINGS_URL} onClick={() => setOpen(false)}>
+                    <Sparkles className="h-4 w-4 motion-safe:animate-pulse" />
+                    Watch Recordings
+                    <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider motion-safe:animate-pulse">
+                      New
+                    </span>
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
                   <a href="/contact" onClick={() => setOpen(false)}>Contact Us</a>
                 </Button>
               </div>
