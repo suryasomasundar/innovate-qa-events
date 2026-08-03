@@ -20,7 +20,7 @@ export function RecordingsLaunchHero() {
             <span className="absolute inline-flex h-full w-full rounded-full bg-fuchsia-500 opacity-70 motion-safe:animate-ping" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
           </span>
-          Recordings premiere August 11
+          Recordings premiere August 10
         </div>
 
         <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
@@ -31,7 +31,7 @@ export function RecordingsLaunchHero() {
         </h1>
 
         <p className="mb-8 text-pretty text-lg text-muted-foreground md:text-xl">
-          All 37 Innovate QA 2026 sessions launch on demand at midnight Pacific Time on August 11.
+          Innovate QA 2026 sessions launch on demand at midnight Pacific Time on August 10.
         </p>
 
         <div className="mb-8" aria-label="Time until the recordings launch">
@@ -41,7 +41,7 @@ export function RecordingsLaunchHero() {
         <div className="mx-auto mb-5 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
           <Button size="lg" className="h-13 w-full gap-2 px-7 text-base" disabled>
             <CalendarClock className="h-5 w-5" />
-            Launches August 11
+            Launches August 10
           </Button>
           <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
             <Link href="/events/2026">Explore the 2026 event</Link>
