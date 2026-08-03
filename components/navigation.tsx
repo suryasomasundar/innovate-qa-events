@@ -109,7 +109,7 @@ export function Navigation() {
             </Button>
           ) : (
             <Button className="gap-2 shadow-md" disabled>
-              Launches Aug 11
+              Launches Aug 10
             </Button>
           )}
         </div>
@@ -187,7 +187,7 @@ export function Navigation() {
                   </Button>
                 ) : (
                   <Button className="w-full" disabled>
-                    Launches Aug 11
+                    Launches Aug 10
                   </Button>
                 )}
                 <Button asChild variant="outline" className="w-full">
