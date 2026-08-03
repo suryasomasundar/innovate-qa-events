@@ -10,11 +10,11 @@ interface TimeLeft {
 }
 
 interface CountdownTimerProps {
-  targetDate: Date
+  targetDate: string
 }
 
-function calculateTimeLeft(target: Date): TimeLeft {
-  const difference = target.getTime() - Date.now()
+function calculateTimeLeft(targetDate: string): TimeLeft {
+  const difference = new Date(targetDate).getTime() - Date.now()
   if (difference <= 0) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 }
   }
