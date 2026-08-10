@@ -237,7 +237,7 @@ export function FeaturedSessions() {
     <section className="bg-background py-20 md:py-28">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-10 max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Schedule</h2>
+          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Past Schedule</h2>
           <div className="mx-auto mb-6 h-1 w-20 rounded-full bg-primary" />
           <p className="text-lg text-muted-foreground">
             Full two-day agenda across Leadership, Practitioner, Demo, and Discussion tracks.
@@ -564,7 +564,7 @@ export function FeaturedSessions() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" variant="outline">
             <Link href="/events/2026#schedule">
-              View Full Schedule <ArrowRight className="ml-2 h-4 w-4" />
+              View Past Schedule <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button asChild size="lg">
