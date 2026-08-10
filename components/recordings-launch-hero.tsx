@@ -44,7 +44,10 @@ export function RecordingsLaunchHero() {
             Launches August 10
           </Button>
           <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
-            <Link href="/events/2026">Explore the 2026 event</Link>
+            <Link href="#features">
+              Explore
+              <ArrowDown className="ml-2 h-5 w-5" />
+            </Link>
           </Button>
         </div>
       </>
@@ -89,7 +92,10 @@ export function RecordingsLaunchHero() {
           </a>
         </Button>
         <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
-          <Link href="/events/2026">Explore the 2026 event</Link>
+          <Link href="#features">
+            Explore
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </Link>
         </Button>
       </div>
 

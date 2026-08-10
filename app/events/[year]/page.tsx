@@ -237,9 +237,11 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
         <div className="container mx-auto px-4">
           <div className="mb-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <p className="mb-3 text-sm font-bold uppercase tracking-normal text-muted-foreground">Event Schedule</p>
+              <p className="mb-3 text-sm font-bold uppercase tracking-normal text-muted-foreground">
+                {isPastEvent ? "Past Event Schedule" : "Event Schedule"}
+              </p>
               <h2 className="text-5xl font-semibold leading-none tracking-normal text-primary md:text-6xl lg:text-7xl">
-                Schedule
+                {isPastEvent ? "Past Schedule" : "Schedule"}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:justify-self-end">
