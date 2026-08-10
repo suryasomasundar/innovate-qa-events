@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowDown, CalendarClock, Mail, PlayCircle, Sparkles } from "lucide-react"
+import { ArrowDown, CalendarClock, PlayCircle, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CountdownTimer } from "@/components/countdown-timer"
 import { useRecordingsLaunch } from "@/components/use-recordings-launch"
@@ -44,9 +44,9 @@ export function RecordingsLaunchHero() {
             Launches August 10
           </Button>
           <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
-            <Link href="#newsletter">
-              <Mail className="mr-2 h-5 w-5" />
-              Subscribe
+            <Link href="#features">
+              Explore
+              <ArrowDown className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -92,9 +92,9 @@ export function RecordingsLaunchHero() {
           </a>
         </Button>
         <Button size="lg" variant="outline" className="h-13 w-full bg-transparent px-7 text-base" asChild>
-          <Link href="#newsletter">
-            <Mail className="mr-2 h-5 w-5" />
-            Subscribe
+          <Link href="#features">
+            Explore
+            <ArrowDown className="ml-2 h-5 w-5" />
           </Link>
         </Button>
       </div>
