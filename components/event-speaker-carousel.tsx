@@ -95,9 +95,11 @@ function linkedinUrl(speaker: EventSpeaker) {
 export function EventSpeakerCarousel({
   speakers,
   eyebrow = "Featured Speakers",
+  title = "Speakers",
 }: {
   speakers: EventSpeaker[]
   eyebrow?: string
+  title?: string
 }) {
   const initialIndex = Math.min(3, Math.max(speakers.length - 1, 0))
   const [activeIndex, setActiveIndex] = useState(initialIndex)
@@ -160,7 +162,7 @@ export function EventSpeakerCarousel({
       <div className="container mx-auto px-4">
         <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-5xl font-semibold leading-none tracking-normal text-primary md:text-6xl lg:text-7xl">
-            Speakers
+            {title}
           </h2>
           <Button asChild className="w-fit rounded-full px-8">
             <Link href="/speakers">See all speakers</Link>
