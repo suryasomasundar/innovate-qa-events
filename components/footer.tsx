@@ -20,10 +20,10 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 const footerLinks = {
   event: [
-    { label: "Innovate QA 2026", href: "/events/2026" },
+    { label: "Innovate QA 2027", href: "/events/2027" },
     { label: "2026 Recordings", href: RECORDINGS_URL },
-    { label: "Speakers", href: "/events/2026#speakers" },
-    { label: "Past Schedule", href: "/events/2026#schedule" },
+    { label: "Speakers", href: "/events/2027#speakers" },
+    { label: "Past Schedule", href: "/events/2027#schedule" },
   ],
   community: [
     { label: "Become a Speaker", href: "/volunteer" },
@@ -31,6 +31,7 @@ const footerLinks = {
     { label: "Become a Sponsor", href: "/sponsor" },
   ],
   pastEvents: [
+    { label: "Innovate QA 2026", href: "/events/2026" },
     { label: "Innovate QA 2025", href: "/events/2025" },
     { label: "Innovate QA 2024", href: "/events/2024" },
     { label: "Battle of AI Test Tools", href: "/battle-of-ai-test-tools" },
