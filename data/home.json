@@ -1,7 +1,7 @@
 {
   "hero": {
-    "eventDate": "2026-06-04T08:00:00-07:00",
-    "eventDateDisplay": "June 4-5, 2026",
+    "eventDate": "2027-05-04T08:00:00-07:00",
+    "eventDateDisplay": "May 4-6, 2027",
     "location": "Bellevue, WA",
     "title": "Watch. Rewatch. Learn from Innovate QA 2026",
     "subtitle": "The conference may be over, but the learning continues. Revisit every keynote, workshop, and conversation at your own pace.",
@@ -113,7 +113,7 @@
         "Networking events"
       ]
     },
-    "registerUrl": "https://www.eventbrite.com/e/innovate-qa-2026-software-quality-annual-conference-tickets-1979920880652?aff=oddtdtcreator"
+    "registerUrl": "https://www.eventbrite.com/e/innovate-qa-2027-software-quality-annual-conference-tickets-1979920880652?aff=oddtdtcreator"
   },
   "venue": {
     "name": "The Westin Bellevue",

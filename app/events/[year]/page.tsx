@@ -14,11 +14,13 @@ import { EventSchedulePlanner } from "@/components/event-schedule-planner"
 import { PremierSponsorCard, SponsorTierRow, withLogo, type Sponsor } from "@/components/sponsor-cards"
 import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
 
+import event2027 from "@/data/events/2027.json"
 import event2026 from "@/data/events/2026.json"
 import event2025 from "@/data/events/2025.json"
 import event2024 from "@/data/events/2024.json"
 
-const events: Record<string, typeof event2026 | typeof event2025 | typeof event2024> = {
+const events: Record<string, typeof event2027 | typeof event2026 | typeof event2025 | typeof event2024> = {
+  "2027": event2027,
   "2026": event2026,
   "2025": event2025,
   "2024": event2024,
@@ -42,7 +44,7 @@ function formatDateOnly(date: string, options: Intl.DateTimeFormatOptions) {
 }
 
 export async function generateStaticParams() {
-  return [{ year: "2026" }, { year: "2025" }, { year: "2024" }]
+  return [{ year: "2027" }, { year: "2026" }, { year: "2025" }, { year: "2024" }]
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ year: string }> }): Promise<Metadata> {
@@ -245,7 +247,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
               </h2>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:justify-self-end">
-              Explore the sessions, workshops, discussions, and networking moments across both days of Innovate QA 2026.
+              Explore the sessions, workshops, discussions, and networking moments at Innovate QA {year}.
             </p>
           </div>
 
@@ -288,7 +290,7 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/60 mb-4">Sponsors & Partners</p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-normal text-white mb-5">
-                The partner ecosystem behind Innovate QA 2026
+                The partner ecosystem behind Innovate QA {year}
               </h2>
               <p className="text-lg text-white/70 max-w-3xl">
                 Tool builders, quality platforms, and community partners helping create a practical conference for the teams defining modern software quality.

@@ -16,6 +16,7 @@ const navLinks = [
 ]
 
 const pastEvents = [
+  { href: "/events/2026", label: "Innovate QA 2026", year: 2026 },
   { href: "/events/2025", label: "Innovate QA 2025", year: 2025 },
   { href: "/events/2024", label: "Innovate QA 2024", year: 2024 },
   { href: "/battle-of-ai-test-tools", label: "Battle of AI Test Tools", year: 2026 },
@@ -81,7 +82,7 @@ export function Navigation() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               {pastEvents.map((event) => (
-                <DropdownMenuItem key={event.year} asChild>
+                <DropdownMenuItem key={event.href} asChild>
                   <Link href={event.href} className="w-full cursor-pointer">
                     {event.label}
                   </Link>
@@ -168,7 +169,7 @@ export function Navigation() {
                 <p className="text-sm font-semibold text-muted-foreground mb-3 px-2 uppercase tracking-wider">Past Events</p>
                 {pastEvents.map((event) => (
                   <Link
-                    key={event.year}
+                    key={event.href}
                     href={event.href}
                     onClick={() => setOpen(false)}
                     className="block text-base font-medium text-foreground hover:text-primary active:text-primary/80 transition-colors py-2 px-2 -mx-2 rounded-md hover:bg-accent/50 active:bg-accent"
