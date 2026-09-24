@@ -68,11 +68,11 @@ export function Countdown2027() {
             <div className="mx-auto grid max-w-xl grid-cols-2 items-center gap-x-2 gap-y-3 text-xs text-muted-foreground sm:grid-cols-4 lg:text-sm">
               <div className="flex items-center justify-center gap-1 whitespace-nowrap">
                 <Users className="h-4 w-4 shrink-0 text-primary" />
-                <span>500+ Attendees</span>
+                <span>250+ Attendees</span>
               </div>
               <div className="flex items-center justify-center gap-1 whitespace-nowrap">
                 <Presentation className="h-4 w-4 shrink-0 text-primary" />
-                <span>20+ Sessions</span>
+                <span>40+ Sessions</span>
               </div>
             
               <div className="flex items-center justify-center gap-1 whitespace-nowrap">
