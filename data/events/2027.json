@@ -25,15 +25,15 @@
 	],
 	"schedule": {
 		"2027-05-04": {
-			"dayLabel": "Day 1 - Sessions & Workshops",
+			"dayLabel": "Day 1 - Workshops",
 			"slots": []
 		},
 		"2027-05-05": {
-			"dayLabel": "Day 2 - Sessions & Workshops",
+			"dayLabel": "Day 2 - Sessions",
 			"slots": []
 		},
 		"2027-05-06": {
-			"dayLabel": "Day 3 - Sessions & Workshops",
+			"dayLabel": "Day 3 - Sessions",
 			"slots": []
 		}
 	},
@@ -75,13 +75,13 @@
 		"currency": "USD",
 		"features": {
 			"1day": [
-				"Full single-day conference access"
+				"Full single-day workshop access"
 			],
 			"2day": [
 				"Full two-day conference access"
 			],
 			"3day": [
-				"Full three-day conference access"
+				"Full two-day conference access"
 			]
 		}
 	},
