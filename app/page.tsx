@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
+import { Countdown2027 } from "@/components/countdown-2027"
 import { FeaturesSection } from "@/components/features-section"
 import { AboutSection } from "@/components/about-section"
 import { SpeakersSection } from "@/components/speakers-section"
@@ -22,6 +23,7 @@ export default function Home() {
         location={eventLD.location}
         offers={eventLD.offers}
       />
+      <Countdown2027 />
       <HeroSection />
       <FeaturesSection />
       <AboutSection />

@@ -1,12 +1,12 @@
 {
-  "title": "Innovate QA 2026",
-  "description": "Explore Innovation in Software Quality at June 4-5 Innovate QA 2026. Join industry leaders for talks, workshops, and networking.",
+  "title": "Innovate QA 2027",
+  "description": "Explore Innovation in Software Quality at May 4-6 Innovate QA 2027. Join industry leaders for talks, workshops, and networking.",
   "siteUrl": "https://innovateqaevents.com",
   "socialBanner": "/social-preview.jpg",
   "siteLogo": "/qa-icon.png",
   "locale": "en_US",
   "themeColor": "#4b0082",
-  "author": "Innovate QA 2026 Conference",
+  "author": "Innovate QA 2027 Conference",
   "email": "info@innovateqaevents.com",
   "twitterHandle": "@innovateqaevent",
   "twitterSite": "@innovateqaevent",
@@ -43,12 +43,12 @@
     }
   },
   "footerLinks": [
-    { "title": "Innovate QA 2026", "href": "/innovate-qa-2026" },
+    { "title": "Innovate QA 2027", "href": "/innovate-qa-2027" },
     { "title": "Battle of AI Test Tools", "href": "/battle-of-ai-test-tools" },
     { "title": "Privacy Policy", "href": "/privacy-policy" },
     { "title": "Diversity & Inclusion", "href": "/diversity-%26-inclusion" },
-    { "title": "2025 Program Speakers", "href": "/2025-program-speakers" },
-    { "title": "Innovate QA 2025", "href": "/innovate-qa-2025-1" },
+    { "title": "2027 Program Speakers", "href": "/2027-program-speakers" },
+    { "title": "Innovate QA 2027", "href": "/innovate-qa-2027-1" },
     { "title": "Meetup Events", "href": "/meetup-events" }
   ],
   "googleSiteVerification": "fz0c_cPQGrW9O_Vn0LezCc823AiF1d_ynF7O3I1xY8M",

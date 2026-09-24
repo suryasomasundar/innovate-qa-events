@@ -1,0 +1,94 @@
+{
+	"year": 2027,
+	"name": "Innovate QA 2027",
+	"tagline": "Quality Engineering Excellence",
+	"description": "Join industry leaders and pioneers at Innovate QA Conference 2027 for three days of insights, best practices, and cutting-edge tools for quality engineering excellence.",
+	"date": {
+		"start": "2027-05-04",
+		"end": "2027-05-06"
+	},
+	"venue": {
+		"name": "The Westin Bellevue",
+		"address": "600 Bellevue Way NE",
+		"city": "Bellevue",
+		"state": "Washington",
+		"zip": "98004",
+		"country": "United States",
+		"directions": "Located in downtown Bellevue, easily accessible from I-405 and I-90. Parking is available on-site.",
+		"mapUrl": "https://maps.google.com/?q=600+Bellevue+Way+NE+Bellevue+WA+98004"
+	},
+	"rooms": [
+		{ "id": "leadership", "name": "Leadership Track", "capacity": 400 },
+		{ "id": "practitioner", "name": "Practitioner Track", "capacity": 100 },
+		{ "id": "demo", "name": "Demo Track", "capacity": 100 },
+		{ "id": "discussion", "name": "Discussion", "capacity": 50 }
+	],
+	"schedule": {
+		"2027-05-04": {
+			"dayLabel": "Day 1 - Sessions & Workshops",
+			"slots": []
+		},
+		"2027-05-05": {
+			"dayLabel": "Day 2 - Sessions & Workshops",
+			"slots": []
+		},
+		"2027-05-06": {
+			"dayLabel": "Day 3 - Sessions & Workshops",
+			"slots": []
+		}
+	},
+	"speakers": [],
+	"sponsors": {
+		"platinum": [],
+		"gold": [],
+		"silver": [],
+		"bronze": [],
+		"partners": []
+	},
+	"pricing": {
+		"individual": {
+			"earlyBird": {
+				"deadline": "",
+				"1day": 0,
+				"2day": 0,
+				"3day": 0
+			},
+			"standard": {
+				"1day": 0,
+				"2day": 0,
+				"3day": 0
+			}
+		},
+		"group": {
+			"earlyBird": {
+				"deadline": "",
+				"1day": 0,
+				"2day": 0,
+				"3day": 0
+			},
+			"standard": {
+				"1day": 0,
+				"2day": 0,
+				"3day": 0
+			}
+		},
+		"currency": "USD",
+		"features": {
+			"1day": [
+				"Full single-day conference access"
+			],
+			"2day": [
+				"Full two-day conference access"
+			],
+			"3day": [
+				"Full three-day conference access"
+			]
+		}
+	},
+	"stats": {
+		"attendees": 0,
+		"speakers": 0,
+		"sessions": 0,
+		"workshops": 0
+	}
+}
