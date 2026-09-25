@@ -59,7 +59,7 @@ export function Countdown2027() {
                 Tickets Coming Soon
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent px-8 text-base" asChild>
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSc7UuSnkx7KJEubEnTokjll1-JBqX5X_-rWQfpGqVs9O9ZnAQ/viewform?pli=1">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd_wPumAqWIHqvjHwaZEpztIEmOTvyuI3FOgCMpuR98mdd5IQ/viewform?usp=publish-editor">
                   Become Speaker
                 </Link>
               </Button>
