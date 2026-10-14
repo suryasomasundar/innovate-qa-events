@@ -21,6 +21,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 const footerLinks = {
   event: [
     { label: "Innovate QA 2027", href: "/events/2027" },
+    { label: "Workshop Day", href: "/events/workshop-day" },
     { label: "2026 Recordings", href: RECORDINGS_URL },
     { label: "Speakers", href: "/events/2027#speakers" },
     { label: "Past Schedule", href: "/events/2027#schedule" },

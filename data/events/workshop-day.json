@@ -1,0 +1,94 @@
+{
+  "slug": "workshop-day",
+  "name": "Workshop Day",
+  "tagline": "A Full Day of Practical Learning for the Quality Engineering Community",
+  "description": "Join us this November for a hands-on Workshop Day designed for QA and Quality Engineering professionals who want to learn, practice, and connect.",
+  "dates": [
+    {
+      "date": "2026-11-12",
+      "label": "November 12, 2026",
+      "status": "tentative"
+    },
+    {
+      "date": "2026-11-13",
+      "label": "November 13, 2026",
+      "status": "tentative"
+    },
+    {
+      "date": "2026-11-19",
+      "label": "November 19, 2026",
+      "status": "tentative"
+    },
+    {
+      "date": "2026-11-20",
+      "label": "November 20, 2026",
+      "status": "tentative"
+    }
+  ],
+  "venue": {
+    "name": "Venue to be announced",
+    "city": "Bellevue",
+    "state": "Washington"
+  },
+  "registration": {
+    "label": "Join the November Workshop Waiting List",
+    "url": "https://preview.mailerlite.io/forms/1828078/200524197462541601/share"
+  },
+  "workshops": [
+    {
+      "speaker": "Sidharth Shukla",
+      "title": "SDET 2",
+      "company": "Amazon",
+      "image": "/speakers/2025/sidharth-shukla.jpeg",
+      "topic": "Multi-Agent Framework Setup for Test Automation",
+      "description": "A hands-on look at building and setting up multi-agent frameworks for modern test automation."
+    },
+    {
+      "speaker": "George Andraws",
+      "title": "Director of Quality Engineering",
+      "company": "",
+      "image": "/speakers/2024/george.jpg",
+      "topic": "How to Pass Your Next QA Interview",
+      "description": "Practical guidance to help QA professionals prepare for interviews, communicate their experience effectively, and stand out in today's job market."
+    },
+    {
+      "speaker": "Deepak Kamboj",
+      "title": "Senior Software Engineer",
+      "company": "Microsoft",
+      "image": "/speakers/2026/deepak.png",
+      "topic": "Workshop details coming soon",
+      "description": "More information about this hands-on workshop will be announced soon."
+    },
+    {
+      "speaker": "Walter Zimerman",
+      "title": "Sr. Software Developer in Test",
+      "company": "Amazon",
+      "image": "/speakers/2025/walter-zimerman.png",
+      "topic": "Workshop details coming soon",
+      "description": "More information about this hands-on workshop will be announced soon."
+    }
+  ],
+  "benefits": [
+    {
+      "id": "hands-on-practice",
+      "title": "Hands-on practice",
+      "description": "Work through practical exercises and turn new Quality Engineering ideas into skills you can use."
+    },
+    {
+      "id": "expert-guidance",
+      "title": "Expert guidance",
+      "description": "Learn directly from experienced industry leaders and ask questions as you explore each topic."
+    },
+    {
+      "id": "career-growth",
+      "title": "Career growth",
+      "description": "Build technical and professional skills that help you grow your impact and advance your QA career."
+    },
+    {
+      "id": "community-connections",
+      "title": "Community connections",
+      "description": "Meet fellow QA professionals, exchange ideas, and grow your Quality Engineering network."
+    }
+  ],
+  "whyAttend": "Come ready to participate, ask questions, and learn by doing. You'll have an opportunity to explore new approaches to Quality Engineering, develop practical skills, and connect with other QA professionals in the community."
+}
