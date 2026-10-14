@@ -56,8 +56,8 @@
       "title": "Senior Software Engineer",
       "company": "Microsoft",
       "image": "/speakers/2026/deepak.png",
-      "topic": "Workshop details coming soon",
-      "description": "More information about this hands-on workshop will be announced soon."
+      "topic": "AI-Powered Test Failure Investigation: From Failed CI to Root Cause",
+      "description": "Use AI, Playwright traces, logs, screenshots, test history, and CI evidence to determine whether a failure is a product bug, test bug, infrastructure issue, or flaky test, then recommend the next action."
     },
     {
       "speaker": "Walter Zimerman",
