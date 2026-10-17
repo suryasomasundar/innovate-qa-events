@@ -46,44 +46,40 @@
 		"partners": []
 	},
 	"pricing": {
-		"individual": {
-			"earlyBird": {
-				"deadline": "",
-				"1day": 0,
-				"2day": 0,
-				"3day": 0
-			},
-			"standard": {
-				"1day": 0,
-				"2day": 0,
-				"3day": 0
-			}
-		},
-		"group": {
-			"earlyBird": {
-				"deadline": "",
-				"1day": 0,
-				"2day": 0,
-				"3day": 0
-			},
-			"standard": {
-				"1day": 0,
-				"2day": 0,
-				"3day": 0
-			}
-		},
 		"currency": "USD",
-		"features": {
-			"1day": [
-				"Full single-day workshop access"
-			],
-			"2day": [
-				"Full two-day conference access"
-			],
-			"3day": [
-				"Full two-day conference access"
-			]
-		}
+		"timeZone": "America/Los_Angeles",
+		"earlyBirdDeadline": "2027-02-15T00:00:00-08:00",
+		"tickets": {
+			"earlyBird": {
+				"name": "Early Bird",
+				"price": 349,
+				"description": "Full two-day conference access",
+				"features": ["Conference sessions on May 5 and 6", "Full conference access at our early rate"]
+			},
+			"standard": {
+				"name": "Standard",
+				"price": 449,
+				"description": "General admission",
+				"features": ["Conference sessions on May 5 and 6", "Full two-day conference access"]
+			},
+			"vip": {
+				"name": "Premium / VIP",
+				"price": 799,
+				"description": "Premium experience",
+				"features": ["Full two-day conference access", "VIP benefits - details to be announced"]
+			}
+		},
+		"workshop": {
+			"name": "Workshop Day",
+			"date": "2027-05-04",
+			"price": 299,
+			"description": "Make the most of Innovate QA with an additional day of hands-on, practical workshops."
+		},
+		"groupTiers": [
+			{ "min": 3, "max": 4, "price": 404, "savingsPercent": 10 },
+			{ "min": 5, "max": 9, "price": 382, "savingsPercent": 15 },
+			{ "min": 10, "max": null, "price": 359, "savingsPercent": 20 }
+		]
 	},
 	"stats": {
 		"attendees": 0,

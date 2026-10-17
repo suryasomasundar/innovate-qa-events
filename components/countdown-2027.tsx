@@ -54,9 +54,11 @@ export function Countdown2027() {
             </div>
 
             <div className="mb-6 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button size="lg" className="gap-2 px-8 text-base" disabled>
-                <Ticket className="h-5 w-5" />
-                Tickets Coming Soon
+              <Button size="lg" className="gap-2 px-8 text-base" asChild>
+                <Link href="/tickets">
+                  <Ticket aria-hidden="true" className="h-5 w-5" />
+                  Buy Tickets
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent px-8 text-base" asChild>
                 <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd_wPumAqWIHqvjHwaZEpztIEmOTvyuI3FOgCMpuR98mdd5IQ/viewform?usp=publish-editor">

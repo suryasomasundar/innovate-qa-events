@@ -201,6 +201,11 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
                   </a>
                 </Button>
               )}
+              {year === "2027" && (
+                <Button asChild variant="secondary">
+                  <Link href="/tickets">Buy Tickets for 2027</Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

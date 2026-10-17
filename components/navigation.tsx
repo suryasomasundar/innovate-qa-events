@@ -11,6 +11,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useRecordingsLaunch } from "@/components/use-recordings-launch"
 
 const navLinks = [
+  { href: "/tickets", label: "2027 Tickets" },
   { href: "/about", label: "About" },
   { href: "/sponsor", label: "Become a Sponsor" },
 ]

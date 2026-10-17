@@ -125,6 +125,79 @@
 }
 
 @layer components {
+  .ticket-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .ticket-hero-art {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .ticket-hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9) 30% 70%, transparent);
+  }
+
+  .ticket-hero-glow {
+    position: absolute;
+    width: clamp(220px, 32vw, 400px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: ticket-hero-arrive 4.5s ease-out both;
+  }
+
+  .ticket-hero-glow-left {
+    top: -35%;
+    left: -15%;
+    background: radial-gradient(circle, #e9d5ff, #f3e8ff 42%, transparent 70%);
+  }
+
+  .ticket-hero-glow-right {
+    right: -12%;
+    bottom: -40%;
+    background: radial-gradient(circle, #c7d2fe, #ede9fe 42%, transparent 70%);
+    animation-direction: reverse;
+  }
+
+  .ticket-hero-accent {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    color: #7e22ce;
+    opacity: 0.2;
+    animation: ticket-hero-float 4.5s ease-out both;
+  }
+
+  .ticket-hero-accent-left {
+    left: 4%;
+    bottom: 12%;
+    rotate: -18deg;
+  }
+
+  .ticket-hero-accent-right {
+    right: 5%;
+    top: 12%;
+    rotate: 12deg;
+  }
+
+  @keyframes ticket-hero-arrive {
+    from { transform: translate3d(-28px, 20px, 0) scale(0.9); }
+    to { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes ticket-hero-float {
+    0% { transform: translateY(14px); opacity: 0; }
+    50% { transform: translateY(-7px); opacity: 0.2; }
+    100% { transform: translateY(0); opacity: 0.2; }
+  }
+
   .event-connected-header {
     position: relative;
     isolation: isolate;
@@ -317,6 +390,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .ticket-hero-glow,
+    .ticket-hero-accent,
     .event-connected-header::before,
     .event-connected-header::after,
     .event-header-orbital,
