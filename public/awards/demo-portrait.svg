@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 560" fill="none">
+  <defs>
+    <linearGradient id="background" x2="480" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#222643"/><stop offset="1" stop-color="#101321"/></linearGradient>
+    <linearGradient id="jacket" x1="100" y1="340" x2="380" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#536180"/><stop offset="1" stop-color="#25314c"/></linearGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h480v560H0z"/>
+  <circle cx="240" cy="235" r="164" stroke="#c5a55a" stroke-opacity=".24"/>
+  <circle cx="240" cy="235" r="142" fill="#a5b4fc" fill-opacity=".07"/>
+  <path d="M73 560v-73c0-80 75-134 167-134s167 54 167 134v73" fill="url(#jacket)"/>
+  <path d="m200 353 40 89 40-89" fill="#d9e0f2"/>
+  <path d="M212 300h56v67c-15 21-41 21-56 0z" fill="#c49a82"/>
+  <ellipse cx="240" cy="226" rx="78" ry="96" fill="#d5ae95"/>
+  <path d="M162 216c-19-83 34-125 81-125 68 0 100 65 73 130l-17-47c-44 15-66-3-85-18-9 30-32 36-52 60" fill="#303047"/>
+  <path d="M205 235h13m44 0h13" stroke="#54413b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M223 278c11 7 23 7 34 0" stroke="#8d5b51" stroke-width="4" stroke-linecap="round"/>
+  <path d="m199 353-44 34 38 75 47-20-41-89zm82 0 44 34-38 75-47-20 41-89z" fill="#3b4865"/>
+  <text x="240" y="527" fill="#d5def1" font-family="Arial,sans-serif" font-size="15" letter-spacing="4" text-anchor="middle">DEMO PORTRAIT</text>
+</svg>
