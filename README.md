@@ -98,6 +98,33 @@ pnpm lint
 
 ## Data-Driven Content
 
+### 2027 ticket preview
+
+The `/tickets` page lists conference tickets, the optional workshop day, and Standard
+team rates. `/tickets/order` lets visitors preview quantities and totals; payments
+are not connected, personal information is not collected, and tickets are not reserved.
+Both pages use `data/events/2027.json` as their pricing source of truth.
+The homepage's 2027 **Buy Tickets** button, the 2027 conference page, and both
+desktop/mobile navigation menus link to `/tickets`.
+The ticket hero uses a short decorative entrance animation that settles within
+4.5 seconds and is disabled when `prefers-reduced-motion: reduce` is enabled.
+
+- Edit `pricing.tickets`, `pricing.workshop`, and `pricing.groupTiers` to maintain prices.
+- `pricing.earlyBirdDeadline` is an exclusive, timezone-qualified cutoff: February 15,
+  2027 at midnight Pacific. Availability is rechecked in the browser so a static
+  deployment does not keep advertising expired Early Bird tickets.
+- Team rates apply only to Standard admission. The configured whole-dollar rates
+  are authoritative; advertised percentage savings are rounded. Workshops cost
+  the configured add-on price for every attendee in an order.
+- VIP benefit details are pending. No benefits beyond the configured copy are promised.
+- The estimated total excludes any future applicable taxes/payment fees.
+- Future payment integration must validate product availability, prices, quantities,
+  and totals on a trusted backend or hosted checkout; never trust browser totals
+  as payment authority. A return URL alone must not be treated as proof of payment.
+
+Run pricing regression tests with `node --test tests\ticket-pricing.test.mjs`.
+Run `npx tsc --noEmit` and `npm run build` to validate types and static export.
+
 Event data, speakers, schedules, and meetups are managed via JSON files in the `data/` directory. To update content, edit the corresponding JSON file:
 
 | File | Description |
