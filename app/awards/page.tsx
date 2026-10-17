@@ -78,6 +78,9 @@ export default function AwardsPage() {
               <Button size="lg" variant="outline" asChild>
                 <Link href="#categories">View Categories</Link>
               </Button>
+              <Button size="lg" asChild>
+                <Link href="/awards/2027">Explore 2027 Awards Studio</Link>
+              </Button>
             </div>
           </div>
         </div>

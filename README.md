@@ -98,6 +98,46 @@ pnpm lint
 
 ## Data-Driven Content
 
+### 2027 awards prototype
+
+The existing `data/awards.json` and `/awards` content are preserved. The separate
+`data/awards-2027.json` configures the new experience:
+
+- `/awards/2027`: awards studio and category overview.
+- `/awards/2027/judging`: local demo judge profiles, nominee details, configurable
+  category criteria, 1–5 or 1–10 integer scores, comments, drafts, completed
+  evaluations, and a saved-score comparison. All criteria have equal weight.
+- `/awards/2027/ceremony`: standalone presenter stage without site navigation/footer,
+  category introductions, individual nominees, gallery, explicit reveal, three-second
+  suspense countdown, winner celebration, and final recap.
+
+All nominees, organizations, achievements, portraits, and winners in the 2027
+prototype are fictional. Replace their data and licensed portrait paths before
+any real use. Each category has an ordered nominee list, scale, criterion IDs,
+and a configured `winnerId` (or `null` to block reveal). Winners are not calculated
+from local judging scores. Neither judging screens nor ceremony screens before
+reveal label a nominee as the winner; ceremony never reads or displays evaluations.
+
+**This is not a secure awards platform.** Demo winner configuration is delivered
+to the browser and can be inspected. Local judge profiles are not authentication.
+Evaluations are saved only in this browser's localStorage, not encrypted or synced.
+Do not enter sensitive information. Invalid storage and failed writes are surfaced;
+reset requires confirmation. Unsaved edits survive category/profile changes within
+the page, but not a refresh, and navigation warns about unsaved edits. Ceremony
+progress is in memory and restarts on refresh.
+
+Presenter controls: Enter/Space or Right Arrow continues; Left Arrow goes back;
+focused native controls retain their own keyboard behavior. At the gallery,
+continue focuses **Reveal Winner**, which must be explicitly activated. Back
+cancels suspense. Full Screen and Escape use the browser fullscreen API. Effects
+are finite and honor reduced motion; confetti is disabled with
+reduced motion. No audio auto-plays.
+
+Run domain tests with `node --test tests\awards.test.mjs`.
+Before production use, add authenticated judge/presenter roles, protected shared
+storage, server-side validation, and server-authorized winner release. Public JSON
+and client-side hiding cannot protect confidential results.
+
 ### 2027 ticket preview
 
 The `/tickets` page lists conference tickets, the optional workshop day, and Standard

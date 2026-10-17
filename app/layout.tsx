@@ -1,9 +1,7 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
+import { SiteShell } from "@/components/site-shell"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { OrganizationLD } from "@/components/json-ld"
 import { generateSEO } from "@/components/seo"
@@ -42,12 +40,7 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body className="font-sans antialiased">
-        <div className="min-h-screen flex flex-col">
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ScrollToTop />
-        </div>
+        <SiteShell>{children}</SiteShell>
         <Script id="mailerlite-universal" strategy="afterInteractive">{`
           (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
           .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
