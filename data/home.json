@@ -273,6 +273,13 @@
         "width": 320,
         "height": 128,
         "url": "https://university.engenious.io/"
+      },
+      {
+        "name": "Tokyo Test Fest",
+        "logo": "tokyo-test-fest-logo.png",
+        "width": 320,
+        "height": 128,
+        "url": "https://tokyotestfest.com/en/"
       }
     ],
     "contactEmail": "contact@innovateqaevents.com"
