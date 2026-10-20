@@ -61,7 +61,7 @@ export function Countdown2027() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent px-8 text-base" asChild>
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd_wPumAqWIHqvjHwaZEpztIEmOTvyuI3FOgCMpuR98mdd5IQ/viewform?usp=publish-editor">
+                <Link href="https://sessionize.com/innovate-qa-2027/">
                   Become Speaker
                 </Link>
               </Button>
