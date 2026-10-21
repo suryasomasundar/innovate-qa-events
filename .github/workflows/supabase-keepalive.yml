@@ -39,7 +39,10 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
           PGCONNECT_TIMEOUT: "15"
+          PGSSLMODE: require
         run: |
-          psql "$DATABASE_URL" \
+          # `pgbouncer=true` is understood by app database clients, but not psql.
+          PSQL_DATABASE_URL="${DATABASE_URL%%\?*}"
+          psql "$PSQL_DATABASE_URL" \
             --set ON_ERROR_STOP=1 \
             --command "select 1 as health_check;"
