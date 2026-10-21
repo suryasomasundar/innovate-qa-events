@@ -1,0 +1,17 @@
+{
+  "mode": "test",
+  "links": {
+    "earlyBird": "https://buy.stripe.com/test_14A14h7I135w7G89tscbC00",
+    "earlyBirdWorkshop": "https://buy.stripe.com/test_28EcMZe6pbC2f8AdJIcbC01",
+    "standard": "https://buy.stripe.com/test_dRmaERaUdbC20dGgVUcbC02",
+    "standardWorkshop": "https://buy.stripe.com/test_9B600d6DX8pQ6C47lkcbC03",
+    "standard3": "https://buy.stripe.com/test_4gM00dgex6hI1hK210cbC04",
+    "standard3Workshop": "https://buy.stripe.com/test_4gM4gt7I1cG6f8A354cbC05",
+    "standard5": "https://buy.stripe.com/test_4gM6oBaUd49AaSkgVUcbC06",
+    "standard5Workshop": "https://buy.stripe.com/test_14A5kx2nH8pQ0dG354cbC07",
+    "standard10": "https://buy.stripe.com/test_7sY8wJ2nHeOe5y0gVUcbC08",
+    "standard10Workshop": "https://buy.stripe.com/test_7sY5kxe6p35w1hKcFEcbC09",
+    "vip": "https://buy.stripe.com/test_5kQ9AN1jDdKa8KcdJIcbC0a",
+    "vipWorkshop": "https://buy.stripe.com/test_eVq6oBgexgWm8Kc7lkcbC0b"
+  }
+}

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, CalendarDays, Check, MapPin, Sparkles, Ticket, Users } from "lucide-react"
 import event from "@/data/events/2027.json"
+import stripeTest from "@/data/stripe-test-links.json"
 import { Button } from "@/components/ui/button"
 import {
   calculateTicketOrder,
@@ -29,6 +30,21 @@ const eventDays = (Date.parse(event.date.end) - Date.parse(event.date.start)) / 
 const deadlineLabel = new Intl.DateTimeFormat("en-US", {
   month: "long", day: "numeric", timeZone: pricing.timeZone,
 }).format(new Date(pricing.earlyBirdDeadline))
+
+type StripeTestLinkKey = keyof typeof stripeTest.links
+
+function getStripeTestCheckoutLink(ticket: TicketType, quantity: number, workshop: boolean) {
+  let key: StripeTestLinkKey
+  if (ticket === "earlyBird") {
+    key = workshop ? "earlyBirdWorkshop" : "earlyBird"
+  } else if (ticket === "vip") {
+    key = workshop ? "vipWorkshop" : "vip"
+  } else {
+    const tier = quantity >= 10 ? "standard10" : quantity >= 5 ? "standard5" : quantity >= 3 ? "standard3" : "standard"
+    key = `${tier}${workshop ? "Workshop" : ""}` as StripeTestLinkKey
+  }
+  return stripeTest.links[key]
+}
 
 // Static exports must recheck the cutoff in the browser, not only at build time.
 function useTicketClock() {
@@ -76,11 +92,14 @@ export function TicketSales() {
             <Sparkles className="ticket-hero-accent ticket-hero-accent-right" />
           </div>
           <div className="relative z-10 mx-auto max-w-3xl">
+            <p className="mx-auto mb-5 w-fit rounded-full border border-amber-300 bg-amber-100 px-4 py-2 text-xs font-bold uppercase tracking-wider text-amber-950">
+              Stripe test mode — no real payments
+            </p>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-purple-800">Learn. Connect. Elevate.</p>
             <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Choose Your {event.name} Experience</h1>
             <EventDetails />
             <p className="mt-6 text-slate-600">Two days of quality engineering insights. An extra day to put them into practice.</p>
-            <p className="mt-4 text-sm font-medium text-purple-800">Payments coming soon. Explore tickets and plan your order.</p>
+            <p className="mt-4 text-sm font-medium text-purple-800">Temporary Stripe test checkout is available for QA. No real payments or tickets.</p>
           </div>
         </header>
 
@@ -176,6 +195,12 @@ export function TicketOrder() {
       messages.push("The workshop option is not recognized. Please choose whether to add workshops below.")
     }
     setWorkshop(addWorkshop === "true")
+    const checkout = params.get("checkout")
+    if (checkout === "success") {
+      messages.push("Stripe test checkout completed. No real payment was collected and no ticket was issued.")
+    } else if (checkout === "cancelled") {
+      messages.push("Stripe test checkout was cancelled. You can adjust the order and try again.")
+    }
     setNotice(messages.join(" "))
     setReady(true)
   }, [])
@@ -201,8 +226,8 @@ export function TicketOrder() {
           <EventDetails />
         </header>
         <div className="mb-8 rounded-xl border border-purple-200 bg-purple-50 p-5 text-purple-950">
-          <h2 className="font-bold">Payments coming soon</h2>
-          <p className="mt-2 text-sm">This is an order preview only. No payment is collected and no tickets are reserved. You do not need to enter personal information.</p>
+          <h2 className="font-bold">Temporary Stripe test checkout</h2>
+          <p className="mt-2 text-sm">This sandbox is for QA only. Use card 4242 4242 4242 4242, any future expiration date, and any three-digit CVC. No real payment is collected and no ticket is issued.</p>
         </div>
         {!ready || now === null ? <p role="status">Loading ticket options...</p> : (
           <>
@@ -249,8 +274,16 @@ export function TicketOrder() {
                     </>
                   ) : <p className="mt-6 text-sm text-slate-600">Review your selection to calculate an order total.</p>}
                 </div>
-                <Button disabled className="mt-7 min-h-11 w-full bg-slate-900 text-white disabled:opacity-100">Checkout coming soon</Button>
-                <p className="mt-4 text-sm text-slate-600">No purchase or reservation has been made.</p>
+                {order ? (
+                  <Button asChild className="mt-7 min-h-11 w-full bg-purple-800 text-white hover:bg-purple-900">
+                    <a href={getStripeTestCheckoutLink(ticket, Number(quantity), workshop)} target="_blank" rel="noopener noreferrer">
+                      Continue to Stripe Test Checkout
+                    </a>
+                  </Button>
+                ) : (
+                  <Button disabled className="mt-7 min-h-11 w-full bg-slate-900 text-white disabled:opacity-100">Review order to continue</Button>
+                )}
+                <p className="mt-4 text-sm text-slate-600">Stripe opens with the minimum quantity for the selected pricing tier. Confirm the ticket quantity—and workshop quantity when selected—before completing the test checkout.</p>
                 <Link href="/contact" className={`mt-5 inline-flex min-h-11 items-center text-sm font-medium text-purple-900 underline underline-offset-4 ${focusStyle}`}>Questions about tickets? Contact us</Link>
               </section>
             </div>
