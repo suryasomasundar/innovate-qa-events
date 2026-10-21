@@ -2,9 +2,9 @@ name: Supabase Keep Alive
 
 on:
   schedule:
-    # Keep the free Supabase project active with several real database queries
-    # each day. The offset avoids the busiest start-of-hour window.
-    - cron: "17 */6 * * *"
+    # Run once daily at 15:17 UTC. The offset avoids the busiest
+    # start-of-hour window for scheduled GitHub Actions workflows.
+    - cron: "17 15 * * *"
   workflow_dispatch:
 
 permissions:
@@ -43,4 +43,3 @@ jobs:
           psql "$DATABASE_URL" \
             --set ON_ERROR_STOP=1 \
             --command "select 1 as health_check;"
-
