@@ -1,0 +1,46 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    # Keep the free Supabase project active with several real database queries
+    # each day. The offset avoids the busiest start-of-hour window.
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-keepalive
+  cancel-in-progress: false
+
+jobs:
+  database-health-check:
+    name: Query the recordings database
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Verify database secret is configured
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "SUPABASE_DATABASE_URL is not configured in repository secrets."
+            exit 1
+          fi
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
+
+      - name: Run database health query
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+          PGCONNECT_TIMEOUT: "15"
+        run: |
+          psql "$DATABASE_URL" \
+            --set ON_ERROR_STOP=1 \
+            --command "select 1 as health_check;"
+
