@@ -1,9 +1,75 @@
 {
   "title": "Innovate QA Awards",
-  "description": "Celebrating excellence, innovation, and community impact across the software quality engineering landscape. Nominate the individuals, teams, and organizations shaping the future of QA.",
+  "description": "Meet the Innovate QA 2026 Award winners and explore the people, organizations, and achievements recognized across quality engineering.",
   "ceremonyDate": "June 4–5, 2026",
   "contactEmail": "contact@innovateqaevents.com",
   "judgeApplicationUrl": "mailto:contact@innovateqaevents.com?subject=Apply to Judge - Innovate QA Awards",
+  "winners": [
+    {
+      "category": "Emerging QA Talent",
+      "name": "Lakshmi Navya Sivakoti",
+      "title": "QA Automation Engineer",
+      "organization": "",
+      "image": "/photos/awards/2026/lakshmi-navya-sivakoti.png",
+      "kind": "individual"
+    },
+    {
+      "category": "Excellence in Automation",
+      "name": "Rohit Singh Raja",
+      "title": "Principal Software Product Quality Engineer",
+      "organization": "Clinical Ink",
+      "image": "/photos/awards/2026/rohit-singh-raja.png",
+      "kind": "individual"
+    },
+    {
+      "category": "Innovative QA Organization of the Year",
+      "name": "NCQA",
+      "title": "Healthcare",
+      "organization": "",
+      "image": "/photos/awards/2026/ncqa.png",
+      "kind": "organization"
+    },
+    {
+      "category": "Best QA Tool Contribution",
+      "name": "Jason Huggins",
+      "title": "Vibe Coder",
+      "organization": "Vibium",
+      "image": "/photos/awards/2026/jason-huggins.png",
+      "kind": "individual"
+    },
+    {
+      "category": "Community Champion",
+      "name": "Anna Kovalova",
+      "title": "CEO",
+      "organization": "Anbosoft",
+      "image": "/photos/awards/2026/anna-kovalova.png",
+      "kind": "individual"
+    },
+    {
+      "category": "Innovation in QA Practice or Solution",
+      "name": "Lavanya Jayakanth",
+      "title": "Product Manager",
+      "organization": "HealthEquity",
+      "image": "/photos/awards/2026/lavanya-jayakanth.png",
+      "kind": "individual"
+    },
+    {
+      "category": "QA Thought Leader of the Year",
+      "name": "Priyanka Halder",
+      "title": "Associate Vice President, AI & Engineering",
+      "organization": "Deloitte",
+      "image": "/photos/awards/2026/priyanka-halder.png",
+      "kind": "individual"
+    },
+    {
+      "category": "AI and Innovation in SDLC",
+      "name": "Coforge",
+      "title": "IT Consulting",
+      "organization": "",
+      "image": "",
+      "kind": "organization"
+    }
+  ],
   "judges": [
     {
       "id": "kavitha-rajendran",
@@ -233,6 +299,16 @@
         "Transferability and scalability",
         "Thought leadership behind the innovation"
       ]
+    },
+    {
+      "id": "ai-innovation-sdlc",
+      "icon": "Sparkles",
+      "emoji": "✨",
+      "title": "AI and Innovation in SDLC",
+      "scope": "Individual / Team / Organization",
+      "purpose": "To recognize individuals or teams leading the way in applying artificial intelligence to transform and elevate the software development lifecycle.",
+      "idealNominees": [],
+      "criteria": []
     }
   ]
 }
