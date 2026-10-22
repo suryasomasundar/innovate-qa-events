@@ -40,7 +40,7 @@ export default function Awards2027Page() {
           </article>
         </div>
         <section className="mt-16" aria-labelledby="studio-categories-heading">
-          <h2 id="studio-categories-heading" className="text-center text-2xl font-semibold">Seven categories. A world of possibility.</h2>
+          <h2 id="studio-categories-heading" className="text-center text-2xl font-semibold">Eight categories. A world of possibility.</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {orderedCategories(edition).map((category) => <article key={category.id} className="awards-panel p-6"><p className="awards-eyebrow">0{category.displayOrder}</p><h3 className="mt-3 text-xl font-semibold">{category.name}</h3><p className="mt-3 text-sm leading-relaxed text-slate-300">{category.description}</p><p className="mt-5 text-xs text-amber-200">{category.nomineeIds.length} demo nominees · {category.criteriaIds.length} criteria</p></article>)}
           </div>

@@ -47,18 +47,18 @@ export default function VolunteerPage() {
               Join the Innovate QA Community
             </h1>
             <p className="text-xl text-muted-foreground mb-8 text-pretty">
-              Share your expertise, learn from others, and help make Innovate QA 2026 an unforgettable experience.
+              Share your expertise, learn from others, and help make Innovate QA 2027 an unforgettable experience.
               Whether you want to speak, teach, or volunteer, there's a place for you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" asChild>
-                <a href="https://docs.google.com/forms/d/1nN0zlBcTuLlk-9dmWSmYh_hEyaR8s3VLz2OcQ6BbLys/edit" target="_blank" rel="noopener noreferrer">
-                  Apply to Speak at Innovate QA 2026
+                <a href="mailto:contact@innovateqaevents.com?subject=Innovate%20QA%202027%20Speaking%20Opportunity">
+                  Ask About Speaking in 2027
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4Ui67V4ER9s1dSSMJfKi3M-m-RSUuJD6ibDNq12oyv1Yt5w/viewform?usp=header" target="_blank" rel="noopener noreferrer">
-                  Apply to Speak at Innovate QA Meetup
+                <a href="mailto:contact@innovateqaevents.com?subject=Innovate%20QA%20Meetup%20Speaking%20Opportunity">
+                  Ask About Meetup Speaking
                 </a>
               </Button>
             </div>
@@ -129,14 +129,11 @@ export default function VolunteerPage() {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">Apply to Volunteer</h2>
             <p className="text-muted-foreground mb-8">
-              Ready to help make Innovate QA 2026 a success? Fill out our volunteer application form and our team will
-              be in touch within 5-7 business days.
+              Ready to help make Innovate QA 2027 a success? Contact our team and tell us how you would like to help.
             </p>
             <Button size="lg" asChild>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSePnlv53HpUgpFugNPx6hWUcXfQeMzjr_lj0L8rYaZ4HOkW2g/viewform?usp=header"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:contact@innovateqaevents.com?subject=Innovate%20QA%202027%20Volunteer%20Interest"
               >
                 Apply to Volunteer
               </a>
@@ -154,8 +151,8 @@ export default function VolunteerPage() {
               <div className="border-b border-border pb-4">
                 <h3 className="font-semibold text-foreground mb-2">When is the deadline to apply?</h3>
                 <p className="text-muted-foreground">
-                  For speakers and workshop instructors, the CFP closes on March 15, 2026. Volunteer applications are
-                  accepted on a rolling basis until May 1, 2026.
+                  The 2027 speaker and volunteer deadlines will be announced soon. Contact us now to register your
+                  interest and receive the application details when they open.
                 </p>
               </div>
               <div className="border-b border-border pb-4">

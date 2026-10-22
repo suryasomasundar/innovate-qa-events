@@ -19,6 +19,7 @@ test("R1: configured 2027 prices match approved ticket products", () => {
   assert.equal(pricing.workshop.price, 299)
   assert.equal(pricing.currency, "USD")
   assert.equal(formatTicketMoney(349, pricing), "$349")
+  assert.equal(formatTicketMoney(269.1, pricing), "$269.10")
 })
 
 test("R2: Early Bird is removed at February 15 midnight Pacific, including stale orders", () => {
@@ -38,11 +39,15 @@ test("R3: Standard team rates change at exact quantity thresholds", () => {
   }
 })
 
-test("R3: workshops charge per attendee and team rates do not stack with Early Bird or VIP", () => {
-  assert.equal(calculateTicketOrder(pricing, "standard", 5, true, before).totalCents, 340500)
+test("R3: Standard team savings apply to conference and workshop while other rates do not stack", () => {
+  const teamOrder = calculateTicketOrder(pricing, "standard", 5, true, before)
+  assert.equal(teamOrder.workshopUnitPrice, 254.15)
+  assert.equal(teamOrder.workshopCents, 127075)
+  assert.equal(teamOrder.totalCents, 318075)
   assert.equal(calculateTicketOrder(pricing, "earlyBird", 5, true, before).totalCents, 324000)
   assert.equal(calculateTicketOrder(pricing, "vip", 5, true, before).totalCents, 549000)
   assert.equal(calculateTicketOrder(pricing, "vip", 5, false, before).groupTier, undefined)
+  assert.equal(calculateTicketOrder(pricing, "workshopOnly", 5, false, before).totalCents, 149500)
 })
 
 test("R3: quantities reject blanks, fractions, negatives, unsafe values, and total overflow", () => {

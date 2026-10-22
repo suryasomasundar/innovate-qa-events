@@ -5,7 +5,7 @@
   "ctaButtons": {
     "applyToSpeak": {
       "label": "Apply to Speak",
-      "href": "https://docs.google.com/forms/d/e/1FAIpQLSc4Ui67V4ER9s1dSSMJfKi3M-m-RSUuJD6ibDNq12oyv1Yt5w/viewform",
+      "href": "mailto:contact@innovateqaevents.com?subject=Innovate%20QA%20Meetup%20Speaking%20Opportunity",
       "description": "Got expertise in QA, leadership, or tech? Share your knowledge, inspire others, and connect with the community!"
     },
     "joinMeetup": {

@@ -52,13 +52,16 @@ export function calculateTicketOrder(
     ? pricing.groupTiers.find((tier) => quantity >= tier.min && (tier.max === null || quantity <= tier.max))
     : undefined
   const unitPrice = workshopOnly ? pricing.workshop.price : groupTier?.price ?? pricing.tickets[admission].price
+  const workshopUnitPrice = groupTier
+    ? Math.round(pricing.workshop.price * (1 - groupTier.savingsPercent / 100) * 100) / 100
+    : pricing.workshop.price
   const conferenceCents = workshopOnly ? 0 : Math.round(unitPrice * 100) * quantity
-  const workshopCents = workshopOnly || workshop ? Math.round(pricing.workshop.price * 100) * quantity : 0
+  const workshopCents = workshopOnly || workshop ? Math.round(workshopUnitPrice * 100) * quantity : 0
   const totalCents = conferenceCents + workshopCents
   if (!Number.isSafeInteger(totalCents)) {
     throw new RangeError("The order total exceeds the supported amount.")
   }
-  return { unitPrice, conferenceCents, workshopCents, totalCents, groupTier, workshopOnly }
+  return { unitPrice, workshopUnitPrice, conferenceCents, workshopCents, totalCents, groupTier, workshopOnly }
 }
 
 export function formatTicketMoney(amount: number, pricing: TicketPricing) {
@@ -66,7 +69,7 @@ export function formatTicketMoney(amount: number, pricing: TicketPricing) {
     style: "currency",
     currency: pricing.currency,
     maximumFractionDigits: 2,
-    minimumFractionDigits: 0,
+    minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
   }).format(amount)
 }
 
