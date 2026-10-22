@@ -152,7 +152,7 @@ export function TicketSales() {
         <section aria-labelledby="team-heading" className="mx-auto mt-16 max-w-4xl text-center">
           <Users aria-hidden="true" className="mx-auto mb-4 size-6 text-slate-600" />
           <h2 id="team-heading" className="text-2xl font-bold">Bringing Your Team? Save More.</h2>
-          <p className="mt-3 text-slate-600">Team rates apply to Standard admission. Not combined with Early Bird or VIP pricing.</p>
+          <p className="mt-3 text-slate-600">Team rates apply to the full Standard order, including Workshop Day add-ons. Not combined with Early Bird or VIP pricing.</p>
           <div className="mt-7 grid gap-4 sm:grid-cols-3">
             {pricing.groupTiers.map((tier) => (
               <div key={tier.min} className="rounded-xl border border-slate-200 bg-white p-5">
@@ -166,7 +166,7 @@ export function TicketSales() {
           <Button asChild variant="outline" size="lg" className={`mt-7 min-h-11 border-slate-500 ${focusStyle}`}>
             <Link href={`/tickets/order?ticket=standard&quantity=${pricing.groupTiers[0].min}`}>Register a Team<ArrowRight aria-hidden="true" className="size-4" /></Link>
           </Button>
-          <p className="mt-4 text-xs text-slate-600">All prices in {pricing.currency}. Workshop add-ons are priced separately per attendee.</p>
+          <p className="mt-4 text-xs text-slate-600">All prices in {pricing.currency}. Every attendee in a team order receives the same ticket and add-on.</p>
         </section>
       </div>
     </div>
@@ -208,6 +208,11 @@ export function TicketOrder() {
       messages.push("Stripe test checkout completed. No real payment was collected and no ticket was issued.")
     } else if (checkout === "cancelled") {
       messages.push("Stripe test checkout was cancelled. You can adjust the order and try again.")
+    }
+    if (checkout !== null) {
+      params.delete("checkout")
+      const query = params.toString()
+      window.history.replaceState({}, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`)
     }
     setNotice(messages.join(" "))
     setReady(true)
@@ -283,8 +288,8 @@ export function TicketOrder() {
                     <>
                       <dl className="mt-6 space-y-5 text-sm">
                         {!workshopOnly && <div className="flex justify-between gap-4"><dt>{quantity} &times; {pricing.tickets[admission].name}<span className="mt-1 block text-slate-600">{money(order.unitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.conferenceCents / 100)}</dd></div>}
-                        {order.groupTier && <div className="rounded-lg bg-purple-50 p-3 text-purple-900"><dt className="font-semibold">Team rate applied: save {order.groupTier.savingsPercent}%</dt><dd>On Standard conference admission</dd></div>}
-                        {(workshopOnly || workshop) && <div className="flex justify-between gap-4"><dt>{quantity} &times; {workshopOnly ? "Workshop Day Pass" : pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(pricing.workshop.price)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopCents / 100)}</dd></div>}
+                        {order.groupTier && <div className="rounded-lg bg-purple-50 p-3 text-purple-900"><dt className="font-semibold">Team rate applied: save {order.groupTier.savingsPercent}%</dt><dd>On Standard admission and Workshop Day add-ons</dd></div>}
+                        {(workshopOnly || workshop) && <div className="flex justify-between gap-4"><dt>{quantity} &times; {workshopOnly ? "Workshop Day Pass" : pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(order.workshopUnitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopCents / 100)}</dd></div>}
                         <div className="flex flex-wrap justify-between gap-3 border-t border-slate-200 pt-5 text-lg font-bold"><dt>Estimated total</dt><dd>{money(order.totalCents / 100)} {pricing.currency}</dd></div>
                       </dl>
                       <p className="mt-4 text-xs text-slate-600">Estimated subtotal only. Any applicable taxes or payment fees appear in Stripe Test Checkout.</p>

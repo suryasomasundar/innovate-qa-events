@@ -98,6 +98,12 @@ export function NewsletterSection() {
             Sign up for updates on tickets, speakers, and event news!
           </p>
           <div className="ml-embedded" data-form="DAOAEv"></div>
+          <p className="mt-5 text-sm text-muted-foreground">
+            Form not loading?{" "}
+            <a className="font-medium text-primary underline underline-offset-4" href="mailto:contact@innovateqaevents.com?subject=Subscribe%20to%20Innovate%20QA%20Updates">
+              Email us to subscribe
+            </a>.
+          </p>
         </div>
       </div>
     </section>

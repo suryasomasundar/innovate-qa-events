@@ -24,12 +24,14 @@ const footerLinks = {
     { label: "Workshop Day", href: "/events/workshop-day" },
     { label: "2026 Recordings", href: RECORDINGS_URL },
     { label: "Speakers", href: "/events/2027#speakers" },
-    { label: "Past Schedule", href: "/events/2027#schedule" },
+    { label: "2027 Schedule", href: "/events/2027#schedule" },
   ],
   community: [
     { label: "Become a Speaker", href: "/volunteer" },
     { label: "Volunteer", href: "/volunteer" },
     { label: "Become a Sponsor", href: "/sponsor" },
+    { label: "Awards", href: "/awards" },
+    { label: "Meetups", href: "/meetups" },
   ],
   pastEvents: [
     { label: "Innovate QA 2026", href: "/events/2026" },
