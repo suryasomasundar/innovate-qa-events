@@ -1,4 +1,5 @@
 export type TicketType = "earlyBird" | "standard" | "vip"
+export type AdmissionType = TicketType | "workshopOnly"
 
 export type TicketPricing = {
   currency: string
@@ -18,6 +19,10 @@ export function isTicketType(value: string | null): value is TicketType {
   return value === "earlyBird" || value === "standard" || value === "vip"
 }
 
+export function isAdmissionType(value: string | null): value is AdmissionType {
+  return value === "workshopOnly" || isTicketType(value)
+}
+
 export function isEarlyBirdAvailable(pricing: TicketPricing, now: number) {
   return now < Date.parse(pricing.earlyBirdDeadline)
 }
@@ -31,7 +36,7 @@ export function getQuantityError(value: string) {
 
 export function calculateTicketOrder(
   pricing: TicketPricing,
-  ticket: TicketType,
+  admission: AdmissionType,
   quantity: number,
   workshop: boolean,
   now: number,
@@ -39,20 +44,21 @@ export function calculateTicketOrder(
   if (!Number.isSafeInteger(quantity) || quantity < 1) {
     throw new RangeError("Attendee quantity must be a positive safe integer.")
   }
-  if (ticket === "earlyBird" && !isEarlyBirdAvailable(pricing, now)) {
+  if (admission === "earlyBird" && !isEarlyBirdAvailable(pricing, now)) {
     throw new RangeError("Early Bird tickets are no longer available.")
   }
-  const groupTier = ticket === "standard"
+  const workshopOnly = admission === "workshopOnly"
+  const groupTier = admission === "standard"
     ? pricing.groupTiers.find((tier) => quantity >= tier.min && (tier.max === null || quantity <= tier.max))
     : undefined
-  const unitPrice = groupTier?.price ?? pricing.tickets[ticket].price
-  const conferenceCents = Math.round(unitPrice * 100) * quantity
-  const workshopCents = workshop ? Math.round(pricing.workshop.price * 100) * quantity : 0
+  const unitPrice = workshopOnly ? pricing.workshop.price : groupTier?.price ?? pricing.tickets[admission].price
+  const conferenceCents = workshopOnly ? 0 : Math.round(unitPrice * 100) * quantity
+  const workshopCents = workshopOnly || workshop ? Math.round(pricing.workshop.price * 100) * quantity : 0
   const totalCents = conferenceCents + workshopCents
   if (!Number.isSafeInteger(totalCents)) {
     throw new RangeError("The order total exceeds the supported amount.")
   }
-  return { unitPrice, conferenceCents, workshopCents, totalCents, groupTier }
+  return { unitPrice, conferenceCents, workshopCents, totalCents, groupTier, workshopOnly }
 }
 
 export function formatTicketMoney(amount: number, pricing: TicketPricing) {
