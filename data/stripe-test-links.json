@@ -12,6 +12,7 @@
     "standard10": "https://buy.stripe.com/test_7sY8wJ2nHeOe5y0gVUcbC08",
     "standard10Workshop": "https://buy.stripe.com/test_7sY5kxe6p35w1hKcFEcbC09",
     "vip": "https://buy.stripe.com/test_5kQ9AN1jDdKa8KcdJIcbC0a",
-    "vipWorkshop": "https://buy.stripe.com/test_eVq6oBgexgWm8Kc7lkcbC0b"
+    "vipWorkshop": "https://buy.stripe.com/test_eVq6oBgexgWm8Kc7lkcbC0b",
+    "workshopOnly": "https://buy.stripe.com/test_3cI28l7I1cG6gcEgVUcbC0c"
   }
 }

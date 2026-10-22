@@ -11,8 +11,9 @@ import {
   formatTicketMoney,
   formatTicketEventDates,
   getQuantityError,
+  isAdmissionType,
   isEarlyBirdAvailable,
-  isTicketType,
+  type AdmissionType,
   type TicketType,
 } from "@/lib/ticket-pricing"
 
@@ -33,11 +34,13 @@ const deadlineLabel = new Intl.DateTimeFormat("en-US", {
 
 type StripeTestLinkKey = keyof typeof stripeTest.links
 
-function getStripeTestCheckoutLink(ticket: TicketType, quantity: number, workshop: boolean) {
+function getStripeTestCheckoutLink(admission: AdmissionType, quantity: number, workshop: boolean) {
   let key: StripeTestLinkKey
-  if (ticket === "earlyBird") {
+  if (admission === "workshopOnly") {
+    key = "workshopOnly"
+  } else if (admission === "earlyBird") {
     key = workshop ? "earlyBirdWorkshop" : "earlyBird"
-  } else if (ticket === "vip") {
+  } else if (admission === "vip") {
     key = workshop ? "vipWorkshop" : "vip"
   } else {
     const tier = quantity >= 10 ? "standard10" : quantity >= 5 ? "standard5" : quantity >= 3 ? "standard3" : "standard"
@@ -129,15 +132,20 @@ export function TicketSales() {
 
         <section aria-labelledby="workshop-heading" className="mt-8 flex flex-col gap-6 rounded-2xl border border-purple-200 bg-purple-50 p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <div className="max-w-2xl">
-            <p className="mb-2 text-sm font-semibold text-purple-900">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; Optional add-on</p>
-            <h2 id="workshop-heading" className="text-2xl font-bold">Add the Workshop Day</h2>
+            <p className="mb-2 text-sm font-semibold text-purple-900">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; Available standalone or as an add-on</p>
+            <h2 id="workshop-heading" className="text-2xl font-bold">Workshop Day Pass</h2>
             <p className="mt-3 text-slate-700">{pricing.workshop.description}</p>
           </div>
           <div className="shrink-0">
-            <p className="mb-3 text-2xl font-bold">+{money(pricing.workshop.price)} <span className="text-sm font-normal text-slate-600">per person</span></p>
-            <Button asChild variant="outline" className={`min-h-11 border-purple-800 bg-white text-purple-900 ${focusStyle}`}>
-              <Link href="/tickets/order?workshop=true">Add Workshop Day<ArrowRight aria-hidden="true" className="size-4" /></Link>
-            </Button>
+            <p className="mb-3 text-2xl font-bold">{money(pricing.workshop.price)} <span className="text-sm font-normal text-slate-600">per person</span></p>
+            <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+              <Button asChild className={`min-h-11 bg-purple-800 text-white hover:bg-purple-900 ${focusStyle}`}>
+                <Link href="/tickets/order?workshop=true">Add to Conference Ticket<ArrowRight aria-hidden="true" className="size-4" /></Link>
+              </Button>
+              <Button asChild variant="outline" className={`min-h-11 border-purple-800 bg-white text-purple-900 ${focusStyle}`}>
+                <Link href="/tickets/order?ticket=workshopOnly">Buy Workshop Pass Only<ArrowRight aria-hidden="true" className="size-4" /></Link>
+              </Button>
+            </div>
           </div>
         </section>
 
@@ -167,7 +175,7 @@ export function TicketSales() {
 
 export function TicketOrder() {
   const now = useTicketClock()
-  const [ticket, setTicket] = useState<TicketType>("standard")
+  const [admission, setAdmission] = useState<AdmissionType>("standard")
   const [quantity, setQuantity] = useState("1")
   const [workshop, setWorkshop] = useState(false)
   const [notice, setNotice] = useState("")
@@ -178,15 +186,15 @@ export function TicketOrder() {
     const requested = params.get("ticket")
     const messages: string[] = []
     if (requested !== null) {
-      if (!isTicketType(requested)) {
-        messages.push("That ticket type is not recognized. Please choose a ticket below.")
+      if (!isAdmissionType(requested)) {
+        messages.push("That admission type is not recognized. Please choose an option below.")
       } else if (requested === "earlyBird" && !isEarlyBirdAvailable(pricing, Date.now())) {
         messages.push("Early Bird has ended. Standard admission is selected; please review your order.")
       } else {
-        setTicket(requested)
+        setAdmission(requested)
       }
     } else if (isEarlyBirdAvailable(pricing, Date.now())) {
-      setTicket("earlyBird")
+      setAdmission("earlyBird")
     }
     const count = params.get("quantity")
     if (count !== null) setQuantity(count)
@@ -194,7 +202,7 @@ export function TicketOrder() {
     if (addWorkshop !== null && addWorkshop !== "true" && addWorkshop !== "false") {
       messages.push("The workshop option is not recognized. Please choose whether to add workshops below.")
     }
-    setWorkshop(addWorkshop === "true")
+    setWorkshop(requested === "workshopOnly" ? false : addWorkshop === "true")
     const checkout = params.get("checkout")
     if (checkout === "success") {
       messages.push("Stripe test checkout completed. No real payment was collected and no ticket was issued.")
@@ -206,14 +214,16 @@ export function TicketOrder() {
   }, [])
 
   const earlyBird = now !== null && isEarlyBirdAvailable(pricing, now)
-  const expired = ticket === "earlyBird" && now !== null && !earlyBird
+  const workshopOnly = admission === "workshopOnly"
+  const expired = admission === "earlyBird" && now !== null && !earlyBird
   const quantityError = getQuantityError(quantity)
+  const admissionPrice = workshopOnly ? pricing.workshop.price : pricing.tickets[admission].price
   const totalTooLarge = !quantityError && !Number.isSafeInteger(
-    Math.round((pricing.tickets[ticket].price + (workshop ? pricing.workshop.price : 0)) * 100) * Number(quantity),
+    Math.round((admissionPrice + (!workshopOnly && workshop ? pricing.workshop.price : 0)) * 100) * Number(quantity),
   )
   const error = quantityError ?? (totalTooLarge ? "This order is too large. Enter a smaller attendee count." : null)
   const order = ready && now !== null && !error && !expired
-    ? calculateTicketOrder(pricing, ticket, Number(quantity), workshop, now)
+    ? calculateTicketOrder(pricing, admission, Number(quantity), workshop, now)
     : null
   const types: TicketType[] = earlyBird || expired ? ["earlyBird", "standard", "vip"] : ["standard", "vip"]
 
@@ -237,27 +247,34 @@ export function TicketOrder() {
               <section aria-labelledby="selection-heading" className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
                 <h2 id="selection-heading" className="mb-6 text-xl font-bold">Your experience</h2>
                 <fieldset>
-                  <legend className="mb-3 font-semibold">Conference ticket</legend>
+                  <legend className="mb-3 font-semibold">Choose your admission</legend>
                   <div className="space-y-3">
                     {types.map((type) => (
-                      <label key={type} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border p-4 ${ticket === type ? "border-purple-800 bg-purple-50" : "border-slate-400"}`}>
-                        <input type="radio" name="ticket" value={type} checked={ticket === type} disabled={type === "earlyBird" && !earlyBird} onChange={() => setTicket(type)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
+                      <label key={type} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border p-4 ${admission === type ? "border-purple-800 bg-purple-50" : "border-slate-400"}`}>
+                        <input type="radio" name="admission" value={type} checked={admission === type} disabled={type === "earlyBird" && !earlyBird} onChange={() => setAdmission(type)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
                         <span className="min-w-0 flex-1"><span className="block font-semibold">{pricing.tickets[type].name}{type === "earlyBird" && !earlyBird ? " (expired)" : ""}</span><span className="text-sm text-slate-600">{pricing.tickets[type].description}</span></span>
                         <span className="font-semibold">{money(pricing.tickets[type].price)}</span>
                       </label>
                     ))}
+                    <label className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border p-4 ${workshopOnly ? "border-purple-800 bg-purple-50" : "border-slate-400"}`}>
+                      <input type="radio" name="admission" value="workshopOnly" checked={workshopOnly} onChange={() => { setAdmission("workshopOnly"); setWorkshop(false) }} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
+                      <span className="min-w-0 flex-1"><span className="block font-semibold">Workshop Day Pass Only</span><span className="text-sm text-slate-600">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; No conference ticket required</span></span>
+                      <span className="font-semibold">{money(pricing.workshop.price)}</span>
+                    </label>
                   </div>
                 </fieldset>
                 <div className="mt-7">
                   <label htmlFor="attendee-count" className="block font-semibold">Number of attendees</label>
                   <input id="attendee-count" type="number" min="1" step="1" required value={quantity} onChange={(e) => setQuantity(e.target.value)} aria-invalid={!!error} aria-describedby={`quantity-help${error ? " quantity-error" : ""}`} className={`mt-3 min-h-11 w-full rounded-lg border border-slate-500 bg-white p-3 ${focusStyle}`} />
-                  <p id="quantity-help" className="mt-2 text-sm text-slate-600">Standard team rates apply automatically for {pricing.groupTiers[0].min}+ attendees. All attendees receive the same ticket and add-on.</p>
+                  <p id="quantity-help" className="mt-2 text-sm text-slate-600">{workshopOnly ? "Each attendee receives one Workshop Day Pass." : `Standard team rates apply automatically for ${pricing.groupTiers[0].min}+ attendees. All attendees receive the same ticket and add-on.`}</p>
                   {error && <p id="quantity-error" role="alert" className="mt-2 text-sm font-medium text-red-800">{error}</p>}
                 </div>
-                <label className="mt-7 flex cursor-pointer items-start gap-3 rounded-xl border border-slate-400 p-4">
-                  <input type="checkbox" checked={workshop} onChange={(e) => setWorkshop(e.target.checked)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
-                  <span><span className="block font-semibold">Add {pricing.workshop.name}</span><span className="text-sm text-slate-600">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; +{money(pricing.workshop.price)} per attendee</span></span>
-                </label>
+                {!workshopOnly && (
+                  <label className="mt-7 flex cursor-pointer items-start gap-3 rounded-xl border border-slate-400 p-4">
+                    <input type="checkbox" checked={workshop} onChange={(e) => setWorkshop(e.target.checked)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
+                    <span><span className="block font-semibold">Add {pricing.workshop.name}</span><span className="text-sm text-slate-600">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; +{money(pricing.workshop.price)} per attendee</span></span>
+                  </label>
+                )}
               </section>
               <section aria-labelledby="summary-heading" className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
                 <h2 id="summary-heading" className="text-xl font-bold">Order summary</h2>
@@ -265,25 +282,25 @@ export function TicketOrder() {
                   {order ? (
                     <>
                       <dl className="mt-6 space-y-5 text-sm">
-                        <div className="flex justify-between gap-4"><dt>{quantity} &times; {pricing.tickets[ticket].name}<span className="mt-1 block text-slate-600">{money(order.unitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.conferenceCents / 100)}</dd></div>
+                        {!workshopOnly && <div className="flex justify-between gap-4"><dt>{quantity} &times; {pricing.tickets[admission].name}<span className="mt-1 block text-slate-600">{money(order.unitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.conferenceCents / 100)}</dd></div>}
                         {order.groupTier && <div className="rounded-lg bg-purple-50 p-3 text-purple-900"><dt className="font-semibold">Team rate applied: save {order.groupTier.savingsPercent}%</dt><dd>On Standard conference admission</dd></div>}
-                        {workshop && <div className="flex justify-between gap-4"><dt>{quantity} &times; {pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(pricing.workshop.price)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopCents / 100)}</dd></div>}
+                        {(workshopOnly || workshop) && <div className="flex justify-between gap-4"><dt>{quantity} &times; {workshopOnly ? "Workshop Day Pass" : pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(pricing.workshop.price)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopCents / 100)}</dd></div>}
                         <div className="flex flex-wrap justify-between gap-3 border-t border-slate-200 pt-5 text-lg font-bold"><dt>Estimated total</dt><dd>{money(order.totalCents / 100)} {pricing.currency}</dd></div>
                       </dl>
-                      <p className="mt-4 text-xs text-slate-600">Ticket and add-on subtotal only. Any applicable taxes or payment fees will be shown when checkout becomes available.</p>
+                      <p className="mt-4 text-xs text-slate-600">Estimated subtotal only. Any applicable taxes or payment fees appear in Stripe Test Checkout.</p>
                     </>
                   ) : <p className="mt-6 text-sm text-slate-600">Review your selection to calculate an order total.</p>}
                 </div>
                 {order ? (
                   <Button asChild className="mt-7 min-h-11 w-full bg-purple-800 text-white hover:bg-purple-900">
-                    <a href={getStripeTestCheckoutLink(ticket, Number(quantity), workshop)} target="_blank" rel="noopener noreferrer">
+                    <a href={getStripeTestCheckoutLink(admission, Number(quantity), workshop)} target="_blank" rel="noopener noreferrer">
                       Continue to Stripe Test Checkout
                     </a>
                   </Button>
                 ) : (
                   <Button disabled className="mt-7 min-h-11 w-full bg-slate-900 text-white disabled:opacity-100">Review order to continue</Button>
                 )}
-                <p className="mt-4 text-sm text-slate-600">Stripe opens with the minimum quantity for the selected pricing tier. Confirm the ticket quantity—and workshop quantity when selected—before completing the test checkout.</p>
+                <p className="mt-4 text-sm text-slate-600">Stripe opens with the minimum quantity for the selected pricing tier. Confirm the attendee quantity—and workshop quantity when selected—before completing the test checkout.</p>
                 <Link href="/contact" className={`mt-5 inline-flex min-h-11 items-center text-sm font-medium text-purple-900 underline underline-offset-4 ${focusStyle}`}>Questions about tickets? Contact us</Link>
               </section>
             </div>

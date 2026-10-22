@@ -4,7 +4,7 @@ import event from "@/data/events/2027.json"
 
 export const metadata = generateSEO({
   title: `Plan Your ${event.name} Order`,
-  description: "Choose your conference tickets and optional workshop day. Payments coming soon.",
+  description: "Choose conference tickets, a standalone Workshop Day Pass, or add Workshop Day to conference admission.",
   canonical: "/tickets/order",
   noIndex: true,
 })
