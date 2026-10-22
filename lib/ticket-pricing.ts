@@ -69,7 +69,7 @@ export function formatTicketMoney(amount: number, pricing: TicketPricing) {
     style: "currency",
     currency: pricing.currency,
     maximumFractionDigits: 2,
-    minimumFractionDigits: 0,
+    minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
   }).format(amount)
 }
 

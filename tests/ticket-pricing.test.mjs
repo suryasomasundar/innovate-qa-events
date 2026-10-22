@@ -19,6 +19,7 @@ test("R1: configured 2027 prices match approved ticket products", () => {
   assert.equal(pricing.workshop.price, 299)
   assert.equal(pricing.currency, "USD")
   assert.equal(formatTicketMoney(349, pricing), "$349")
+  assert.equal(formatTicketMoney(269.1, pricing), "$269.10")
 })
 
 test("R2: Early Bird is removed at February 15 midnight Pacific, including stale orders", () => {
