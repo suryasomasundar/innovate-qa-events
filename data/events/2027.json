@@ -75,6 +75,11 @@
 			"price": 299,
 			"description": "Make the most of Innovate QA with an additional day of hands-on, practical workshops."
 		},
+		"virtualPass": {
+			"name": "Virtual Pass",
+			"price": 149,
+			"description": "On-demand access to recorded conference sessions and workshops after the event."
+		},
 		"groupTiers": [
 			{ "min": 3, "max": 4, "price": 404, "savingsPercent": 10 },
 			{ "min": 5, "max": 9, "price": 382, "savingsPercent": 15 },
