@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock3, LibraryBig, MapPin,
 import event from "@/data/events/2027.json"
 import stripeTest from "@/data/stripe-test-links.json"
 import { Button } from "@/components/ui/button"
+import { ConferenceValueExplorer } from "@/components/conference-value-explorer"
 import {
   calculateTicketOrder,
   formatTicketMoney,
@@ -195,6 +196,8 @@ export function TicketSales() {
             </div>
           </div>
         </section>
+
+        <ConferenceValueExplorer startingPrice={money(now === null || earlyBird ? pricing.tickets.earlyBird.price : pricing.tickets.standard.price)} />
       </div>
     </div>
   )
