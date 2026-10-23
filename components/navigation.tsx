@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
-import { Menu, ChevronDown, Sparkles } from "lucide-react"
+import { Menu, ChevronDown, Mail, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -99,6 +99,12 @@ export function Navigation() {
         <div className="hidden lg:flex items-center gap-3">
           <Button asChild variant="outline">
             <a href="/contact">Contact Us</a>
+          </Button>
+          <Button asChild variant="outline" className="gap-2">
+            <a href="/#newsletter">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Subscribe
+            </a>
           </Button>
           <MemberAuthControls />
           {isRecordingsLaunched ? (
@@ -195,6 +201,12 @@ export function Navigation() {
                   </Button>
                 )}
                 <MemberAuthControls mobile />
+                <Button asChild variant="outline" className="w-full gap-2">
+                  <a href="/#newsletter" onClick={() => setOpen(false)}>
+                    <Mail className="h-4 w-4" aria-hidden="true" />
+                    Subscribe
+                  </a>
+                </Button>
                 <Button asChild variant="outline" className="w-full">
                   <a href="/contact" onClick={() => setOpen(false)}>Contact Us</a>
                 </Button>

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react"
 import { LogIn, UserRoundPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { clerkEnabled } from "@/components/auth-provider"

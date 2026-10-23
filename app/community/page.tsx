@@ -195,7 +195,7 @@ export default function CommunityPage() {
               <CommunityJoinPanel />
             </div>
             <p className="mt-5 text-xs leading-relaxed text-purple-200">
-              By joining, you agree to receive Innovate QA community and event emails. You can unsubscribe at any time.
+              Creating a member account does not automatically subscribe you to marketing emails. Newsletter subscription is managed separately.
             </p>
           </div>
         </div>

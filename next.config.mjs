@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use the standard Vercel Next.js runtime so Clerk authentication and
-  // member-profile features can run while public pages remain statically optimized.
+  // The production site is deployed from ./out through the FTP workflow.
+  output: 'export',
   basePath: '',
   assetPrefix: '',
   trailingSlash: true,

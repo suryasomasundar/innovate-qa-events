@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Show, SignInButton, SignUpButton, useUser } from "@clerk/nextjs"
+import { Show, SignInButton, SignUpButton, useUser } from "@clerk/react"
 import { Camera, Check, Loader2, LogIn, Save, UserRoundPlus } from "lucide-react"
 import { clerkEnabled } from "@/components/auth-provider"
 import { Button } from "@/components/ui/button"
@@ -31,7 +31,6 @@ type MemberProfile = {
   bio: string
   interests: string[]
   profileVisible: boolean
-  newsletterOptIn: boolean
   joinedAt?: string
 }
 
@@ -44,7 +43,6 @@ const emptyProfile: MemberProfile = {
   bio: "",
   interests: [],
   profileVisible: false,
-  newsletterOptIn: true,
 }
 
 function ProfileEditor() {
@@ -267,18 +265,15 @@ function ProfileEditor() {
                   <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">Off by default during beta. Your email is never shown.</span>
                 </span>
               </label>
-              <label className="flex cursor-pointer items-start gap-3">
-                <input
-                  type="checkbox"
-                  checked={profile.newsletterOptIn}
-                  onChange={(event) => setProfile({ ...profile, newsletterOptIn: event.target.checked })}
-                  className="mt-1 h-4 w-4 accent-primary"
-                />
-                <span>
-                  <span className="block text-sm font-medium">Community and event emails</span>
-                  <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">Receive relevant opportunities and program updates.</span>
-                </span>
-              </label>
+              <div className="rounded-xl border bg-muted/35 p-4">
+                <p className="text-sm font-medium">Want community and event emails?</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  Membership and newsletter subscriptions are managed separately.
+                </p>
+                <Link href="/#newsletter" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+                  Subscribe for updates
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -322,7 +317,7 @@ export function MemberProfileForm() {
         <CardContent className="p-8">
           <h2 className="text-2xl font-bold">Clerk connection required</h2>
           <p className="mt-3 text-muted-foreground">
-            Add the existing Clerk publishable and secret keys to this main-site project to activate member accounts and profile editing.
+            Add the existing Clerk publishable key to this main-site build to activate member accounts and profile editing.
           </p>
         </CardContent>
       </Card>
