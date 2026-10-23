@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock3, LibraryBig, MapPin,
 import event from "@/data/events/2027.json"
 import stripeTest from "@/data/stripe-test-links.json"
 import { Button } from "@/components/ui/button"
+import { ConferenceValueExplorer } from "@/components/conference-value-explorer"
 import {
   calculateTicketOrder,
   formatTicketMoney,
@@ -103,9 +104,6 @@ export function TicketSales() {
             <EventDetails />
             <p className="mt-6 text-slate-600">Two days of quality engineering insights. An extra day to put them into practice.</p>
             <p className="mt-4 text-sm font-medium text-purple-800">Temporary Stripe test checkout is available for QA. No real payments or tickets.</p>
-            <Link href="/convince-your-manager" className={`mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg border border-purple-300 bg-white/80 px-4 py-2 text-sm font-semibold text-purple-900 shadow-sm transition-colors hover:bg-purple-50 ${focusStyle}`}>
-              Need approval? Make the case to your manager<ArrowRight aria-hidden="true" className="size-4" />
-            </Link>
           </div>
         </header>
 
@@ -198,6 +196,8 @@ export function TicketSales() {
             </div>
           </div>
         </section>
+
+        <ConferenceValueExplorer startingPrice={money(now === null || earlyBird ? pricing.tickets.earlyBird.price : pricing.tickets.standard.price)} />
       </div>
     </div>
   )
