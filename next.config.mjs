@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // The production site is deployed from ./out through the FTP workflow.
   output: 'export',
-  // Deploying to root domain, no basePath needed
   basePath: '',
   assetPrefix: '',
   trailingSlash: true,

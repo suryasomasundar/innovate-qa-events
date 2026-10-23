@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useRecordingsLaunch } from "@/components/use-recordings-launch"
+import { MemberAuthControls } from "@/components/member-auth-controls"
 
 const navLinks = [
   { href: "/tickets", label: "2027 Tickets" },
@@ -24,7 +25,7 @@ const pastEvents = [
 ]
 
 const communityLinks = [
-  { href: "/community", label: "Quality Leadership Community" },
+  { href: "/community", label: "Free Membership (Beta)" },
   { href: "/volunteer", label: "Volunteer / Speak" },
   { href: "/awards", label: "Awards" },
   { href: "/authors", label: "Community Authors" },
@@ -101,10 +102,11 @@ export function Navigation() {
           </Button>
           <Button asChild variant="outline" className="gap-2">
             <a href="/#newsletter">
-              <Mail className="h-4 w-4" />
+              <Mail className="h-4 w-4" aria-hidden="true" />
               Subscribe
             </a>
           </Button>
+          <MemberAuthControls />
           {isRecordingsLaunched ? (
             <Button asChild className="gap-2 shadow-md">
               <a href={RECORDINGS_URL}>
@@ -198,9 +200,10 @@ export function Navigation() {
                     Launches Aug 10
                   </Button>
                 )}
+                <MemberAuthControls mobile />
                 <Button asChild variant="outline" className="w-full gap-2">
                   <a href="/#newsletter" onClick={() => setOpen(false)}>
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-4 w-4" aria-hidden="true" />
                     Subscribe
                   </a>
                 </Button>
