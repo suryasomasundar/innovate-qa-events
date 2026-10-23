@@ -12,6 +12,7 @@ export type TicketPricing = {
     features: string[]
   }>
   workshop: { name: string; date: string; price: number; description: string }
+  virtualPass: { name: string; price: number; description: string }
   groupTiers: { min: number; max: number | null; price: number; savingsPercent: number }[]
 }
 
