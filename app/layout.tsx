@@ -7,6 +7,7 @@ import { OrganizationLD } from "@/components/json-ld"
 import { generateSEO } from "@/components/seo"
 import siteConfig from "@/data/site-config.json"
 import Script from "next/script"
+import { AuthProvider } from "@/components/auth-provider"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -40,7 +41,9 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body className="font-sans antialiased">
-        <SiteShell>{children}</SiteShell>
+        <AuthProvider>
+          <SiteShell>{children}</SiteShell>
+        </AuthProvider>
         <Script id="mailerlite-universal" strategy="afterInteractive">{`
           (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
           .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,

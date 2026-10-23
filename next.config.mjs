@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  // Deploying to root domain, no basePath needed
+  // Use the standard Vercel Next.js runtime so Clerk authentication and
+  // member-profile features can run while public pages remain statically optimized.
   basePath: '',
   assetPrefix: '',
   trailingSlash: true,
