@@ -130,33 +130,6 @@ export function TicketSales() {
           })}
         </section>
 
-        <section aria-labelledby="virtual-pass-heading" className="relative mt-8 overflow-hidden rounded-3xl bg-slate-950 px-6 py-8 text-white shadow-xl shadow-purple-950/10 md:px-10 md:py-10">
-          <div aria-hidden="true" className="absolute -right-16 -top-24 size-72 rounded-full bg-fuchsia-600/25 blur-3xl" />
-          <div aria-hidden="true" className="absolute -bottom-32 left-1/3 size-72 rounded-full bg-purple-600/20 blur-3xl" />
-          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div className="max-w-3xl">
-              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-400/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-purple-100">
-                <PlayCircle aria-hidden="true" className="size-4" /> Can&apos;t attend in person?
-              </p>
-              <h2 id="virtual-pass-heading" className="text-3xl font-bold tracking-tight md:text-4xl">Take the full Innovate QA learning experience with you.</h2>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">Get on-demand access to the recorded conference sessions and workshops after the event—built for teams and professionals who want the learning, wherever they are.</p>
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-200">
-                <span className="inline-flex items-center gap-2"><LibraryBig aria-hidden="true" className="size-4 text-purple-300" />Conference + workshop recordings</span>
-                <span className="inline-flex items-center gap-2"><Clock3 aria-hidden="true" className="size-4 text-purple-300" />On demand after the event</span>
-              </div>
-            </div>
-            <div className="min-w-56 rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-sm lg:text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-purple-200">Virtual Pass</p>
-              <p className="mt-2 text-5xl font-bold tracking-tight">{money(pricing.virtualPass.price)}</p>
-              <p className="mt-1 text-sm text-slate-300">one complete library</p>
-              <Button asChild size="lg" className={`mt-5 min-h-11 w-full bg-white text-slate-950 hover:bg-purple-50 ${focusStyle}`}>
-                <Link href="/#newsletter">Get Virtual Pass Updates<ArrowRight aria-hidden="true" className="size-4" /></Link>
-              </Button>
-              <p className="mt-3 text-xs text-slate-400">Post-event recordings · Not a livestream</p>
-            </div>
-          </div>
-        </section>
-
         <section aria-labelledby="workshop-heading" className="mt-8 flex flex-col gap-6 rounded-2xl border border-purple-200 bg-purple-50 p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <div className="max-w-2xl">
             <p className="mb-2 text-sm font-semibold text-purple-900">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; Available standalone or as an add-on</p>
@@ -194,6 +167,33 @@ export function TicketSales() {
             <Link href={`/tickets/order?ticket=standard&quantity=${pricing.groupTiers[0].min}`}>Register a Team<ArrowRight aria-hidden="true" className="size-4" /></Link>
           </Button>
           <p className="mt-4 text-xs text-slate-600">All prices in {pricing.currency}. Every attendee in a team order receives the same ticket and add-on.</p>
+        </section>
+
+        <section aria-labelledby="virtual-pass-heading" className="relative mt-16 overflow-hidden rounded-3xl bg-slate-950 px-6 py-8 text-white shadow-xl shadow-purple-950/10 md:px-10 md:py-10">
+          <div aria-hidden="true" className="absolute -right-16 -top-24 size-72 rounded-full bg-fuchsia-600/25 blur-3xl" />
+          <div aria-hidden="true" className="absolute -bottom-32 left-1/3 size-72 rounded-full bg-purple-600/20 blur-3xl" />
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="max-w-3xl">
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-purple-300/30 bg-purple-400/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-purple-100">
+                <PlayCircle aria-hidden="true" className="size-4" /> Can&apos;t attend in person?
+              </p>
+              <h2 id="virtual-pass-heading" className="text-3xl font-bold tracking-tight md:text-4xl">Take the full Innovate QA learning experience with you.</h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">Get on-demand access to the recorded conference sessions and workshops after the event—built for teams and professionals who want the learning, wherever they are.</p>
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-200">
+                <span className="inline-flex items-center gap-2"><LibraryBig aria-hidden="true" className="size-4 text-purple-300" />Conference + workshop recordings</span>
+                <span className="inline-flex items-center gap-2"><Clock3 aria-hidden="true" className="size-4 text-purple-300" />On demand after the event</span>
+              </div>
+            </div>
+            <div className="min-w-56 rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-sm lg:text-center">
+              <p className="text-sm font-semibold uppercase tracking-wider text-purple-200">Virtual Pass</p>
+              <p className="mt-2 text-5xl font-bold tracking-tight">{money(pricing.virtualPass.price)}</p>
+              <p className="mt-1 text-sm text-slate-300">one complete library</p>
+              <Button asChild size="lg" className={`mt-5 min-h-11 w-full bg-white text-slate-950 hover:bg-purple-50 ${focusStyle}`}>
+                <Link href="/#newsletter">Get Virtual Pass Updates<ArrowRight aria-hidden="true" className="size-4" /></Link>
+              </Button>
+              <p className="mt-3 text-xs text-slate-400">Post-event recordings · Not a livestream</p>
+            </div>
+          </div>
         </section>
       </div>
     </div>
