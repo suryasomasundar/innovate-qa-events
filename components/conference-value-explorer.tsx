@@ -1,14 +1,12 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import {
   ArrowRight,
   BrainCircuit,
   BriefcaseBusiness,
   Check,
   Copy,
-  Lightbulb,
-  Network,
   Presentation,
   Rocket,
   Target,
@@ -105,13 +103,6 @@ const roleValues: Record<RoleKey, RoleValue> = {
   },
 }
 
-const learningFormats = [
-  { title: "Hands-on AI workshops", description: "Practice with tools, prompts, and workflows.", icon: BrainCircuit },
-  { title: "Modern QA sessions", description: "Testing strategy, automation, quality, and risk.", icon: Lightbulb },
-  { title: "Real implementation stories", description: "What worked, what failed, and what changed.", icon: Rocket },
-  { title: "Community perspective", description: "Learn with practitioners at every level.", icon: Network },
-]
-
 const outcomeCards = [
   { key: "learn", title: "What you learn", icon: BrainCircuit },
   { key: "apply", title: "What you can apply", icon: Target },
@@ -126,7 +117,21 @@ type ConferenceValueExplorerProps = {
 export function ConferenceValueExplorer({ startingPrice }: ConferenceValueExplorerProps) {
   const [selectedRole, setSelectedRole] = useState<RoleKey>("qa")
   const [copied, setCopied] = useState(false)
+  const [approvalOpen, setApprovalOpen] = useState(false)
+  const approvalRef = useRef<HTMLDetailsElement>(null)
   const role = roleValues[selectedRole]
+
+  function selectRole(nextRole: RoleKey) {
+    setSelectedRole(nextRole)
+    setApprovalOpen(true)
+
+    window.setTimeout(() => {
+      approvalRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      })
+    }, 100)
+  }
 
   const managerRequest = useMemo(() => `Subject: Request to attend Innovate QA 2027
 
@@ -160,8 +165,8 @@ Best,
   }
 
   return (
-    <section id="conference-value" aria-labelledby="conference-value-heading" className="mt-16 scroll-mt-24 overflow-hidden rounded-3xl border border-purple-200 bg-white shadow-xl shadow-purple-950/10">
-      <div className="grid gap-8 bg-gradient-to-br from-purple-50 via-white to-fuchsia-50 px-6 py-8 md:px-10 md:py-10 lg:grid-cols-[1fr_19rem] lg:items-end">
+    <section id="conference-value" aria-labelledby="conference-value-heading" className="mt-16 scroll-mt-24 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-900/5">
+      <div className="grid gap-8 bg-gradient-to-br from-slate-50 via-white to-purple-50/40 px-6 py-8 md:px-10 md:py-10 lg:grid-cols-[1fr_19rem] lg:items-end">
         <div>
           <p className="text-sm font-bold uppercase tracking-wider text-purple-800">What will you take away?</p>
           <h2 id="conference-value-heading" className="mt-3 max-w-3xl text-3xl font-bold tracking-tight md:text-5xl">Learn it. Apply it. Bring the impact back.</h2>
@@ -169,19 +174,10 @@ Best,
         </div>
         <label className="rounded-2xl border border-purple-200 bg-white/90 p-4 shadow-sm">
           <span className="block text-xs font-bold uppercase tracking-wider text-purple-800">Show value for my role</span>
-          <select value={selectedRole} onChange={(event) => setSelectedRole(event.target.value as RoleKey)} className="mt-2 min-h-12 w-full rounded-lg border border-purple-300 bg-white px-3 text-base font-semibold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">
+          <select value={selectedRole} onChange={(event) => selectRole(event.target.value as RoleKey)} className="mt-2 min-h-12 w-full rounded-lg border border-purple-300 bg-white px-3 text-base font-semibold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700">
             {(Object.entries(roleValues) as [RoleKey, RoleValue][]).map(([key, value]) => <option key={key} value={key}>{value.label}</option>)}
           </select>
         </label>
-      </div>
-
-      <div className="grid bg-purple-950 text-white sm:grid-cols-2 lg:grid-cols-4">
-        {learningFormats.map(({ title, description, icon: Icon }) => (
-          <div key={title} className="border-b border-white/15 p-5 last:border-b-0 sm:odd:border-r lg:border-b-0 lg:border-r lg:last:border-r-0">
-            <h3 className="flex items-center gap-2 font-semibold"><Icon aria-hidden="true" className="size-5 text-purple-300" />{title}</h3>
-            <p className="ml-7 mt-2 text-sm leading-relaxed text-purple-100">{description}</p>
-          </div>
-        ))}
       </div>
 
       <div aria-live="polite" className="px-6 py-8 md:px-10 md:py-10">
@@ -195,7 +191,7 @@ Best,
 
         <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {outcomeCards.map(({ key, title, icon: Icon }, index) => (
-            <article key={key} className="rounded-2xl border border-purple-100 bg-gradient-to-b from-white to-purple-50/50 p-5">
+            <article key={key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5">
               <div className="flex items-center justify-between gap-3">
                 <span className="flex size-10 items-center justify-center rounded-xl bg-purple-100 text-purple-800"><Icon aria-hidden="true" className="size-5" /></span>
                 <span className="text-xs font-bold text-purple-400">0{index + 1}</span>
@@ -206,12 +202,12 @@ Best,
           ))}
         </div>
 
-        <div className="mt-5 flex items-start gap-4 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-fuchsia-900 p-5 text-white">
-          <ArrowRight aria-hidden="true" className="mt-1 size-6 shrink-0 text-purple-300" />
-          <div><p className="text-xs font-bold uppercase tracking-wider text-purple-300">You return with</p><p className="mt-1 leading-relaxed text-purple-50">{role.takeaway}</p></div>
+        <div className="mt-5 flex items-start gap-4 rounded-2xl border border-purple-200 bg-purple-50/60 p-5">
+          <ArrowRight aria-hidden="true" className="mt-1 size-6 shrink-0 text-purple-700" />
+          <div><p className="text-xs font-bold uppercase tracking-wider text-purple-800">You return with</p><p className="mt-1 leading-relaxed text-slate-700">{role.takeaway}</p></div>
         </div>
 
-        <details className="group mt-5 overflow-hidden rounded-2xl border border-purple-200 bg-purple-50/70">
+        <details ref={approvalRef} open={approvalOpen} onToggle={(event) => setApprovalOpen(event.currentTarget.open)} className="group mt-5 scroll-mt-24 overflow-hidden rounded-2xl border border-purple-200 bg-purple-50/70">
           <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-bold text-purple-900 marker:hidden [&::-webkit-details-marker]:hidden">
             <span>Need approval? Build the case for your manager</span>
             <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-purple-200 text-xl group-open:hidden">+</span>
@@ -224,9 +220,9 @@ Best,
                 <div className="grid gap-1 rounded-xl bg-white/80 p-4 sm:grid-cols-[9rem_1fr]"><dt className="text-sm font-bold text-purple-900">Organization value</dt><dd className="text-sm leading-relaxed text-slate-700">{role.organization}</dd></div>
                 <div className="grid gap-1 rounded-xl bg-white/80 p-4 sm:grid-cols-[9rem_1fr]"><dt className="text-sm font-bold text-purple-900">Measure in 30 days</dt><dd className="text-sm leading-relaxed text-slate-700">{role.metric}</dd></div>
               </dl>
-              <div className="mt-3 rounded-xl bg-purple-950 p-4 text-white">
-                <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-300"><Presentation aria-hidden="true" className="size-4" />Financial value lens</p>
-                <p className="mt-2 text-sm leading-relaxed text-purple-50">A {startingPrice} registration can pay back through recovered team time, avoided rework or escaped defects, or one better tooling decision. Measure the selected improvement against the cost.</p>
+              <div className="mt-3 rounded-xl border border-slate-200 bg-slate-100 p-4">
+                <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-800"><Presentation aria-hidden="true" className="size-4" />Financial value lens</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700">A {startingPrice} registration can pay back through recovered team time, avoided rework or escaped defects, or one better tooling decision. Measure the selected improvement against the cost.</p>
               </div>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-purple-900">
                 {["3 applicable practices", "1 thirty-day pilot", "1 team share-out"].map((item) => <span key={item} className="rounded-full bg-purple-200 px-3 py-2">{item}</span>)}
