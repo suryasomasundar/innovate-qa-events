@@ -27,7 +27,8 @@ const footerLinks = {
     { label: "2027 Schedule", href: "/events/2027#schedule" },
   ],
   community: [
-    { label: "Free Membership (Beta)", href: "/community" },
+    { label: "Membership", href: "/community" },
+    { label: "Podcast", href: "/podcast" },
     { label: "Become a Speaker", href: "/volunteer" },
     { label: "Volunteer", href: "/volunteer" },
     { label: "Become a Sponsor", href: "/sponsor" },

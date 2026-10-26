@@ -3,13 +3,11 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { BASE_PATH, RECORDINGS_URL } from "@/lib/constants"
-import { Menu, ChevronDown, Mail, Sparkles } from "lucide-react"
+import { BASE_PATH } from "@/lib/constants"
+import { Menu, ChevronDown, Mail, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useRecordingsLaunch } from "@/components/use-recordings-launch"
-import { MemberAuthControls } from "@/components/member-auth-controls"
 
 const navLinks = [
   { href: "/tickets", label: "2027 Tickets" },
@@ -25,7 +23,8 @@ const pastEvents = [
 ]
 
 const communityLinks = [
-  { href: "/community", label: "Free Membership (Beta)" },
+  { href: "/community", label: "Membership" },
+  { href: "/podcast", label: "Podcast" },
   { href: "/volunteer", label: "Volunteer / Speak" },
   { href: "/awards", label: "Awards" },
   { href: "/authors", label: "Community Authors" },
@@ -34,7 +33,6 @@ const communityLinks = [
 
 export function Navigation() {
   const [open, setOpen] = useState(false)
-  const isRecordingsLaunched = useRecordingsLaunch()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -106,22 +104,12 @@ export function Navigation() {
               Subscribe
             </a>
           </Button>
-          <MemberAuthControls />
-          {isRecordingsLaunched ? (
-            <Button asChild className="gap-2 shadow-md">
-              <a href={RECORDINGS_URL}>
-                <Sparkles className="h-4 w-4 motion-safe:animate-pulse" />
-                Watch Recordings
-                <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider motion-safe:animate-pulse">
-                  New
-                </span>
-              </a>
-            </Button>
-          ) : (
-            <Button className="gap-2 shadow-md" disabled>
-              Launches Aug 10
-            </Button>
-          )}
+          <Button asChild className="gap-2 shadow-md">
+            <Link href="/community">
+              <Users className="h-4 w-4" aria-hidden="true" />
+              Membership
+            </Link>
+          </Button>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -185,22 +173,12 @@ export function Navigation() {
 
 
               <div className="flex flex-col gap-2 mt-6 border-t border-border pt-4">
-                {isRecordingsLaunched ? (
-                  <Button asChild className="w-full gap-2">
-                    <a href={RECORDINGS_URL} onClick={() => setOpen(false)}>
-                      <Sparkles className="h-4 w-4 motion-safe:animate-pulse" />
-                      Watch Recordings
-                      <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider motion-safe:animate-pulse">
-                        New
-                      </span>
-                    </a>
-                  </Button>
-                ) : (
-                  <Button className="w-full" disabled>
-                    Launches Aug 10
-                  </Button>
-                )}
-                <MemberAuthControls mobile />
+                <Button asChild className="w-full gap-2">
+                  <Link href="/community" onClick={() => setOpen(false)}>
+                    <Users className="h-4 w-4" aria-hidden="true" />
+                    Membership
+                  </Link>
+                </Button>
                 <Button asChild variant="outline" className="w-full gap-2">
                   <a href="/#newsletter" onClick={() => setOpen(false)}>
                     <Mail className="h-4 w-4" aria-hidden="true" />
