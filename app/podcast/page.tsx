@@ -192,7 +192,7 @@ export default function PodcastPage() {
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Button asChild size="lg" className="bg-white text-purple-950 hover:bg-purple-50">
-                <a href="mailto:info@innovateqaevents.com?subject=Innovate%20QA%20Stories%20Guest">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSexV45pX3z0u-KfDeC32sejBDvQl_KLbhc-rsJxQCZrAretxw/viewform?usp=header">
                   Pitch your story <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </a>
               </Button>
