@@ -10,6 +10,7 @@ const playlistId = "PLZWbkptMHzKw"
 type YouTubePlayer = {
   destroy: () => void
   getPlaylist: () => string[] | null
+  getVideoData: () => { video_id?: string }
 }
 
 type YouTubePlayerEvent = {
@@ -52,7 +53,9 @@ export function PodcastPlaylist() {
     const updatePlaylistState = (player: YouTubePlayer, attemptsRemaining = 40) => {
       if (cancelled) return
 
-      const playlistHasEpisodes = Boolean(player.getPlaylist()?.length)
+      const playlistHasEpisodes = Boolean(
+        player.getPlaylist()?.length || player.getVideoData().video_id,
+      )
       setHasEpisodes(playlistHasEpisodes)
 
       if (!playlistHasEpisodes && attemptsRemaining > 0) {
