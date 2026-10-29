@@ -9,6 +9,12 @@ import sponsorData from "@/data/sponsor/2027.json"
 
 const conference = sponsorData.conference
 const icons: Record<string, LucideIcon> = { Trophy, Sparkles, Megaphone, Users }
+const tierGradients: Record<string, string> = {
+  "Platinum Sponsor": "from-sky-100 via-card to-indigo-100 dark:from-sky-950 dark:to-indigo-950",
+  "Gold Sponsor": "from-amber-100 via-card to-yellow-100 dark:from-amber-950 dark:to-yellow-950",
+  "Silver Sponsor": "from-slate-200 via-card to-zinc-100 dark:from-slate-800 dark:to-zinc-900",
+  "Bronze Sponsor": "from-orange-100 via-card to-rose-100 dark:from-orange-950 dark:to-rose-950",
+}
 
 export const metadata: Metadata = generateSEO({
   title: conference.title,
@@ -113,7 +119,7 @@ export default function SponsorPage() {
             {sponsorshipTiers.map((tier) => (
               <Card
                 key={tier.name}
-                className={`${tier.featured ? 'border-primary border-2 shadow-lg' : 'border-border'} relative overflow-hidden`}
+                className={`${tier.featured ? 'border-primary border-2 shadow-lg' : 'border-border'} relative overflow-hidden bg-gradient-to-br ${tierGradients[tier.name]}`}
               >
                 {tier.featured && (
                   <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-bl-lg">

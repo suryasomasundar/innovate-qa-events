@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowRight, BarChart3, CalendarDays, Check, Mail, Megaphone, Mic, Podcast, Users, Video, type LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PartnershipPackages } from "@/components/partnership-packages"
 import { generateSEO } from "@/components/seo"
 import { appConfig } from "@/lib/app-config"
 import { BASE_PATH } from "@/lib/constants"
@@ -20,6 +21,13 @@ export const metadata: Metadata = generateSEO({
 const { audience, professions, packages, differentiators, metrics } = annual
 const goals = annual.goals.map((goal) => ({ ...goal, icon: icons[goal.icon] ?? Megaphone }))
 const opportunities = annual.opportunities.map((opportunity) => ({ ...opportunity, icon: icons[opportunity.icon] ?? Megaphone }))
+const differentiatorStyles = [
+  { icon: Users, gradient: "from-violet-100 via-card to-indigo-50 dark:from-violet-950 dark:to-indigo-950" },
+  { icon: Mic, gradient: "from-sky-100 via-card to-cyan-50 dark:from-sky-950 dark:to-cyan-950" },
+  { icon: CalendarDays, gradient: "from-amber-100 via-card to-orange-50 dark:from-amber-950 dark:to-orange-950" },
+  { icon: Podcast, gradient: "from-rose-100 via-card to-pink-50 dark:from-rose-950 dark:to-pink-950" },
+  { icon: Check, gradient: "from-emerald-100 via-card to-teal-50 dark:from-emerald-950 dark:to-teal-950" },
+]
 
 export default function AnnualPartnershipsPage() {
   const { partnershipCallUrl } = appConfig.sponsorship
@@ -104,29 +112,7 @@ export default function AnnualPartnershipsPage() {
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">Partnership Packages</h2>
           <p className="mb-8 max-w-3xl text-lg text-muted-foreground">{annual.packagesDescription}</p>
-          <table className="w-full table-fixed border-collapse text-left text-sm md:text-base">
-            <caption className="sr-only">Annual partnership package comparison</caption>
-            <thead>
-              <tr className="border-b-2 border-border">
-                <th scope="col" className="w-[34%] px-2 py-4 font-semibold sm:px-4">Partnership includes</th>
-                <th scope="col" className="px-2 py-4 font-semibold text-primary sm:px-4">Annual Marketing</th>
-                <th scope="col" className="px-2 py-4 font-semibold text-primary sm:px-4">Annual + Conference</th>
-              </tr>
-            </thead>
-            <tbody>
-              {packages.map(([feature, annual, conference]) => (
-                <tr key={feature} className="border-b border-border">
-                  <th scope="row" className="break-words px-2 py-4 font-medium sm:px-4">{feature}</th>
-                  <td className="break-words px-2 py-4 text-muted-foreground sm:px-4">{annual}</td>
-                  <td className="break-words px-2 py-4 text-muted-foreground sm:px-4">{conference}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Button asChild className="h-auto min-h-11 whitespace-normal"><a href={partnershipCallUrl}>Request a Partnership Proposal<ArrowRight className="ml-2 h-4 w-4 shrink-0" aria-hidden="true" /></a></Button>
-            <Link href="/sponsor" className="text-sm font-medium underline underline-offset-4">Explore {sponsorData.year} conference sponsorship</Link>
-          </div>
+          <PartnershipPackages packages={packages} partnershipCallUrl={partnershipCallUrl} year={sponsorData.year} />
         </div>
       </section>
 
@@ -141,7 +127,24 @@ export default function AnnualPartnershipsPage() {
           </div>
           <h3 className="mb-6 mt-10 text-2xl font-semibold">What Makes Us Different</h3>
           <dl className="grid gap-6 md:grid-cols-2">
-            {differentiators.map(([title, description]) => <div key={title}><dt className="mb-2 font-semibold">{title}</dt><dd className="text-muted-foreground">{description}</dd></div>)}
+            {differentiators.map(([title, description], index) => {
+              const { icon: Icon, gradient } = differentiatorStyles[index]
+              return (
+                <div
+                  key={title}
+                  className={`group rounded-2xl border border-border/70 bg-gradient-to-br ${gradient} p-6 shadow-sm transition-[translate,box-shadow,border-color] duration-300 motion-safe:hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700 motion-reduce:transition-none`}
+                  style={{ animationDelay: `${index * 80}ms`, animationFillMode: "backwards" }}
+                >
+                  <dt className="mb-3 flex items-center gap-3 text-lg font-semibold">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/10 bg-card/80 text-primary transition-transform duration-300 motion-safe:group-hover:rotate-6 motion-reduce:transition-none">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    {title}
+                  </dt>
+                  <dd className="leading-relaxed text-muted-foreground">{description}</dd>
+                </div>
+              )
+            })}
           </dl>
           <figure className="mt-10 border-l-4 border-primary pl-6">
             <blockquote className="max-w-3xl text-xl leading-relaxed">&ldquo;{annual.testimonial.quote}&rdquo;</blockquote>

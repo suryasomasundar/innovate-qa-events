@@ -27,15 +27,15 @@ const iconMap: Record<string, LucideIcon> = {
   Sparkles,
 }
 
-const styleMap: Record<string, { color: string; bg: string; border: string }> = {
-  "thought-leader":     { color: "text-purple-500", bg: "bg-purple-500/10",  border: "border-purple-500/20" },
-  "excellence-automation": { color: "text-blue-500",   bg: "bg-blue-500/10",    border: "border-blue-500/20" },
-  "innovative-org":     { color: "text-orange-500", bg: "bg-orange-500/10",  border: "border-orange-500/20" },
-  "best-tool":          { color: "text-yellow-500", bg: "bg-yellow-500/10",  border: "border-yellow-500/20" },
-  "community-champion": { color: "text-green-500",  bg: "bg-green-500/10",   border: "border-green-500/20" },
-  "emerging-talent":    { color: "text-teal-500",   bg: "bg-teal-500/10",    border: "border-teal-500/20" },
-  "innovation-practice":{ color: "text-primary",    bg: "bg-primary/10",     border: "border-primary/20" },
-  "sponsors-choice":   { color: "text-pink-700",   bg: "bg-pink-500/10",    border: "border-pink-500/20" },
+const styleMap: Record<string, { color: string; bg: string; border: string; gradient: string }> = {
+  "thought-leader":     { color: "text-purple-500", bg: "bg-purple-500/10",  border: "border-purple-500/20", gradient: "from-purple-100 via-card to-fuchsia-50 dark:from-purple-950 dark:to-fuchsia-950" },
+  "excellence-automation": { color: "text-indigo-500", bg: "bg-indigo-500/10", border: "border-indigo-500/20", gradient: "from-indigo-100 via-card to-purple-50 dark:from-indigo-950 dark:to-purple-950" },
+  "innovative-org":     { color: "text-rose-500", bg: "bg-rose-500/10", border: "border-rose-500/20", gradient: "from-rose-100 via-card to-purple-50 dark:from-rose-950 dark:to-purple-950" },
+  "best-tool":          { color: "text-violet-500", bg: "bg-violet-500/10", border: "border-violet-500/20", gradient: "from-violet-100 via-card to-fuchsia-50 dark:from-violet-950 dark:to-fuchsia-950" },
+  "community-champion": { color: "text-fuchsia-500", bg: "bg-fuchsia-500/10", border: "border-fuchsia-500/20", gradient: "from-fuchsia-100 via-card to-pink-50 dark:from-fuchsia-950 dark:to-pink-950" },
+  "emerging-talent":    { color: "text-purple-500", bg: "bg-purple-500/10", border: "border-purple-500/20", gradient: "from-purple-100 via-card to-indigo-50 dark:from-purple-950 dark:to-indigo-950" },
+  "innovation-practice":{ color: "text-primary",    bg: "bg-primary/10",     border: "border-primary/20", gradient: "from-indigo-100 via-card to-violet-50 dark:from-indigo-950 dark:to-violet-950" },
+  "sponsors-choice":   { color: "text-pink-700",   bg: "bg-pink-500/10",    border: "border-pink-500/20", gradient: "from-pink-100 via-card to-violet-50 dark:from-pink-950 dark:to-violet-950" },
 }
 
 export default function AwardsPage() {
@@ -127,7 +127,7 @@ export default function AwardsPage() {
               const Icon = iconMap[cat.icon] ?? Sparkles
               const style = styleMap[cat.id] ?? styleMap["innovation-practice"]
               return (
-                <Card key={cat.id} className={`border ${style.border} hover:shadow-lg transition-shadow`}>
+                <Card key={cat.id} className={`border ${style.border} bg-gradient-to-br ${style.gradient} hover:shadow-lg transition-shadow`}>
                   <CardHeader className="pb-3">
                     <div className="flex items-start gap-4">
                       <div className={`h-12 w-12 rounded-lg ${style.bg} flex items-center justify-center shrink-0`}>
