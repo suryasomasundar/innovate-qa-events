@@ -15,7 +15,9 @@ function imageSrc(judge: EventJudge) {
   return judge.image ? `${BASE_PATH}${judge.image}` : "/placeholder.svg"
 }
 
-export function EventJudgePanel({ judges }: { judges: EventJudge[] }) {
+export function EventJudgePanel({ judges, year = 2026 }: { judges: EventJudge[]; year?: number }) {
+  if (judges.length === 0) return null
+
   return (
     <section id="judges" className="bg-[#f8f5fb] py-20">
       <div className="container mx-auto px-4">
@@ -27,7 +29,7 @@ export function EventJudgePanel({ judges }: { judges: EventJudge[] }) {
             </h2>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg lg:justify-self-end">
-            Meet the panel shaping the Innovate QA 2026 Awards through excellence, innovation, and impact across the software quality community.
+            Meet the panel shaping the Innovate QA {year} Awards through excellence, innovation, and impact across the software quality community.
           </p>
         </div>
 

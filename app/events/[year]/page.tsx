@@ -2,7 +2,8 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, Calendar, MapPin, Play, Handshake } from "lucide-react"
-import awardsData from "@/data/awards.json"
+import awardsData from "@/data/awards/2026.json"
+import sponsors2026 from "@/data/sponsor/2026.json"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import type { Metadata } from "next"
@@ -75,7 +76,9 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
   const eventEndDate = parseDateOnly(event.date.end)
   eventEndDate.setHours(23, 59, 59, 999)
   const isPastEvent = eventEndDate < new Date()
-  const sponsors = event.sponsors as EventSponsors
+  const sponsors: EventSponsors = year === "2026"
+    ? sponsors2026.sponsors
+    : "sponsors" in event ? event.sponsors as EventSponsors : {}
   const recapHighlights =
     "recap" in event && Array.isArray((event.recap as { highlights?: unknown }).highlights)
       ? ((event.recap as { highlights: string[] }).highlights)

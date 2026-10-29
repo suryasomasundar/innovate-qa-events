@@ -9,7 +9,7 @@ import event2025 from "@/data/events/2025.json"
 import event2026 from "@/data/events/2026.json"
 import battleData from "@/data/events/battle.json"
 import homeData from "@/data/home.json"
-import awardsData from "@/data/awards.json"
+import awardsData from "@/data/awards/2026.json"
 import { BASE_PATH } from "@/lib/constants"
 
 interface SpeakerPageProps {

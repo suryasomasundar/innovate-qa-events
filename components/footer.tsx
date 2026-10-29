@@ -31,7 +31,6 @@ const footerLinks = {
     { label: "Podcast", href: "/podcast" },
     { label: "Become a Speaker", href: "/volunteer" },
     { label: "Volunteer", href: "/volunteer" },
-    { label: "Become a Sponsor", href: "/sponsor" },
     { label: "Awards", href: "/awards" },
     { label: "Meetups", href: "/meetups" },
   ],
@@ -42,6 +41,9 @@ const footerLinks = {
     { label: "Battle of AI Test Tools", href: "/battle-of-ai-test-tools" },
   ],
   company: [
+    { label: "Sponsor Innovate QA 2027", href: "/sponsor" },
+    { label: "Annual Partnerships", href: "/sponsor/annual-partnerships" },
+    { label: "Custom Marketing Opportunities", href: "/sponsor/custom-marketing" },
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },
     { label: "Diversity & Inclusion", href: "/diversity-inclusion" },

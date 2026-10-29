@@ -1,0 +1,94 @@
+{
+  "year": 2027,
+  "title": "Innovate QA 2027 Awards",
+  "description": "Recognizing the people, teams, organizations, and tools advancing software quality. Explore eight award categories and nominate for the Innovate QA 2027 Awards.",
+  "categoriesDescription": "Eight categories recognizing the full spectrum of excellence in quality engineering, from individuals and emerging talent to teams, tools, and organizations.",
+  "nominationDeadline": "2027-04-01",
+  "announcementDate": "2027-05-06",
+  "ceremonyDate": "May 6th, 2027",
+  "contactEmail": "contact@innovateqaevents.com",
+  "judgeApplicationUrl": "/volunteer",
+  "judges": [],
+  "categories": [
+    {
+      "id": "thought-leader",
+      "icon": "Brain",
+      "emoji": "🧠",
+      "title": "Quality Innovator of the Year",
+      "scope": "Individual",
+      "purpose": "To recognize an individual whose innovative ideas, approaches, or technologies have made a lasting impact on software quality.",
+      "idealNominees": ["Keynote speaker, author, or QA influencer", "Someone who shares original ideas via blogs, talks, or videos", "Mentor or advocate elevating others in the field", "Recognized as a go-to expert in the QA domain"],
+      "criteria": ["Influence and reach in the QA community", "Originality and depth of thought leadership", "Frequency and quality of contributions", "Impact on QA teams or practices"]
+    },
+    {
+      "id": "excellence-automation",
+      "icon": "Settings",
+      "emoji": "⚙️",
+      "title": "Excellence in QA & Automation",
+      "scope": "Team / Company",
+      "purpose": "To honor a team or organization that has successfully implemented innovative and efficient test automation at scale.",
+      "idealNominees": ["Dev/Test team integrating CI/CD with robust automation", "A company using AI or model-based testing frameworks", "Automation consultancy with standout results", "Teams that moved from manual-heavy to automation-first culture"],
+      "criteria": ["Innovation in frameworks or approaches", "Measurable outcomes (speed, coverage, defect leakage)", "Integration into the SDLC/DevOps pipeline", "Scalability, maintainability, and team-wide adoption"]
+    },
+    {
+      "id": "innovative-org",
+      "icon": "Rocket",
+      "emoji": "🚀",
+      "title": "Quality Organization of the Year",
+      "scope": "Team / Product / Company",
+      "purpose": "To celebrate a QA-forward organization — regardless of size or age — pioneering new ways of delivering quality at speed.",
+      "idealNominees": ["Startups or mature companies disrupting how QA is done", "Vendors introducing breakthrough QA platforms", "Service providers building new QA delivery models"],
+      "criteria": ["Originality and impact of innovation", "Contribution to industry evolution", "Customer success and testimonials", "Agility, vision, and execution"]
+    },
+    {
+      "id": "best-tool",
+      "icon": "Wrench",
+      "emoji": "🧰",
+      "title": "Best Quality Tool Contributor",
+      "scope": "Individual / Team / Company",
+      "purpose": "To recognize exceptional toolmakers who empower QA professionals through open-source or commercial solutions.",
+      "idealNominees": ["Creator of a widely used open-source testing framework", "Vendor or team behind a highly rated QA SaaS tool", "Community-maintained utility solving specific testing problems"],
+      "criteria": ["Adoption and usability", "Community support and documentation", "Innovation and problem-solving", "Integration and extensibility"]
+    },
+    {
+      "id": "community-champion",
+      "icon": "Globe",
+      "emoji": "🌍",
+      "title": "Community Champion",
+      "scope": "Individual",
+      "purpose": "To spotlight a person who tirelessly fosters inclusivity, learning, and collaboration in the QA space.",
+      "idealNominees": ["Meetup or conference organizer", "Mentor supporting underrepresented testers", "QA influencer moderating online communities or bootcamps", "Advocate for accessible learning or DEI in testing"],
+      "criteria": ["Depth and consistency of involvement", "Impact on the community", "Supportiveness and approachability", "Initiatives that foster inclusion or visibility"]
+    },
+    {
+      "id": "emerging-talent",
+      "icon": "Sprout",
+      "emoji": "🌱",
+      "title": "Rising Star in Quality",
+      "scope": "Individual – Under 5 years in the industry",
+      "purpose": "To encourage and spotlight a rising star who is showing immense promise and passion early in their QA journey.",
+      "idealNominees": ["Recent graduates or career switchers", "Junior QA engineers showing rapid growth", "Individuals actively contributing to learning, testing communities, or tools early in their careers"],
+      "criteria": ["Initiative and curiosity", "Learning velocity and self-improvement", "Early contributions to projects, tools, or community", "Passion for QA and testing"]
+    },
+    {
+      "id": "innovation-practice",
+      "icon": "Sparkles",
+      "emoji": "✨",
+      "title": "Outstanding QA Impact",
+      "scope": "Team / Product / Company",
+      "purpose": "To honor a QA contribution, process, strategy, or solution that has delivered outstanding, measurable improvements in software quality.",
+      "idealNominees": ["Product teams developing AI-powered or self-healing testing platforms", "QA teams with predictive defect analytics or intelligent test selection", "Internal initiatives that evolve into best practices for entire orgs", "Solutions challenging traditional testing norms"],
+      "criteria": ["Uniqueness of the approach or solution", "Measurable improvements in quality, speed, or stability", "Transferability and scalability", "Thought leadership behind the innovation"]
+    },
+    {
+      "id": "sponsors-choice",
+      "icon": "Sparkles",
+      "emoji": "✨",
+      "title": "Sponsor’s Choice Award",
+      "scope": "Individual / Team / Organization",
+      "purpose": "To recognize an individual, team, or organization selected by the sponsor for an outstanding contribution to quality and continuous improvement.",
+      "idealNominees": [],
+      "criteria": []
+    }
+  ]
+}
