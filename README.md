@@ -98,18 +98,70 @@ pnpm lint
 
 ## Data-Driven Content
 
-### 2027 awards prototype
+### Company sponsorship pages
 
-The existing `data/awards.json` and `/awards` content are preserved. The separate
-`data/awards-2027.json` configures the new experience:
+The **For Companies** navigation contains conference sponsorship at `/sponsor`,
+year-round partnerships at `/sponsor/annual-partnerships`, and the coming-soon
+page at `/sponsor/custom-marketing`.
 
-- `/awards/2027`: awards studio and category overview.
-- `/awards/2027/judging`: local demo judge profiles, nominee details, configurable
+Update `appConfig.sponsorship` in `lib/app-config.ts` before enabling brochure downloads:
+
+- `brochureUrl`: the hosted brochure URL or a public file path such as `/sponsorship-brochure.pdf`.
+- `leadCaptureEndpoint`: a public form endpoint that accepts a multipart POST containing
+  `name`, `email`, `linkedin`, `company`, and `title`. It must allow requests from the
+  site origin and return a successful HTTP status only after accepting the lead.
+- `partnershipCallUrl`: the booking URL. It currently opens a prefilled email to
+  `contact@innovateqaevents.com`, as a temporary alternative to Calendly.
+
+The two empty strings are intentional placeholders. Brochure submission stays disabled
+until both are populated; no contact data is saved locally. On a successful submission,
+the dialog offers the brochure link. A cross-origin host may open the file instead of
+downloading it unless it sends an appropriate `Content-Disposition` header.
+These are public browser settings, not a place for API keys or secrets. Rebuild and
+redeploy after changing them. The external service is responsible for validation,
+spam protection, retention, and any required consent; review the privacy policy before
+connecting it. A public brochure link is lead capture, not secure document access.
+
+The annual page's community figures are planning estimates from the sponsorship brief,
+not verified analytics. Confirm current counts and the audience definition before
+publishing them as measured facts. The quote is reused from the existing homepage;
+its author's role as a sponsor has not been independently verified.
+
+### Year-Based Content
+
+The public `/awards` page reads `data/awards/2027.json`. Its year, categories,
+descriptions, dates, and judging link come from that file. Keep `judges` as an
+array; an empty array hides the entire judges section. Populate it with records
+using `id`, `name`, and optional `title`, `company`, `image`, and `linkedin` fields.
+The original 2026 categories, winners, and judges are archived in
+`data/awards/2026.json`, used by the historical event and speaker profiles.
+The public page does not display the 2026 winners or judges.
+
+Set `appConfig.awards.applicationUrl` in `lib/app-config.ts` after the application
+form has been published and its response sheet tested. Until then, the page
+shows that publication is pending rather than claiming applications are open.
+
+The three sponsorship pages read `data/sponsor/2027.json`, including conference
+packages, dates, audience figures, annual partnerships, and custom marketing.
+The actual 2026 event sponsor roster is in `data/sponsor/2026.json` and is loaded
+by the historical event page. It is not a set of 2027 sponsorship offers.
+Brochure and service URLs remain in `appConfig.sponsorship`.
+
+### 2027 Awards Prototype
+
+The separate `data/awards-2027.json` configures the fictional studio experience:
+
+- `/awards-studio/2027`: awards studio and eight-category overview, using the revised 2027 names.
+- `/awards-studio/2027/judging`: local demo judge profiles, nominee details, configurable
   category criteria, 1–5 or 1–10 integer scores, comments, drafts, completed
   evaluations, and a saved-score comparison. All criteria have equal weight.
-- `/awards/2027/ceremony`: standalone presenter stage without site navigation/footer,
+- `/awards-studio/2027/ceremony`: standalone presenter stage without site navigation/footer,
   category introductions, individual nominees, gallery, explicit reveal, three-second
   suspense countdown, winner celebration, and final recap.
+
+The public `/awards` page lists the 2027 categories, the April 1st, 2027 nomination
+deadline, and May 6th, 2027 announcements. The dates are configured in
+`data/awards/2027.json`.
 
 All nominees, organizations, achievements, portraits, and winners in the 2027
 prototype are fictional. Replace their data and licensed portrait paths before

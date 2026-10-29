@@ -22,26 +22,28 @@ const footerLinks = {
   event: [
     { label: "Innovate QA 2027", href: "/events/2027" },
     { label: "Workshop Day", href: "/events/workshop-day" },
-    { label: "2026 Recordings", href: RECORDINGS_URL },
     { label: "Speakers", href: "/events/2027#speakers" },
     { label: "2027 Schedule", href: "/events/2027#schedule" },
+    { label: "Awards", href: "/awards" },
+    { label: "Sponsors", href: "/sponsor" },
   ],
   community: [
     { label: "Membership", href: "/community" },
     { label: "Podcast", href: "/podcast" },
     { label: "Become a Speaker", href: "/volunteer" },
     { label: "Volunteer", href: "/volunteer" },
-    { label: "Become a Sponsor", href: "/sponsor" },
-    { label: "Awards", href: "/awards" },
     { label: "Meetups", href: "/meetups" },
   ],
   pastEvents: [
     { label: "Innovate QA 2026", href: "/events/2026" },
+    { label: "2026 Recordings", href: RECORDINGS_URL },
     { label: "Innovate QA 2025", href: "/events/2025" },
     { label: "Innovate QA 2024", href: "/events/2024" },
     { label: "Battle of AI Test Tools", href: "/battle-of-ai-test-tools" },
   ],
   company: [
+    { label: "Annual Partnerships", href: "/sponsor/annual-partnerships" },
+    { label: "Custom Marketing Opportunities", href: "/sponsor/custom-marketing" },
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },
     { label: "Diversity & Inclusion", href: "/diversity-inclusion" },
@@ -117,7 +119,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Event</h3>
+            <h3 className="font-semibold text-foreground mb-4">Conference 2027</h3>
             <ul className="space-y-2">
               {footerLinks.event.map((link) => (
                 <li key={link.label}>

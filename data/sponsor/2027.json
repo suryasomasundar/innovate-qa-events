@@ -1,0 +1,111 @@
+{
+  "year": 2027,
+  "conference": {
+    "title": "Sponsor Innovate QA 2027",
+    "description": "Partner with Innovate QA 2027 in Seattle and connect with 250+ quality engineering professionals, leaders, and decision-makers.",
+    "eventName": "Innovate QA 2027",
+    "intro": "Connect with quality engineering leaders, decision-makers, and senior practitioners shaping the future of software quality.",
+    "dates": "May 4-6, 2027",
+    "location": "Bellevue, Washington",
+    "stats": { "attendees": "250+", "speakers": "40+", "days": "3" },
+    "whySponsor": {
+      "description": "Meet the people defining quality engineering as AI reshapes testing, engineering, and shared ownership of quality.",
+      "benefits": [
+        { "title": "The Right Audience", "icon": "Users", "description": "Reach an audience where 55% are decision-makers, influencers, or senior engineering professionals." },
+        { "title": "A Leading Tech Hub", "icon": "Trophy", "description": "Build relationships in Seattle, home to Microsoft, Amazon, and thousands of technology companies." },
+        { "title": "The Right Moment", "icon": "Sparkles", "description": "Show how your organization is advancing AI-enabled engineering, agentic systems, and modern quality practices." }
+      ]
+    },
+    "tiers": [
+      {
+        "name": "Platinum Sponsor", "price": "$14,000", "icon": "Trophy", "featured": true,
+        "benefits": ["5 complimentary conference passes", "50% ticket discount for qualified attendees", "Physical on-site presence and event signage", "Swag bag insert", "Sponsor Track speaking spot", "Branded activation by the main stage", "Website placement and social media mention", "Keynote video ad", "Pre-event registration list access", "Post-event attendee engagement report"]
+      },
+      {
+        "name": "Gold Sponsor", "price": "$6,500", "icon": "Sparkles", "featured": false,
+        "benefits": ["3 complimentary conference passes", "30% ticket discount for qualified attendees", "Physical on-site presence and event signage", "Swag bag insert", "Sponsor Track speaking spot", "Website placement and social media mention", "Pre-event registration list access", "Post-event attendee engagement report"]
+      },
+      {
+        "name": "Silver Sponsor", "price": "$4,500", "icon": "Sparkles", "featured": false,
+        "benefits": ["2 complimentary conference passes", "20% ticket discount for qualified attendees", "Physical on-site presence and event signage", "Swag bag insert", "Website placement", "Social media mention"]
+      },
+      {
+        "name": "Bronze Sponsor", "price": "$2,000", "icon": "Megaphone", "featured": false,
+        "benefits": ["1 complimentary conference pass", "Ticket discount for qualified attendees", "Physical on-site presence and event signage", "Swag bag insert", "Website placement", "Social media mention"]
+      }
+    ],
+    "packagesDescription": "Choose the package that best fits your goals and budget.",
+    "packagesNote": "Every sponsorship level includes access to our 12,000+ professional network, social media promotion, and post-event lead-sharing opportunities.",
+    "partnershipBenefits": {
+      "description": "Build visibility, credibility, and meaningful relationships with your target market.",
+      "benefits": [
+        { "title": "Thought Leadership", "icon": "Trophy", "description": "Lead sponsor-track sessions, form content partnerships, and demonstrate expertise to key decision-makers." },
+        { "title": "Strategic Networking", "icon": "Users", "description": "Connect through engaging booths, happy hours, private dinners, and facilitated networking sessions." },
+        { "title": "Digital Presence", "icon": "Megaphone", "description": "Extend your reach through the Innovate QA website, social platforms, meetups, announcements, and promotions." }
+      ]
+    },
+    "contact": {
+      "description": "Let's discuss how we can create the perfect sponsorship package for your organization.",
+      "email": "contact@innovateqaevents.com",
+      "secondaryName": "Tatyana Arbouzova",
+      "secondaryEmail": "tatyana.arbouzova@gmail.com"
+    }
+  },
+  "annualPartnerships": {
+    "title": "Annual Partnerships - Innovate QA",
+    "description": "Connect with quality engineering, software development, and AI professionals year-round through Innovate QA meetups, podcasts, community promotion, and conference sponsorship.",
+    "hero": {
+      "eyebrow": "Innovate QA · Annual Partnerships",
+      "title": "Reach the Engineers and Leaders Shaping Software Quality and AI",
+      "description": "Build brand awareness, establish thought leadership, and engage with software quality, engineering, and AI professionals through a trusted community, all year long.",
+      "detail": "From virtual meetups and leadership discussions to podcasts, community promotion, and our annual conference, we help technology companies connect with the people who influence how software is built, tested, and delivered.",
+      "image": "/photos/2024/1.webp"
+    },
+    "audience": [["6,500+", "LinkedIn page followers"], ["2,500+", "Meetup community members"], ["30%", "Leadership and decision-influencing audience"], ["16,000+", "Founder's LinkedIn followers"]],
+    "audienceNote": "Community estimates supplied for partnership planning; current counts and audience mix are subject to verification. Social audiences may overlap.",
+    "professions": ["Quality Engineering and Test Automation professionals", "QA Managers, Directors, and Heads of Quality", "Software Engineers and Engineering Leaders", "DevOps, SRE, and Platform Engineering professionals", "AI Engineering, AI Quality, and Governance practitioners"],
+    "goals": [
+      { "title": "Build Brand Awareness", "icon": "Megaphone", "description": "Keep your company visible within a specialized professional community through recurring content, community promotion, and events." },
+      { "title": "Establish Thought Leadership", "icon": "Mic", "description": "Share your team's expertise through educational meetups, podcasts, and leadership discussions focused on real industry challenges." },
+      { "title": "Engage Your Target Audience", "icon": "Users", "description": "Create opportunities for direct conversations with practitioners, technical leaders, and professionals who influence tool evaluation and adoption." }
+    ],
+    "demandGeneration": "Useful technical content, product education, and event participation can drive interest in your product, with engagement measured where possible. Partnerships do not guarantee qualified leads or sales pipeline.",
+    "opportunities": [
+      { "title": "Expert-Led Meetups", "icon": "Mic", "description": "Educational sessions featuring your experts and relevant industry topics." },
+      { "title": "Podcast Features", "icon": "Podcast", "description": "Conversations that showcase your expertise and perspectives." },
+      { "title": "Leadership Discussions", "icon": "Users", "description": "Smaller-group conversations with quality and engineering leaders." },
+      { "title": "Community Promotion", "icon": "Megaphone", "description": "Brand and content visibility through Innovate QA channels." },
+      { "title": "Conference Presence", "icon": "CalendarDays", "description": "Engage the community in person at Innovate QA 2027." },
+      { "title": "Reusable Content", "icon": "Video", "description": "Recorded sessions and promotional content you can share afterward." }
+    ],
+    "packagesDescription": "Start with year-round community engagement, or combine it with conference sponsorship. We will scope the activities and investment around your goals.",
+    "packages": [["Community promotion", "Included", "Included"], ["Virtual events", "Included", "Included"], ["Thought leadership opportunities", "Based on package", "Based on package"], ["Conference sponsorship", "Optional", "Included"], ["Engagement reporting", "Included", "Included"], ["Investment", "Request proposal", "Request proposal"]],
+    "whySponsor": {
+      "intro": "A community built around real engineering challenges, not just vendor promotion.",
+      "description": "Innovate QA brings together practitioners and leaders who care about software quality, engineering excellence, and the growing impact of AI on software development. We believe the most effective industry marketing starts with meaningful conversations and practical knowledge sharing.",
+      "detail": "Our partnerships help companies contribute expertise, engage with professionals, and build relationships over time."
+    },
+    "images": [
+      { "src": "/photos/2024/2.webp", "alt": "Community members at an Innovate QA 2024 event" },
+      { "src": "/photos/2024/3.webp", "alt": "An Innovate QA 2024 conference session" }
+    ],
+    "differentiators": [["A specialized audience", "Quality Engineering, software development, AI, and engineering leadership."], ["Practitioner-focused content", "Real-world challenges, technical experiences, and actionable insights."], ["Year-round engagement", "Opportunities to connect beyond a single conference or campaign."], ["Community-first approach", "Educational content and genuine participation, not just promotional messages."], ["Flexible partnerships", "Opportunities tailored to your audience, goals, and marketing priorities."]],
+    "testimonial": {
+      "quote": "This was one of the most engaged, approachable, and upbeat collections of conference attendees I've ever witnessed.",
+      "attribution": "Matt Eonta, Head of Growth & Operation"
+    },
+    "reportingDescription": "We provide partners with a recap of delivered activities and available engagement metrics so your team can understand participation, visibility, and content performance.",
+    "metrics": [["Brand awareness", "Content impressions, views, and reach where available"], ["Event engagement", "Registrations, attendance, and participation"], ["Thought leadership", "Sessions delivered, recordings published, and content engagement"], ["Audience interaction", "Questions, discussion participation, and feedback"], ["Campaign execution", "Completed activities and deliverables"]],
+    "closing": {
+      "title": "Let's Build a Partnership That Fits Your Goals",
+      "description": "Launching a developer tool, growing your presence in Quality Engineering, or building credibility in AI? We will help you identify opportunities to engage with the Innovate QA community.",
+      "detail": "Tell us about your company, target audience, and marketing objectives. A short introductory conversation is the best starting point."
+    }
+  },
+  "customMarketing": {
+    "title": "Custom Marketing Opportunities - Innovate QA",
+    "description": "Custom marketing opportunities with Innovate QA. Coming soon.",
+    "heading": "Custom Marketing Opportunities",
+    "message": "Coming soon."
+  }
+}

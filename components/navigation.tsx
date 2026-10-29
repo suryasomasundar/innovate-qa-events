@@ -12,7 +12,12 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 const navLinks = [
   { href: "/tickets", label: "2027 Tickets" },
   { href: "/about", label: "About" },
-  { href: "/sponsor", label: "Become a Sponsor" },
+]
+
+const companyLinks = [
+  { href: "/sponsor", label: "Sponsor Innovate QA 2027" },
+  { href: "/sponsor/annual-partnerships", label: "Annual Partnerships" },
+  { href: "/sponsor/custom-marketing", label: "Custom Marketing Opportunities" },
 ]
 
 const pastEvents = [
@@ -58,6 +63,20 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
+
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              For Companies
+              <ChevronDown className="h-4 w-4" aria-hidden="true" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-72">
+              {companyLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link href={link.href} className="w-full cursor-pointer">{link.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
@@ -119,7 +138,7 @@ export function Navigation() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px]">
+          <SheetContent side="right" className="w-[300px] max-w-full overflow-y-auto">
             <div className="flex items-center gap-2 px-2 pt-2">
               <Image
                 src={`${BASE_PATH}/logo.svg`}
@@ -141,6 +160,20 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
+
+              <div className="border-t border-border pt-4 mt-2">
+                <p className="text-sm font-semibold text-muted-foreground mb-3 px-2 uppercase tracking-wider">For Companies</p>
+                {companyLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block text-base font-medium text-foreground hover:text-primary transition-colors py-2 px-2 -mx-2 rounded-md hover:bg-accent/50"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
 
               <div className="border-t border-border pt-4 mt-2">
                 <p className="text-sm font-semibold text-muted-foreground mb-3 px-2 uppercase tracking-wider">Community</p>

@@ -12,15 +12,40 @@ const categories = orderedCategories(edition)
 const category = categories[0]
 const step = (state, type) => transitionCeremony(state, { type }, categories)
 
-test("R1: separate 2027 edition has seven valid categories and fictional nominees", () => {
+const revisedCategoryNames = [
+  "Quality Innovator of the Year",
+  "Excellence in QA & Automation",
+  "Quality Organization of the Year",
+  "Best Quality Tool Contributor",
+  "Community Champion",
+  "Rising Star in Quality",
+  "Outstanding QA Impact",
+  "Sponsor’s Choice Award",
+]
+
+test("R1: separate 2027 edition has eight valid categories and fictional nominees", () => {
   validateAwardsEdition(edition)
-  assert.equal(categories.length, 7)
+  assert.equal(categories.length, 8)
+  assert.deepEqual(categories.map((item) => item.name), revisedCategoryNames)
   assert.equal(edition.nominees.length, 21)
   assert.equal(categories.every((item) => categoryNominees(edition, item).length === 3), true)
   assert.match(edition.demoNotice, /fictional demo data/)
-  const legacy = JSON.parse(readFileSync(new URL("../data/awards.json", import.meta.url), "utf8"))
-  assert.equal(legacy.categories.length, 7)
-  assert.equal("experience2027" in legacy, false)
+  const current = JSON.parse(readFileSync(new URL("../data/awards/2027.json", import.meta.url), "utf8"))
+  assert.deepEqual(current.categories.map((item) => item.title), revisedCategoryNames)
+  assert.equal(current.year, 2027)
+  assert.equal(current.nominationDeadline, "2027-04-01")
+  assert.equal(current.announcementDate, "2027-05-06")
+  assert.deepEqual(current.judges, [])
+  assert.equal("winners" in current, false)
+})
+
+test("2026 archive retains historical winners and judges separately from public nominations", () => {
+  const archived = JSON.parse(readFileSync(new URL("../data/awards/2026.json", import.meta.url), "utf8"))
+  assert.equal(archived.winners.length, 8)
+  assert.equal(archived.winners[0].category, "Emerging QA Talent")
+  assert.equal(archived.judges.length, 10)
+  assert.equal(archived.ceremonyDate, "June 4–5, 2026")
+  assert.equal(archived.categories[0].title, "QA Thought Leader of the Year")
 })
 
 test("R1: invalid scales, duplicate orders, and non-nominee winners are rejected", () => {
@@ -117,7 +142,7 @@ test("R3/R4: Back cancels suspense without revealing, and missing winners block 
   assert.equal(transitionCeremony(state, { type: "reveal" }, unconfigured), state)
 })
 
-test("R3: all seven awards complete before recap, backward navigation and reset preserve boundaries", () => {
+test("R3: all eight awards complete before recap, backward navigation and reset preserve boundaries", () => {
   let state = step({ ...initialCeremonyState, completedCategoryIds: [] }, "next")
   for (const item of categories) {
     assert.equal(state.phase, "category")
@@ -132,7 +157,7 @@ test("R3: all seven awards complete before recap, backward navigation and reset 
     state = step(state, "next")
   }
   assert.equal(state.phase, "recap")
-  assert.equal(state.completedCategoryIds.length, 7)
+  assert.equal(state.completedCategoryIds.length, 8)
   assert.equal(step(state, "back").phase, "winner")
   assert.deepEqual(step(state, "reset"), initialCeremonyState)
 })
