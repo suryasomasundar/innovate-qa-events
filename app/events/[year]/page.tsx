@@ -73,6 +73,9 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
   }
 
   const scheduleEntries = Object.entries(event.schedule)
+  const isScheduleComingSoon = year === "2027" && !scheduleEntries.some(([, day]) =>
+    day.slots.some((slot) => slot.sessions.length > 0),
+  )
   const eventEndDate = parseDateOnly(event.date.end)
   eventEndDate.setHours(23, 59, 59, 999)
   const isPastEvent = eventEndDate < new Date()
@@ -259,7 +262,18 @@ export default async function EventPage({ params }: { params: Promise<{ year: st
             </p>
           </div>
 
-          <EventSchedulePlanner scheduleEntries={scheduleEntries} rooms={event.rooms} speakers={event.speakers} />
+          {isScheduleComingSoon ? (
+            <div className="rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/10 via-card to-secondary/50 px-6 py-12 text-center shadow-sm md:py-16">
+              <Calendar className="mx-auto mb-4 h-10 w-10 text-primary" aria-hidden="true" />
+              <h3 className="mb-3 text-2xl font-bold text-foreground">2027 schedule coming soon</h3>
+              <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">
+                We&apos;re putting together three days of workshops, sessions, and networking.
+                Check back soon for the full Innovate QA 2027 schedule.
+              </p>
+            </div>
+          ) : (
+            <EventSchedulePlanner scheduleEntries={scheduleEntries} rooms={event.rooms} speakers={event.speakers} />
+          )}
         </div>
       </section>
 

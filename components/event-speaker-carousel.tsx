@@ -4,7 +4,7 @@ import type { CSSProperties, KeyboardEvent, WheelEvent } from "react"
 import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight, Linkedin } from "lucide-react"
+import { ChevronLeft, ChevronRight, Linkedin, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BASE_PATH } from "@/lib/constants"
 
@@ -164,13 +164,29 @@ export function EventSpeakerCarousel({
           <h2 className="text-5xl font-semibold leading-none tracking-normal text-primary md:text-6xl lg:text-7xl">
             {title}
           </h2>
-          <Button asChild className="w-fit rounded-full px-8">
-            <Link href="/speakers">See all speakers</Link>
-          </Button>
+          {speakers.length > 0 ? (
+            <Button asChild className="w-fit rounded-full px-8">
+              <Link href="/speakers">See all speakers</Link>
+            </Button>
+          ) : (
+            <Button disabled aria-describedby="speakers-coming-soon" className="w-fit rounded-full px-8">
+              See all speakers
+            </Button>
+          )}
         </div>
 
         <p className="mb-5 text-sm font-bold uppercase tracking-normal text-muted-foreground">{eyebrow}</p>
 
+        {speakers.length === 0 ? (
+          <div className="rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/10 via-card to-secondary/50 px-6 py-12 text-center shadow-sm md:py-16">
+            <Users className="mx-auto mb-4 h-10 w-10 text-primary" aria-hidden="true" />
+            <h3 id="speakers-coming-soon" className="mb-3 text-2xl font-bold text-foreground">Speakers coming soon</h3>
+            <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">
+              We&apos;re putting together an inspiring lineup of quality engineering leaders and practitioners.
+              Check back soon for speaker announcements.
+            </p>
+          </div>
+        ) : (
         <div
           className="outline-none"
           tabIndex={0}
@@ -271,6 +287,7 @@ export function EventSpeakerCarousel({
             </button>
           </div>
         </div>
+        )}
       </div>
     </section>
   )
