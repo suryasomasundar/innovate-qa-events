@@ -27,7 +27,8 @@ declare global {
           playerVars: Record<string, string | number>
           events: {
             onReady: (event: YouTubePlayerEvent) => void
-            onError: () => void
+            onStateChange: (event: YouTubePlayerEvent) => void
+            onError: (event: YouTubePlayerEvent) => void
           }
         },
       ) => YouTubePlayer
@@ -46,6 +47,21 @@ export function PodcastPlaylist() {
 
     let cancelled = false
     let retryTimer: number | undefined
+    let playlistTimer: number | undefined
+
+    const updatePlaylistState = (player: YouTubePlayer, attemptsRemaining = 40) => {
+      if (cancelled) return
+
+      const playlistHasEpisodes = Boolean(player.getPlaylist()?.length)
+      setHasEpisodes(playlistHasEpisodes)
+
+      if (!playlistHasEpisodes && attemptsRemaining > 0) {
+        playlistTimer = window.setTimeout(
+          () => updatePlaylistState(player, attemptsRemaining - 1),
+          250,
+        )
+      }
+    }
 
     const initializePlayer = () => {
       if (cancelled || playerRef.current || !mountRef.current) return
@@ -64,8 +80,9 @@ export function PodcastPlaylist() {
           rel: 0,
         },
         events: {
-          onReady: (event) => setHasEpisodes(Boolean(event.target.getPlaylist()?.length)),
-          onError: () => setHasEpisodes(false),
+          onReady: (event) => updatePlaylistState(event.target),
+          onStateChange: (event) => updatePlaylistState(event.target, 0),
+          onError: (event) => updatePlaylistState(event.target, 0),
         },
       })
     }
@@ -75,6 +92,7 @@ export function PodcastPlaylist() {
     return () => {
       cancelled = true
       if (retryTimer) window.clearTimeout(retryTimer)
+      if (playlistTimer) window.clearTimeout(playlistTimer)
       playerRef.current?.destroy()
       playerRef.current = null
     }
@@ -90,10 +108,11 @@ export function PodcastPlaylist() {
       />
 
       <div
-        ref={mountRef}
         className={`absolute inset-0 transition-opacity duration-500 ${hasEpisodes ? "opacity-100" : "pointer-events-none opacity-0"}`}
         aria-hidden={!hasEpisodes}
-      />
+      >
+        <div ref={mountRef} className="h-full w-full" />
+      </div>
 
       {!hasEpisodes ? (
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-6 text-center text-white">
