@@ -14,6 +14,6 @@ test("private coupon identifiers are not shipped in the public browser catalog",
   assert.equal("coupons" in stripe, false)
 })
 
-test("live checkout remains gated until the 2027 Workshop Price ID is supplied", () => {
-  assert.equal(stripe.prices.workshop, null)
+test("live Stripe catalog contains the confirmed 2027 Workshop identifier", () => {
+  assert.equal(stripe.prices.workshop, "price_1Ua46EGwHngAC1mftYigQkE1")
 })
