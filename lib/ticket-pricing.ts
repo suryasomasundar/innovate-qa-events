@@ -12,6 +12,7 @@ export type TicketPricing = {
     features: string[]
   }>
   workshop: { name: string; date: string; price: number; description: string }
+  discounts: { vipEarlyBirdAmount: number; workshopAdditionAmount: number }
   virtualPass: { name: string; price: number; description: string }
   groupTiers: { min: number; max: number | null; price: number; savingsPercent: number }[]
 }
@@ -52,17 +53,24 @@ export function calculateTicketOrder(
   const groupTier = admission === "standard"
     ? pricing.groupTiers.find((tier) => quantity >= tier.min && (tier.max === null || quantity <= tier.max))
     : undefined
-  const unitPrice = workshopOnly ? pricing.workshop.price : groupTier?.price ?? pricing.tickets[admission].price
-  const workshopUnitPrice = groupTier
-    ? Math.round(pricing.workshop.price * (1 - groupTier.savingsPercent / 100) * 100) / 100
-    : pricing.workshop.price
+  const vipEarlyBirdDiscount = admission === "vip" && isEarlyBirdAvailable(pricing, now)
+    ? pricing.discounts.vipEarlyBirdAmount
+    : 0
+  const unitPrice = workshopOnly
+    ? pricing.workshop.price
+    : groupTier?.price ?? pricing.tickets[admission].price - vipEarlyBirdDiscount
+  const workshopUnitPrice = pricing.workshop.price
   const conferenceCents = workshopOnly ? 0 : Math.round(unitPrice * 100) * quantity
-  const workshopCents = workshopOnly || workshop ? Math.round(workshopUnitPrice * 100) * quantity : 0
+  const workshopSubtotalCents = workshopOnly || workshop ? Math.round(workshopUnitPrice * 100) * quantity : 0
+  const workshopDiscountCents = !workshopOnly && workshop
+    ? Math.round(pricing.discounts.workshopAdditionAmount * 100)
+    : 0
+  const workshopCents = workshopSubtotalCents - workshopDiscountCents
   const totalCents = conferenceCents + workshopCents
   if (!Number.isSafeInteger(totalCents)) {
     throw new RangeError("The order total exceeds the supported amount.")
   }
-  return { unitPrice, workshopUnitPrice, conferenceCents, workshopCents, totalCents, groupTier, workshopOnly }
+  return { unitPrice, workshopUnitPrice, conferenceCents, workshopSubtotalCents, workshopDiscountCents, workshopCents, totalCents, groupTier, workshopOnly }
 }
 
 export function formatTicketMoney(amount: number, pricing: TicketPricing) {

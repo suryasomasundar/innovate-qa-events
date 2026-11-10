@@ -4,9 +4,10 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, CalendarDays, Check, Clock3, LibraryBig, MapPin, PlayCircle, Sparkles, Ticket, Users } from "lucide-react"
 import event from "@/data/events/2027.json"
-import stripeTest from "@/data/stripe-test-links.json"
+import stripeLive from "@/data/stripe-live-ticket-config.json"
 import { Button } from "@/components/ui/button"
 import { ConferenceValueExplorer } from "@/components/conference-value-explorer"
+import { getTicketCheckoutBlocker } from "@/lib/ticket-checkout"
 import {
   calculateTicketOrder,
   formatTicketMoney,
@@ -33,21 +34,18 @@ const deadlineLabel = new Intl.DateTimeFormat("en-US", {
   month: "long", day: "numeric", timeZone: pricing.timeZone,
 }).format(new Date(pricing.earlyBirdDeadline))
 
-type StripeTestLinkKey = keyof typeof stripeTest.links
+const checkoutApiUrl = process.env.NEXT_PUBLIC_TICKET_CHECKOUT_API_URL?.trim() ?? ""
+const configuredCheckoutMode = process.env.NEXT_PUBLIC_TICKET_CHECKOUT_MODE?.trim()
+const checkoutMode = configuredCheckoutMode === "test" || configuredCheckoutMode === "live"
+  ? configuredCheckoutMode
+  : "disabled"
+const enabledCheckoutApiUrl = checkoutMode === "disabled" ? "" : checkoutApiUrl
+const isTestCheckout = checkoutMode === "test"
 
-function getStripeTestCheckoutLink(admission: AdmissionType, quantity: number, workshop: boolean) {
-  let key: StripeTestLinkKey
-  if (admission === "workshopOnly") {
-    key = "workshopOnly"
-  } else if (admission === "earlyBird") {
-    key = workshop ? "earlyBirdWorkshop" : "earlyBird"
-  } else if (admission === "vip") {
-    key = workshop ? "vipWorkshop" : "vip"
-  } else {
-    const tier = quantity >= 10 ? "standard10" : quantity >= 5 ? "standard5" : quantity >= 3 ? "standard3" : "standard"
-    key = `${tier}${workshop ? "Workshop" : ""}` as StripeTestLinkKey
-  }
-  return stripeTest.links[key]
+function displayAdmissionPrice(type: TicketType, earlyBird: boolean) {
+  return type === "vip" && earlyBird
+    ? pricing.tickets.vip.price - pricing.discounts.vipEarlyBirdAmount
+    : pricing.tickets[type].price
 }
 
 // Static exports must recheck the cutoff in the browser, not only at build time.
@@ -97,13 +95,13 @@ export function TicketSales() {
           </div>
           <div className="relative z-10 mx-auto max-w-3xl">
             <p className="mx-auto mb-5 w-fit rounded-full border border-amber-300 bg-amber-100 px-4 py-2 text-xs font-bold uppercase tracking-wider text-amber-950">
-              Stripe test mode — no real payments
+              Live 2027 pricing
             </p>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-purple-800">Learn. Connect. Elevate.</p>
             <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Choose Your {event.name} Experience</h1>
             <EventDetails />
             <p className="mt-6 text-slate-600">Two days of quality engineering insights. An extra day to put them into practice.</p>
-            <p className="mt-4 text-sm font-medium text-purple-800">Temporary Stripe test checkout is available for QA. No real payments or tickets.</p>
+            <p className="mt-4 text-sm font-medium text-purple-800">Secure Stripe checkout is being connected with server-side price and discount validation.</p>
           </div>
         </header>
 
@@ -111,13 +109,14 @@ export function TicketSales() {
           {types.map((type) => {
             const ticket = pricing.tickets[type]
             const featured = type === "earlyBird"
+            const displayedPrice = displayAdmissionPrice(type, earlyBird)
             return (
               <article key={type} className={`relative flex flex-col rounded-2xl border-2 bg-white p-6 md:p-8 ${featured ? "border-purple-700 shadow-xl shadow-purple-900/10" : "border-slate-200"}`}>
                 {featured && <p className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-purple-100 px-3 py-1 text-xs font-bold text-purple-900"><Sparkles aria-hidden="true" className="size-3" />Early Bird offer</p>}
                 <h2 className="text-xl font-bold">{ticket.name}</h2>
-                <p className="mt-5 text-5xl font-bold tracking-tight">{money(ticket.price)}</p>
+                <p className="mt-5 text-5xl font-bold tracking-tight">{money(displayedPrice)}</p>
                 <p className="mt-2 text-sm text-slate-600">{pricing.currency} per person</p>
-                <p className="mt-5 font-medium">{featured ? `Before ${deadlineLabel}` : ticket.description}</p>
+                <p className="mt-5 font-medium">{featured || (type === "vip" && earlyBird) ? `Early Bird rate before ${deadlineLabel}` : ticket.description}</p>
                 <ul className="my-6 flex-1 space-y-3 text-sm text-slate-600">
                   {ticket.features.map((feature) => <li key={feature} className="flex gap-2"><Check aria-hidden="true" className="size-4 shrink-0 text-purple-800" /><span>{feature}</span></li>)}
                 </ul>
@@ -138,7 +137,8 @@ export function TicketSales() {
             <p className="mt-3 text-slate-700">{pricing.workshop.description}</p>
           </div>
           <div className="shrink-0">
-            <p className="mb-3 text-2xl font-bold">{money(pricing.workshop.price)} <span className="text-sm font-normal text-slate-600">per person</span></p>
+            <p className="mb-1 text-2xl font-bold">{money(pricing.workshop.price)} <span className="text-sm font-normal text-slate-600">standalone</span></p>
+            <p className="mb-3 text-sm font-semibold text-purple-900">Save {money(pricing.discounts.workshopAdditionAmount)} when added to a conference order</p>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
               <Button asChild className={`min-h-11 bg-purple-800 text-white hover:bg-purple-900 ${focusStyle}`}>
                 <Link href="/tickets/order?workshop=true">Add to Conference Ticket<ArrowRight aria-hidden="true" className="size-4" /></Link>
@@ -153,7 +153,7 @@ export function TicketSales() {
         <section aria-labelledby="team-heading" className="mx-auto mt-16 max-w-4xl text-center">
           <Users aria-hidden="true" className="mx-auto mb-4 size-6 text-slate-600" />
           <h2 id="team-heading" className="text-2xl font-bold">Bringing Your Team? Save More.</h2>
-          <p className="mt-3 text-slate-600">Team rates apply to the full Standard order, including Workshop Day add-ons. Not combined with Early Bird or VIP pricing.</p>
+          <p className="mt-3 text-slate-600">Team rates apply to Standard conference admission. Add Workshop Day and receive the automatic $50 order discount. Not combined with Early Bird or VIP pricing.</p>
           <div className="mt-7 grid gap-4 sm:grid-cols-3">
             {pricing.groupTiers.map((tier) => (
               <div key={tier.min} className="rounded-xl border border-slate-200 bg-white p-5">
@@ -209,6 +209,8 @@ export function TicketOrder() {
   const [quantity, setQuantity] = useState("1")
   const [workshop, setWorkshop] = useState(false)
   const [notice, setNotice] = useState("")
+  const [checkoutError, setCheckoutError] = useState("")
+  const [checkoutLoading, setCheckoutLoading] = useState(false)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -235,9 +237,11 @@ export function TicketOrder() {
     setWorkshop(requested === "workshopOnly" ? false : addWorkshop === "true")
     const checkout = params.get("checkout")
     if (checkout === "success") {
-      messages.push("Stripe test checkout completed. No real payment was collected and no ticket was issued.")
+      messages.push(isTestCheckout
+        ? "Stripe test checkout completed. No real payment was collected and no ticket was issued."
+        : "Checkout returned successfully. Watch your email for the payment receipt and attendee confirmation.")
     } else if (checkout === "cancelled") {
-      messages.push("Stripe test checkout was cancelled. You can adjust the order and try again.")
+      messages.push("Checkout was cancelled. No payment was completed; you can adjust the order and try again.")
     }
     if (checkout !== null) {
       params.delete("checkout")
@@ -261,6 +265,48 @@ export function TicketOrder() {
     ? calculateTicketOrder(pricing, admission, Number(quantity), workshop, now)
     : null
   const types: TicketType[] = earlyBird || expired ? ["earlyBird", "standard", "vip"] : ["standard", "vip"]
+  const checkoutBlocker = order
+    ? getTicketCheckoutBlocker({
+        admission,
+        quantity: Number(quantity),
+        workshop,
+        earlyBird,
+        workshopPriceId: stripeLive.prices.workshop,
+        checkoutApiUrl: enabledCheckoutApiUrl,
+      })
+    : null
+
+  async function startCheckout() {
+    if (!order || checkoutBlocker || checkoutLoading) return
+    setCheckoutError("")
+    setCheckoutLoading(true)
+    try {
+      const response = await fetch(enabledCheckoutApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "innovate-qa-2027",
+          catalogVersion: stripeLive.catalogVersion,
+          admission,
+          quantity: Number(quantity),
+          workshop,
+        }),
+      })
+      const payload = await response.json().catch(() => null) as { url?: unknown; error?: unknown } | null
+      if (!response.ok) {
+        throw new Error(typeof payload?.error === "string" ? payload.error : "Stripe checkout could not be created.")
+      }
+      if (typeof payload?.url !== "string") throw new Error("Checkout returned an invalid redirect.")
+      const redirect = new URL(payload.url)
+      if (redirect.protocol !== "https:" || !["checkout.stripe.com", "buy.stripe.com"].includes(redirect.hostname)) {
+        throw new Error("Checkout returned an untrusted redirect.")
+      }
+      window.location.assign(redirect.toString())
+    } catch (checkoutFailure) {
+      setCheckoutError(checkoutFailure instanceof Error ? checkoutFailure.message : "Stripe checkout could not be created.")
+      setCheckoutLoading(false)
+    }
+  }
 
   return (
     <div className="min-h-[70vh] bg-slate-50 px-4 py-12 text-slate-950 md:py-16">
@@ -270,10 +316,18 @@ export function TicketOrder() {
           <h1 className="text-3xl font-bold md:text-4xl">Plan Your {event.name} Order</h1>
           <EventDetails />
         </header>
-        <div className="mb-8 rounded-xl border border-purple-200 bg-purple-50 p-5 text-purple-950">
-          <h2 className="font-bold">Temporary Stripe test checkout</h2>
-          <p className="mt-2 text-sm">This sandbox is for QA only. Use card 4242 4242 4242 4242, any future expiration date, and any three-digit CVC. No real payment is collected and no ticket is issued.</p>
-        </div>
+        {checkoutMode === "test" && (
+          <div className="mb-8 rounded-xl border border-amber-300 bg-amber-50 p-5 text-amber-950">
+            <h2 className="font-bold">Temporary Stripe test checkout</h2>
+            <p className="mt-2 text-sm">This sandbox is for QA only. Use card 4242 4242 4242 4242, any future expiration date, and any three-digit CVC. No real payment is collected and no ticket is issued.</p>
+          </div>
+        )}
+        {checkoutMode === "disabled" && (
+          <div className="mb-8 rounded-xl border border-purple-200 bg-purple-50 p-5 text-purple-950">
+            <h2 className="font-bold">Secure checkout setup in progress</h2>
+            <p className="mt-2 text-sm">Approved live prices are configured. Checkout remains unavailable until the server validates every selection and creates the Stripe session.</p>
+          </div>
+        )}
         {!ready || now === null ? <p role="status">Loading ticket options...</p> : (
           <>
             {notice && <p role="status" className="mb-6 rounded-lg border border-amber-700 bg-amber-50 p-4 text-amber-950">{notice}</p>}
@@ -288,7 +342,7 @@ export function TicketOrder() {
                       <label key={type} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border p-4 ${admission === type ? "border-purple-800 bg-purple-50" : "border-slate-400"}`}>
                         <input type="radio" name="admission" value={type} checked={admission === type} disabled={type === "earlyBird" && !earlyBird} onChange={() => setAdmission(type)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
                         <span className="min-w-0 flex-1"><span className="block font-semibold">{pricing.tickets[type].name}{type === "earlyBird" && !earlyBird ? " (expired)" : ""}</span><span className="text-sm text-slate-600">{pricing.tickets[type].description}</span></span>
-                        <span className="font-semibold">{money(pricing.tickets[type].price)}</span>
+                        <span className="font-semibold">{money(displayAdmissionPrice(type, earlyBird))}</span>
                       </label>
                     ))}
                     <label className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border p-4 ${workshopOnly ? "border-purple-800 bg-purple-50" : "border-slate-400"}`}>
@@ -301,13 +355,13 @@ export function TicketOrder() {
                 <div className="mt-7">
                   <label htmlFor="attendee-count" className="block font-semibold">Number of attendees</label>
                   <input id="attendee-count" type="number" min="1" step="1" required value={quantity} onChange={(e) => setQuantity(e.target.value)} aria-invalid={!!error} aria-describedby={`quantity-help${error ? " quantity-error" : ""}`} className={`mt-3 min-h-11 w-full rounded-lg border border-slate-500 bg-white p-3 ${focusStyle}`} />
-                  <p id="quantity-help" className="mt-2 text-sm text-slate-600">{workshopOnly ? "Each attendee receives one Workshop Day Pass." : `Standard team rates apply automatically for ${pricing.groupTiers[0].min}+ attendees. All attendees receive the same ticket and add-on.`}</p>
+                  <p id="quantity-help" className="mt-2 text-sm text-slate-600">{workshopOnly ? "Each attendee receives one Workshop Day Pass." : `Standard team rates apply automatically for ${pricing.groupTiers[0].min}+ attendees. The $50 Workshop add-on discount is applied automatically per order.`}</p>
                   {error && <p id="quantity-error" role="alert" className="mt-2 text-sm font-medium text-red-800">{error}</p>}
                 </div>
                 {!workshopOnly && (
                   <label className="mt-7 flex cursor-pointer items-start gap-3 rounded-xl border border-slate-400 p-4">
                     <input type="checkbox" checked={workshop} onChange={(e) => setWorkshop(e.target.checked)} className={`mt-1 size-4 shrink-0 accent-purple-800 ${focusStyle}`} />
-                    <span><span className="block font-semibold">Add {pricing.workshop.name}</span><span className="text-sm text-slate-600">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; +{money(pricing.workshop.price)} per attendee</span></span>
+                    <span><span className="block font-semibold">Add {pricing.workshop.name}</span><span className="text-sm text-slate-600">{dateLabel(pricing.workshop.date, { month: "long", day: "numeric" })} &middot; {money(pricing.workshop.price)} per attendee, with $50 automatically taken off the order</span></span>
                   </label>
                 )}
               </section>
@@ -318,24 +372,25 @@ export function TicketOrder() {
                     <>
                       <dl className="mt-6 space-y-5 text-sm">
                         {!workshopOnly && <div className="flex justify-between gap-4"><dt>{quantity} &times; {pricing.tickets[admission].name}<span className="mt-1 block text-slate-600">{money(order.unitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.conferenceCents / 100)}</dd></div>}
-                        {order.groupTier && <div className="rounded-lg bg-purple-50 p-3 text-purple-900"><dt className="font-semibold">Team rate applied: save {order.groupTier.savingsPercent}%</dt><dd>On Standard admission and Workshop Day add-ons</dd></div>}
-                        {(workshopOnly || workshop) && <div className="flex justify-between gap-4"><dt>{quantity} &times; {workshopOnly ? "Workshop Day Pass" : pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(order.workshopUnitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopCents / 100)}</dd></div>}
+                        {order.groupTier && <div className="rounded-lg bg-purple-50 p-3 text-purple-900"><dt className="font-semibold">Team rate applied: save {order.groupTier.savingsPercent}%</dt><dd>On Standard conference admission</dd></div>}
+                        {(workshopOnly || workshop) && <div className="flex justify-between gap-4"><dt>{quantity} &times; {workshopOnly ? "Workshop Day Pass" : pricing.workshop.name}<span className="mt-1 block text-slate-600">{money(order.workshopUnitPrice)} per attendee</span></dt><dd className="shrink-0 font-semibold">{money(order.workshopSubtotalCents / 100)}</dd></div>}
+                        {order.workshopDiscountCents > 0 && <div className="flex justify-between gap-4 text-emerald-800"><dt className="font-semibold">Conference + Workshop savings</dt><dd className="shrink-0 font-semibold">-{money(order.workshopDiscountCents / 100)}</dd></div>}
                         <div className="flex flex-wrap justify-between gap-3 border-t border-slate-200 pt-5 text-lg font-bold"><dt>Estimated total</dt><dd>{money(order.totalCents / 100)} {pricing.currency}</dd></div>
                       </dl>
-                      <p className="mt-4 text-xs text-slate-600">Estimated subtotal only. Any applicable taxes or payment fees appear in Stripe Test Checkout.</p>
+                      <p className="mt-4 text-xs text-slate-600">Estimated subtotal only. Any applicable taxes or payment fees appear in secure Stripe Checkout.</p>
                     </>
                   ) : <p className="mt-6 text-sm text-slate-600">Review your selection to calculate an order total.</p>}
                 </div>
-                {order ? (
-                  <Button asChild className="mt-7 min-h-11 w-full bg-purple-800 text-white hover:bg-purple-900">
-                    <a href={getStripeTestCheckoutLink(admission, Number(quantity), workshop)} target="_blank" rel="noopener noreferrer">
-                      Continue to Stripe Test Checkout
-                    </a>
+                {order && !checkoutBlocker ? (
+                  <Button type="button" onClick={startCheckout} disabled={checkoutLoading} className="mt-7 min-h-11 w-full bg-purple-800 text-white hover:bg-purple-900">
+                    {checkoutLoading ? "Opening secure checkout..." : isTestCheckout ? "Continue to Stripe Test Checkout" : "Continue to Secure Checkout"}
                   </Button>
                 ) : (
-                  <Button disabled className="mt-7 min-h-11 w-full bg-slate-900 text-white disabled:opacity-100">Review order to continue</Button>
+                  <Button disabled className="mt-7 min-h-11 w-full bg-slate-900 text-white disabled:opacity-100">{order ? "Checkout setup in progress" : "Review order to continue"}</Button>
                 )}
-                <p className="mt-4 text-sm text-slate-600">Stripe opens with the minimum quantity for the selected pricing tier. Confirm the attendee quantity—and workshop quantity when selected—before completing the test checkout.</p>
+                {checkoutBlocker && <p role="status" className="mt-4 text-sm font-medium text-amber-900">{checkoutBlocker}</p>}
+                {checkoutError && <p role="alert" className="mt-4 text-sm font-medium text-red-800">{checkoutError}</p>}
+                <p className="mt-4 text-sm text-slate-600">The checkout service will revalidate the price, quantity, deadline, and eligible discount before redirecting to Stripe.</p>
                 <Link href="/contact" className={`mt-5 inline-flex min-h-11 items-center text-sm font-medium text-purple-900 underline underline-offset-4 ${focusStyle}`}>Questions about tickets? Contact us</Link>
               </section>
             </div>

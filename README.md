@@ -190,12 +190,22 @@ Before production use, add authenticated judge/presenter roles, protected shared
 storage, server-side validation, and server-authorized winner release. Public JSON
 and client-side hiding cannot protect confidential results.
 
-### 2027 ticket preview
+### 2027 ticket checkout
 
 The `/tickets` page lists conference tickets, the optional workshop day, and Standard
-team rates. `/tickets/order` lets visitors preview quantities and totals; payments
-are not connected, personal information is not collected, and tickets are not reserved.
-Both pages use `data/events/2027.json` as their pricing source of truth.
+team rates. `/tickets/order` previews quantities and totals and posts a semantic ticket
+selection to the server URL configured by `NEXT_PUBLIC_TICKET_CHECKOUT_API_URL`. The
+server must treat that request as untrusted, map it to the allowlisted Stripe catalog,
+revalidate all rules, and return a Stripe-hosted Checkout URL. The static site contains
+no Stripe secret key. Both pages use `data/events/2027.json` as their display-pricing
+source of truth; `data/stripe-live-ticket-config.json` records only confirmed public
+Stripe Price identifiers. Coupon identifiers belong only in the checkout server's
+encrypted environment and must never be sent to the browser.
+
+Set `NEXT_PUBLIC_TICKET_CHECKOUT_MODE=test` in QA builds to show the sandbox warning,
+test-card instructions, and Test Checkout label. Set it to `live` in production to
+remove all test messaging. Any missing or unrecognized value defaults to `disabled`
+and keeps checkout gated even if an API URL is present.
 The homepage's 2027 **Buy Tickets** button, the 2027 conference page, and both
 desktop/mobile navigation menus link to `/tickets`.
 The ticket hero uses a short decorative entrance animation that settles within
@@ -205,16 +215,33 @@ The ticket hero uses a short decorative entrance animation that settles within
 - `pricing.earlyBirdDeadline` is an exclusive, timezone-qualified cutoff: February 15,
   2027 at midnight Pacific. Availability is rechecked in the browser so a static
   deployment does not keep advertising expired Early Bird tickets.
-- Team rates apply only to Standard admission. The configured whole-dollar rates
-  are authoritative; advertised percentage savings are rounded. Workshops cost
-  the configured add-on price for every attendee in an order.
+- Team rates apply only to Standard admission. The 10%, 15%, and 20% tiers are
+  calculated from the $499 Standard price and use their corresponding Stripe coupons.
+- Any conference order that adds Workshop Day receives one automatic $50 order
+  discount. The browser sends only `workshop: true`; the checkout server validates the
+  conference selection and applies the private Workshop coupon. Do not enable customer
+  promotion-code entry. Workshop-only orders do not receive this discount.
+- Stripe Checkout accepts only one coupon or promotion code per Session. For a group
+  order without Workshop Day, the server applies the private coupon selected from the
+  validated quantity. For a group order with Workshop Day, the server uses the approved
+  group conference unit amount as server-created price data and reserves the one Stripe
+  discount slot for the private $50 Workshop coupon.
+- Early Bird is a dated public rate, not a code customers should circulate. The server
+  should select a dedicated $399 Conference or $599 VIP Early Bird Price ID. Until those
+  Price IDs exist, fixed Early Bird coupons are safe only for one-ticket orders.
+- Stripe fixed-amount coupons discount a checkout once, not once per quantity. Until
+  dedicated Early Bird Price IDs or equivalent server-side pricing exist, the UI
+  blocks affected multi-attendee and combined Early Bird selections rather than
+  displaying a total Stripe cannot reproduce.
+- Workshop checkout stays blocked until the 2027 Workshop Price ID replaces the null
+  placeholder in `data/stripe-live-ticket-config.json`.
 - VIP benefit details are pending. No benefits beyond the configured copy are promised.
 - The estimated total excludes any future applicable taxes/payment fees.
 - Future payment integration must validate product availability, prices, quantities,
   and totals on a trusted backend or hosted checkout; never trust browser totals
   as payment authority. A return URL alone must not be treated as proof of payment.
 
-Run pricing regression tests with `node --test tests\ticket-pricing.test.mjs`.
+Run pricing regression tests with `node --test tests\ticket-pricing.test.mjs tests\stripe-ticket-config.test.mjs tests\ticket-checkout.test.mjs`.
 Run `npx tsc --noEmit` and `npm run build` to validate types and static export.
 
 Event data, speakers, schedules, and meetups are managed via JSON files in the `data/` directory. To update content, edit the corresponding JSON file:

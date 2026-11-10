@@ -15,10 +15,11 @@ const cutoff = Date.parse(pricing.earlyBirdDeadline)
 const before = cutoff - 1
 
 test("R1: configured 2027 prices match approved ticket products", () => {
-  assert.deepEqual(Object.values(pricing.tickets).map((ticket) => ticket.price), [349, 449, 799])
+  assert.deepEqual(Object.values(pricing.tickets).map((ticket) => ticket.price), [399, 499, 799])
   assert.equal(pricing.workshop.price, 299)
+  assert.deepEqual(pricing.discounts, { vipEarlyBirdAmount: 200, workshopAdditionAmount: 50 })
   assert.equal(pricing.currency, "USD")
-  assert.equal(formatTicketMoney(349, pricing), "$349")
+  assert.equal(formatTicketMoney(399, pricing), "$399")
   assert.equal(formatTicketMoney(269.1, pricing), "$269.10")
 })
 
@@ -27,27 +28,45 @@ test("R2: Early Bird is removed at February 15 midnight Pacific, including stale
   assert.equal(isEarlyBirdAvailable(pricing, before), true)
   assert.equal(isEarlyBirdAvailable(pricing, cutoff), false)
   assert.equal(isEarlyBirdAvailable(pricing, cutoff + 1), false)
-  assert.equal(calculateTicketOrder(pricing, "earlyBird", 1, false, before).totalCents, 34900)
+  assert.equal(calculateTicketOrder(pricing, "earlyBird", 1, false, before).totalCents, 39900)
   assert.throws(() => calculateTicketOrder(pricing, "earlyBird", 1, false, cutoff), /no longer available/)
 })
 
 test("R3: Standard team rates change at exact quantity thresholds", () => {
-  for (const [quantity, unitPrice] of [[1, 449], [2, 449], [3, 404], [4, 404], [5, 382], [9, 382], [10, 359], [25, 359]]) {
+  for (const [quantity, unitPrice] of [[1, 499], [2, 499], [3, 449.1], [4, 449.1], [5, 424.15], [9, 424.15], [10, 399.2], [25, 399.2]]) {
     const order = calculateTicketOrder(pricing, "standard", quantity, false, before)
     assert.equal(order.unitPrice, unitPrice, `${quantity} attendees`)
-    assert.equal(order.totalCents, unitPrice * quantity * 100)
+    assert.equal(order.totalCents, Math.round(unitPrice * 100) * quantity)
   }
 })
 
-test("R3: Standard team savings apply to conference and workshop while other rates do not stack", () => {
+test("R3: team savings apply to conference and Workshop receives one automatic order discount", () => {
   const teamOrder = calculateTicketOrder(pricing, "standard", 5, true, before)
-  assert.equal(teamOrder.workshopUnitPrice, 254.15)
-  assert.equal(teamOrder.workshopCents, 127075)
-  assert.equal(teamOrder.totalCents, 318075)
-  assert.equal(calculateTicketOrder(pricing, "earlyBird", 5, true, before).totalCents, 324000)
-  assert.equal(calculateTicketOrder(pricing, "vip", 5, true, before).totalCents, 549000)
+  assert.equal(teamOrder.workshopUnitPrice, 299)
+  assert.equal(teamOrder.workshopSubtotalCents, 149500)
+  assert.equal(teamOrder.workshopDiscountCents, 5000)
+  assert.equal(teamOrder.workshopCents, 144500)
+  assert.equal(teamOrder.totalCents, 356575)
+  assert.equal(calculateTicketOrder(pricing, "earlyBird", 5, true, before).totalCents, 344000)
+  assert.equal(calculateTicketOrder(pricing, "vip", 5, true, before).totalCents, 444000)
   assert.equal(calculateTicketOrder(pricing, "vip", 5, false, before).groupTier, undefined)
   assert.equal(calculateTicketOrder(pricing, "workshopOnly", 5, false, before).totalCents, 149500)
+})
+
+test("R3: individual workshop and VIP Early Bird discounts match the approved offers", () => {
+  const standardWorkshop = calculateTicketOrder(pricing, "standard", 1, true, before)
+  assert.equal(standardWorkshop.unitPrice, 499)
+  assert.equal(standardWorkshop.workshopUnitPrice, 299)
+  assert.equal(standardWorkshop.workshopDiscountCents, 5000)
+  assert.equal(standardWorkshop.totalCents, 74800)
+
+  const vipEarlyBird = calculateTicketOrder(pricing, "vip", 1, false, before)
+  assert.equal(vipEarlyBird.unitPrice, 599)
+  assert.equal(vipEarlyBird.totalCents, 59900)
+
+  const vipAfterCutoff = calculateTicketOrder(pricing, "vip", 1, false, cutoff)
+  assert.equal(vipAfterCutoff.unitPrice, 799)
+  assert.equal(vipAfterCutoff.totalCents, 79900)
 })
 
 test("R3: quantities reject blanks, fractions, negatives, unsafe values, and total overflow", () => {

@@ -52,13 +52,13 @@
 		"tickets": {
 			"earlyBird": {
 				"name": "Early Bird",
-				"price": 349,
+				"price": 399,
 				"description": "Full two-day conference access",
 				"features": ["Conference sessions on May 5 and 6", "Full conference access at our early rate"]
 			},
 			"standard": {
 				"name": "Standard",
-				"price": 449,
+				"price": 499,
 				"description": "General admission",
 				"features": ["Conference sessions on May 5 and 6", "Full two-day conference access"]
 			},
@@ -75,15 +75,19 @@
 			"price": 299,
 			"description": "Make the most of Innovate QA with an additional day of hands-on, practical workshops."
 		},
+		"discounts": {
+			"vipEarlyBirdAmount": 200,
+			"workshopAdditionAmount": 50
+		},
 		"virtualPass": {
 			"name": "Virtual Pass",
 			"price": 149,
 			"description": "On-demand access to recorded conference sessions and workshops after the event."
 		},
 		"groupTiers": [
-			{ "min": 3, "max": 4, "price": 404, "savingsPercent": 10 },
-			{ "min": 5, "max": 9, "price": 382, "savingsPercent": 15 },
-			{ "min": 10, "max": null, "price": 359, "savingsPercent": 20 }
+			{ "min": 3, "max": 4, "price": 449.10, "savingsPercent": 10 },
+			{ "min": 5, "max": 9, "price": 424.15, "savingsPercent": 15 },
+			{ "min": 10, "max": null, "price": 399.20, "savingsPercent": 20 }
 		]
 	},
 	"stats": {
